@@ -1,0 +1,227 @@
+{
+  "updatedAt": "2025-10-31",
+  "faqs": [
+    {
+      "id": "q1",
+      "title": "What is TINITIATE’s STEM Training Program?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "TINITIATE offers industry-aligned STEM & IT programs that prepare students for real-world tech careers. We combine Software Development, Cloud, Data Engineering, AI, and Automation with practical, project-based learning — taught remotely by working professionals. "
+        },
+        {
+          "type": "video",
+          "src": "https://www.youtube.com/watch?v=09qepYmXD54"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "title": "Why choose TINITIATE for my child’s training?",
+      "blocks": [
+        { "type": "p", "text": "Because we bridge the gap between college education and employability." },
+        {
+          "type": "table",
+          "headers": ["Colleges Usually Offer", "TINITIATE Adds"],
+          "rows": [
+            ["Theoretical learning", "Real-world projects and live datasets"],
+            ["Semester marks", "Industry-relevant portfolio & GitHub presence"],
+            ["General exposure", "Career-aligned paths (Full Stack, Cloud, AI, Data)"],
+            ["Limited mentorship", "Personalized guidance from IT professionals"]
+          ]
+        },
+        { "type": "p", "text": "Your child learns how to apply knowledge, not just memorize it." }
+      ]
+    },
+    {
+      "id": "q3",
+      "title": "What is the structure and duration of the program?",
+      "blocks": [
+        {
+          "type": "table",
+          "headers": ["Program", "Duration", "Focus"],
+          "rows": [
+            ["Foundation", "2–3 months", "Core coding + logical thinking"],
+            ["Professional (Full Stack / Data)", "4–6 months", "End-to-end project cycle"],
+            ["Work Experience Program", "6 months", "Hands-on project with deployment"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "title": "Is the program online or offline?",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Interactive instructor-led sessions",
+            "Recorded backups for every class",
+            "Live doubt-clearing support",
+            "Optional on-site bootcamps or meetups (select cities)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "title": "What technologies do students learn?",
+      "blocks": [
+        {
+          "type": "table",
+          "headers": ["Career Path", "Key Technologies"],
+          "rows": [
+            ["Full-Stack Development", "Java / Python, React, Spring Boot, SQL"],
+            ["Data Engineering", "AWS Glue, PySpark, Athena, SQL"],
+            ["AI & Automation", "Python, Generative AI Tools, LangChain"],
+            ["Cloud & DevOps", "AWS / Azure, Docker, Kubernetes, CI/CD"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "title": "What if my child takes breaks (exams, internships, family reasons)?",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Students can pause and resume their batch.",
+            "We offer recordings and catch-up support.",
+            "Mentors help rejoin at the right module with no data loss."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "title": "Will my child receive a certificate?",
+      "blocks": [
+        { "type": "p", "text": "Yes, Every participant earns a TINITIATE Certified Completion Certificate, including:" },
+        {
+          "type": "table",
+          "headers": ["What it includes"],
+          "rows": [
+            ["Duration and course modules"],
+            ["Live project details"],
+            ["Instructor signature and verification link"]
+          ]
+        },
+        { "type": "p", "text": "This certificate can be added to LinkedIn or attached to job applications." }
+      ]
+    },
+    {
+      "id": "q8",
+      "title": "Can this certificate help with jobs or higher studies?",
+      "blocks": [
+        { "type": "p", "text": "Absolutely. Our programs emphasize practical skills that employers and graduate schools value:" },
+        {
+          "type": "ul",
+          "items": [
+            "Verified project portfolios",
+            "Code repositories (GitHub)",
+            "Exposure to real-world data and deployment practices",
+            "Job readiness workshops and resume reviews"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "title": "Who are the instructors?",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Industry professionals from active IT roles (Data Engineers, Cloud Architects, Full Stack Developers).",
+            "Mentors focus on application-based learning, mock interviews, and one-to-one guidance."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "title": "How do you ensure quality and discipline in remote classes?",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Structured schedules with attendance tracking",
+            "Progress tracking dashboards",
+            "Mentor feedback and performance reports",
+            "Professional conduct code for all sessions"
+          ]
+        },
+        { "type": "p", "text": "Parents can optionally receive monthly updates on attendance and progress." }
+      ]
+    },
+    {
+      "id": "q11",
+      "title": "How is this different from typical online courses?",
+      "blocks": [
+        { "type": "p", "text": "Unlike passive video platforms, TINITIATE focuses on active learning:" },
+        {
+          "type": "ul",
+          "items": [
+            "Small batch sizes",
+            "Guided projects",
+            "Continuous mentor feedback",
+            "Assessment through project submission, not multiple-choice tests"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "title": "What happens after completion?",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Join advanced or specialization modules",
+            "Get referrals for internships and freelancing",
+            "Add projects to resumes or online profiles",
+            "Receive placement assistance guidance (where applicable)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "title": "Is this suitable for non-IT backgrounds?",
+      "blocks": [
+        { "type": "p", "text": "Yes. Many of our top performers come from commerce, science, or mechanical backgrounds." },
+        { "type": "p", "text": "We teach from the ground up, focusing on logic and project building, not rote theory." }
+      ]
+    },
+    {
+      "id": "q14",
+      "title": "What’s the expected outcome for my child?",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Build 2–3 deployable projects",
+            "Gain portfolio-ready skills",
+            "Be confident in interviews and problem-solving",
+            "Understand industry workflows used in real companies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "title": "How can parents stay informed?",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Receive monthly progress summaries",
+            "Attend optional feedback sessions",
+            "Get updates through WhatsApp or email"
+          ]
+        }
+      ]
+    }
+  ]
+}

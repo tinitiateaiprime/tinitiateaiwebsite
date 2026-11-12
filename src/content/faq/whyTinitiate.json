@@ -1,0 +1,155 @@
+{
+  "updatedAt": "2025-11-04",
+  "faqs": [
+     {
+      "id": "why-remote-training",
+      "title": "Why Remote Training?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "At TINITIATE, we believe that learning should fit your life, not the other way around. Our remote training programs are designed for students and professionals who want flexibility without compromising quality."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Learn from anywhere: Join live interactive sessions from home or hostel.",
+            "Flexible schedules: Continue learning alongside exams or jobs.",
+            "Recorded sessions: Never miss a class — replay anytime.",
+            "Hands-on projects: Real-world assignments, not just theory.",
+            "1-to-1 mentorship: Personal guidance and feedback from industry experts."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "why-tinitiate",
+      "title": "Why TINITIATE?",
+      "blocks": [
+        {
+          "p": true,
+          "type": "p",
+          "text": "With 15+ years of IT industry experience, TINITIATE Technologies Pvt. Ltd. stands for “From Classroom to Codebase.”"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Project-based learning: Every topic is linked to a real-world project.",
+            "Industry-oriented curriculum: Built by working professionals, updated regularly.",
+            "Multi-domain exposure: Finance, Healthcare, Energy, Retail, AI, and more.",
+            "Placement-ready approach: We teach the tools, logic, and confidence needed to perform on Day 1 of your job.",
+            "Personal mentoring: Small-batch attention, progress tracking, and portfolio support."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "course-duration",
+      "title": "How long is the course?",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Foundation Courses: 2 to 3 months",
+            "Full-Stack / Advanced Tracks: 4 to 6 months",
+            "Work Experience Program: 6 months (includes live project deployment)"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Duration may vary depending on your selected track and learning pace."
+        }
+      ]
+    },
+    {
+      "id": "best-technology-india",
+      "title": "What is the best technology to learn in India?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "India’s IT job market is booming in Cloud, Data, and AI. We recommend focusing on job-driven skill paths:"
+        },
+        {
+          "type": "table",
+          "headers": ["Career Path", "Core Technologies"],
+          "rows": [
+            ["Full-Stack Development", "Java / Python, React, SQL, Spring Boot"],
+            ["Data Engineering", "AWS Glue, Athena, PySpark, SQL"],
+            ["AI & Automation", "Python, Generative AI Tools, LangChain"],
+            ["Cloud & DevOps", "AWS / Azure, Docker, Kubernetes, CI/CD"]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "We help you choose based on your background and career goals."
+        }
+      ]
+    },
+    {
+      "id": "college-vs-tinitiate",
+      "title": "What we teach that colleges don’t",
+      "blocks": [
+        {
+          "type": "table",
+          "headers": ["College Teaching", "TINITIATE Training"],
+          "rows": [
+            ["Textbook concepts", "Hands-on coding with projects"],
+            ["Limited exposure", "Industry-style workflows and data models"],
+            ["Exams & theory", "Assignments, Git repos, and dashboards"],
+            ["One-way lectures", "Interactive labs & mentoring"],
+            ["No career roadmap", "Placement guidance + LinkedIn branding"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "breaks-and-pauses",
+      "title": "What if I take breaks for exams or personal reasons?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "No worries — our system is flexible and learner-friendly."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "You can pause and resume your batch anytime.",
+            "Session recordings and revision support help you catch up easily.",
+            "Mentors help you rejoin at the right module so you never fall behind."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "certificate",
+      "title": "Will I get a certificate?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Yes — every participant receives a TINITIATE Certified Course Completion Certificate, mentioning the skills, duration, and project modules completed."
+        },
+        {
+          "type": "p",
+          "text": "This certificate adds value to your LinkedIn profile and job applications."
+        }
+      ]
+    },
+    {
+      "id": "job-applications",
+      "title": "Can this be used when applying for jobs?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Absolutely."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "The certificate is recognized by employers as proof of project-based training.",
+            "You can showcase your project portfolio and GitHub repositories developed during the course.",
+            "Our career-guidance sessions help you present your TINITIATE projects in interviews confidently."
+          ]
+        }
+      ]
+    }
+  ]
+}

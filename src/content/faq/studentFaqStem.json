@@ -1,0 +1,218 @@
+{
+  "faqs": [
+    {
+      "id": "learn-skills-get-hired",
+      "title": "Learn Skills That Get You Hired",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "College teaches theory. We teach how to build. At TINITIATE, you’ll work on real industry projects in coding, data, and cloud — the exact tools and workflows companies use."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Hands-on labs",
+            "Real-time projects",
+            "Resume-ready portfolio"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "You’ll graduate with skills you can show, not just a degree."
+        }
+      ]
+    },
+    {
+      "id": "bridge-college-career",
+      "title": "Bridge the Gap Between College and Career",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Most graduates struggle to get their first IT job because they’ve never worked on real codebases. Our program fixes that with practical learning + project mentoring so you can walk into interviews confidently."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "How to turn classroom concepts into real-world solutions",
+            "How to work like a developer in teams",
+            "How to think like an engineer, not just a student"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choose-track",
+      "title": "Choose the Track That Fits Your Goal",
+      "blocks": [
+        {
+          "type": "table",
+          "headers": ["Career Path", "Core Skills You’ll Master"],
+          "rows": [
+            ["Full-Stack Developer", "Java / Python, React, SQL, APIs, Spring Boot"],
+            ["Data Engineer", "PySpark, AWS Glue, Athena, SQL"],
+            ["AI & Automation Specialist", "Python, Generative AI, LangChain"],
+            ["Cloud / DevOps Engineer", "AWS / Azure, Docker, Kubernetes, CI/CD"]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Not sure which one fits? We’ll help you choose during orientation."
+        }
+      ]
+    },
+    {
+      "id": "learn-on-your-schedule",
+      "title": "Learn on Your Schedule",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "We understand college life — exams, fests, projects — so our learning model is built for flexibility."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Live classes (recorded too!)",
+            "Catch-up support for missed sessions",
+            "Pause and resume anytime"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "No pressure, no penalties — just consistent progress."
+        }
+      ]
+    },
+    {
+      "id": "what-youll-build",
+      "title": "What You’ll Actually Build",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "You’ll go beyond “Hello World.” Each module ends with a real mini-project, and by the end you’ll have:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "3–4 deployable projects",
+            "A GitHub portfolio recruiters can see",
+            "Real experience explaining your work in interviews"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "learn-from-engineers",
+      "title": "Learn From Real Engineers",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Your mentors aren’t just teachers — they’re industry professionals who work in companies and guide you on:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "What matters in real projects",
+            "How to debug, deploy, and document your code",
+            "How to prepare for interviews and internships"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "get-certified",
+      "title": "Get Certified, Stand Out",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "You’ll receive a TINITIATE STEM Course Certificate with:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Duration & skill summary",
+            "Project list",
+            "Instructor sign-off & verification link"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "This adds serious weight to your LinkedIn profile and job applications."
+        }
+      ]
+    },
+    {
+      "id": "career-boost",
+      "title": "How It Boosts Your Career",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Crack technical interviews with confidence",
+            "Build a strong project portfolio",
+            "Understand how to work with teams and clients",
+            "Be ready for internships, placements, or freelance gigs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "why-students-love",
+      "title": "9) Why Students Love TINITIATE",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "“It felt like an internship, not just a class.”",
+            "“We built projects we could show in interviews.”",
+            "“Mentors guided us even after sessions ended.”",
+            "“My resume looked professional for the first time.”"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roadmap-to-success",
+      "title": "Your Roadmap to Success",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Join a batch (Foundation → Pro → Work Experience)",
+            "Build projects every month",
+            "Get guidance on resume & LinkedIn",
+            "Participate in mock interviews",
+            "Graduate with confidence and proof of skills"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smartest-investment",
+      "title": "Why It’s the Smartest Investment in Yourself",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Every hour you put here counts toward your first job, internship, or freelancing career."
+        },
+        {
+          "type": "p",
+          "text": "Learn. Build. Deploy. Get Hired. That’s the TINITIATE way."
+        }
+      ]
+    },
+    {
+      "id": "ready-to-start",
+      "title": "Ready to Start?",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Visit www.tinitiate.com",
+            "Enroll in the next STEM/IT track",
+            "Begin your journey from Student → Industry Professional"
+          ]
+        }
+      ]
+    }
+  ]
+}

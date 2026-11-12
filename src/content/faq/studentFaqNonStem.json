@@ -1,0 +1,228 @@
+{
+  "faqs": [
+    {
+      "id": "why-learn-tech-non-stem",
+      "title": "Why Should I Learn STEM or IT Skills If I'm Not From a Technical Background?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Because every career today is powered by technology — from finance and marketing to design, HR, and operations. You don’t need to become a programmer — you just need to understand and use tech confidently."
+        },
+        {
+          "type": "p",
+          "text": "TINITIATE’s STEM program helps you:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Gain digital skills every company expects",
+            "Work smarter with tools like Excel, SQL, and AI",
+            "Boost your employability and income potential",
+            "Discover new opportunities beyond your degree"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "You don’t have to change your stream — just add skills that future-proof your career."
+        }
+      ]
+    },
+    {
+      "id": "what-makes-tinitiate-different",
+      "title": "What Makes TINITIATE Different?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "At TINITIATE, we focus on learning by doing. You won’t just watch lessons — you’ll build small, real projects."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Beginner-friendly teaching",
+            "Live, interactive sessions",
+            "Real projects guided by mentors",
+            "Resume-ready outcomes"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "We take you from zero technical background to project-capable professional."
+        }
+      ]
+    },
+    {
+      "id": "what-will-i-learn",
+      "title": "What Will I Learn?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "We start from absolute basics — no coding experience required — and gradually help you understand how technology works in real jobs."
+        },
+        {
+          "type": "table",
+          "headers": ["Skill Area", "Example Topics You'll Learn"],
+          "rows": [
+            ["Digital Tools & Data", "Excel, SQL, Power BI, ChatGPT for productivity"],
+            ["Programming for All", "Python made simple — logic, automation, problem solving"],
+            ["Web & Cloud Awareness", "How websites, servers, and apps actually work"],
+            ["AI & Automation Basics", "How to use AI tools safely and smartly"],
+            ["Career Skills", "Resume, LinkedIn branding, and communication for tech roles"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "career-benefits",
+      "title": "How Will It Help My Career?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "It gives you a competitive edge — you’ll understand the digital side of any business. That means more internship options, better job interviews, and faster growth."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Automate tasks and work efficiently",
+            "Analyze data and make better decisions",
+            "Collaborate confidently with tech teams",
+            "Qualify for hybrid roles like Business Analyst, Product Coordinator, Digital Consultant, etc."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Every company now wants employees who understand technology — this is your shortcut there."
+        }
+      ]
+    },
+    {
+      "id": "course-duration",
+      "title": "How Long Is the Course?",
+      "blocks": [
+        {
+          "type": "table",
+          "headers": ["Program Type", "Duration", "Suitable For"],
+          "rows": [
+            ["Foundation Program", "2–3 months", "College students or beginners"],
+            ["Professional Track", "4–6 months", "Final-year students & job seekers"],
+            ["Work Experience Program", "6 months", "Graduates building portfolios"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "who-teaches-you",
+      "title": "Who Teaches You?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Our mentors are industry professionals who’ve worked in top IT and analytics roles. They’ll guide you personally through:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Practical projects",
+            "Interview preparation",
+            "Resume improvement",
+            "Career planning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dont-understand-coding",
+      "title": "What If I Don't Understand Coding?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "No problem at all. We teach using real-life analogies and step-by-step logic. You’ll learn to think like a problem solver — coding becomes easy when you understand the why, not just the syntax."
+        },
+        {
+          "type": "p",
+          "text": "Our motto: Technology made simple for everyone."
+        }
+      ]
+    },
+    {
+      "id": "certificate",
+      "title": "Do I Get a Certificate?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Yes. You’ll receive a TINITIATE Course Completion Certificate with:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Duration & skill summary",
+            "Project list",
+            "Instructor sign-off & verification link"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Perfect for LinkedIn, job applications, and interviews."
+        }
+      ]
+    },
+    {
+      "id": "student-testimonials",
+      "title": "What Past Students Say",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "“I was from a commerce background — now I work in data analytics.”",
+            "“I never thought I’d enjoy tech, but TINITIATE made it simple.”",
+            "“It helped me switch from theory to real-world problem solving.”"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "outcomes",
+      "title": "What You'll Achieve After the Program",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Confidence to handle technology in any career",
+            "Real projects you can showcase",
+            "Better internship and job opportunities",
+            "A modern resume that stands out",
+            "The ability to talk tech in interviews"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "In short: You’ll be career-ready — even if your degree isn’t technical."
+        }
+      ]
+    },
+    {
+      "id": "pathway",
+      "title": "The TINITIATE Pathway",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Start with Foundation → Professional → Work Experience",
+            "Learn live + get recordings for revision",
+            "Build mini projects every module",
+            "Get mentor feedback",
+            "Complete your course and get certified"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "final-thought",
+      "title": "Final Thought",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "The future belongs to those who understand technology — not just to engineers. Whether you’re from commerce, arts, or management — TINITIATE gives you the skills to grow, adapt, and succeed in the digital world."
+        }
+      ]
+    }
+  ]
+}

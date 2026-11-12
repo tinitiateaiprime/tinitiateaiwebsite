@@ -1,0 +1,24 @@
+'use client'
+import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
+import { useCart } from './CartProvider'
+import { useSiteAuth } from '@/components/auth/AuthProvider'
+
+export function Checkout({ catalog, add, licensed, pending }: { catalog: { id: number; title: string; slug: string }[]; add: number | null; licensed: number[]; pending: number[] }) {
+  const cart = useCart(); const { user } = useSiteAuth()
+  const [busy, setBusy] = useState(false); const [error, setError] = useState('')
+  const added = useRef<number | null>(null)
+  useEffect(() => { if (cart.ready && add && added.current !== add && catalog.some(course => course.id === add)) { added.current = add; if (!cart.ids.includes(add)) cart.add(add) } }, [add, catalog, cart])
+  const selected = cart.ids.map(id => catalog.find(course => course.id === id)).filter(course => !!course)
+  async function submit() {
+    setBusy(true); setError('')
+    try {
+      const response = await fetch('/api/subscriptions', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ courses: selected.map(course => course.id) }) })
+      const body = await response.json()
+      if (!response.ok) throw Error(body.error || 'Your request could not be submitted. Please try again.')
+      cart.clear()
+      window.location.replace(`/dashboard?courseRequestSubmitted=1${body.reference ? `&reference=${encodeURIComponent(body.reference)}` : ''}`)
+    } catch (failure) { setError(failure instanceof Error ? failure.message : 'Unable to submit.'); setBusy(false) }
+  }
+  return <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr]"><section className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8"><h2 className="text-2xl font-bold text-slate-900">Your course selection</h2><p className="mt-3 text-sm text-slate-600">Review up to 20 courses. Our team will review each course request separately.</p>{!selected.length ? <div className="py-12 text-center"><p className="text-slate-600">Your selection is empty.</p><Link href="/courses" className="mt-4 inline-block font-semibold text-brand-700">Browse Courses →</Link></div> : <ul className="mt-6 divide-y divide-slate-200">{selected.map(course => <li key={course.id} data-selected-course={course.id} className="flex items-start justify-between gap-4 py-5"><div><Link href={`/courses/${course.slug}`} className="font-semibold text-slate-900">{course.title}</Link><p className="mt-2 text-sm text-slate-500">{licensed.includes(course.id) ? 'Already licensed — no new request will be created' : pending.includes(course.id) ? 'Subscription Requested — Awaiting Approval' : 'Subscription request — no payment'}</p></div><button type="button" disabled={busy} onClick={() => cart.remove(course.id)} aria-label={`Remove ${course.title}`} className="text-sm font-semibold text-slate-500 hover:text-red-700">Remove</button></li>)}</ul>}<Link href="/courses" className="mt-5 inline-block text-sm font-semibold text-brand-700">← Select more courses</Link></section><aside className="h-fit rounded-3xl bg-slate-950 p-7 text-white"><p className="text-xs font-semibold uppercase tracking-widest text-cyan-300">Review &amp; submit</p><h2 className="mt-3 text-2xl font-bold">A request, with no payment</h2><p className="mt-4 rounded-xl border border-cyan-300/25 bg-cyan-300/10 p-4 font-semibold text-cyan-100">No payment will be collected</p><p className="mt-4 text-sm leading-6 text-slate-300">Submitting records your interest. Full course access begins only after an administrator approves and grants a license.</p>{user?.collection === 'students' ? <><dl className="mt-6 space-y-3 text-sm"><div><dt className="text-slate-400">Student</dt><dd className="mt-1 font-semibold">{user.name}</dd></div><div><dt className="text-slate-400">Email</dt><dd className="mt-1 break-all">{user.email}</dd></div><div><dt className="text-slate-400">Selected courses</dt><dd className="mt-1">{selected.length}</dd></div></dl><button disabled={busy || !selected.length} onClick={submit} className="mt-7 w-full rounded-full bg-brand-600 px-5 py-3.5 text-sm font-semibold text-white hover:bg-brand-500 disabled:opacity-50">{busy ? 'Saving your request…' : 'Submit Course Request'}</button><Link href="/profile" className="mt-4 block text-center text-sm text-slate-300 underline">Update my contact details</Link></> : <div className="mt-6 space-y-3"><Link href="/login?redirect=%2Fcheckout" className="block rounded-full bg-brand-600 px-5 py-3 text-center font-semibold text-white">Student Login to Submit</Link><Link href="/signup?redirect=%2Fcheckout" className="block rounded-full border border-slate-500 px-5 py-3 text-center font-semibold text-white">Create Student Account</Link></div>}{error && <p role="alert" className="mt-5 text-sm text-red-200">{error}</p>}</aside></div>
+}

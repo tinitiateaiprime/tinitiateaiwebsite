@@ -1,0 +1,105 @@
+[
+    {
+  "slug": "aws-quicksight",
+  "title": "Amazon QuickSight",
+  "icon": "SiAwsamplify",
+  "duration": "2–3 Weeks",
+  "level": "Beginner → Intermediate",
+  "image": "/images/courses/quicksight.png",
+  "description": "Learn Amazon QuickSight for BI dashboards and analytics: datasets, SPICE, visuals, calculations, parameters, filters, RLS, refresh schedules, embedded analytics concepts, and publishing production dashboards.",
+  "prerequisites": "SQL basics (SELECT, JOIN, GROUP BY). Basic understanding of data models is helpful.",
+  "courseStructure": [
+    {
+      "title": "QuickSight Overview & Setup",
+      "topics": [
+        "What QuickSight is and BI use cases",
+        "Account setup and editions (high level)",
+        "Users, groups, and permissions basics",
+        "QuickSight UI overview (analysis vs dashboard)",
+        "Connecting to data sources (high level)"
+      ]
+    },
+    {
+      "title": "Data Sources & Datasets",
+      "topics": [
+        "Connecting to Athena, Redshift, RDS (overview)",
+        "Importing data vs Direct Query (trade-offs)",
+        "Dataset creation and schema basics",
+        "Data preparation inside QuickSight (basic transforms)",
+        "Joins across tables in datasets (intro)"
+      ]
+    },
+    {
+      "title": "SPICE & Performance",
+      "topics": [
+        "What is SPICE and why it’s used",
+        "SPICE vs Direct Query decisions",
+        "Refresh types (full vs incremental concept)",
+        "Scheduling refresh and dependencies (high level)",
+        "Performance best practices for fast dashboards"
+      ]
+    },
+    {
+      "title": "Visuals, Charts & Dashboard Building",
+      "topics": [
+        "Core visuals: bar/line/area/pie/table/pivot/heatmap",
+        "Choosing the right chart for each metric",
+        "Filters and filter scopes",
+        "Sorting, grouping, drill-down and hierarchies",
+        "Dashboard layout and storytelling best practices"
+      ]
+    },
+    {
+      "title": "Calculated Fields & Analytics Features",
+      "topics": [
+        "Calculated fields (basic formulas)",
+        "Aggregations and level-aware calculations (intro)",
+        "Date functions and time series analysis basics",
+        "Top N, ranking, and contribution analysis (intro)",
+        "Forecasting/anomaly detection overview (high level)"
+      ]
+    },
+    {
+      "title": "Parameters, Controls & Interactivity",
+      "topics": [
+        "Parameters and controls (dropdown, slider)",
+        "Dynamic titles and conditional visuals (patterns)",
+        "Actions (filter actions, navigation actions)",
+        "Drill-through style experiences (concept)",
+        "Designing interactive dashboards for end users"
+      ]
+    },
+    {
+      "title": "Security: Row-Level Security (RLS) & Sharing",
+      "topics": [
+        "Sharing: users/groups access to analyses and dashboards",
+        "Row-Level Security dataset concept and setup",
+        "Tenant-based filtering patterns (multi-tenant concept)",
+        "IAM/permission model overview for data sources",
+        "Auditing and governance basics (high level)"
+      ]
+    },
+    {
+      "title": "Publishing, Operations & Maintenance",
+      "topics": [
+        "Publishing dashboards and version control concept",
+        "Scheduling refresh and monitoring failures",
+        "Handling schema changes safely (patterns)",
+        "Dashboard performance troubleshooting (high level)",
+        "Cost awareness basics (SPICE capacity/users)"
+      ]
+    },
+    {
+      "title": "Mini Project — Production Dashboard",
+      "topics": [
+        "Create datasets from Athena/Redshift sample schema",
+        "Build an executive KPI dashboard with filters and drill downs",
+        "Add calculated fields + parameters for interactivity",
+        "Enable RLS for role-based dashboard access",
+        "Schedule refresh and validate data correctness",
+        "Publish dashboard + document the build in GitHub README"
+      ]
+    }
+  ]
+}
+]

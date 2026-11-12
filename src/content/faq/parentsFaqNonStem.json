@@ -1,0 +1,260 @@
+{
+  "updatedAt": "2025-11-03",
+  "faqs": [
+    {
+      "id": "why-tech-non-it",
+      "title": " Why should my child learn technology if they’re not from an IT background?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Because every career now touches technology. From marketing to finance, design to business—success today requires digital fluency, problem-solving, and data literacy."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Build confidence with technology",
+            "Learn job-ready tools used in every industry",
+            "Develop logical thinking and analytical skills",
+            "Open multiple career doors—not just one"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "You don’t have to be a Computer Science student to succeed in tech anymore."
+        }
+      ]
+    },
+    {
+      "id": "what-we-teach",
+      "title": "What exactly does TINITIATE teach?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "TINITIATE provides practical, project-based training in modern STEM and IT skills, designed for beginners from any stream. Students learn step-by-step, guided by experienced industry mentors."
+        },
+        {
+          "type": "table",
+          "headers": ["Program Type", "Focus Area", "Ideal For"],
+          "rows": [
+            ["Foundation", "Basic programming, data & logic", "Non-IT beginners"],
+            ["Professional", "Software, Cloud, or Data skills", "Graduates exploring tech jobs"],
+            ["Work Experience", "Real project simulation", "Job seekers & final-year students"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "career-benefits",
+      "title": "How does this help my child’s career?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "It builds career flexibility and future-proof skills. Whether your child wants to enter analytics, fintech, consulting, operations, or digital marketing, technical awareness sets them apart."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Boosts employability across industries",
+            "Adds real projects to their resume",
+            "Builds confidence for job interviews",
+            "Creates a foundation for higher studies or a tech pivot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills-to-learn",
+      "title": "What kind of skills will they learn?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Depending on their track, they’ll learn a balanced mix of programming, data, web/cloud, automation/AI, and essential soft skills."
+        },
+        {
+          "type": "table",
+          "headers": ["Skill Area", "Examples"],
+          "rows": [
+            ["Programming", "Python or Java basics"],
+            ["Data Skills", "Excel, SQL, Power BI, Python Data"],
+            ["Web & Cloud", "Simple websites, hosting, cloud tools"],
+            ["Automation & AI", "Real-world use of ChatGPT, AI workflows"],
+            ["Soft Skills", "Logical reasoning, teamwork, communication"]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "These are the same skills companies look for—regardless of degree."
+        }
+      ]
+    },
+    {
+      "id": "prior-experience",
+      "title": "Do they need prior coding experience?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Not at all. We assume zero technical background and teach from scratch, using real-life examples to make learning simple and practical."
+        }
+      ]
+    },
+    {
+      "id": "delivery-mode",
+      "title": "Is this course online or offline?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "The course is fully online and interactive, designed for busy students:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Live sessions with mentors",
+            "Recorded videos for revision",
+            "Flexible schedules to suit college calendars",
+            "Catch-up support for missed classes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "certificate",
+      "title": "Will they get a certificate?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Yes. They’ll receive a TINITIATE Certified STEM Completion Certificate—detailing the topics, duration, and projects completed. This adds real weight to:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Resumes",
+            "LinkedIn profiles",
+            "Graduate applications"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unsure-career-path",
+      "title": "What if my child is unsure about their career path?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "That’s normal—many students are. Our mentors help them discover strengths and choose between multiple paths like:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Web & App Development",
+            "Data Analysis",
+            "Cloud/Automation",
+            "Business Analytics"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "We help them find what fits, not force them into one direction."
+        }
+      ]
+    },
+    {
+      "id": "breaks-policy",
+      "title": "How do you handle breaks for exams or family reasons?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "We understand student life. Your child can:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Pause and rejoin their batch later",
+            "Access recordings for catch-up",
+            "Get personal guidance to continue smoothly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "job-outcomes",
+      "title": "Will this really help in getting a job?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Absolutely. Companies hire graduates who can think, analyze, and adapt to tech-driven workplaces. This program helps your child:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Speak confidently in interviews",
+            "Understand practical technology use in any field",
+            "Showcase real project work on their resume"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "It’s not about turning them into programmers—it’s about making them employable and future-ready."
+        }
+      ]
+    },
+    {
+      "id": "why-tinitiate",
+      "title": "Why TINITIATE?",
+      "blocks": [
+        {
+          "type": "uo",
+          "items": [
+            "15+ years of real industry experience",
+            "Trainers from live IT projects",
+            "Curriculum built for non-IT beginners",
+            "Step-by-step learning with career mentoring",
+            "Real projects, not theory alone"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "TINITIATE bridges the gap between degree and industry—turning learning into opportunity."
+        }
+      ]
+    },
+    {
+      "id": "parent-testimonials",
+      "title": "What parents say",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "“My daughter was from commerce—now she’s working in data analytics.”",
+            "“This course gave my son direction and confidence.”",
+            "“We wanted him to learn something useful beyond college—and this delivered.”"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tinitiate-advantage",
+      "title": "The TINITIATE Advantage",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Learn from anywhere (online)",
+            "Get certified and job-ready",
+            "Build confidence in technology",
+            "Add value to any career path"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "final-message",
+      "title": "Final message to parents",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Your child doesn’t need to change their degree—they just need to add the skills the world now expects. TINITIATE makes that transition possible, practical, and powerful."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2552 @@
+[
+    {
+  "slug": "csv-data-format",
+  "title": "CSV (Comma-Separated Values)",
+  "icon": "FaFileCsv",
+  "duration": "3–5 Days",
+  "level": "Beginner → Intermediate",
+  "courseStructure": [
+    {
+      "title": "CSV Fundamentals",
+      "topics": [
+        "What is CSV and common use cases in data engineering",
+        "Delimiters (comma, tab, pipe) and header rows",
+        "Quoting rules, escaping, and special characters",
+        "Line endings (LF vs CRLF) and cross-platform issues",
+        "Encoding basics (UTF-8, UTF-16) and BOM issues"
+      ]
+    },
+    {
+      "title": "CSV Quality & Common Problems",
+      "topics": [
+        "Missing values and null handling strategies",
+        "Invalid rows, extra columns, and inconsistent schemas",
+        "Embedded delimiters and quote mismatches",
+        "Multi-line fields and how they break parsers",
+        "Leading/trailing spaces and trimming strategies",
+        "Duplicate headers and column name normalization"
+      ]
+    },
+    {
+      "title": "Schema & Data Types",
+      "topics": [
+        "Schema-on-read approach for CSV",
+        "Inferring data types vs enforcing schema",
+        "Date/time parsing patterns and pitfalls",
+        "Numeric precision issues (decimal vs float)",
+        "Boolean and categorical values normalization"
+      ]
+    },
+    {
+      "title": "Performance & Storage Considerations",
+      "topics": [
+        "Why CSV is slow for analytics (no column pruning)",
+        "Compression options (gzip, bzip2) and trade-offs",
+        "Splittable vs non-splittable compression in distributed systems",
+        "Small files problem and file sizing guidelines",
+        "Partitioning folders by date/org/region (layout patterns)"
+      ]
+    },
+    {
+      "title": "Validation & Best Practices",
+      "topics": [
+        "Row counts, checksum, and reconciliation checks",
+        "Data contracts basics (required columns and allowed values)",
+        "Reject handling strategy (bad rows capture)",
+        "Naming conventions and consistent headers",
+        "Creating clean CSV exports for downstream systems"
+      ]
+    }
+  ]
+},
+{
+  "slug": "json-data-format",
+  "title": "JSON",
+  "icon": "BiSolidFileJson",
+  "duration": "4–6 Days",
+  "level": "Beginner → Intermediate",
+  "courseStructure": [
+    {
+      "title": "JSON Fundamentals",
+      "topics": [
+        "JSON structure: objects, arrays, key-value pairs",
+        "Data types in JSON (string, number, boolean, null, object, array)",
+        "Nested JSON and hierarchical modeling",
+        "JSON vs XML differences (high level)",
+        "Common use cases: APIs, logs, events"
+      ]
+    },
+    {
+      "title": "JSON Variants in Data Engineering",
+      "topics": [
+        "JSON Lines / NDJSON (one JSON object per line)",
+        "Pretty-printed JSON vs compact JSON",
+        "Schema-on-read patterns",
+        "Handling deeply nested structures",
+        "Arrays of objects and normalization patterns"
+      ]
+    },
+    {
+      "title": "Schema, Evolution & Contracts",
+      "topics": [
+        "Optional vs required fields",
+        "Schema evolution patterns (adding/removing fields)",
+        "Backward/forward compatibility concepts",
+        "Using JSON Schema (intro)",
+        "Versioning events and payloads (best practices)"
+      ]
+    },
+    {
+      "title": "Parsing, Flattening & Querying",
+      "topics": [
+        "Parsing JSON safely (invalid JSON handling)",
+        "Flattening nested objects (dot notation patterns)",
+        "Exploding arrays into rows (normalize patterns)",
+        "Handling nulls and missing keys",
+        "Type casting and numeric precision"
+      ]
+    },
+    {
+      "title": "Performance & Storage Considerations",
+      "topics": [
+        "Why raw JSON is heavy for analytics (parsing overhead)",
+        "Compression strategies (gzip) and benefits",
+        "When to convert JSON to Parquet/ORC for analytics",
+        "File sizing and partitioning practices",
+        "Avoiding giant nested payloads (design guidelines)"
+      ]
+    }
+  ]
+},
+{
+  "slug": "xml-data-format",
+  "title": "XML (Extensible Markup Language)",
+  "icon": "BsFiletypeXml",
+  "duration": "3–5 Days",
+  "level": "Beginner → Intermediate",
+  "courseStructure": [
+    {
+      "title": "XML Fundamentals",
+      "topics": [
+        "XML structure: elements, attributes, namespaces",
+        "Well-formed vs valid XML",
+        "CDATA sections and special character escaping",
+        "Encoding declarations and common pitfalls",
+        "Use cases in enterprise systems (feeds, configs, legacy integrations)"
+      ]
+    },
+    {
+      "title": "XML Schema & Validation",
+      "topics": [
+        "XSD basics (structure validation overview)",
+        "Required/optional elements and constraints",
+        "Namespaces in schemas (intro)",
+        "Validation concepts and error handling approach",
+        "Versioning XML formats (best practices)"
+      ]
+    },
+    {
+      "title": "Parsing & Transformation",
+      "topics": [
+        "DOM vs SAX vs StAX parsing approaches (high level)",
+        "Streaming parsing for large XML files",
+        "Flattening XML to tabular structures (mapping approach)",
+        "XPaths basics (selecting nodes)",
+        "XSLT overview (when used)"
+      ]
+    },
+    {
+      "title": "Common XML Data Problems",
+      "topics": [
+        "Inconsistent tags and optional blocks",
+        "Attributes vs elements mapping decisions",
+        "Mixed content and nested repeating groups",
+        "Malformed XML recovery strategies",
+        "Large-file processing patterns and memory considerations"
+      ]
+    },
+    {
+      "title": "Best Practices in Data Pipelines",
+      "topics": [
+        "Convert XML to JSON/Parquet for analytics pipelines",
+        "Define mapping contracts for flattening",
+        "Reject handling and audit logs",
+        "Partitioning and file naming patterns",
+        "Testing transformations with sample payloads"
+      ]
+    }
+  ]
+},
+{
+  "slug": "parquet-data-format",
+  "title": "Parquet (Columnar Analytics Format)",
+  "icon": "SiApacheparquet",
+  "duration": "4–6 Days",
+  "level": "Beginner → Intermediate",
+  "courseStructure": [
+    {
+      "title": "Parquet Fundamentals",
+      "topics": [
+        "What is Parquet and why it is used",
+        "Row-based vs columnar storage",
+        "Column pruning and predicate pushdown concepts",
+        "Parquet file structure (high level)",
+        "Typical use cases in data lakes and lakehouses"
+      ]
+    },
+    {
+      "title": "Schema & Data Types",
+      "topics": [
+        "Parquet schema concepts",
+        "Nested structures (struct, list, map) concept",
+        "Nullability and optional fields",
+        "Decimal precision and scale handling",
+        "Schema evolution basics (compatibility concepts)"
+      ]
+    },
+    {
+      "title": "Compression & Encoding",
+      "topics": [
+        "Compression codecs (Snappy, Gzip, Zstd overview)",
+        "Encoding concepts (dictionary encoding basics)",
+        "Trade-offs: compression ratio vs CPU cost",
+        "Choosing codecs for query performance",
+        "Impact on scan cost and speed"
+      ]
+    },
+    {
+      "title": "Partitions, File Size & Lake Layout",
+      "topics": [
+        "Partitioning strategies (date/org/region)",
+        "Avoiding over-partitioning",
+        "Small files problem and compaction patterns",
+        "Recommended file size ranges (practical guidelines)",
+        "Managing partitions in catalog systems (high level)"
+      ]
+    },
+    {
+      "title": "Writing Parquet from ETL Jobs",
+      "topics": [
+        "Converting CSV/JSON/XML to Parquet (ETL pattern)",
+        "Handling schema drift during writes",
+        "Data quality checks before writing",
+        "Partition overwrite vs append patterns",
+        "Validation: row counts, schema checks, sample queries"
+      ]
+    },
+    {
+      "title": "Query Performance Best Practices",
+      "topics": [
+        "Designing columns for analytics queries",
+        "Sort/clustering concepts (high level)",
+        "Avoiding wide nested columns when not needed",
+        "Improving pruning with selective filters",
+        "Cost optimization: scan less, store smarter"
+      ]
+    }
+  ]
+},
+{
+  "slug": "aws-redshift",
+  "title": "Amazon Redshift",
+  "icon": "SiAmazonredshift",
+  "duration": "2–3 Weeks",
+  "level": "Intermediate",
+  "image": "/images/courses/redshift.png",
+  "description": "Learn Amazon Redshift for analytics: architecture, clusters/serverless, loading data, modeling, performance tuning, security, operations, and building an ELT pipeline with S3 and ETL tools.",
+  "prerequisites": "SQL fundamentals (JOIN, GROUP BY, window functions). Basic AWS and S3 knowledge helpful.",
+  "courseStructure": [
+    {
+      "title": "Redshift Fundamentals",
+      "topics": [
+        "What is Amazon Redshift and when to use it",
+        "Redshift architecture overview (leader node, compute nodes concept)",
+        "Redshift cluster vs Redshift Serverless (overview)",
+        "Data warehouse concepts (OLAP vs OLTP)",
+        "Redshift Console, Query Editor v2 basics",
+        "Redshift Spectrum overview (querying S3)"
+      ]
+    },
+    {
+      "title": "Networking & Connectivity",
+      "topics": [
+        "VPC placement and subnet basics",
+        "Security groups and inbound/outbound access",
+        "Public vs private access patterns",
+        "JDBC/ODBC connectivity overview",
+        "IAM roles for Redshift (S3 access patterns)"
+      ]
+    },
+    {
+      "title": "Data Loading & Unloading",
+      "topics": [
+        "COPY command fundamentals",
+        "Loading from S3 (CSV/JSON/Parquet patterns)",
+        "Compression and encoding concepts",
+        "Error handling: MAXERROR, error tables, load logs",
+        "Unloading data back to S3 (UNLOAD basics)",
+        "Incremental loading patterns (date partitions / watermark concept)"
+      ]
+    },
+    {
+      "title": "Table Design & Data Modeling",
+      "topics": [
+        "Designing tables for analytics workloads",
+        "Fact and dimension modeling basics",
+        "Sort keys and distribution styles (concepts and use cases)",
+        "Choosing distkey/sortkey for common query patterns",
+        "Column encoding and compression strategy",
+        "Views and materialized views (when to use)"
+      ]
+    },
+    {
+      "title": "Query Performance & Tuning",
+      "topics": [
+        "Reading query plans (EXPLAIN basics)",
+        "Common bottlenecks (data distribution, skew, large scans)",
+        "Join strategies and optimizing joins",
+        "Predicate pushdown and selective filtering",
+        "Vacuum and analyze concepts (table maintenance)",
+        "Concurrency concepts and workload behavior"
+      ]
+    },
+    {
+      "title": "Security & Governance",
+      "topics": [
+        "IAM authentication and database users basics",
+        "Encryption at rest and in transit (overview)",
+        "Access control patterns (schemas, grants)",
+        "Audit logging basics",
+        "Data masking and least privilege strategy (concept)"
+      ]
+    },
+    {
+      "title": "Operations, Monitoring & Cost",
+      "topics": [
+        "Monitoring with CloudWatch metrics (overview)",
+        "WLM concepts (queues, priorities high level)",
+        "Backups and snapshots basics",
+        "Scaling patterns (resize / serverless scaling overview)",
+        "Cost drivers and cost optimization strategies"
+      ]
+    },
+    {
+      "title": "Integrations & ELT Pipeline Patterns",
+      "topics": [
+        "S3 + Redshift pipeline pattern (staging → core → marts)",
+        "Glue/EMR loading patterns (overview)",
+        "Athena vs Redshift vs Spectrum (when to use)",
+        "CDC/high-level incremental patterns",
+        "Building a reliable load workflow (retries, audit tables concept)"
+      ]
+    },
+    {
+      "title": "Mini Project — Analytics Warehouse in Redshift",
+      "topics": [
+        "Design a small star schema (facts + dimensions)",
+        "Load batch data from S3 using COPY",
+        "Add incremental load strategy (watermark concept)",
+        "Create views/materialized views for reporting",
+        "Run performance checks and apply tuning",
+        "Document pipeline and queries in GitHub README"
+      ]
+    }
+  ]
+},
+{
+  "slug": "aws-rds",
+  "title": "Amazon RDS",
+  "icon": "SiAmazonrds",
+  "duration": "2 Weeks",
+  "level": "Beginner → Intermediate",
+  "image": "/images/courses/rds.png",
+  "description": "Learn Amazon RDS for managed relational databases: setup, connectivity, backups, HA, read replicas, performance tuning, security, monitoring, and migration patterns used in real projects.",
+  "prerequisites": "Basic SQL and relational DB concepts (tables, keys, indexes). Basic AWS networking helpful.",
+  "courseStructure": [
+    {
+      "title": "RDS Fundamentals",
+      "topics": [
+        "What is Amazon RDS and when to use it",
+        "RDS engines overview (MySQL, PostgreSQL, SQL Server, MariaDB, Oracle)",
+        "RDS instance basics (compute, storage, IOPS concepts)",
+        "RDS vs Aurora (high level comparison)",
+        "RDS console overview and parameter groups concept"
+      ]
+    },
+    {
+      "title": "Provisioning & Configuration",
+      "topics": [
+        "Choosing instance class and storage type",
+        "VPC, subnet groups, and security groups",
+        "Public vs private RDS access patterns",
+        "Creating databases and users",
+        "Connection basics (JDBC/clients)"
+      ]
+    },
+    {
+      "title": "Backups, Recovery & Maintenance",
+      "topics": [
+        "Automated backups and retention",
+        "Manual snapshots and restore procedures",
+        "Point-in-time recovery concept",
+        "Maintenance windows and minor version upgrades",
+        "Multi-AZ basics and failover behavior"
+      ]
+    },
+    {
+      "title": "High Availability & Scaling",
+      "topics": [
+        "Multi-AZ deployments (HA pattern)",
+        "Read replicas (use cases and limitations)",
+        "Scaling compute and storage",
+        "Connection pooling concept (application-side)",
+        "Aurora overview for advanced scaling (optional intro)"
+      ]
+    },
+    {
+      "title": "Performance Tuning Essentials",
+      "topics": [
+        "Indexes basics and query performance",
+        "Understanding slow queries (concept)",
+        "Performance Insights overview",
+        "Monitoring CPU, memory, storage, connections",
+        "Parameter tuning basics (high level)"
+      ]
+    },
+    {
+      "title": "Security & Compliance",
+      "topics": [
+        "IAM roles and authentication patterns (overview)",
+        "Encryption at rest (KMS) and in transit (SSL)",
+        "Secrets management basics (AWS Secrets Manager concept)",
+        "Network isolation and least privilege access",
+        "Audit logging basics (engine dependent)"
+      ]
+    },
+    {
+      "title": "Monitoring & Operations",
+      "topics": [
+        "CloudWatch metrics and alarms basics",
+        "Enhanced Monitoring overview",
+        "Log exports and retention patterns",
+        "Routine operations checklist (backups, upgrades, storage)",
+        "Incident response basics (restore, failover, rollback)"
+      ]
+    },
+    {
+      "title": "Migration & Data Engineering Use Cases",
+      "topics": [
+        "Common migration patterns (lift-and-shift vs modernization concept)",
+        "AWS DMS overview (full load + CDC concept)",
+        "Exporting data to S3 for analytics pipelines",
+        "RDS as source system vs analytics store (best practice)",
+        "Basic ETL/ELT patterns involving RDS"
+      ]
+    },
+    {
+      "title": "Mini Project — Production-Style RDS Setup",
+      "topics": [
+        "Provision an RDS instance in a private subnet",
+        "Create users and secure access",
+        "Enable backups and define retention",
+        "Configure Multi-AZ or read replica (concept/demo)",
+        "Set CloudWatch alarms and review Performance Insights",
+        "Document setup and ops checklist in GitHub README"
+      ]
+    }
+  ]
+},
+{
+  "slug": "aws-s3",
+  "title": "Amazon S3",
+  "icon": "SiAmazons3",
+  "duration": "1–2 Weeks",
+  "level": "Beginner → Intermediate",
+  "image": "/images/courses/s3.png",
+  "description": "Learn Amazon S3 end-to-end for data engineering and cloud storage: buckets, objects, security, encryption, lifecycle, replication, data lake layouts, performance patterns, event-driven processing, and operations best practices.",
+  "prerequisites": "Basic cloud concepts helpful but not required.",
+  "courseStructure": [
+    {
+      "title": "S3 Fundamentals",
+      "topics": [
+        "What is Amazon S3 and common use cases",
+        "Buckets, objects, keys, and prefixes",
+        "S3 regions and global namespace",
+        "S3 consistency model (high level)",
+        "S3 Console overview and basic operations",
+        "Object metadata and tags",
+        "Multipart upload basics"
+      ]
+    },
+    {
+      "title": "Access Control & Security",
+      "topics": [
+        "Shared responsibility model for S3",
+        "IAM users, roles, and policies for S3 access",
+        "Bucket policies vs IAM policies",
+        "ACLs overview (when they appear and why to avoid)",
+        "Block Public Access settings",
+        "Least privilege patterns for buckets and prefixes",
+        "Access Points basics (per-app access control)",
+        "S3 Object Ownership and enforcing bucket-owner control"
+      ]
+    },
+    {
+      "title": "Encryption & Data Protection",
+      "topics": [
+        "Encryption at rest overview",
+        "SSE-S3 vs SSE-KMS vs SSE-C (high level)",
+        "Client-side encryption concept",
+        "Encryption in transit (HTTPS) basics",
+        "KMS keys basics for S3 (key policy concept)",
+        "Key rotation and access patterns (concept)"
+      ]
+    },
+    {
+      "title": "Storage Classes & Lifecycle Management",
+      "topics": [
+        "S3 storage classes overview (Standard, Intelligent-Tiering, IA, One Zone-IA, Glacier tiers)",
+        "Choosing the right storage class (cost vs access)",
+        "Lifecycle rules (transition and expiration)",
+        "Object versioning and restore behavior",
+        "Deleting objects with versioning enabled",
+        "Cost optimization strategies using lifecycle policies"
+      ]
+    },
+    {
+      "title": "Versioning, Replication & Disaster Recovery",
+      "topics": [
+        "Bucket versioning (use cases and implications)",
+        "MFA Delete overview",
+        "Cross-Region Replication (CRR) concepts",
+        "Same-Region Replication (SRR) concepts",
+        "Replication rules and ownership settings",
+        "Replication for compliance and DR (patterns)",
+        "S3 Batch Replication basics (high level)"
+      ]
+    },
+    {
+      "title": "Data Lake Design on S3 (Data Engineering Focus)",
+      "topics": [
+        "Data lake folder layout patterns (bronze/silver/gold)",
+        "Partitioning strategy (date/org/region) and pruning",
+        "File naming conventions and folder standards",
+        "Small files problem and compaction concepts",
+        "Working with CSV/JSON/Parquet on S3 (high level)",
+        "Metadata/catalog concept (Glue Data Catalog overview)"
+      ]
+    },
+    {
+      "title": "Performance, Upload Patterns & Reliability",
+      "topics": [
+        "Multipart upload best practices",
+        "Optimizing uploads/downloads (high level)",
+        "S3 request patterns and prefix distribution",
+        "Retries and idempotency concepts",
+        "S3 Select overview (querying within objects)",
+        "Handling large datasets and operational considerations"
+      ]
+    },
+    {
+      "title": "S3 Event-Driven Integrations",
+      "topics": [
+        "S3 Event Notifications (ObjectCreated/ObjectRemoved)",
+        "Triggering Lambda from S3 events (pattern)",
+        "SQS/SNS/EventBridge integrations (overview)",
+        "Building ingestion pipelines with S3 events (high level)",
+        "Error handling patterns for event-based pipelines"
+      ]
+    },
+    {
+      "title": "Monitoring, Auditing & Governance",
+      "topics": [
+        "S3 access logs overview",
+        "CloudTrail events for S3 API activity",
+        "CloudWatch metrics basics (requests, errors)",
+        "S3 Inventory reports overview",
+        "Tagging strategy for governance and cost tracking",
+        "Data retention and compliance patterns (high level)"
+      ]
+    },
+    {
+      "title": "Hands-On Mini Project — S3 Data Lake Bucket",
+      "topics": [
+        "Create a secure bucket with Block Public Access",
+        "Define folder layout for bronze/silver/gold",
+        "Upload sample datasets and apply object tagging",
+        "Enable versioning and lifecycle transitions",
+        "Add a bucket policy for least-privilege access",
+        "Enable event notification to trigger a processing step (overview)",
+        "Document setup and best practices in GitHub README"
+      ]
+    }
+  ]
+},
+{
+    "slug": "aws-glue",
+    "title": "AWS Glue",
+    "icon": "FiTool",
+    "duration": "1–2 Weeks",
+    "level": "Beginner → Intermediate",
+    "image": "/images/courses/glue.png",
+    "description": "Learn AWS Glue for batch ETL: Data Catalog, Crawlers, Jobs (Spark), Glue Studio, job parameters, bookmarks, partition handling, error handling, and production-ready ETL patterns.",
+    "prerequisites": "SQL basics. Basic Python helpful. S3 fundamentals recommended.",
+    "courseStructure": [
+      {
+        "title": "Glue Overview & When to Use It",
+        "topics": [
+          "What is AWS Glue and common ETL use cases",
+          "Glue components: Data Catalog, Crawlers, Jobs, Triggers/Workflows",
+          "Glue vs EMR vs Lambda (high level comparison)",
+          "IAM roles and permissions for Glue",
+          "Typical Glue architecture with S3 + Catalog + Athena/Redshift"
+        ]
+      },
+      {
+        "title": "Glue Data Catalog (Foundation for ETL)",
+        "topics": [
+          "Databases, tables, partitions in Glue Data Catalog",
+          "Table definitions and schema basics",
+          "Partition keys and partition discovery",
+          "Using Catalog tables in Athena and Spark",
+          "Managing schema changes (high level)"
+        ]
+      },
+      {
+        "title": "Crawlers",
+        "topics": [
+          "What crawlers do and how they infer schema",
+          "Crawler targets (S3, JDBC) basics",
+          "Classifier basics (CSV/JSON) and custom classifiers concept",
+          "Crawler schedules and recrawling behavior",
+          "Handling evolving schemas and partitioned data"
+        ]
+      },
+      {
+        "title": "Glue ETL Jobs (Spark) Basics",
+        "topics": [
+          "Glue job types: Spark, Python Shell (overview)",
+          "Glue Studio vs script-based jobs",
+          "Job parameters and runtime configuration",
+          "DynamicFrames vs DataFrames (when to use)",
+          "Reading from S3 and Catalog, writing to S3/Redshift (patterns)"
+        ]
+      },
+      {
+        "title": "Transforms & Data Processing Patterns",
+        "topics": [
+          "Common transforms: select, filter, map, join, groupBy",
+          "Handling nulls and type casting",
+          "Deduplication patterns",
+          "Flattening semi-structured data (JSON) basics",
+          "Enrichment joins (lookup tables) pattern"
+        ]
+      },
+      {
+        "title": "Incremental Loads & Job Bookmarks",
+        "topics": [
+          "Incremental ETL concepts (watermarking)",
+          "Glue job bookmarks (how they work)",
+          "Partition-based incremental processing patterns",
+          "Backfill and reprocessing strategies",
+          "Idempotency patterns for ETL jobs"
+        ]
+      },
+      {
+        "title": "Performance & Cost Optimization",
+        "topics": [
+          "DPUs and worker types (high level)",
+          "Partition pruning and pushdown concepts",
+          "Small files problem and compaction pattern",
+          "Tuning joins and shuffle (high level)",
+          "Choosing file formats (Parquet) for performance"
+        ]
+      },
+      {
+        "title": "Reliability, Monitoring & Operations",
+        "topics": [
+          "Retries, timeout, and failure handling",
+          "CloudWatch logs and metrics for Glue jobs",
+          "Error tables / rejected records pattern",
+          "Operational alerts and runbooks (concept)",
+          "Release checklist for production ETL"
+        ]
+      },
+      {
+        "title": "Mini Project — Batch ETL with Glue",
+        "topics": [
+          "Ingest raw CSV/JSON to S3 (bronze)",
+          "Catalog data with a crawler",
+          "Transform to Parquet (silver) with a Glue Spark job",
+          "Create curated aggregates (gold)",
+          "Implement incremental load using partitions or bookmarks",
+          "Validate row counts and data quality checks",
+          "Document pipeline in GitHub README"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "aws-emr",
+    "title": "Amazon EMR",
+    "icon": "FiCpu",
+    "duration": "1–2 Weeks",
+    "level": "Intermediate",
+    "image": "/images/courses/emr.png",
+    "description": "Learn Amazon EMR for big data batch processing using Spark/Hive/Trino: cluster architecture, scaling, job submission, tuning, security, and cost optimization for production pipelines.",
+    "prerequisites": "Linux basics, S3 basics, SQL basics. Spark basics helpful.",
+    "courseStructure": [
+      {
+        "title": "EMR Fundamentals",
+        "topics": [
+          "What is Amazon EMR and when to use it",
+          "EMR cluster architecture (master/primary, core, task nodes)",
+          "EMR on EC2 vs EMR Serverless (overview)",
+          "Supported engines overview (Spark, Hive, Trino/Presto)",
+          "Common EMR data engineering patterns"
+        ]
+      },
+      {
+        "title": "Cluster Setup & Networking",
+        "topics": [
+          "VPC, subnets, security groups for EMR",
+          "IAM roles: EMR service role vs EC2 instance profile",
+          "Accessing cluster (SSH, Session Manager concept)",
+          "Bootstrap actions (what and why)",
+          "Logging to S3 (best practice)"
+        ]
+      },
+      {
+        "title": "Spark on EMR (Batch Processing)",
+        "topics": [
+          "Submitting jobs (spark-submit basics)",
+          "Reading/writing data from S3",
+          "Working with partitioned data and Parquet",
+          "Common transforms and joins (high level)",
+          "Handling skew and shuffle (concept)"
+        ]
+      },
+      {
+        "title": "Hive/Trino on EMR (Query Layer)",
+        "topics": [
+          "Hive metastore concept and Glue Catalog integration (overview)",
+          "External tables pointing to S3",
+          "Trino/Presto basics for fast SQL queries",
+          "When to use EMR SQL engines vs Athena",
+          "Query performance factors (high level)"
+        ]
+      },
+      {
+        "title": "Scaling & Cost Optimization",
+        "topics": [
+          "Instance fleets/groups basics",
+          "Auto scaling policies overview",
+          "Spot instances and interruption handling",
+          "Cluster sizing guidelines (high level)",
+          "Keeping clusters alive vs ephemeral clusters (patterns)"
+        ]
+      },
+      {
+        "title": "Security & Operations",
+        "topics": [
+          "Encryption in transit and at rest (overview)",
+          "Kerberos concept (optional overview)",
+          "Monitoring with CloudWatch",
+          "Troubleshooting failed Spark jobs (logs and common causes)",
+          "Operational runbooks and retry strategies"
+        ]
+      },
+      {
+        "title": "Mini Project — EMR Batch Pipeline",
+        "topics": [
+          "Spin up an EMR cluster (or EMR Serverless overview)",
+          "Run a Spark job to transform raw data into Parquet",
+          "Partition data and write to S3 (silver/gold layers)",
+          "Run a SQL query using Hive/Trino to validate outputs",
+          "Apply cost controls (auto-terminate / spot strategy concept)",
+          "Document setup + tuning notes in GitHub README"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "pyspark-for-batch-etl",
+    "title": "PySpark for Batch ETL",
+    "icon": "SiApachespark",
+    "duration": "1–2 Weeks",
+    "level": "Beginner → Intermediate",
+    "image": "/images/courses/pyspark.png",
+    "description": "Learn PySpark for batch ETL: DataFrames, transforms, joins, window functions, performance tuning, partitioning, file formats, and building reliable incremental pipelines.",
+    "prerequisites": "Python basics and SQL basics.",
+    "courseStructure": [
+      {
+        "title": "PySpark Setup & Core Concepts",
+        "topics": [
+          "What is Spark and why it is used",
+          "Spark architecture overview (driver, executors concept)",
+          "SparkSession and basic project setup",
+          "DataFrame vs RDD (high level)",
+          "Lazy evaluation and actions vs transformations"
+        ]
+      },
+      {
+        "title": "Reading & Writing Data (Files + S3 Pattern)",
+        "topics": [
+          "Reading CSV/JSON/Parquet",
+          "Defining schemas vs inference",
+          "Writing Parquet and partitioned outputs",
+          "Append vs overwrite patterns",
+          "Handling schema evolution (high level)"
+        ]
+      },
+      {
+        "title": "DataFrame Transformations",
+        "topics": [
+          "select, withColumn, cast, when/otherwise",
+          "filter, where, distinct, dropDuplicates",
+          "groupBy, agg, pivot (intro)",
+          "Handling nulls (fillna, dropna)",
+          "Exploding arrays and flattening nested data (intro)"
+        ]
+      },
+      {
+        "title": "Joins & SQL in Spark",
+        "topics": [
+          "Join types and join conditions",
+          "Broadcast joins (concept + when to use)",
+          "Using Spark SQL (createOrReplaceTempView)",
+          "Window functions (row_number, rank, lag/lead)",
+          "Deduplication patterns with windows"
+        ]
+      },
+      {
+        "title": "Performance Tuning Essentials",
+        "topics": [
+          "Partitions and repartition/coalesce",
+          "Shuffle basics and reducing shuffle cost",
+          "Caching/persisting (when to use)",
+          "Skew basics and mitigation ideas (high level)",
+          "File sizing and small files compaction pattern"
+        ]
+      },
+      {
+        "title": "Incremental Loads & Reliability Patterns",
+        "topics": [
+          "Watermarking concepts (batch incremental)",
+          "Partition-based incremental processing",
+          "Idempotent writes and rerun safety",
+          "Backfill strategy and reprocessing windows",
+          "Data validation checks (counts, duplicates, null constraints)"
+        ]
+      },
+      {
+        "title": "Mini Project — PySpark ETL Pipeline",
+        "topics": [
+          "Read raw CSV/JSON and standardize schema",
+          "Clean and deduplicate records",
+          "Create curated outputs in Parquet (partitioned)",
+          "Build an incremental load (date partition or watermark concept)",
+          "Run validations and publish results summary",
+          "Document code + steps in GitHub README"
+        ]
+      }
+    ]
+  },
+    {
+    "slug": "aws-athena",
+    "title": "Amazon Athena",
+    "icon": "FiSearch",
+    "duration": "1–2 Weeks",
+    "level": "Intermediate → Professional",
+    "image": "/images/courses/athena.png",
+    "description": "Master Amazon Athena for production analytics on S3: Glue Catalog, partitioning, CTAS, Parquet optimization, Iceberg, security/governance, cost control, and reliable query patterns for data platforms.",
+    "prerequisites": "Strong SQL (joins, window functions), S3 basics, understanding of partitions and file formats (CSV/JSON/Parquet).",
+    "courseStructure": [
+      {
+        "title": "Athena Architecture & Setup (Production View)",
+        "topics": [
+          "What Athena is and when to use it vs Redshift/EMR",
+          "Presto/Trino execution basics (high level)",
+          "Workgroups: isolation, query limits, and governance",
+          "Query result location and encryption basics",
+          "Glue Data Catalog integration (database/table/partition concept)"
+        ]
+      },
+      {
+        "title": "S3 Table Design for Athena",
+        "topics": [
+          "Data lake layout patterns (bronze/silver/gold)",
+          "Partitioning strategy (date/org/region) and pruning behavior",
+          "Avoiding over-partitioning and small files problem",
+          "Parquet vs CSV/JSON for performance",
+          "Compression strategy and file sizing guidelines"
+        ]
+      },
+      {
+        "title": "Table Creation & CTAS (Core Production Skill)",
+        "topics": [
+          "External tables vs CTAS tables",
+          "CTAS to convert raw to Parquet (standard pattern)",
+          "Partitioned writes and incremental CTAS patterns",
+          "Schema evolution and safe changes (patterns)",
+          "Handling nulls, types, and timestamp parsing safely"
+        ]
+      },
+      {
+        "title": "Performance Tuning & Cost Optimization",
+        "topics": [
+          "How Athena pricing works (scan-based) and reducing scanned bytes",
+          "Column pruning and predicate pushdown concepts",
+          "Partition pruning and filter strategy",
+          "Using Parquet + compression for scan reduction",
+          "Common anti-patterns (SELECT *, unbounded scans, too many small files)"
+        ]
+      },
+      {
+        "title": "Iceberg in Athena (Modern Lakehouse)",
+        "topics": [
+          "Iceberg concepts: snapshots, schema evolution, time travel",
+          "Creating and querying Iceberg tables in Athena (patterns)",
+          "MERGE/UPSERT style concepts (high level usage patterns)",
+          "Compaction and maintenance concepts (high level)",
+          "When Iceberg is better than plain Parquet folders"
+        ]
+      },
+      {
+        "title": "Security, Governance & Access Control",
+        "topics": [
+          "IAM permissions and least privilege for Athena + S3 + Glue",
+          "Lake Formation overview for governed access patterns",
+          "Encrypting query results (SSE-S3/SSE-KMS concept)",
+          "Audit trails with CloudTrail (query access patterns)",
+          "Data masking / row-column level security (high level patterns)"
+        ]
+      },
+      {
+        "title": "Operations, Monitoring & Reliability",
+        "topics": [
+          "Query history, failure debugging, and common errors",
+          "Handling schema drift safely (contract patterns)",
+          "Automated query pipelines (scheduled runs concept)",
+          "Data validation checks (row counts, freshness, duplicates) using SQL",
+          "Operational runbooks (retries, backfills, incident checks)"
+        ]
+      },
+      {
+        "title": "Mini Project — S3 Analytics with Athena",
+        "topics": [
+          "Create external tables over raw data on S3",
+          "Convert raw to Parquet using CTAS into curated zone",
+          "Build partitioned tables and validate pruning",
+          "Implement cost controls via workgroups and best practices",
+          "Add Iceberg table (optional) and demonstrate time travel concept",
+          "Publish README + query examples + architecture diagram"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "aws-lambda",
+    "title": "AWS Lambda ",
+    "icon": "FiZap",
+    "duration": "1–2 Weeks",
+    "level": "Intermediate → Professional",
+    "image": "/images/courses/lambda.png",
+    "description": "Learn AWS Lambda for production-grade serverless compute: event-driven ETL, integrations, concurrency, reliability patterns, security, observability, deployment automation, and performance optimization.",
+    "prerequisites": "Python or JavaScript basics, HTTP basics, IAM basics recommended.",
+    "courseStructure": [
+      {
+        "title": "Lambda Core Concepts (Production Basics)",
+        "topics": [
+          "What Lambda is and best-fit use cases",
+          "Runtime, handler, execution environment",
+          "Timeouts, memory, CPU allocation and tuning",
+          "Packaging and dependencies (zip) basics",
+          "Environment variables and config patterns"
+        ]
+      },
+      {
+        "title": "Event Sources & Integrations",
+        "topics": [
+          "S3 events (ObjectCreated) processing patterns",
+          "EventBridge rules and event-driven pipelines",
+          "SQS triggers: batching, visibility timeout, retries",
+          "Kinesis triggers: shards, batch size, ordering basics",
+          "API Gateway integration overview (REST/HTTP)"
+        ]
+      },
+      {
+        "title": "Reliability Patterns (Must for Professional Level)",
+        "topics": [
+          "Retries, backoff, and failure handling patterns",
+          "Idempotency patterns for event processing",
+          "DLQ patterns (SQS/SNS) and re-drive concept",
+          "Poison-pill messages and safe handling patterns",
+          "Exactly-once vs at-least-once processing concepts"
+        ]
+      },
+      {
+        "title": "Concurrency, Scaling & Performance",
+        "topics": [
+          "Concurrency model and scaling behavior",
+          "Reserved concurrency vs provisioned concurrency",
+          "Cold start basics and mitigation patterns (high level)",
+          "Batching and throughput tuning for streams/queues",
+          "Performance profiling using logs/metrics (pattern)"
+        ]
+      },
+      {
+        "title": "Security & Networking",
+        "topics": [
+          "IAM execution role and least privilege policy patterns",
+          "Secrets management concept (SSM/Secrets Manager patterns)",
+          "VPC Lambda basics (when needed, trade-offs)",
+          "Encryption basics (KMS concept for secrets/data)",
+          "Secure logging and sensitive data handling"
+        ]
+      },
+      {
+        "title": "Observability & Operations",
+        "topics": [
+          "CloudWatch logs and structured logging patterns",
+          "Metrics and alarms (errors, throttles, duration)",
+          "Tracing concepts (high level) and debugging flow",
+          "Operational runbooks (retries, replay, backfill patterns)",
+          "Versioning and aliases for safe releases"
+        ]
+      },
+      {
+        "title": "Deployment & Automation",
+        "topics": [
+          "CI/CD approach for Lambda (build, test, deploy concept)",
+          "Infrastructure as code overview (SAM/CDK/Terraform concept)",
+          "Blue/green or canary deployments (high level)",
+          "Config separation by environments (dev/test/prod)",
+          "Artifact versioning and rollback patterns"
+        ]
+      },
+      {
+        "title": "Mini Project — Event-Driven ETL with Lambda",
+        "topics": [
+          "Trigger Lambda on S3 upload and validate input",
+          "Transform raw files (CSV/JSON) into curated output (concept/pattern)",
+          "Write outputs to S3 with partition naming standard",
+          "Add DLQ + retries + idempotency key strategy",
+          "Add CloudWatch alarms and operational checklist",
+          "Publish README + architecture diagram + test cases"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "aws-step-functions",
+    "title": "AWS Step Functions",
+    "icon": "FiGitBranch",
+    "duration": "1–2 Weeks",
+    "level": "Intermediate → Professional",
+    "image": "/images/courses/stepfunctions.png",
+    "description": "Learn AWS Step Functions to orchestrate reliable data pipelines: workflows, service integrations, retries, error handling, parallelism, distributed map, monitoring, and production orchestration patterns.",
+    "prerequisites": "Basic AWS services knowledge (Lambda/SQS/S3). Understanding of async processing is helpful.",
+    "courseStructure": [
+      {
+        "title": "Step Functions Fundamentals",
+        "topics": [
+          "What Step Functions is and why orchestration matters",
+          "Standard vs Express workflows (use cases and trade-offs)",
+          "State machine basics and Amazon States Language (ASL) overview",
+          "Execution history and debugging approach",
+          "Input/output and JSONPath basics"
+        ]
+      },
+      {
+        "title": "Core States & Workflow Building Blocks",
+        "topics": [
+          "Task, Choice, Wait, Pass, Succeed, Fail states",
+          "Parallel state for multi-branch pipelines",
+          "Map state for batch processing patterns",
+          "Distributed Map overview (high level)",
+          "Payload shaping patterns (input/output filtering)"
+        ]
+      },
+      {
+        "title": "Error Handling, Retries & Resilience (Professional Standard)",
+        "topics": [
+          "Retry policies (interval, max attempts, backoff rate)",
+          "Catch blocks and fallback paths",
+          "Timeout patterns and circuit-breaker concepts (high level)",
+          "Idempotency and safe replays",
+          "Dead-letter and compensation patterns (high level)"
+        ]
+      },
+      {
+        "title": "Service Integrations (Data Engineering Use Cases)",
+        "topics": [
+          "Lambda integration patterns (sync/async concept)",
+          "Glue integration patterns (start job, wait for completion concept)",
+          "Athena integration patterns (start query, poll, fetch results concept)",
+          "EMR integration patterns (high level)",
+          "SQS/EventBridge integration concepts"
+        ]
+      },
+      {
+        "title": "Async Patterns & Long-Running Jobs",
+        "topics": [
+          "Callback pattern concept (task token high level)",
+          "Polling vs callback trade-offs",
+          "Human-in-the-loop approval concept (optional overview)",
+          "Workflow versioning and safe updates",
+          "Handling partial failures and resumability"
+        ]
+      },
+      {
+        "title": "Monitoring, Operations & Cost",
+        "topics": [
+          "Execution metrics and alarm concepts",
+          "Centralized logging and audit concepts",
+          "Operational dashboards concept (pipeline success/latency)",
+          "Cost drivers (state transitions) and optimization basics",
+          "Runbooks for failures, retries, and reprocessing"
+        ]
+      },
+      {
+        "title": "Mini Project — Orchestrated Batch ETL Pipeline",
+        "topics": [
+          "Orchestrate an end-to-end batch pipeline (ingest → transform → validate)",
+          "Integrate with Lambda + Glue/Athena (pattern-based)",
+          "Add retries/catch paths for failure handling",
+          "Run validation step and write status/audit output",
+          "Add monitoring/alerts checklist",
+          "Publish README + state machine diagram + execution screenshots"
+        ]
+      }
+    ]
+  },
+  {
+  "slug": "aws-kinesis",
+  "title": "Amazon Kinesis (Data Streams + Firehose + Analytics)",
+  "icon": "FiActivity",
+  "duration": "2–3 Weeks",
+  "level": "Intermediate → Professional",
+  "image": "/images/courses/kinesis.png",
+  "description": "Learn Amazon Kinesis for real-time data engineering: Kinesis Data Streams, Firehose delivery, stream processing patterns, ordering, scaling, retries, monitoring, security, and building a production-grade streaming pipeline.",
+  "prerequisites": "AWS basics, S3 basics, JSON basics. Understanding of async processing and message queues helpful.",
+  "courseStructure": [
+    {
+      "title": "Streaming Fundamentals (Required Concepts)",
+      "topics": [
+        "Batch vs streaming (latency, throughput, ordering)",
+        "Events, producers, consumers, partitions/shards concepts",
+        "At-least-once vs exactly-once delivery concepts",
+        "Late events and reprocessing concepts",
+        "Idempotency patterns in streaming pipelines"
+      ]
+    },
+    {
+      "title": "Kinesis Data Streams Core",
+      "topics": [
+        "Kinesis Data Streams overview and use cases",
+        "Stream, shard, partition key, sequence number concepts",
+        "Throughput limits and how shards impact scale",
+        "Retention period and replay patterns",
+        "Enhanced fan-out vs shared throughput (high level)",
+        "Producer libraries overview (SDK, KPL concept)"
+      ]
+    },
+    {
+      "title": "Producing Events (Producer Side)",
+      "topics": [
+        "Designing event payloads (schema + versioning basics)",
+        "Choosing a partition key for ordering and distribution",
+        "Batching records and performance trade-offs",
+        "Handling throttling (ProvisionedThroughputExceeded) patterns",
+        "Retry/backoff strategies for producers",
+        "Ordering guarantees within a shard"
+      ]
+    },
+    {
+      "title": "Consuming Events (Consumer Side)",
+      "topics": [
+        "Consumer patterns: Lambda, KCL-based apps, custom consumers",
+        "Checkpointing and replay behavior",
+        "Handling duplicates and idempotent processing",
+        "Error handling patterns and poison events",
+        "Parallelism and scaling consumers (shard-level)",
+        "Backpressure and lag management concepts"
+      ]
+    },
+    {
+      "title": "Kinesis Data Firehose (Delivery Streams)",
+      "topics": [
+        "Firehose overview and use cases (simple delivery)",
+        "Delivery targets: S3, Redshift, OpenSearch (high level)",
+        "Buffering (size/time) and latency trade-offs",
+        "Data transformation with Lambda (pattern)",
+        "Format conversion to Parquet/ORC (concept)",
+        "Dynamic partitioning concept (high level)",
+        "Error output (failed records) handling patterns"
+      ]
+    },
+    {
+      "title": "Stream Processing Patterns (Professional Level)",
+      "topics": [
+        "Filtering, enrichment, and routing patterns",
+        "Windowing concepts (tumbling/sliding/session windows high level)",
+        "Deduplication strategies (event IDs, watermark concepts)",
+        "Exactly-once concepts (where it applies and where it doesn’t)",
+        "CDC-style event modeling basics (insert/update/delete events)",
+        "Schema registry concept (enforce schema across producers/consumers)"
+      ]
+    },
+    {
+      "title": "Scaling, Performance & Cost Optimization",
+      "topics": [
+        "Shard scaling strategies (split/merge concepts)",
+        "Hot shard problem and partition key design fixes",
+        "Right-sizing retention and throughput",
+        "Batching optimization for producers/consumers",
+        "Firehose buffering cost/latency tuning",
+        "Cost drivers and how to control spend"
+      ]
+    },
+    {
+      "title": "Security, Governance & Compliance",
+      "topics": [
+        "IAM policies for streams and Firehose",
+        "KMS encryption for streams and delivery",
+        "VPC delivery patterns (when needed, high level)",
+        "Secure handling of PII in event payloads (masking concept)",
+        "Audit trails and access logging concepts"
+      ]
+    },
+    {
+      "title": "Monitoring, Troubleshooting & Operations",
+      "topics": [
+        "Key metrics: incoming records/bytes, read/write throughput, iterator age",
+        "Consumer lag monitoring and alerting",
+        "Firehose delivery metrics and failure diagnosis",
+        "Debugging throttling and retries",
+        "Operational runbooks for replay/backfill",
+        "Disaster recovery concepts (multi-region patterns high level)"
+      ]
+    },
+    {
+      "title": "Mini Project — Real-Time Data Pipeline with Kinesis",
+      "topics": [
+        "Create a Kinesis stream and define event schema + versioning strategy",
+        "Build a producer that publishes events with correct partition key design",
+        "Build a consumer (Lambda/KCL pattern) that processes events idempotently",
+        "Deliver events to S3 using Firehose (with optional transformation)",
+        "Convert stream output to Parquet for analytics (pattern-based)",
+        "Monitor lag and set alarms for throttling and delivery failures",
+        "Document architecture, scaling plan, and operational steps in GitHub README"
+      ]
+    }
+  ]
+},
+  {
+    "slug": "gcp-gcs",
+    "title": "Google Cloud Storage (GCS)",
+    "icon": "FiLayers",
+    "duration": "1–2 Weeks",
+    "level": "Beginner → Intermediate",
+    "image": "/images/courses/googlecloud.png",
+    "description": "Learn GCS for cloud storage and data lakes: buckets/objects, IAM, encryption, lifecycle, retention, replication, performance patterns, events, and data lake layout best practices.",
+    "prerequisites": "Basic cloud concepts helpful but not required.",
+    "courseStructure": [
+      {
+        "title": "GCS Fundamentals",
+        "topics": [
+          "What is GCS and common data engineering use cases",
+          "Buckets, objects, folders/prefixes concept",
+          "Regions, dual-region, multi-region basics",
+          "Object metadata, labels, and tagging patterns",
+          "Console and gsutil basics (high level)",
+          "Signed URLs overview (controlled access)"
+        ]
+      },
+      {
+        "title": "Access Control (IAM) & Security",
+        "topics": [
+          "IAM roles for storage (viewer, objectViewer, objectAdmin, admin)",
+          "Bucket-level vs object-level permissions",
+          "Uniform bucket-level access vs fine-grained access (high level)",
+          "Public access prevention patterns",
+          "Service accounts and least privilege strategy",
+          "Audit logging basics (who accessed what)"
+        ]
+      },
+      {
+        "title": "Encryption, Retention & Governance",
+        "topics": [
+          "Encryption at rest (Google-managed vs CMEK concept)",
+          "Encryption in transit basics",
+          "Retention policies and legal holds",
+          "Object versioning overview",
+          "Data governance concepts for storage buckets",
+          "Organizing buckets by environment (dev/test/prod) patterns"
+        ]
+      },
+      {
+        "title": "Storage Classes & Lifecycle Rules",
+        "topics": [
+          "Storage classes overview (Standard, Nearline, Coldline, Archive)",
+          "Lifecycle rules for transition and deletion",
+          "Cost vs access trade-offs and selecting classes",
+          "Handling archival and restore patterns (high level)",
+          "Best practices for lifecycle + retention together"
+        ]
+      },
+      {
+        "title": "Data Lake Design on GCS",
+        "topics": [
+          "Bronze/silver/gold folder layout patterns",
+          "Partitioning strategy (date/org/region) and pruning concepts",
+          "Small files problem and compaction patterns",
+          "Choosing formats for analytics (Parquet vs CSV/JSON)",
+          "Naming standards and file sizing guidelines"
+        ]
+      },
+      {
+        "title": "Performance & Reliability Patterns",
+        "topics": [
+          "Parallel uploads/downloads concepts",
+          "Handling large objects and resumable uploads",
+          "Retries and idempotency for object writes",
+          "Consistency model (high level) and safe design patterns",
+          "Operational runbooks for deletion/restore scenarios"
+        ]
+      },
+      {
+        "title": "Events & Integrations (Intro)",
+        "topics": [
+          "Object change notifications concept (event-driven pipelines)",
+          "Pub/Sub notifications from GCS (high level)",
+          "Using GCS as landing zone for Dataflow/BigQuery pipelines",
+          "Common ingestion patterns from external sources",
+          "Error handling for event-driven ingestion (pattern-based)"
+        ]
+      },
+      {
+        "title": "Mini Project — Build a GCS Data Lake Bucket",
+        "topics": [
+          "Create secure buckets with IAM least privilege",
+          "Implement bronze/silver/gold folder layout",
+          "Upload CSV/JSON data and standardize naming",
+          "Enable lifecycle rules for cost optimization",
+          "Set retention policy (demo)",
+          "Document governance + structure in GitHub README"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "gcp-dataflow",
+    "title": "Google Cloud Dataflow",
+    "icon": "SiGoogledataflow",
+    "duration": "2–3 Weeks",
+    "level": "Intermediate → Professional",
+    "image": "/images/courses/dataflow.png",
+    "description": "Learn Dataflow (Apache Beam) for production pipelines: batch + streaming, transformations, windowing, stateful processing, scaling, reliability, monitoring, and deploying reusable templates.",
+    "prerequisites": "Python or Java basics, SQL basics, basic GCP concepts (IAM, networking) helpful.",
+    "courseStructure": [
+      {
+        "title": "Dataflow & Beam Fundamentals",
+        "topics": [
+          "What Dataflow is and when to use it",
+          "Apache Beam concepts: pipeline, PCollection, transforms",
+          "Runners concept (Dataflow runner overview)",
+          "Batch vs streaming in Beam",
+          "Dataflow job lifecycle and execution model (high level)"
+        ]
+      },
+      {
+        "title": "Building Batch Pipelines",
+        "topics": [
+          "Reading from GCS (CSV/JSON/Parquet patterns)",
+          "Parsing, validation, and cleansing transforms",
+          "Mapping, filtering, aggregations",
+          "Writing outputs to GCS and BigQuery",
+          "Idempotent batch patterns and safe reruns"
+        ]
+      },
+      {
+        "title": "Streaming Pipelines with Pub/Sub",
+        "topics": [
+          "Reading events from Pub/Sub (subscription patterns)",
+          "Event time vs processing time concepts",
+          "Watermarks and late data handling concepts",
+          "Windowing (tumbling/sliding/session windows)",
+          "Triggers concept (early/late firings high level)"
+        ]
+      },
+      {
+        "title": "Enrichment, Joins & Stateful Processing",
+        "topics": [
+          "Enrichment lookups (side inputs concept)",
+          "Join patterns (high level Beam approach)",
+          "Deduplication patterns (eventId strategy)",
+          "State and timers concepts (high level)",
+          "Handling out-of-order events and replay"
+        ]
+      },
+      {
+        "title": "Reliability & Error Handling (Professional)",
+        "topics": [
+          "Dead-letter patterns for bad events",
+          "Validation and schema enforcement patterns",
+          "Retry/backoff concepts and transient failures",
+          "Exactly-once concepts and where they apply",
+          "Backfill and replay strategies for streaming pipelines"
+        ]
+      },
+      {
+        "title": "Performance, Scaling & Cost Control",
+        "topics": [
+          "Worker scaling and autoscaling concepts",
+          "Parallelism and bottleneck diagnosis",
+          "Shuffles and grouping cost concepts",
+          "Optimizing windowing and aggregation workloads",
+          "Cost drivers and tuning approach"
+        ]
+      },
+      {
+        "title": "Operations, Monitoring & Observability",
+        "topics": [
+          "Dataflow job monitoring basics",
+          "Cloud Logging and metrics overview",
+          "Pipeline lag, throughput, and error alerts concepts",
+          "Debugging common failures (schema, parsing, timeouts)",
+          "Operational runbooks (restart, replay, backfill)"
+        ]
+      },
+      {
+        "title": "Templates & CI/CD",
+        "topics": [
+          "Flex Templates overview (reusable pipeline deploy pattern)",
+          "Parameterizing pipelines and environments",
+          "Deployment automation overview (Terraform/Cloud Build concept)",
+          "Artifact versioning and rollback patterns",
+          "Testing approach (unit tests and pipeline tests concept)"
+        ]
+      },
+      {
+        "title": "Mini Project — Batch + Streaming Pipeline",
+        "topics": [
+          "Batch: GCS → Dataflow → BigQuery curated tables",
+          "Streaming: Pub/Sub → Dataflow windows → BigQuery",
+          "Add dead-letter handling for invalid records",
+          "Add deduplication and late event handling patterns",
+          "Create a template for repeatable deployments",
+          "Document architecture + runbook in GitHub README"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "gcp-bigquery",
+    "title": "BigQuery",
+    "icon": "SiGooglebigquery",
+    "duration": "2–3 Weeks",
+    "level": "Beginner → Professional",
+    "image": "/images/courses/bigquery.png",
+    "description": "Master BigQuery for analytics: SQL, partitioning, clustering, ingestion patterns, optimization, security, governance, and building production-ready data marts and pipelines.",
+    "prerequisites": "SQL basics. Basic data modeling knowledge helpful.",
+    "courseStructure": [
+      {
+        "title": "BigQuery Fundamentals",
+        "topics": [
+          "What BigQuery is and typical analytics use cases",
+          "Projects, datasets, tables, and locations basics",
+          "BigQuery pricing concepts (storage vs query)",
+          "BigQuery UI basics and running queries",
+          "Standard SQL overview and best practices"
+        ]
+      },
+      {
+        "title": "Tables, Schemas & Data Types",
+        "topics": [
+          "Creating tables and defining schemas",
+          "Data types and casting patterns",
+          "Nested and repeated fields (STRUCT/ARRAY basics)",
+          "Null handling and safe functions",
+          "Schema evolution patterns (adding fields safely)"
+        ]
+      },
+      {
+        "title": "Ingestion & Loading Patterns",
+        "topics": [
+          "Load from GCS (CSV/JSON/Parquet patterns)",
+          "Streaming inserts overview (when used)",
+          "External tables over GCS (when to use)",
+          "Load jobs, error handling and rejects patterns",
+          "Incremental loads strategy (watermark concept)"
+        ]
+      },
+      {
+        "title": "Partitioning & Clustering (Core Professional Skill)",
+        "topics": [
+          "Partitioned tables and partition filter requirement concept",
+          "Choosing partition keys (date/time strategy)",
+          "Clustering and when it improves performance",
+          "Avoiding over-partitioning and small partition issues",
+          "Cost and performance impact of good table design"
+        ]
+      },
+      {
+        "title": "Query Performance & Cost Optimization",
+        "topics": [
+          "Avoiding full scans (selective filters)",
+          "Column pruning and best practices",
+          "Using approximate aggregations (high level)",
+          "Materialized views overview (when to use)",
+          "Query plan and execution details (high level)",
+          "Controlling costs with reservations/quotas (overview)"
+        ]
+      },
+      {
+        "title": "Data Modeling for Analytics",
+        "topics": [
+          "Designing facts and dimensions in BigQuery",
+          "Star schema patterns for reporting",
+          "Handling SCD Type 1/2 (high level patterns)",
+          "Aggregations and data marts approach",
+          "Validation and reconciliation checks"
+        ]
+      },
+      {
+        "title": "Security, Governance & Operations",
+        "topics": [
+          "IAM permissions for datasets/tables",
+          "Row-level and column-level security concepts",
+          "Data masking policies (high level)",
+          "Audit logs overview",
+          "Data retention and lifecycle patterns"
+        ]
+      },
+      {
+        "title": "Mini Project — BigQuery Analytics Mart",
+        "topics": [
+          "Load data from GCS into raw tables",
+          "Build curated tables with partitioning and clustering",
+          "Create reporting views and aggregates",
+          "Apply cost controls and query best practices",
+          "Add basic governance permissions",
+          "Document queries + schema + diagram in GitHub README"
+        ]
+      }
+    ]
+  },
+  {
+  "slug": "gcp-pubsub",
+  "title": "Google Cloud Pub/Sub",
+  "icon": "FiActivity",
+  "duration": "1–2 Weeks",
+  "level": "Intermediate → Professional",
+  "image": "/images/courses/pubsub.png",
+  "description": "Learn Google Cloud Pub/Sub for event-driven and streaming data engineering: topics/subscriptions, push/pull delivery, ordering, retries, dead-lettering, schema patterns, monitoring, and production messaging design.",
+  "prerequisites": "Basic GCP concepts helpful. Understanding of HTTP and async processing is useful.",
+  "courseStructure": [
+    {
+      "title": "Pub/Sub Fundamentals",
+      "topics": [
+        "What Pub/Sub is and common data engineering use cases",
+        "Core concepts: topic, subscription, message, publisher, subscriber",
+        "Push vs Pull subscriptions (when to use)",
+        "Ack, ack deadline, message retention concepts",
+        "Delivery guarantees (at-least-once) and duplicates concept"
+      ]
+    },
+    {
+      "title": "Designing Events & Message Contracts",
+      "topics": [
+        "Event payload design (JSON structure best practices)",
+        "Event IDs for deduplication patterns",
+        "Schema versioning strategy (backward/forward compatibility concepts)",
+        "Message attributes vs message body",
+        "Ordering requirements and how to model events"
+      ]
+    },
+    {
+      "title": "Publishers (Producer Side)",
+      "topics": [
+        "Publisher batching and latency/throughput trade-offs",
+        "Retry/backoff patterns for publish failures",
+        "Idempotency patterns at producer level",
+        "Ordering keys concept (message ordering)",
+        "Handling high throughput publish workloads (high level)"
+      ]
+    },
+    {
+      "title": "Subscribers (Consumer Side)",
+      "topics": [
+        "Subscriber concurrency and scaling patterns",
+        "Ack strategy and processing patterns",
+        "Flow control and backpressure concepts",
+        "Handling duplicates safely (idempotent processing)",
+        "Graceful shutdown patterns for consumers"
+      ]
+    },
+    {
+      "title": "Retries, Dead-Lettering & Reliability (Professional)",
+      "topics": [
+        "Redelivery behavior and retry patterns",
+        "Dead Letter Topics (DLT) and max delivery attempts",
+        "Poison messages and safe handling patterns",
+        "Replay/backfill strategies using retention and reprocessing",
+        "Exactly-once concepts (what Pub/Sub guarantees vs what pipeline must do)"
+      ]
+    },
+    {
+      "title": "Advanced Features (Production Tooling)",
+      "topics": [
+        "Message filtering on subscriptions (routing patterns)",
+        "Ordering keys and ordered delivery (constraints and trade-offs)",
+        "Schema registry concept (Pub/Sub Schemas overview)",
+        "BigQuery subscription overview (when used)",
+        "Cross-project communication patterns (high level)"
+      ]
+    },
+    {
+      "title": "Security & Governance",
+      "topics": [
+        "IAM roles for Pub/Sub publishers and subscribers",
+        "Least privilege patterns (topic vs subscription permissions)",
+        "Encryption basics and CMEK concept (high level)",
+        "Audit logs for publish/subscribe access (concept)",
+        "Handling sensitive data in messages (PII patterns)"
+      ]
+    },
+    {
+      "title": "Monitoring, Troubleshooting & Operations",
+      "topics": [
+        "Key metrics: publish rate, ack rate, backlog/undelivered messages",
+        "Subscriber lag monitoring and alerting patterns",
+        "Debugging delivery failures and permission issues",
+        "Operational runbooks for replay and incident handling",
+        "Cost drivers and optimization ideas (high level)"
+      ]
+    },
+    {
+      "title": "Mini Project — Real-Time Messaging Pipeline",
+      "topics": [
+        "Create topic + subscription (pull) and publish events",
+        "Build a subscriber that processes messages idempotently",
+        "Add ordering keys (demo) and discuss trade-offs",
+        "Enable Dead Letter Topic and simulate poison messages",
+        "Connect to Dataflow (pattern) for streaming transforms",
+        "Monitor backlog and create basic alerting checklist",
+        "Document architecture + runbook in GitHub README"
+      ]
+    }
+  ]
+},
+  {
+    "slug": "azure-adf",
+    "title": "Azure Data Factory (ADF)",
+    "icon": "FiTool",
+    "duration": "2–3 Weeks",
+    "level": "Beginner → Professional",
+    "image": "/images/courses/azure-data-factory.png",
+    "description": "Master Azure Data Factory for batch ETL and orchestration: pipelines, datasets, linked services, Integration Runtime, Copy patterns, parameterization, triggers, error handling, monitoring, and production-ready ingestion design.",
+    "prerequisites": "Basic SQL and data concepts. Familiarity with cloud storage (ADLS/Blob) helpful.",
+    "courseStructure": [
+      {
+        "title": "ADF Fundamentals",
+        "topics": [
+          "What ADF is and common batch ETL use cases",
+          "Core components: pipelines, activities, datasets, linked services",
+          "Authoring in Synapse Studio/ADF UI (high level)",
+          "Integration Runtime overview (Azure IR vs Self-hosted IR)",
+          "Pipeline runs vs activity runs: basic monitoring view"
+        ]
+      },
+      {
+        "title": "Connectors, Linked Services & Datasets",
+        "topics": [
+          "Linked services for ADLS Gen2, Blob, Azure SQL, REST (overview)",
+          "Datasets and schema mapping basics",
+          "Authentication patterns: managed identity, service principal (concepts)",
+          "Working with file-based sources: CSV/JSON/Parquet basics",
+          "Parameterizing datasets (file path/date partitions)"
+        ]
+      },
+      {
+        "title": "Copy Activity (Core Skill)",
+        "topics": [
+          "Copy Activity internals: source/sink settings overview",
+          "Parallel copy, throughput tuning, and DIU concept (high level)",
+          "Staging settings and when staging is useful",
+          "Fault tolerance settings: skip incompatible rows, logging rejects",
+          "Schema mapping and column mapping patterns"
+        ]
+      },
+      {
+        "title": "Control Flow & Orchestration",
+        "topics": [
+          "Variables and parameters: how data flows through pipelines",
+          "If Condition and Switch activities",
+          "ForEach patterns (batching files/partitions)",
+          "Until + Wait patterns (polling and scheduling workflows)",
+          "Execute Pipeline + modular pipeline design"
+        ]
+      },
+      {
+        "title": "Triggers & Scheduling",
+        "topics": [
+          "Schedule triggers and basic scheduling patterns",
+          "Tumbling window triggers (concept + when to use)",
+          "Event triggers for storage events (overview)",
+          "Handling late-arriving data (high level)",
+          "Backfill runs strategy (reprocessing windows)"
+        ]
+      },
+      {
+        "title": "Incremental Loads & Watermarking (Professional)",
+        "topics": [
+          "Incremental load patterns using watermark columns (concepts)",
+          "Storing and updating watermarks (high level)",
+          "Change tracking options overview (CDC/last updated timestamps)",
+          "Idempotent ingestion and rerun safety patterns",
+          "Partition-by-date ingestion patterns (folder standards)"
+        ]
+      },
+      {
+        "title": "Reliability, Error Handling & Monitoring",
+        "topics": [
+          "Retries, timeouts, and activity policies",
+          "Failure paths and branching for error handling",
+          "Logging pipeline failures to a storage/table (pattern)",
+          "Alerts and operational dashboards (high level)",
+          "Diagnostics: common failure causes (permissions, IR, schema mismatches)"
+        ]
+      },
+      {
+        "title": "Mini Project — ADF Batch Ingestion Pipeline",
+        "topics": [
+          "Ingest daily files from ADLS raw → clean landing zone",
+          "Parameterize by date partition and folder naming",
+          "Use ForEach to load multiple files/partitions",
+          "Add retry + failure logging pattern",
+          "Create schedule trigger and run backfill for 7 days",
+          "Document pipeline design + runbook in GitHub README"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "azure-databricks",
+    "title": "Azure Databricks",
+    "icon": "SiDatabricks",
+    "duration": "3–4 Weeks",
+    "level": "Intermediate → Professional",
+    "image": "/images/courses/azure-databricks.png",
+    "description": "Learn Azure Databricks for batch ETL with Spark: workspace, clusters, notebooks, PySpark DataFrames, reading/writing ADLS, transformations, performance basics, jobs scheduling, secrets, and production ETL patterns.",
+    "prerequisites": "Python basics and SQL fundamentals. Basic understanding of files/Parquet recommended.",
+    "courseStructure": [
+      {
+        "title": "Databricks Fundamentals",
+        "topics": [
+          "What Databricks is and common data engineering use cases",
+          "Workspace basics: notebooks, repos, jobs, clusters",
+          "Compute concepts: driver/executors (high level)",
+          "Interactive clusters vs job clusters (when to use)",
+          "Library management overview (PyPI/Maven basics)"
+        ]
+      },
+      {
+        "title": "Spark + PySpark Essentials",
+        "topics": [
+          "Spark DataFrame model: transformations vs actions",
+          "Reading data: CSV/JSON/Parquet into DataFrames",
+          "Basic transforms: select, filter, withColumn, explode",
+          "Aggregations and groupBy patterns",
+          "Joins overview and common join strategies (high level)"
+        ]
+      },
+      {
+        "title": "ADLS Gen2 Integration",
+        "topics": [
+          "Accessing ADLS Gen2 (ABFS paths overview)",
+          "Credential patterns: managed identity / service principal (concepts)",
+          "Folder standards for raw/clean/curated layers",
+          "Partitioned writes and folder partition strategy",
+          "Handling schema drift and column casting patterns"
+        ]
+      },
+      {
+        "title": "ETL Design Patterns (Professional)",
+        "topics": [
+          "Bronze/Silver/Gold (lakehouse) layer patterns",
+          "Reusable transforms: modular notebooks and functions",
+          "Parameterization: widgets and job parameters",
+          "Data validation checks: row counts, dedupe keys, constraints (overview)",
+          "Idempotent batch processing patterns"
+        ]
+      },
+      {
+        "title": "Performance & Reliability",
+        "topics": [
+          "Shuffle vs broadcast join (high level)",
+          "Skew awareness and mitigation concepts",
+          "Caching and persistence (when to use)",
+          "Small files issue and compaction concept",
+          "Checkpointing basics (high level, when relevant)"
+        ]
+      },
+      {
+        "title": "Jobs, Scheduling & Operations",
+        "topics": [
+          "Databricks Jobs: tasks, dependencies, retries",
+          "Scheduling jobs and notifications",
+          "Cluster policies and cost controls (high level)",
+          "Logging and debugging failed runs",
+          "CI/CD concepts with repos (high level)"
+        ]
+      },
+      {
+        "title": "Security & Secrets",
+        "topics": [
+          "Secrets scopes overview",
+          "Key Vault backed secrets (concept)",
+          "Access control basics: workspace, clusters, jobs",
+          "Handling PII and sensitive configs (patterns)",
+          "Audit/observability overview (high level)"
+        ]
+      },
+      {
+        "title": "Mini Project — Databricks Batch ETL Pipeline",
+        "topics": [
+          "Read raw files from ADLS (daily partitions)",
+          "Clean and standardize schema + write curated Parquet/Delta",
+          "Implement dedupe + validation checks",
+          "Create a scheduled Databricks Job with retries",
+          "Add basic monitoring checklist and runbook",
+          "Document architecture + code structure in GitHub README"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "delta-lake",
+    "title": "Delta Lake",
+    "icon": "FiLayers",
+    "duration": "1–2 Weeks",
+    "level": "Intermediate → Professional",
+    "image": "/images/courses/delta-lake.png",
+    "description": "Master Delta Lake for lakehouse batch ETL: ACID transactions, Delta tables, MERGE upserts, schema evolution, time travel, optimization (compaction/Z-ORDER), retention/VACUUM, and production data reliability patterns.",
+    "prerequisites": "Basic Spark/PySpark and file formats knowledge (Parquet). Familiarity with partitions helpful.",
+    "courseStructure": [
+      {
+        "title": "Delta Lake Fundamentals",
+        "topics": [
+          "Why Delta Lake: ACID on data lake and reliability benefits",
+          "Delta transaction log concept (high level)",
+          "Creating Delta tables and writing data (append/overwrite patterns)",
+          "Delta vs Parquet: practical differences",
+          "Partitioning strategy for Delta tables (basics)"
+        ]
+      },
+      {
+        "title": "Upserts & Incremental Loads (MERGE)",
+        "topics": [
+          "MERGE INTO basics and when to use",
+          "Choosing merge keys and deduplication patterns",
+          "Handling late-arriving data (high level)",
+          "Idempotent batch loads and rerun safety patterns",
+          "CDC-style processing overview (concepts)"
+        ]
+      },
+      {
+        "title": "Schema Evolution & Governance",
+        "topics": [
+          "Schema evolution concepts (adding columns safely)",
+          "Enforcing schema vs allowing evolution (trade-offs)",
+          "Handling type changes and safe casting patterns",
+          "Column mapping and renamed columns (high level)",
+          "Data contracts and compatibility considerations"
+        ]
+      },
+      {
+        "title": "Time Travel & Versioning",
+        "topics": [
+          "Time travel queries using version/timestamp (concept)",
+          "Use cases: debugging, rollback, reproducibility",
+          "Restore/rollback overview (high level)",
+          "Auditing changes in tables (concepts)",
+          "Operational guidelines for version retention"
+        ]
+      },
+      {
+        "title": "Performance & Optimization",
+        "topics": [
+          "Small files problem and compaction strategies",
+          "OPTIMIZE basics (what it does, when to run)",
+          "Z-ORDER overview (when it helps, trade-offs)",
+          "Partition pruning and file layout impacts",
+          "Merge performance considerations (high level)"
+        ]
+      },
+      {
+        "title": "Retention, VACUUM & Operations",
+        "topics": [
+          "VACUUM concept and file cleanup basics",
+          "Retention policies and safe defaults (high level)",
+          "Managing storage growth and housekeeping patterns",
+          "Common pitfalls: wrong keys, partition explosion, frequent overwrites",
+          "Operational runbook basics for Delta tables"
+        ]
+      },
+      {
+        "title": "Mini Project — Delta Upsert Pipeline",
+        "topics": [
+          "Create a Delta table for curated entities",
+          "Ingest incremental batches and apply MERGE upserts",
+          "Add dedupe keys and idempotent processing logic",
+          "Run OPTIMIZE + discuss Z-ORDER choice",
+          "Demonstrate time travel for rollback/debugging",
+          "Document design + runbook in GitHub README"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "azure-synapse",
+    "title": "Azure Synapse Analytics",
+    "icon": "FiDatabase",
+    "duration": "2–3 Weeks",
+    "level": "Intermediate → Professional",
+    "image": "/images/courses/azure-synapse.png",
+    "description": "Learn Azure Synapse for serving and analytics: workspace, Serverless SQL vs Dedicated SQL, querying lake data, external tables/views, modeling marts, performance basics, security, and operational best practices for production analytics.",
+    "prerequisites": "Strong SQL basics. Familiarity with ADLS and partitioned data helpful.",
+    "courseStructure": [
+      {
+        "title": "Synapse Fundamentals",
+        "topics": [
+          "What Synapse is and typical analytics/lakehouse use cases",
+          "Synapse workspace and studio overview",
+          "Core components: SQL pools, Spark pools, pipelines (high level)",
+          "Serverless SQL vs Dedicated SQL Pool (when to use)",
+          "Serving layer concepts: marts, views, semantic layer (high level)"
+        ]
+      },
+      {
+        "title": "Serverless SQL on Data Lake (Core Skill)",
+        "topics": [
+          "Querying Parquet/CSV in ADLS via Serverless SQL (concepts)",
+          "External tables/views patterns for curated datasets",
+          "Partition pruning concepts and folder partition strategy",
+          "Handling schema drift in files (high level)",
+          "Common query patterns for reporting datasets"
+        ]
+      },
+      {
+        "title": "Dedicated SQL Pool (Warehouse) Overview",
+        "topics": [
+          "When dedicated pool makes sense (workload patterns)",
+          "Loading concepts (high level): COPY/ingestion patterns",
+          "Distribution concepts (hash/round-robin/replicated) overview",
+          "Indexes and statistics basics (high level)",
+          "Cost/performance trade-offs (high level)"
+        ]
+      },
+      {
+        "title": "Data Modeling for BI",
+        "topics": [
+          "Facts and dimensions for analytics",
+          "Star schema patterns for reporting",
+          "Aggregations and marts strategy",
+          "Validation and reconciliation checks",
+          "Serving patterns for Power BI (high level)"
+        ]
+      },
+      {
+        "title": "Security, Governance & Access",
+        "topics": [
+          "RBAC and workspace permissions overview",
+          "Managed identity access patterns to ADLS (concepts)",
+          "Row/column-level security concepts (high level)",
+          "Auditing and logs overview (high level)",
+          "Handling sensitive data for analytics (patterns)"
+        ]
+      },
+      {
+        "title": "Operations & Monitoring",
+        "topics": [
+          "Monitoring SQL requests and query performance (high level)",
+          "Common issues: permissions, file path errors, partition mistakes",
+          "Workload management basics (high level)",
+          "Operational runbooks and incident response checklist",
+          "Cost optimization ideas (high level)"
+        ]
+      },
+      {
+        "title": "Mini Project — Synapse Analytics Mart",
+        "topics": [
+          "Query curated data in ADLS via Serverless SQL",
+          "Create views/external tables for reporting layer",
+          "Design a simple star schema mart (concept + structure)",
+          "Create KPI queries and aggregates",
+          "Apply access control pattern (least privilege concept)",
+          "Document architecture + runbook in GitHub README"
+        ]
+      }
+    ]
+  },
+  {
+  "slug": "azure-adls-gen2",
+  "title": "ADLS Gen2 (Azure Data Lake Storage)",
+  "icon": "FiLayers",
+  "duration": "1–2 Weeks",
+  "level": "Beginner → Intermediate",
+  "image": "/images/courses/adls.png",
+  "description": "Learn ADLS Gen2 for modern data lakes: storage accounts, containers, folder standards, security with RBAC/ACLs, networking, lifecycle management, and lake design patterns for batch/streaming analytics.",
+  "prerequisites": "Basic cloud concepts helpful. Knowing file formats (CSV/JSON/Parquet) is a plus.",
+  "courseStructure": [
+    {
+      "title": "ADLS Gen2 Fundamentals",
+      "topics": [
+        "What ADLS Gen2 is and where it fits in Azure data engineering",
+        "Storage account basics: containers, directories, blobs",
+        "Hierarchical namespace (HNS) and why it matters",
+        "Hot/Cool/Archive access tiers (high-level)",
+        "Common patterns: raw/clean/curated zones"
+      ]
+    },
+    {
+      "title": "Lake Design Standards (Professional)",
+      "topics": [
+        "Folder naming conventions and dataset partitioning strategy",
+        "Data zones: raw, bronze/silver/gold mapping (concept)",
+        "File formats: CSV vs JSON vs Parquet (when to use)",
+        "Small files problem and compaction strategies (concept)",
+        "Metadata management approach (high level)"
+      ]
+    },
+    {
+      "title": "Security: RBAC + ACLs",
+      "topics": [
+        "Azure RBAC vs POSIX-style ACLs in ADLS",
+        "Setting ACLs at folder level and inheritance concepts",
+        "Least privilege patterns for data teams",
+        "Managed identities (high level) for accessing ADLS",
+        "Secure access patterns for pipelines and notebooks"
+      ]
+    },
+    {
+      "title": "Networking & Secure Access",
+      "topics": [
+        "Public endpoints vs private endpoints (concept)",
+        "Storage firewall rules and trusted services",
+        "Service endpoints vs private links (high level)",
+        "SAS tokens overview (when used)",
+        "Key Vault concept for secrets (high level)"
+      ]
+    },
+    {
+      "title": "Data Ingestion & Integration",
+      "topics": [
+        "Connecting ADLS with ADF and Databricks (concept)",
+        "Landing data safely and validating file arrivals",
+        "Incremental ingestion strategies (watermark concept)",
+        "Handling schema drift (high level)",
+        "Basic reconciliation checks (row counts, file counts)"
+      ]
+    },
+    {
+      "title": "Operations, Governance & Cost",
+      "topics": [
+        "Lifecycle management policies (tiering/retention)",
+        "Data retention and deletion standards",
+        "Monitoring storage usage and cost drivers",
+        "Audit logs overview (high level)",
+        "Backup/DR concepts for storage (high level)"
+      ]
+    },
+    {
+      "title": "Mini Project — Build a Lake Layout",
+      "topics": [
+        "Create storage account + containers for zones",
+        "Design folder strategy for 2 datasets with partitioning",
+        "Apply RBAC + ACL for 2 roles (Engineer/Analyst)",
+        "Upload sample data into raw and curate to Parquet (concept)",
+        "Document standards + access model in README"
+      ]
+    }
+  ]
+},
+{
+  "slug": "azure-event-hubs",
+  "title": "Azure Event Hubs",
+  "icon": "FiActivity",
+  "duration": "1–2 Weeks",
+  "level": "Intermediate → Professional",
+  "image": "/images/courses/eventhubs.png",
+  "description": "Learn Azure Event Hubs for streaming ingestion: event streams, partitions, consumer groups, checkpoints, retention, capture to ADLS, scaling, reliability, and production-ready streaming design patterns.",
+  "prerequisites": "Basic Azure concepts helpful. Understanding of messaging/streaming basics is useful.",
+  "courseStructure": [
+    {
+      "title": "Event Hubs Fundamentals",
+      "topics": [
+        "Where Event Hubs fits in Azure streaming architecture",
+        "Core concepts: namespace, event hub, partitions, throughput units",
+        "Producers and consumers overview",
+        "Consumer groups and offset concepts",
+        "Retention and replay basics"
+      ]
+    },
+    {
+      "title": "Partitions, Ordering & Scale (Professional)",
+      "topics": [
+        "Partitioning strategy and key selection",
+        "Ordering guarantees and limitations (per partition)",
+        "Scaling throughput and capacity planning (concept)",
+        "Batching and producer performance patterns",
+        "Handling backpressure and spikes (high level)"
+      ]
+    },
+    {
+      "title": "Consumer Patterns & Checkpointing",
+      "topics": [
+        "Consumer client patterns (high level)",
+        "Checkpointing and offsets (why it matters)",
+        "Idempotent processing and duplicate handling",
+        "Poison events strategy (concept)",
+        "Graceful shutdown and reliability patterns"
+      ]
+    },
+    {
+      "title": "Event Hubs Capture to ADLS",
+      "topics": [
+        "Capture feature and common use-cases",
+        "Choosing formats and folder patterns (high level)",
+        "Retention vs capture trade-offs",
+        "Using captured data as raw streaming zone",
+        "Reprocessing/backfill from ADLS"
+      ]
+    },
+    {
+      "title": "Security & Networking",
+      "topics": [
+        "Authentication options overview (SAS vs Azure AD at high level)",
+        "RBAC concepts and least privilege",
+        "Private endpoints overview (high level)",
+        "Key Vault integration concept",
+        "Secure producer/consumer setup patterns"
+      ]
+    },
+    {
+      "title": "Monitoring & Operations",
+      "topics": [
+        "Key metrics: ingress, egress, throttles, consumer lag",
+        "Alerts and dashboards overview",
+        "Troubleshooting: throttling, lag, permissions",
+        "Cost drivers and optimization ideas",
+        "Runbook for replay and incident handling"
+      ]
+    },
+    {
+      "title": "Mini Project — Streaming Landing Zone",
+      "topics": [
+        "Create Event Hub with partitions + consumer group",
+        "Simulate producer publishing events (concept)",
+        "Enable Capture to ADLS and validate folder outputs",
+        "Design idempotent consumer logic (concept)",
+        "Document architecture and operational checklist"
+      ]
+    }
+  ]
+},
+{
+  "slug": "azure-stream-analytics",
+  "title": "Azure Stream Analytics",
+  "icon": "FiBarChart2",
+  "duration": "1–2 Weeks",
+  "level": "Intermediate → Professional",
+  "image": "/images/courses/stream-analytics.png",
+  "description": "Learn Azure Stream Analytics for real-time processing: inputs/outputs, streaming SQL, windowing, late events, reference data joins, error handling, monitoring, and production real-time pipeline patterns.",
+  "prerequisites": "Basic SQL required. Familiarity with streaming concepts helpful.",
+  "courseStructure": [
+    {
+      "title": "Stream Analytics Overview",
+      "topics": [
+        "What Stream Analytics is and when to use it",
+        "Inputs/outputs overview (Event Hubs, ADLS, Synapse/SQL at high level)",
+        "Jobs, streaming units and scaling basics",
+        "End-to-end streaming pipeline anatomy",
+        "Common use cases: aggregations, alerts, dashboards"
+      ]
+    },
+    {
+      "title": "Streaming SQL Fundamentals",
+      "topics": [
+        "Query structure and outputs",
+        "Filtering and basic transformations",
+        "Derived fields and simple parsing patterns",
+        "Handling nulls and safe expressions",
+        "Testing queries with sample input"
+      ]
+    },
+    {
+      "title": "Windows & Time Concepts (Professional)",
+      "topics": [
+        "Tumbling vs hopping vs sliding windows",
+        "Session windows overview",
+        "Event time vs processing time concepts",
+        "Late arrival handling concept",
+        "Choosing window strategies for analytics vs alerting"
+      ]
+    },
+    {
+      "title": "Joins & Reference Data",
+      "topics": [
+        "Stream-to-stream joins concept (high level)",
+        "Reference data joins (static/dimension lookup)",
+        "Enrichment patterns (joining metadata)",
+        "Deduplication concepts",
+        "Output shaping for sinks"
+      ]
+    },
+    {
+      "title": "Reliability, Errors & Data Quality",
+      "topics": [
+        "Poison events handling concept",
+        "Retry patterns and exactly-once discussion (concept)",
+        "Schema drift handling strategies (high level)",
+        "Data quality checks in streaming (concept)",
+        "Designing idempotent outputs (concept)"
+      ]
+    },
+    {
+      "title": "Operations & Monitoring",
+      "topics": [
+        "Monitoring job health and throughput",
+        "Lag/backlog concepts and alerting",
+        "Cost drivers: streaming units and output choices",
+        "Deployment options overview (ARM/Terraform concept)",
+        "Runbook for failures and reprocessing"
+      ]
+    },
+    {
+      "title": "Mini Project — Real-time Aggregation",
+      "topics": [
+        "Consume events from Event Hubs",
+        "Compute windowed aggregates (tumbling/hopping)",
+        "Enrich using reference data (concept)",
+        "Write output to ADLS (curated streaming zone) or SQL (concept)",
+        "Document architecture + dashboards/metrics checklist"
+      ]
+    }
+  ]
+},
+{
+  "slug": "azure-functions",
+  "title": "Azure Functions",
+  "icon": "FiZap",
+  "duration": "1–2 Weeks",
+  "level": "Beginner → Professional",
+  "image": "/images/courses/azure-functions.png",
+  "description": "Learn Azure Functions for serverless data engineering automation: triggers/bindings, Event Hub processing, blob triggers, timers, durable workflows (overview), retries, observability, and production deployment patterns.",
+  "prerequisites": "Basic programming (JavaScript/Python/C#) helpful. Basic Azure concepts recommended.",
+  "courseStructure": [
+    {
+      "title": "Azure Functions Fundamentals",
+      "topics": [
+        "What serverless means and when Functions is a good fit",
+        "Function apps, functions, runtime and hosting plans (overview)",
+        "Triggers and bindings overview",
+        "Local development and configuration patterns (high level)",
+        "Common data engineering use cases"
+      ]
+    },
+    {
+      "title": "Core Triggers for Data Engineering",
+      "topics": [
+        "Timer trigger (scheduled jobs)",
+        "HTTP trigger (webhook + API endpoints)",
+        "Blob trigger (landing zone automation)",
+        "Event Hub trigger (stream processing entry point)",
+        "Queue-based triggers (concept)"
+      ]
+    },
+    {
+      "title": "Bindings & Data Integrations",
+      "topics": [
+        "Input/output bindings concept",
+        "Writing to storage (concept)",
+        "Calling APIs and handling retries (high level)",
+        "Using managed identity for secure access (concept)",
+        "Key Vault integration concept"
+      ]
+    },
+    {
+      "title": "Reliability & Production Patterns (Professional)",
+      "topics": [
+        "Retry policies and transient failures",
+        "Idempotency patterns (avoid duplicates)",
+        "Poison message strategy (concept)",
+        "Timeouts and long-running work (overview)",
+        "Durable Functions overview (orchestration concept)"
+      ]
+    },
+    {
+      "title": "Observability & Operations",
+      "topics": [
+        "Application Insights overview",
+        "Logging, metrics, and tracing concepts",
+        "Alerting basics (high level)",
+        "Deployment patterns (zip deploy/GitHub Actions overview)",
+        "Cost drivers and optimization ideas"
+      ]
+    },
+    {
+      "title": "Mini Project — Serverless Data Automation",
+      "topics": [
+        "Blob trigger: validate incoming files and route to folders",
+        "Timer trigger: run a daily reconciliation check (concept)",
+        "Event Hub trigger: process a stream and write output (concept)",
+        "Implement idempotency strategy and basic retries",
+        "Document architecture + runbook"
+      ]
+    }
+  ]
+},
+{
+  "slug": "azure-logic-apps",
+  "title": "Azure Logic Apps",
+  "icon": "FiGitBranch",
+  "duration": "1–2 Weeks",
+  "level": "Beginner → Intermediate",
+  "image": "/images/courses/logic-apps.png",
+  "description": "Learn Azure Logic Apps for workflow automation and integration: connectors, triggers/actions, approvals, error handling, retries, monitoring, and building production-ready automation flows for data engineering operations.",
+  "prerequisites": "No-code/low-code friendly. Basic HTTP/API concepts helpful.",
+  "courseStructure": [
+    {
+      "title": "Logic Apps Fundamentals",
+      "topics": [
+        "What Logic Apps is and common automation use cases",
+        "Workflows, triggers, actions, connectors overview",
+        "Consumption vs Standard (high level overview)",
+        "Working with variables, conditions and loops",
+        "Managing configuration and parameters (high level)"
+      ]
+    },
+    {
+      "title": "Integration Patterns for Data Engineering",
+      "topics": [
+        "Trigger patterns: schedule, HTTP, event-based (high level)",
+        "Calling APIs and handling responses",
+        "File arrival + notification workflows (concept)",
+        "Incident response and operations automation (concept)",
+        "Approval workflows (for change control) concept"
+      ]
+    },
+    {
+      "title": "Error Handling & Reliability (Professional)",
+      "topics": [
+        "Scopes and try/catch style design using run-after",
+        "Retry policies and exponential backoff concepts",
+        "Timeouts and safe fallbacks",
+        "Idempotency concept for workflows (high level)",
+        "Dead-letter style handling pattern (concept)"
+      ]
+    },
+    {
+      "title": "Data Handling & Transformations (Practical)",
+      "topics": [
+        "Parsing JSON and schema validation concepts",
+        "Data mapping and transformations (basic)",
+        "Working with arrays and foreach loops",
+        "Content-type handling and encoding basics",
+        "Composing messages for notifications and tickets"
+      ]
+    },
+    {
+      "title": "Monitoring, Security & Operations",
+      "topics": [
+        "Run history and troubleshooting workflows",
+        "Alerts and monitoring overview",
+        "Secure connections and secrets (Key Vault concept)",
+        "Access control basics (high level)",
+        "Cost drivers and optimization ideas"
+      ]
+    },
+    {
+      "title": "Mini Project — Data Ops Automation Workflow",
+      "topics": [
+        "Scheduled workflow to check pipeline status (concept)",
+        "Send notification on failures (email/teams concept)",
+        "Create a simple approval flow for reruns (concept)",
+        "Add error handling scope + retry strategy",
+        "Document workflow + runbook"
+      ]
+    }
+  ]
+},
+{
+  "slug": "snowflake-data-platform-course",
+  "title": "Snowflake Data Platform",
+  "icon": "SiSnowflake",
+  "duration": "2–3 Months",
+  "level": "Intermediate → Advanced",
+  "image": "/images/courses/snowflake.png",
+  "description": "This course provides hands-on training on the Snowflake Data Cloud, covering data engineering, analytics, performance optimization, security, and administration. You will learn how to build scalable data pipelines, optimize warehouses, manage security, and implement modern data architectures using Snowflake in real-world scenarios.",
+  "prerequisites": "Basic SQL knowledge and understanding of databases. Familiarity with cloud platforms (AWS/Azure/GCP) is recommended.",
+  "courseStructure": [
+    {
+      "title": "Introduction to Snowflake & Architecture",
+      "topics": [
+        "What is Snowflake Data Cloud?",
+        "Snowflake Editions and Use Cases",
+        "Snowflake Architecture: Storage, Compute, Cloud Services",
+        "Virtual Warehouses and Scaling Concepts",
+        "Account Structure, Regions, and Organizations",
+        "Snowflake UI, Worksheets, and Snowsight Overview"
+      ]
+    },
+    {
+      "title": "Snowflake SQL Fundamentals",
+      "topics": [
+        "Snowflake Databases, Schemas, and Tables",
+        "Data Types and Semi-Structured Data Types",
+        "DDL and DML Operations",
+        "Querying with SELECT, WHERE, GROUP BY, HAVING",
+        "Joins, Subqueries, CTEs",
+        "Time Travel Queries and Data Recovery"
+      ]
+    },
+    {
+      "title": "Data Loading & Unloading",
+      "topics": [
+        "Stages: Internal and External",
+        "COPY INTO for Bulk Loading",
+        "File Formats: CSV, JSON, Parquet, Avro, ORC, XML",
+        "Continuous Data Loading with Snowpipe",
+        "Error Handling and Validation",
+        "Unloading Data from Snowflake to Cloud Storage"
+      ]
+    },
+    {
+      "title": "Semi-Structured & JSON Data Handling",
+      "topics": [
+        "VARIANT, OBJECT, ARRAY Data Types",
+        "Flatten Function and Lateral Joins",
+        "Parsing JSON, XML, Avro, Parquet",
+        "Schema-on-Read vs Schema-on-Write",
+        "Querying Nested and Repeated Data",
+        "Best Practices for Semi-Structured Data"
+      ]
+    },
+    {
+      "title": "Warehouses, Performance & Cost Optimization",
+      "topics": [
+        "Warehouse Sizing and Scaling",
+        "Multi-Cluster Warehouses",
+        "Query Profile and Execution Plans",
+        "Result Caching and Metadata Caching",
+        "Clustering Keys and Micro-Partitioning",
+        "Cost Control: Auto-Suspend, Auto-Resume, Resource Monitors"
+      ]
+    },
+    {
+      "title": "Security & Access Control",
+      "topics": [
+        "Role-Based Access Control (RBAC)",
+        "System-Defined vs Custom Roles",
+        "Users, Roles, and Privileges",
+        "Network Policies and IP Whitelisting",
+        "Data Encryption (At Rest and In Transit)",
+        "Column-Level and Row-Level Security",
+        "Dynamic Data Masking"
+      ]
+    },
+    {
+      "title": "Data Engineering with Snowflake",
+      "topics": [
+        "Streams and Tasks for Incremental Processing",
+        "Change Data Capture (CDC) Patterns",
+        "Merge Operations for Upserts",
+        "Building ELT Pipelines in Snowflake",
+        "Error Handling and Idempotency",
+        "Orchestration with Tasks and External Tools"
+      ]
+    },
+    {
+      "title": "Snowflake for Analytics & BI",
+      "topics": [
+        "Star and Snowflake Schema Design",
+        "Fact and Dimension Tables",
+        "Materialized Views",
+        "Secure Views for Data Access",
+        "Connecting BI Tools (Power BI, Tableau, Looker)",
+        "Query Optimization for BI Workloads"
+      ]
+    },
+    {
+      "title": "Snowflake Time Travel, Fail-Safe & Data Protection",
+      "topics": [
+        "Time Travel Concepts and Retention",
+        "UNDROP and Data Recovery",
+        "Fail-Safe Overview",
+        "Zero-Copy Cloning",
+        "Backup and Recovery Strategies",
+        "Data Retention Policies"
+      ]
+    },
+    {
+      "title": "Snowflake Data Sharing & Collaboration",
+      "topics": [
+        "Secure Data Sharing",
+        "Reader Accounts",
+        "Cross-Account Data Sharing",
+        "Marketplace Data Sharing",
+        "Collaboration Across Organizations",
+        "Governance Best Practices for Sharing"
+      ]
+    },
+    {
+      "title": "Advanced Snowflake Features",
+      "topics": [
+        "Snowpark (Python, Java, Scala) Basics",
+        "User-Defined Functions (UDFs)",
+        "Stored Procedures",
+        "External Functions",
+        "Search Optimization Service",
+        "Snowflake Native Apps Overview"
+      ]
+    },
+    {
+      "title": "Monitoring, Governance & Admin Operations",
+      "topics": [
+        "Account Usage and Information Schema",
+        "Query History and Warehouse Usage",
+        "Cost Monitoring and Optimization Reports",
+        "Access History and Auditing",
+        "Resource Monitors and Alerts",
+        "Operational Best Practices"
+      ]
+    },
+    {
+      "title": "Snowflake Integration with Cloud Ecosystem",
+      "topics": [
+        "Snowflake + AWS S3 Integration",
+        "Snowflake + Azure Blob Integration",
+        "Snowflake + GCS Integration",
+        "Integrating with Kafka and Streaming Sources",
+        "Fivetran, Airbyte, DBT Integration",
+        "API-Based Integrations"
+      ]
+    },
+    {
+      "title": "Capstone Project (Portfolio Ready)",
+      "topics": [
+        "Design and Build an End-to-End Snowflake Data Platform",
+        "Ingest Batch and Streaming Data into Snowflake",
+        "Implement Incremental ELT Pipelines using Streams & Tasks",
+        "Apply Security, Masking, and Governance",
+        "Optimize Cost and Performance",
+        "Final Deliverables: GitHub Repo, Architecture Diagram, Demo Walkthrough"
+      ]
+    }
+  ]
+} 
+]

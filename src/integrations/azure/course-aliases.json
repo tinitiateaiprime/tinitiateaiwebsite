@@ -1,0 +1,11 @@
+{
+  "python": "python-language-course",
+  "typescript-course": "typescript-beginner-course",
+  "css-course": "css-beginner-course",
+  "sql-server-course": "sql-server-beginner-course",
+  "nodejs-course": "nodejs-beginner-course",
+  "spring-framework-core": "spring-beginner-course",
+  "git-course": "git-github-beginner-course",
+  "Python": "python-language-course",
+  "java-full-stack-development": "full-stack-java"
+}

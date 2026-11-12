@@ -1,0 +1,788 @@
+[
+    {
+  "slug": "core-java",
+  "title": "Core Java for Java Full Stack",
+  "icon": "FaJava",
+  "duration": "2 Months",
+  "level": "Beginner → Intermediate",
+  "image": "/images/courses/core-java.png",
+  "description": "Complete Core Java syllabus required for Java Full Stack: fundamentals, OOP, exceptions, collections, generics, Java 8+ (lambdas/streams), multithreading, file handling, and JDBC basics with interview-focused practice.",
+  "prerequisites": "Basic computer knowledge. Prior programming exposure is helpful but not mandatory.",
+  "courseStructure": [
+    {
+      "title": "Java Setup & Basics",
+      "topics": [
+        "JDK vs JRE vs JVM",
+        "Install JDK (Windows, Linux, macOS)",
+        "Set JAVA_HOME and PATH",
+        "IDE setup (IntelliJ/Eclipse) and project structure",
+        "Hello World",
+        "Compiling and Running (javac, java)",
+        "Understanding main() method",
+        "Keywords and identifiers",
+        "Comments and code conventions"
+      ]
+    },
+    {
+      "title": "Variables, Data Types & Type Casting",
+      "topics": [
+        "Variable Declaration and Initialization",
+        "Syntax, Multiple Declarations, Default Values",
+        "Variable Types: Local, Instance, Static",
+        "Reassigning & Scope",
+        "Variable Reassignment and Shadowing",
+        "Scope (block, method, class)",
+        "Naming Rules",
+        "Primitive Data Types: byte, short, int, long, float, double, char, boolean",
+        "Non-Primitive (Reference) Data Types: Strings, Arrays, Classes, Interfaces",
+        "Null and Default Values",
+        "Type Casting: Implicit (widening), Explicit (narrowing)"
+      ]
+    },
+    {
+      "title": "Operators & Expressions",
+      "topics": [
+        "Arithmetic Operators",
+        "Relational (Comparison) Operators",
+        "Logical Operators",
+        "Assignment Operators",
+        "Unary Operators",
+        "Ternary Operator",
+        "Precedence and Associativity",
+        "Expressions and evaluation rules"
+      ]
+    },
+    {
+      "title": "Control Flow",
+      "topics": [
+        "Conditional Statements: if, if-else, nested if",
+        "switch-case",
+        "Looping Constructs: for, while, do-while",
+        "Nested loops",
+        "Jump Statements: break, continue, return",
+        "Pattern printing (practice)",
+        "Basic input/output using Scanner"
+      ]
+    },
+    {
+      "title": "Methods & Parameters",
+      "topics": [
+        "Method declaration and calling",
+        "Parameters & Return Types",
+        "Method overloading (compile-time polymorphism intro)",
+        "Pass-by-Value (Java parameter passing)",
+        "Recursion basics",
+        "Varargs basics",
+        "Scope and lifetime of variables"
+      ]
+    },
+    {
+      "title": "Arrays",
+      "topics": [
+        "Introduction to Arrays",
+        "Declaring & Initializing Arrays",
+        "Arrays of Various Data Types",
+        "One-dimensional Arrays",
+        "Multidimensional Arrays (2D, 3D)",
+        "Array Operations",
+        "Traversing (for, for-each, while loop)",
+        "Updating & Accessing Elements",
+        "Arrays Utility Class: Arrays.toString, Arrays.equals, Arrays.copyOf",
+        "Sorting arrays (Arrays.sort)",
+        "Searching (linear, binary intro)",
+        "Limitations of Arrays"
+      ]
+    },
+    {
+      "title": "Strings",
+      "topics": [
+        "Introduction to Strings",
+        "Declaring & Initializing Strings",
+        "String immutability",
+        "String Pool and memory basics (concept)",
+        "String Operations",
+        "length(), charAt(), substring(), indexOf(), lastIndexOf()",
+        "toUpperCase(), toLowerCase(), trim(), replace(), contains()",
+        "equals(), equalsIgnoreCase(), compareTo(), startsWith(), endsWith()",
+        "String Concatenation: +, concat(), String.join(), String.format()",
+        "String Comparison: == vs equals(), compareTo()",
+        "StringBuilder and StringBuffer",
+        "append(), insert(), delete(), reverse(), toString()",
+        "Performance and thread-safety differences",
+        "String Conversion: parseInt, valueOf",
+        "String ↔ char[]",
+        "split() and String.join()",
+        "Common String Problems: reverse, palindrome, frequency, remove whitespaces",
+        "Utility: replaceAll(), isEmpty(), isBlank()",
+        "Limitations of Strings and when to prefer StringBuilder"
+      ]
+    },
+    {
+      "title": "Wrapper Classes",
+      "topics": [
+        "Wrapper classes overview",
+        "Autoboxing",
+        "Unboxing",
+        "Common conversions and pitfalls (null unboxing)"
+      ]
+    },
+    {
+      "title": "Classes & Objects",
+      "topics": [
+        "Defining a class",
+        "Creating objects",
+        "Instance vs static members",
+        "Constructors: default and parameterized",
+        "this keyword",
+        "Access Modifiers (public, private, protected, default)",
+        "Encapsulation using getters/setters",
+        "Object lifecycle basics"
+      ]
+    },
+    {
+      "title": "OOP — Encapsulation",
+      "topics": [
+        "Definition & importance",
+        "Data hiding",
+        "Getters & setters",
+        "Access modifiers and encapsulation",
+        "Real-world examples (Bank Account, Student)",
+        "Best practices"
+      ]
+    },
+    {
+      "title": "OOP — Inheritance",
+      "topics": [
+        "Definition & use cases",
+        "Types of inheritance: Single, Multilevel, Hierarchical",
+        "super keyword",
+        "Access parent constructors",
+        "Access parent methods & variables",
+        "Method overriding",
+        "Constructor chaining",
+        "Inheritance pitfalls and limitations"
+      ]
+    },
+    {
+      "title": "OOP — Polymorphism",
+      "topics": [
+        "Definition & types",
+        "Compile-time polymorphism (Method Overloading)",
+        "Runtime polymorphism (Method Overriding)",
+        "Rules for overloading & overriding",
+        "Dynamic method dispatch",
+        "instanceof operator",
+        "Upcasting & downcasting basics"
+      ]
+    },
+    {
+      "title": "OOP — Abstraction (Abstract Classes & Interfaces)",
+      "topics": [
+        "Definition & importance",
+        "Abstract classes",
+        "Abstract methods",
+        "Concrete vs abstract methods",
+        "Interfaces",
+        "Multiple inheritance via interfaces",
+        "Default & static methods (Java 8+)",
+        "Functional interfaces (intro)",
+        "Difference between abstract classes & interfaces"
+      ]
+    },
+    {
+      "title": "Exception Handling",
+      "topics": [
+        "Why exceptions? error vs exception",
+        "Exception hierarchy basics",
+        "Checked vs unchecked exceptions",
+        "try/catch/finally",
+        "Multiple catch blocks",
+        "throw vs throws",
+        "Custom exceptions",
+        "Try-with-resources (AutoCloseable)",
+        "Best practices and common pitfalls"
+      ]
+    },
+    {
+      "title": "Packages, Imports & Access Control",
+      "topics": [
+        "Packages and folder structure",
+        "Imports and fully qualified names",
+        "Access control across packages",
+        "Static imports (intro)",
+        "Creating reusable utility packages"
+      ]
+    },
+    {
+      "title": "Collections Framework (Full Stack Must)",
+      "topics": [
+        "Why collections vs arrays",
+        "Collection hierarchy overview",
+        "List: ArrayList vs LinkedList",
+        "Set: HashSet vs LinkedHashSet vs TreeSet",
+        "Map: HashMap vs LinkedHashMap vs TreeMap",
+        "Queue/Deque basics",
+        "Iterator vs ListIterator",
+        "for-each and iterator safe removal",
+        "Comparable vs Comparator",
+        "Sorting collections (Collections.sort)",
+        "Performance basics (Big-O intuition)"
+      ]
+    },
+    {
+      "title": "Generics",
+      "topics": [
+        "Why generics (type safety)",
+        "Generic classes and methods",
+        "Bounded types",
+        "Wildcards: ?, extends, super",
+        "Common generic patterns used in APIs"
+      ]
+    },
+    {
+      "title": "Java 8+ (Modern Java Essentials)",
+      "topics": [
+        "Lambda expressions",
+        "Functional interfaces",
+        "Predicate, Function, Consumer, Supplier",
+        "Method references",
+        "Stream API: map, filter, reduce",
+        "Collectors: toList, toSet, joining, groupingBy, partitioningBy",
+        "Optional: avoid NullPointerException patterns",
+        "Date & Time API (java.time): LocalDate, LocalDateTime, ZonedDateTime, Duration, Period"
+      ]
+    },
+    {
+      "title": "Multithreading & Concurrency (Required for Backend)",
+      "topics": [
+        "Thread and Runnable",
+        "Thread lifecycle basics",
+        "Synchronization (synchronized keyword)",
+        "Race conditions and thread safety",
+        "wait/notify basics",
+        "ExecutorService and thread pools",
+        "Callable and Future (intro)",
+        "Concurrent collections overview"
+      ]
+    },
+    {
+      "title": "File Handling & I/O",
+      "topics": [
+        "File class basics",
+        "Byte stream vs character stream",
+        "Buffered I/O",
+        "Reading and writing text files",
+        "Serialization and deserialization basics",
+        "NIO basics: Path, Files",
+        "Try-with-resources for file handling"
+      ]
+    }
+  ]
+},
+{
+  "slug": "spring-framework-core",
+  "title": "Spring Framework (Core Spring)",
+  "icon": "SiSpring",
+  "duration": "6 Weeks",
+  "level": "Beginner → Professional",
+  "image": "/images/courses/spring.png",
+  "description": "Core Spring (not Spring Boot): IoC/DI, beans, configuration, properties, profiles, validation, AOP, JDBC, transactions, integration patterns, testing, and professional best practices to build maintainable Spring applications.",
+  "prerequisites": "Core Java (OOP, collections, exceptions). Basic SQL/JDBC helpful.",
+  "courseStructure": [
+    {
+      "title": "Introduction to Spring Framework",
+      "topics": [
+        "What is Spring Framework and why it is used",
+        "Problems Spring solves (tight coupling, boilerplate, testing)",
+        "Spring modules overview (Core, Beans, Context, AOP, JDBC, Tx)",
+        "IoC and DI overview",
+        "Spring Container overview (BeanFactory vs ApplicationContext)"
+      ]
+    },
+    {
+      "title": "Spring Container & Bean Basics",
+      "topics": [
+        "Understanding IoC container responsibilities",
+        "Creating ApplicationContext (XML, AnnotationConfigApplicationContext)",
+        "Bean definitions and bean naming",
+        "Component scanning basics",
+        "Stereotypes: @Component, @Service, @Repository, @Controller",
+        "Manual bean registration: @Configuration and @Bean"
+      ]
+    },
+    {
+      "title": "Dependency Injection (DI) Deep Dive",
+      "topics": [
+        "Constructor injection",
+        "Setter injection",
+        "Field injection",
+        "@Autowired behavior and injection rules",
+        "Optional dependencies and required=false patterns",
+        "Resolving multiple beans: @Primary, @Qualifier",
+        "Circular dependencies and how to avoid them",
+        "Loose coupling and interface-driven design"
+      ]
+    },
+    {
+      "title": "Bean Scopes & Lifecycle (Professional Level)",
+      "topics": [
+        "Scopes: singleton, prototype",
+        "Web scopes overview: request, session, application",
+        "Bean lifecycle phases",
+        "Init and destroy callbacks",
+        "@PostConstruct and @PreDestroy",
+        "initMethod and destroyMethod on @Bean",
+        "BeanPostProcessor (concept + usage)",
+        "FactoryBean basics (concept)"
+      ]
+    },
+    {
+      "title": "Configuration Styles (XML + Annotations + Java Config)",
+      "topics": [
+        "XML configuration fundamentals",
+        "Annotation-based configuration fundamentals",
+        "Java-based configuration fundamentals",
+        "Mixing configuration styles safely",
+        "Component scanning with @ComponentScan",
+        "Importing configs with @Import",
+        "Creating reusable config modules"
+      ]
+    },
+    {
+      "title": "External Configuration & Properties",
+      "topics": [
+        "Using @PropertySource",
+        "Property placeholders and resolving values",
+        "@Value injection patterns",
+        "Environment object usage",
+        "Profiles with @Profile (dev/test/prod)",
+        "Profile-based bean loading",
+        "Configuration hygiene and best practices"
+      ]
+    },
+    {
+      "title": "SpEL (Spring Expression Language)",
+      "topics": [
+        "SpEL basics and use cases",
+        "Using SpEL with @Value",
+        "Operators and expressions",
+        "Accessing bean properties using SpEL",
+        "Common SpEL patterns and pitfalls"
+      ]
+    },
+    {
+      "title": "Spring AOP (Aspect-Oriented Programming)",
+      "topics": [
+        "Why AOP (cross-cutting concerns)",
+        "Core terms: Aspect, Advice, Join Point, Pointcut",
+        "Advice types: @Before, @After, @AfterReturning, @AfterThrowing, @Around",
+        "Pointcut expressions basics",
+        "Proxy-based AOP concept",
+        "AOP use cases: logging, auditing, timing, validation"
+      ]
+    },
+    {
+      "title": "Spring JDBC (JdbcTemplate)",
+      "topics": [
+        "Why Spring JDBC vs raw JDBC",
+        "Configuring DataSource (basic)",
+        "JdbcTemplate setup and usage",
+        "CRUD operations with JdbcTemplate",
+        "RowMapper usage",
+        "NamedParameterJdbcTemplate overview",
+        "Batch updates basics",
+        "Handling exceptions with Spring exception translation"
+      ]
+    },
+    {
+      "title": "Transaction Management (Spring Tx)",
+      "topics": [
+        "Why transactions matter",
+        "Programmatic vs declarative transactions",
+        "@Transactional fundamentals",
+        "Rollback rules basics",
+        "Propagation (high level)",
+        "Isolation (high level)",
+        "Common transaction pitfalls and fixes"
+      ]
+    },
+    {
+      "title": "Validation (Core Spring Integration)",
+      "topics": [
+        "Bean Validation overview (JSR 380)",
+        "Validator interface (Spring validation basics)",
+        "Validating service-layer inputs",
+        "Custom validators concept",
+        "Validation best practices"
+      ]
+    },
+    {
+      "title": "Professional Architecture & Best Practices",
+      "topics": [
+        "Layered architecture (Controller/Service/Repository)",
+        "DTO patterns and mapping basics",
+        "Exception strategy for maintainable apps",
+        "Clean bean design (single responsibility)",
+        "Avoiding God classes and tight coupling",
+        "Logging strategy basics (where and how)",
+        "Managing dependencies and testability"
+      ]
+    },
+    {
+      "title": "Testing Core Spring Applications",
+      "topics": [
+        "Unit testing Spring components",
+        "Using Mockito for mocking dependencies",
+        "Spring TestContext Framework overview",
+        "Loading application context in tests",
+        "Testing DI and configuration",
+        "Testing JdbcTemplate data access (basic patterns)"
+      ]
+    },
+    {
+      "title": "Mini Project (Core Spring Only)",
+      "topics": [
+        "Build a layered Java application using Core Spring DI",
+        "Use @Configuration/@Bean and component scanning",
+        "Add properties and profiles",
+        "Implement DAO layer using JdbcTemplate",
+        "Add declarative transactions with @Transactional",
+        "Add AOP logging/timing on service methods",
+        "Write unit tests for service layer"
+      ]
+    }
+  ]
+},
+{
+  "slug": "spring-boot-beginner-to-professional",
+  "title": "Spring Boot",
+  "icon": "SiSpring",
+  "duration": "2 Months",
+  "level": "Beginner → Professional",
+  "image": "/images/courses/springboot.png",
+  "description": "Learn Spring Boot end-to-end for professional backend development: building REST APIs, validation, exception handling, Spring Data JPA, security with JWT, testing, caching, messaging, observability, Docker, CI/CD, deployment, and a production-ready capstone.",
+  "prerequisites": "Core Java + OOP, basic SQL, Core Spring IoC/DI basics (recommended).",
+  "courseStructure": [
+    {
+      "title": "Spring Boot Introduction & Project Setup",
+      "topics": [
+        "What is Spring Boot and why it is used",
+        "Spring Boot vs Spring Framework",
+        "Spring Boot starters and dependency management",
+        "Spring Initializr and project structure",
+        "Maven/Gradle basics for Boot projects",
+        "Running the application (main class)",
+        "application.properties vs application.yml",
+        "Profiles basics (dev/test/prod)",
+        "External config: env variables and command-line args"
+      ]
+    },
+    {
+      "title": "Spring Boot Auto Configuration & Core Boot Concepts",
+      "topics": [
+        "Auto-configuration concept",
+        "@SpringBootApplication breakdown",
+        "Component scanning behavior in Boot",
+        "Customizing auto-config (high level)",
+        "Configuration properties: @ConfigurationProperties",
+        "Logging configuration basics",
+        "Banner, ports, and application startup basics"
+      ]
+    },
+    {
+      "title": "Building REST APIs with Spring Boot",
+      "topics": [
+        "@RestController and request mappings",
+        "@GetMapping, @PostMapping, @PutMapping, @DeleteMapping",
+        "@RequestParam, @PathVariable, @RequestBody",
+        "ResponseEntity and status codes",
+        "REST API design (resource modeling)",
+        "DTO pattern (request/response separation)",
+        "Pagination and sorting patterns",
+        "Filtering and search patterns",
+        "CORS configuration for frontend integration"
+      ]
+    },
+    {
+      "title": "Validation & Exception Handling (Professional Standard)",
+      "topics": [
+        "Bean Validation basics (JSR 380)",
+        "@Valid and common validation annotations",
+        "Custom validators (intro)",
+        "Global exception handling: @ControllerAdvice",
+        "Standard error responses (error code/message/details)",
+        "Handling validation errors cleanly",
+        "Best practices for API error handling"
+      ]
+    },
+    {
+      "title": "Persistence with Spring Data JPA (Hibernate)",
+      "topics": [
+        "JPA/Hibernate overview in Boot",
+        "Entities and mappings (@Entity, @Table, @Id)",
+        "Relationship mappings (OneToOne, OneToMany, ManyToOne, ManyToMany)",
+        "Fetch types (EAGER vs LAZY)",
+        "Cascade types and orphan removal",
+        "JpaRepository and derived queries",
+        "@Query (JPQL/native) basics",
+        "Pagination using Pageable",
+        "Transactions and @Transactional usage",
+        "N+1 problem and solutions (intro)",
+        "Auditing patterns (createdAt/updatedAt)"
+      ]
+    },
+    {
+      "title": "Database Config, Migrations & Production Patterns",
+      "topics": [
+        "DB configuration with properties and profiles",
+        "Connection pooling basics (HikariCP overview)",
+        "Flyway/Liquibase overview for schema migrations",
+        "Seeding data safely (dev only vs prod safe patterns)",
+        "Handling schema changes safely",
+        "Performance basics: indexes and query review (concept)"
+      ]
+    },
+    {
+      "title": "Spring Security (Beginner → Advanced)",
+      "topics": [
+        "Authentication vs authorization",
+        "Security filter chain basics",
+        "Password hashing and encoders",
+        "Role-based access control (RBAC)",
+        "Method-level security (@PreAuthorize)",
+        "JWT authentication (access token flow)",
+        "Refresh token concept (pattern)",
+        "CORS and CSRF basics for APIs",
+        "Securing endpoints and protecting sensitive data"
+      ]
+    },
+    {
+      "title": "File Upload/Download & Static Content",
+      "topics": [
+        "MultipartFile basics",
+        "File upload validation (size/type)",
+        "Serving files securely",
+        "Download endpoints and streaming responses",
+        "Local storage vs cloud storage concept",
+        "Presigned URL concept (high level)"
+      ]
+    },
+    {
+      "title": "Caching & Performance",
+      "topics": [
+        "Why caching and what to cache",
+        "Spring Cache abstraction (@EnableCaching)",
+        "@Cacheable, @CachePut, @CacheEvict",
+        "Cache strategies and TTL concept",
+        "Redis cache overview (optional)",
+        "Performance anti-patterns (N+1, heavy payloads)"
+      ]
+    },
+    {
+      "title": "Messaging, Async & Scheduling",
+      "topics": [
+        "@Async basics",
+        "Scheduling: @Scheduled basics",
+        "Event-driven patterns (application events)",
+        "Messaging overview (Kafka/RabbitMQ concepts)",
+        "Retries and idempotency basics",
+        "DLQ concept (high level)"
+      ]
+    },
+    {
+      "title": "Observability & Operations",
+      "topics": [
+        "Spring Boot Actuator endpoints",
+        "Health checks and readiness/liveness",
+        "Metrics basics (Micrometer overview)",
+        "Logging best practices (structured logs concept)",
+        "Tracing concepts (high level)",
+        "Handling production incidents (checklist)"
+      ]
+    },
+    {
+      "title": "Testing Spring Boot Applications (Professional)",
+      "topics": [
+        "Unit tests with JUnit",
+        "Mockito basics (mock, verify)",
+        "Controller testing with MockMvc",
+        "Repository tests (slice tests)",
+        "Integration tests overview",
+        "Testcontainers concept (high level)",
+        "Testing security and auth flows",
+        "Building a practical testing strategy"
+      ]
+    },
+    {
+      "title": "API Documentation & Developer Experience",
+      "topics": [
+        "OpenAPI/Swagger integration (intro)",
+        "Generating API docs and testing endpoints",
+        "Postman collections and environments",
+        "Versioning docs and release notes basics"
+      ]
+    },
+    {
+      "title": "Docker, CI/CD & Deployment",
+      "topics": [
+        "Packaging Boot apps (jar)",
+        "Dockerizing a Spring Boot app (concept + flow)",
+        "Environment variables and secrets for deployment",
+        "CI pipeline concept (build + test)",
+        "Deploy options overview (AWS/Azure/GCP)",
+        "Rollback strategy and release checklist"
+      ]
+    },
+    {
+      "title": "Capstone Project (Production-Ready Backend)",
+      "topics": [
+        "Build a complete Spring Boot REST API (Auth + RBAC + CRUD)",
+        "Use Spring Data JPA with a relational DB",
+        "Add validation + global exception handling",
+        "Implement JWT auth and protected routes",
+        "Add pagination/filtering/sorting",
+        "Add actuator health + basic metrics",
+        "Write unit and integration tests",
+        "Document APIs with OpenAPI",
+        "Containerize and deploy",
+        "GitHub README + architecture diagram + demo walkthrough"
+      ]
+    }
+  ]
+},
+{
+  "slug": "nodejs-course",
+  "title": "Node.js",
+  "icon": "SiNodedotjs",
+  "duration": "3–4 Weeks",
+  "level": "Beginner → Intermediate",
+  "image": "/images/courses/nodejs.png",
+  "description": "Learn Node.js backend development with Express, REST APIs, authentication, database integration, validation, security, testing, and deployment.",
+  "prerequisites": "JavaScript basics and basic HTTP knowledge is helpful.",
+  "courseStructure": [
+    {
+      "title": "Node.js Setup & Runtime Basics",
+      "topics": [
+        "What is Node.js and how it differs from browser JavaScript",
+        "Installing Node.js and npm",
+        "Project structure and package.json",
+        "npm scripts and semantic versioning",
+        "CommonJS vs ES Modules (require/import)",
+        "Running Node programs (node command)",
+        "Environment variables basics (.env)"
+      ]
+    },
+    {
+      "title": "Async JavaScript for Backend",
+      "topics": [
+        "Callbacks, Promises, async/await",
+        "Error handling in async code",
+        "Event loop basics (high level)",
+        "Working with async utilities (Promise.all, Promise.race)",
+        "Async patterns for API controllers"
+      ]
+    },
+    {
+      "title": "HTTP & REST API Fundamentals",
+      "topics": [
+        "HTTP methods (GET, POST, PUT, PATCH, DELETE)",
+        "Headers and status codes",
+        "REST principles (resources, statelessness)",
+        "Query params vs route params",
+        "Request body formats (JSON, form-data)",
+        "CORS basics"
+      ]
+    },
+    {
+      "title": "Express.js Essentials",
+      "topics": [
+        "Express setup and server creation",
+        "Routing (routes, params, query)",
+        "Middleware concept and middleware chain",
+        "Built-in middleware (express.json, static)",
+        "Custom middleware (logger, auth guard)",
+        "Central error-handling middleware"
+      ]
+    },
+    {
+      "title": "Build CRUD APIs",
+      "topics": [
+        "API design fundamentals",
+        "Controllers and service layer separation",
+        "CRUD endpoints and resource modeling",
+        "Pagination, filtering, sorting",
+        "Consistent API response formats",
+        "Postman testing and collections"
+      ]
+    },
+    {
+      "title": "Database Integration (Choose One)",
+      "topics": [
+        "Option A: MongoDB + Mongoose (schema, model, CRUD, validation)",
+        "Option B: SQL (Postgres/MySQL) basics (tables, CRUD, joins intro)",
+        "Connection config using environment variables",
+        "Basic indexing concept"
+      ]
+    },
+    {
+      "title": "Authentication & Authorization (Required)",
+      "topics": [
+        "Password hashing (bcrypt)",
+        "JWT authentication (access token)",
+        "RBAC (roles-based access)",
+        "Protecting routes with middleware",
+        "Login/register endpoints"
+      ]
+    },
+    {
+      "title": "Validation, Security & Best Practices",
+      "topics": [
+        "Request validation (Zod/Joi/express-validator concept)",
+        "Preventing common injections (SQL/NoSQL patterns)",
+        "CORS secure configuration",
+        "Rate limiting basics",
+        "Security headers (Helmet concept)",
+        "Secrets and config hygiene"
+      ]
+    },
+    {
+      "title": "File Upload & Media (Optional)",
+      "topics": [
+        "Multipart form-data basics",
+        "multer basics for uploads",
+        "Serving files securely",
+        "Cloud storage concept (S3 style pattern)"
+      ]
+    },
+    {
+      "title": "Testing & Debugging (Intro)",
+      "topics": [
+        "Unit vs integration tests overview",
+        "Jest basics",
+        "Supertest for API testing",
+        "Debugging API issues and error tracing"
+      ]
+    },
+    {
+      "title": "Deployment (Basic)",
+      "topics": [
+        "Environment configs for dev/prod",
+        "Deploy Node API (overview options)",
+        "CORS and backend deployment alignment",
+        "Production checklist basics"
+      ]
+    },
+    {
+      "title": "Mini Project — Node.js REST API",
+      "topics": [
+        "Build a complete REST API (Auth + CRUD)",
+        "Database integration (MongoDB or SQL)",
+        "Add validation + error handling",
+        "Add RBAC protected routes",
+        "Write basic tests for key endpoints",
+        "Deploy and publish GitHub README"
+      ]
+    }
+  ]
+}
+]

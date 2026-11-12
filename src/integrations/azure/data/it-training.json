@@ -1,0 +1,101 @@
+{
+  "beginner": [
+    {
+      "title": "Python Language Course",
+      "duration": "1 Month",
+      "image": "/images/courses/python.png",
+      "description": "Master the basics of Python for scripting, automation, and foundational backend development.",
+      "href": "/courses/python-language-course"
+    },
+    {
+      "title": "Java Language Course",
+      "duration": "1 Month",
+      "image": "/images/courses/java.png",
+      "description": "Object-oriented programming with Java—ideal for Android development and backend systems.",
+      "href": "/courses/java-language-course"
+    },
+    {
+      "title": "SQL Database Course",
+      "duration": "3 Weeks",
+      "image": "/images/courses/sql.png",
+      "description": "Understand data modeling, querying, and reporting using relational databases and SQL.",
+      "href": "/courses/sql-language-course"
+    },
+    {
+      "title": "JavaScript Course",
+      "duration": "1 Month",
+      "image": "/images/courses/js.png",
+      "description": "Core scripting for the web—learn variables, DOM, events, and client-side interactions.",
+      "href": "/courses/javascript-language-course"
+    }
+  ],
+  "advanced": [
+    {
+      "title": "Python AWS Developer Program",
+      "duration": "2 Months",
+      "image": "/images/courses/python-aws.png",
+      "description": "End-to-end cloud development with Python and AWS services, focusing on real deployment scenarios.",
+      "href": "/courses/Python-AWS-Developer-Program"
+    },
+    {
+      "title": "Python Django Backend Developer Program",
+      "duration": "2 Months",
+      "image": "/images/courses/django.png",
+      "description": "Learn backend web development using Django framework with APIs, models, and auth systems.",
+      "href": "/courses/python-django-backend-developer"
+    },
+    {
+      "title": "Power BI Developer Program",
+      "duration": "2/Months",
+      "image": "/images/courses/powerbi.png",
+      "description": "Create powerful dashboards, DAX queries, and business intelligence workflows using Power BI.",
+      "href": "/courses/power-bi-developer-program"
+    },
+    {
+      "title": "Azure SQL Server Developer Program",
+      "duration": "3 Months",
+      "image": "/images/courses/azure-sql.png",
+      "description": "Master T-SQL, stored procedures, performance tuning, and deployment on Azure SQL Database.",
+      "href": "/courses/azure-sql-server-developer"
+    },
+    {
+      "title": "Oracle PLSQL Developer Program",
+      "duration": "2 Months",
+      "image": "/images/courses/plsql.png",
+      "description": "Develop secure and scalable applications using Oracle PL/SQL blocks, triggers, and procedures.",
+      "href": "/courses/oracle-plsql-developer-program"
+    },
+    {
+      "title": "AWS DevOps Program",
+      "duration": "2.5 Months",
+      "image": "/images/courses/aws-devops.png",
+      "description": "CI/CD pipelines, Docker, Kubernetes, and AWS services for efficient software delivery.",
+      "href": "/courses/aws-devops-program"
+    },
+    {
+      "title": "Snowflake Platform Program",
+      "duration": "1.5 Months",
+      "image": "/images/courses/snowflake.png",
+      "description": "Cloud data warehouse design and performance optimization using Snowflake SQL and pipelines.",
+      "href": "/courses/snowflake-platform-program"
+    }
+  ],
+  "optServices": [
+    "IT Training",
+    "Interview Screening",
+    "Resume Enhancement",
+    "Interview Preparation",
+    "IT Development Services",
+    "IT Project Support"
+  ],
+  "optReasons": [
+    "Comprehensive Curriculum",
+    "Industry-Experienced Instructors",
+    "Hands-on Learning",
+    "Customized Training Solutions",
+    "Up-to-Date Content",
+    "Practical Application",
+    "Networking Opportunities",
+    "Continuous Support"
+  ]
+}

@@ -1,0 +1,75 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# payload
+*.db
+*.db-journal
+/media
+.neon
+
+# Integration verification and sensitive import journals
+.phase1-local/
+.integration-private/
+test-results/
+playwright-report/
+.academy-private/
+.phase2-local/
+.staging-private/
+
+# Deployment state, database sidecars, private recordings and credentials
+.netlify/
+blob-report/
+playwright/.auth/
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.sqlite3-*
+*.mp4
+*.webm
+*.mov
+*.p12
+*.pfx
+credentials*.json
+service-account*.json
+*.har

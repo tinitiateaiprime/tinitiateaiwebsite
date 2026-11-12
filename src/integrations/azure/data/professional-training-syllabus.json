@@ -1,0 +1,1229 @@
+{
+  "last_updated": "2025-12-30",
+  "version": "1.0",
+  "courses": [
+    {
+      "key": "java-full-stack-development",
+      "category": "Web Development",
+      "title": "Java Full Stack Development",
+      "subtitle": "Spring Boot + React + DB + CI/CD",
+      "level": "Intermediate → Advanced",
+      "mode": "Online (Mentor-led)",
+      "duration": "10–12 weeks",
+      "overview": "Build production-grade web applications end-to-end using Java, Spring Boot, REST APIs, React, and databases. Includes authentication, testing, CI/CD, deployment, and a capstone project.",
+      "prerequisites": [
+        "Basic programming knowledge (any language)",
+        "Comfort with HTML/CSS basics",
+        "Willingness to practice daily"
+      ],
+      "outcomes": [
+        "Build REST APIs using Spring Boot (validation, pagination, error handling)",
+        "Implement authentication & authorization (JWT, role-based access)",
+        "Design DB schema + write optimized SQL queries",
+        "Build React UI and integrate with backend APIs",
+        "Deploy apps and set up CI/CD pipelines"
+      ],
+  "stack": {
+  "Frontend": ["html", "css", "js", "react", "bootstrap"],
+  "Backend": ["java", "spring", "springboot"],
+  "Database": ["postgres", "sqlserver", "mongo"],
+  "Cloud / Hosting": ["aws", "azure", "gcp"],
+  "CI/CD": ["git", "docker", "gha", "gitlab", "circleci", "azuredevops", "jenkins"]
+   },
+
+      "modules": [
+        {
+          "module": "M1",
+          "title": "Java Foundations + OOP",
+          "topics": [
+            "JDK, JVM, JRE, compilation lifecycle",
+            "Data types, operators, control flow",
+            "Methods, overloading, pass-by-value",
+            "OOP: class, object, encapsulation, inheritance, polymorphism",
+            "Interfaces vs abstract classes, composition"
+          ],
+          "labs": [
+            "Build a console-based Student Manager",
+            "Refactor procedural code into OOP"
+          ]
+        }, 
+        {
+          "module": "M2",
+          "title": "Collections + Generics + Exceptions",
+          "topics": [
+            "Collections framework overview",
+            "List/Set/Map: use-cases and tradeoffs",
+            "Iterators, streams basics",
+            "Generics: bounded types, wildcard usage",
+            "Exceptions, custom exceptions, best practices"
+          ], 
+          "labs": [
+            "Implement in-memory repository using Map",
+            "Input validation + exception strategy"
+          ]
+        },
+        {
+          "module": "M3",
+          "title": "SQL + Database Design",
+          "topics": [
+            "Relational modeling, normalization basics",
+            "Keys, constraints, indexes",
+            "Joins, subqueries, CTEs",
+            "Aggregations, window functions intro",
+            "Transactions and isolation basics"
+          ],
+          "labs": [
+            "Design schema for an e-commerce mini system",
+            "Write reporting queries + index analysis"
+          ]
+        },
+        {
+          "module": "M4",
+          "title": "Spring Core + Spring Boot",
+          "topics": [
+            "Dependency Injection, Beans, configuration",
+            "Spring Boot project structure",
+            "Controllers, services, repositories",
+            "Validation, DTO mapping, error handling",
+            "Logging and profiles"
+          ],
+          "labs": [
+            "Create CRUD APIs for Products/Orders",
+            "Global exception handler + validation"
+          ]
+        },
+        {
+          "module": "M5",
+          "title": "Hibernate / JPA + Data Access",
+          "topics": [
+            "Entity mapping, relationships",
+            "Fetch types, cascades, orphan removal",
+            "JPQL, Criteria basics",
+            "Pagination/sorting",
+            "Performance pitfalls (N+1, lazy loading)"
+          ],
+          "labs": [
+            "Implement order checkout with relational mapping",
+            "Fix N+1 and compare query plans"
+          ]
+        },
+        {
+          "module": "M6",
+          "title": "Security (JWT) + Role Based Access",
+          "topics": [
+            "Spring Security filters overview",
+            "JWT flow and token validation",
+            "User registration/login APIs",
+            "Role-based access control",
+            "Secure CORS + headers"
+          ],
+          "labs": [
+            "JWT auth with roles: Admin/Customer",
+            "Secure endpoints + test with Postman"
+          ]
+        },
+        {
+          "module": "M7",
+          "title": "React Frontend + API Integration",
+          "topics": [
+            "React components, hooks, state",
+            "React Router, layouts",
+            "Forms, validation, UI patterns",
+            "API integration (fetch/axios)",
+            "Auth UI + token storage strategies"
+          ],
+          "labs": [
+            "Build dashboard UI for backend APIs",
+            "Login + protected routes"
+          ]
+        },
+        {
+          "module": "M8",
+          "title": "Testing + CI/CD + Deployment",
+          "topics": [
+            "Unit testing basics (backend)",
+            "API testing + integration testing approach",
+            "Git workflows",
+            "CI/CD basics with Actions/GitLab",
+            "Deploy patterns and environment configuration"
+          ],
+          "labs": [
+            "Create a basic CI pipeline (build + test)",
+            "Deploy backend + frontend and verify end-to-end"
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "title": "Project 1: REST API (Inventory + Orders)",
+          "description": "Design and build a Spring Boot REST API with validation, pagination, and clean DTO architecture.",
+          "deliverables": [
+            "OpenAPI / Postman collection",
+            "DB schema + ER diagram",
+            "Pagination + filtering endpoints"
+          ]
+        },
+        {
+          "title": "Project 2: Full Stack App (Admin + User)",
+          "description": "React UI + Spring Boot backend with JWT auth and role-based views.",
+          "deliverables": [
+            "Admin panel + user portal",
+            "JWT login + protected routes",
+            "Deployment links / steps"
+          ]
+        }
+      ],
+      "capstone": {
+        "title": "Capstone: Production-Style Full Stack System",
+        "description": "A complete full stack application with authentication, modular architecture, database relations, and deployment-ready CI/CD."
+      }
+    },
+
+    {
+      "key": "react-web-development",
+      "category": "Web Development",
+      "title": "React Web Development",
+      "subtitle": "React + TypeScript + Hosting",
+      "level": "Beginner → Intermediate",
+      "mode": "Online (Mentor-led)",
+      "duration": "6–8 weeks",
+      "overview": "Master modern frontend development with React and TypeScript: components, hooks, routing, forms, API integration, and deployment.",
+      "prerequisites": [
+        "Basic HTML/CSS",
+        "Basic JavaScript fundamentals"
+      ],
+      "outcomes": [
+        "Build reusable React components and UI layouts",
+        "Use hooks effectively (state, effect, memoization)",
+        "Build forms with validation and API integration",
+        "Deploy React apps to Netlify/Vercel"
+      ],
+
+      "stack": {
+  "Frontend": ["html", "css", "js", "ts", "react", "bootstrap"],
+  "Backend": ["node"],
+  "Database": ["postgres", "sqlserver", "mongo"],
+  "Cloud / Hosting": ["amplify", "netlify", "vercel"],
+  "CI/CD": ["git", "docker", "gha", "gitlab", "azuredevops", "bitbucket", "jenkins"]
+            },
+
+      "modules": [
+        {
+          "module": "M1",
+          "title": "Web Fundamentals + JS Refresher",
+          "topics": [
+            "HTML semantics, layout patterns",
+            "CSS responsive fundamentals",
+            "Modern JS (ES6+): destructuring, modules, promises",
+            "Fetch APIs and async/await",
+            "Debugging in browser devtools"
+          ],
+          "labs": [
+            "Responsive landing page",
+            "API fetch + render list"
+          ]
+        },
+        {
+          "module": "M2",
+          "title": "TypeScript for React",
+          "topics": [
+            "Types, interfaces, unions",
+            "Typing props and state",
+            "Generics basics for components",
+            "Type-safe API models",
+            "TS config essentials"
+          ],
+          "labs": [
+            "Convert a JS React app to TS",
+            "Type-safe API response mapping"
+          ]
+        },
+        {
+          "module": "M3",
+          "title": "React Core (Components + Hooks)",
+          "topics": [
+            "Component patterns",
+            "useState/useEffect",
+            "Derived state, lifting state up",
+            "useMemo/useCallback",
+            "Reusable custom hooks"
+          ],
+          "labs": [
+            "Build reusable card/grid components",
+            "Custom hook for debounced search"
+          ]
+        },
+        {
+          "module": "M4",
+          "title": "Routing + State Patterns",
+          "topics": [
+            "React Router routing strategies",
+            "Layouts and nested routes",
+            "Protected routes concept",
+            "State patterns: local vs global",
+            "Basic context usage"
+          ],
+          "labs": [
+            "Multi-page app with nested routes",
+            "Protected page with dummy auth"
+          ]
+        },
+        {
+          "module": "M5",
+          "title": "Forms + APIs + Error Handling",
+          "topics": [
+            "Form patterns and validation",
+            "API integration architecture",
+            "Loading/error states",
+            "Pagination/infinite scroll patterns",
+            "Basic performance optimizations"
+          ],
+          "labs": [
+            "CRUD app with forms + validations",
+            "Pagination + search + filters"
+          ]
+        },
+        {
+          "module": "M6",
+          "title": "Deployment + Production Checklist",
+          "topics": [
+            "Build and bundle basics",
+            "Environment variables",
+            "Deploy to Netlify/Vercel",
+            "Basic SEO practices",
+            "Analytics and monitoring basics"
+          ],
+          "labs": [
+            "Deploy app",
+            "Add runtime config + verify"
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "title": "Project 1: Job Finder UI",
+          "description": "Build a searchable, filterable UI from a public API with pagination and clean reusable components.",
+          "deliverables": [
+            "Search + filters + pagination",
+            "Responsive UI",
+            "Deployment"
+          ]
+        },
+        {
+          "title": "Project 2: Admin CRUD Dashboard",
+          "description": "Full CRUD frontend with forms, validations, and robust loading/error UX.",
+          "deliverables": [
+            "Create/edit forms",
+            "Table + sorting",
+            "Deploy + readme"
+          ]
+        }
+      ],
+      "capstone": {
+        "title": "Capstone: React Product Dashboard",
+        "description": "A complete dashboard-style UI project demonstrating real-world patterns: routing, forms, API integration, and deployment."
+      }
+    },
+
+    {
+      "key": "nextjs-web-development",
+      "category": "Web Development",
+      "title": "Next.js Web Development",
+      "subtitle": "Next.js + React + TypeScript + Deployment",
+      "level": "Intermediate",
+      "mode": "Online (Mentor-led)",
+      "duration": "6–8 weeks",
+      "overview": "Build full-stack capable React apps using Next.js App Router: server components, data fetching, SEO, authentication patterns, and deployment.",
+      "prerequisites": [
+        "React fundamentals",
+        "Basic TypeScript recommended"
+      ],
+      "outcomes": [
+        "Build production-ready Next.js apps with App Router",
+        "Use SSR/SSG/ISR appropriately",
+        "Build secure auth flows and protected pages",
+        "Deploy on Vercel with best practices"
+      ],
+      "stack": {
+  "Core Skills": ["python", "sql"],
+  "Data Format": ["csv", "json", "xml", "parquet"],
+  "Database": ["redshift", "rds"],
+  "Data Lake": ["s3"],
+  "Batch ETL": ["glue", "emr", "pyspark", "athena", "lambda", "stepfunctions"],
+  "Streaming / Orchestration": ["kinesis", "kafka", "airflow"],
+  "CI/CD": ["terraform", "git", "docker"]
+},
+
+      "modules": [
+        {
+          "module": "M1",
+          "title": "Next.js Fundamentals (App Router)",
+          "topics": [
+            "Project structure and routing",
+            "Layouts, templates, loading states",
+            "Server vs client components",
+            "Environment variables",
+            "Error boundaries"
+          ],
+          "labs": [
+            "Multi-route app with nested layouts",
+            "Loading + error UI"
+          ]
+        },
+        {
+          "module": "M2",
+          "title": "Data Fetching + Rendering Strategies",
+          "topics": [
+            "SSR vs SSG vs ISR",
+            "Caching strategies and revalidation",
+            "Server actions basics",
+            "API integration patterns",
+            "SEO and metadata"
+          ],
+          "labs": [
+            "Build a catalog page with ISR",
+            "Add metadata + OG tags"
+          ]
+        },
+        {
+          "module": "M3",
+          "title": "Auth + Protected Routes",
+          "topics": [
+            "Session patterns",
+            "JWT vs session cookies (concepts)",
+            "Protected route patterns",
+            "Middleware basics",
+            "Role based UI"
+          ],
+          "labs": [
+            "Protected dashboard route",
+            "Role-based navigation"
+          ]
+        },
+        {
+          "module": "M4",
+          "title": "Forms + Uploads + Integrations",
+          "topics": [
+            "Server actions for forms",
+            "Client validations",
+            "File upload patterns",
+            "Error handling and toasts",
+            "Rate limiting basics (concepts)"
+          ],
+          "labs": [
+            "Lead capture form + server action",
+            "Upload UI + preview"
+          ]
+        },
+        {
+          "module": "M5",
+          "title": "Performance + Deployment",
+          "topics": [
+            "Image optimization",
+            "Bundle insights basics",
+            "Caching and edge patterns (overview)",
+            "Deploy on Vercel",
+            "Production checklist"
+          ],
+          "labs": [
+            "Optimize images and LCP",
+            "Deploy + validate routes"
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "title": "Project 1: Content Site (SEO + ISR)",
+          "description": "Build a content-driven site with SEO, ISR, and modern app routing patterns.",
+          "deliverables": [
+            "SEO-ready pages",
+            "ISR catalog",
+            "Deployment"
+          ]
+        },
+        {
+          "title": "Project 2: Dashboard + Auth",
+          "description": "Create a dashboard application with protected routes and role-based UI.",
+          "deliverables": [
+            "Auth + protected routes",
+            "Role-based navigation",
+            "Deployment + README"
+          ]
+        }
+      ],
+      "capstone": {
+        "title": "Capstone: Next.js Production App",
+        "description": "A complete Next.js application featuring App Router, SEO, protected routes, real-world data fetching, and deployment best practices."
+      }
+    },
+
+    {
+      "key": "angular-web-development",
+      "category": "Web Development",
+      "title": "Angular Web Development",
+      "subtitle": "Angular + TypeScript + API + Deployment",
+      "level": "Beginner → Intermediate",
+      "mode": "Online (Mentor-led)",
+      "duration": "6–8 weeks",
+      "overview": "Learn Angular with strong TypeScript foundations, RxJS patterns, component architecture, forms, routing, services, and deployment.",
+      "prerequisites": [
+        "Basic HTML/CSS",
+        "Basic JavaScript fundamentals"
+      ],
+      "outcomes": [
+        "Build Angular apps using components, services, and modules",
+        "Use RxJS effectively for async UI",
+        "Build secure routing and form-heavy apps",
+        "Deploy Angular apps confidently"
+      ],
+      "stack": {
+  "Frontend": ["html", "css", "js", "ts", "react", "next", "bootstrap"],
+  "Backend": ["node"],
+  "Database": ["postgres", "sqlserver", "mongo"],
+  "Cloud / Hosting": ["amplify", "netlify", "vercel"],
+  "CI/CD": ["git", "docker", "gha", "gitlab", "azuredevops", "bitbucket", "jenkins"]
+},
+
+      "modules": [
+        {
+          "module": "M1",
+          "title": "TypeScript + Angular Basics",
+          "topics": [
+            "TS essentials for Angular",
+            "Angular CLI and project structure",
+            "Components, templates, bindings",
+            "Directives and pipes",
+            "Component styling patterns"
+          ],
+          "labs": [
+            "Build UI components library",
+            "Pipe + directive practice"
+          ]
+        },
+        {
+          "module": "M2",
+          "title": "Routing + Services + HTTP",
+          "topics": [
+            "Angular routing",
+            "Guards basics",
+            "Services and dependency injection",
+            "HTTP client + interceptors",
+            "Error handling patterns"
+          ],
+          "labs": [
+            "Multi-page app with guards",
+            "HTTP interceptor for auth header"
+          ]
+        },
+        {
+          "module": "M3",
+          "title": "RxJS + Reactive Patterns",
+          "topics": [
+            "Observables and subscriptions",
+            "Operators (map, switchMap, debounceTime)",
+            "Async pipes",
+            "State patterns basics",
+            "Performance considerations"
+          ],
+          "labs": [
+            "Search with debounce + switchMap",
+            "Reactive data streams"
+          ]
+        },
+        {
+          "module": "M4",
+          "title": "Forms + Validation",
+          "topics": [
+            "Template-driven vs reactive forms",
+            "FormBuilder and validators",
+            "Custom validators",
+            "UX patterns for validation",
+            "Handling large forms"
+          ],
+          "labs": [
+            "Large form with dynamic fields",
+            "Custom validators"
+          ]
+        },
+        {
+          "module": "M5",
+          "title": "Deployment + Production Checklist",
+          "topics": [
+            "Build and bundle",
+            "Environment configs",
+            "Deploy to hosting",
+            "Basic SEO basics for SPAs",
+            "Release checklist"
+          ],
+          "labs": [
+            "Deploy and verify",
+            "Setup environment configs"
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "title": "Project 1: Angular Admin Panel",
+          "description": "CRUD admin panel with routing, guards, and form-heavy UX.",
+          "deliverables": [
+            "CRUD pages",
+            "Reactive forms",
+            "Deployment"
+          ]
+        }
+      ],
+      "capstone": {
+        "title": "Capstone: Angular Production App",
+        "description": "A complete Angular application featuring routing, services, RxJS patterns, reactive forms, and production deployment."
+      }
+    },
+
+    {
+      "key": "aws-data-engineering",
+      "category": "Data Engineering",
+      "title": "AWS Data Engineering",
+      "subtitle": "S3 • Glue • Athena • Kinesis • Redshift",
+      "level": "Intermediate → Advanced",
+      "mode": "Online (Mentor-led)",
+      "duration": "10–12 weeks",
+      "overview": "Design and build AWS data platforms: ingestion, data lake, batch ETL, orchestration, streaming pipelines, analytics warehouses, and production-ready deployments.",
+      "prerequisites": [
+        "SQL fundamentals",
+        "Basic Python programming",
+        "Basic cloud awareness is helpful"
+      ],
+      "outcomes": [
+        "Build data lakes on S3 with partitioning and best practices",
+        "Develop ETL pipelines in Glue/EMR (PySpark)",
+        "Query using Athena and build marts/warehouse in Redshift",
+        "Create streaming pipelines using Kinesis/Kafka patterns",
+        "Automate pipelines with orchestration + CI/CD"
+      ],
+      "modules": [
+        {
+          "module": "M1",
+          "title": "Foundations: SQL + Python for Data Engineering",
+          "topics": [
+            "Advanced SQL patterns used in analytics",
+            "Data modeling basics (dimensional concepts)",
+            "Python data processing patterns",
+            "File formats: CSV/JSON/Parquet",
+            "Data quality checks concepts"
+          ],
+          "labs": [
+            "Clean + validate raw files with Python",
+            "SQL reporting queries for marts"
+          ]
+        },
+        {
+          "module": "M2",
+          "title": "S3 Data Lake + Partitioning",
+          "topics": [
+            "S3 layout design (raw/clean/curated)",
+            "Partition strategy",
+            "Compression and Parquet",
+            "Catalog concepts",
+            "Cost/performance basics"
+          ],
+          "labs": [
+            "Design lake folder strategy",
+            "Convert CSV to partitioned Parquet"
+          ]
+        },
+        {
+          "module": "M3",
+          "title": "AWS Glue (Batch ETL)",
+          "topics": [
+            "Glue jobs overview",
+            "Spark basics for ETL",
+            "Data transforms, joins, aggregations",
+            "SCD patterns overview",
+            "Error handling + retries"
+          ],
+          "labs": [
+            "Glue ETL: raw → curated",
+            "Implement SCD2-style history"
+          ]
+        },
+        {
+          "module": "M4",
+          "title": "Athena + Query Optimization",
+          "topics": [
+            "Athena querying on Parquet",
+            "Partition pruning",
+            "CTEs and analytics patterns",
+            "Cost optimization practices",
+            "Views and marts concepts"
+          ],
+          "labs": [
+            "Build Athena views for reporting",
+            "Optimize partitioned queries"
+          ]
+        },
+        {
+          "module": "M5",
+          "title": "Redshift + Warehouse Patterns",
+          "topics": [
+            "Warehouse vs lakehouse concept",
+            "Loading patterns",
+            "Dimensional marts (star schema)",
+            "Query tuning basics",
+            "Access control concepts"
+          ],
+          "labs": [
+            "Build a star schema in Redshift",
+            "Load curated data and run BI queries"
+          ]
+        },
+        {
+          "module": "M6",
+          "title": "Streaming: Kinesis + Event Patterns",
+          "topics": [
+            "Streaming basics: producers/consumers",
+            "Kinesis core concepts",
+            "Near real-time aggregation patterns",
+            "Idempotency and dedupe concepts",
+            "Monitoring concepts"
+          ],
+          "labs": [
+            "Stream events and compute aggregates",
+            "Store outputs back into S3"
+          ]
+        },
+        {
+          "module": "M7",
+          "title": "Orchestration + Automation",
+          "topics": [
+            "Airflow DAG concepts",
+            "Step Functions overview",
+            "Lambda in pipelines",
+            "Retries, SLAs, backfills",
+            "Alerting basics"
+          ],
+          "labs": [
+            "Build a DAG for batch pipeline",
+            "Trigger ETL via lambda/step functions"
+          ]
+        },
+        {
+          "module": "M8",
+          "title": "IaC + CI/CD + Production Readiness",
+          "topics": [
+            "Terraform basics for data infra",
+            "Git workflows",
+            "CI pipeline patterns",
+            "Environment promotion concepts",
+            "Documentation + runbooks"
+          ],
+          "labs": [
+            "Terraform skeleton for S3/Glue",
+            "CI pipeline for lint/test/deploy"
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "title": "Project 1: Batch Data Lake Pipeline",
+          "description": "Raw → curated data lake pipeline with Glue and Athena marts.",
+          "deliverables": [
+            "Partitioned curated dataset",
+            "Athena views + reporting queries",
+            "Pipeline documentation"
+          ]
+        },
+        {
+          "title": "Project 2: Streaming Aggregation Pipeline",
+          "description": "Event ingestion and aggregation using Kinesis patterns, outputting to S3/marts.",
+          "deliverables": [
+            "Streaming aggregation logic",
+            "Backfill strategy",
+            "Monitoring checklist"
+          ]
+        }
+      ],
+      "capstone": {
+        "title": "Capstone: End-to-End AWS Data Platform",
+        "description": "Design an end-to-end AWS data platform including ingestion, lake, ETL, orchestration, and analytics-ready marts."
+      }
+    },
+
+    {
+      "key": "snowflake-data-engineering",
+      "category": "Data Engineering",
+      "title": "Snowflake Data Engineering",
+      "subtitle": "Snowpipe • Snowpark • Streams/Tasks • Marts",
+      "level": "Intermediate → Advanced",
+      "mode": "Online (Mentor-led)",
+      "duration": "8–10 weeks",
+      "overview": "Build Snowflake pipelines with Snowpipe ingestion, Snowpark transformations, incremental processing using Streams/Tasks, and analytics-ready marts.",
+      "prerequisites": [
+        "SQL fundamentals",
+        "Basic Python knowledge recommended"
+      ],
+      "outcomes": [
+        "Implement ingestion with Snowpipe patterns",
+        "Transform data using SQL + Snowpark",
+        "Build incremental pipelines using Streams/Tasks",
+        "Deliver dimensional marts and performance optimized queries"
+      ],
+
+      "stack": {
+  "Core Skills": ["snowflake", "python"],
+  "Ingestion": ["snowpipe"],
+  "Transform": ["snowpark"],
+  "Streaming / Events": ["kafka"],
+  "Orchestration": ["airflow"],
+  "CI/CD": ["terraform", "git", "docker"]
+},
+
+      "modules": [
+        {
+          "module": "M1",
+          "title": "Snowflake Fundamentals",
+          "topics": [
+            "Architecture overview",
+            "Warehouses, databases, schemas",
+            "Storage vs compute",
+            "Security basics",
+            "Cost awareness basics"
+          ],
+          "labs": [
+            "Setup environment and roles",
+            "Create databases/schemas"
+          ]
+        },
+        {
+          "module": "M2",
+          "title": "Data Loading + Snowpipe",
+          "topics": [
+            "Stages and file formats",
+            "COPY patterns",
+            "Snowpipe concepts",
+            "Error handling patterns",
+            "Load monitoring basics"
+          ],
+          "labs": [
+            "Stage + COPY pipeline",
+            "Snowpipe simulation pattern"
+          ]
+        },
+        {
+          "module": "M3",
+          "title": "Transformations (SQL)",
+          "topics": [
+            "Transform layer design",
+            "Incremental patterns overview",
+            "Views vs tables",
+            "Testing queries",
+            "Data quality checks"
+          ],
+          "labs": [
+            "Build clean/curated tables",
+            "Create marts and KPIs"
+          ]
+        },
+        {
+          "module": "M4",
+          "title": "Snowpark (Python) + Modular Pipelines",
+          "topics": [
+            "Snowpark APIs overview",
+            "Dataframe transformations",
+            "UDF/UDAF overview",
+            "Packaging patterns",
+            "Performance considerations"
+          ],
+          "labs": [
+            "Snowpark transform job",
+            "Reusable transform modules"
+          ]
+        },
+        {
+          "module": "M5",
+          "title": "Streams + Tasks (Incremental Processing)",
+          "topics": [
+            "Change tracking concepts",
+            "Task scheduling",
+            "Incremental merges",
+            "Idempotency patterns",
+            "Backfill strategy"
+          ],
+          "labs": [
+            "Streams + Tasks incremental load",
+            "MERGE based CDC"
+          ]
+        },
+        {
+          "module": "M6",
+          "title": "Performance + Security + Release",
+          "topics": [
+            "Warehouse sizing concepts",
+            "Clustering overview",
+            "Role-based access",
+            "CI/CD concept for SQL/Snowpark",
+            "Deployment checklist"
+          ],
+          "labs": [
+            "Optimize queries and compare cost",
+            "RBAC setup + validation"
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "title": "Project 1: Snowpipe + Marts",
+          "description": "Ingest raw data via Snowpipe pattern and build analytics marts.",
+          "deliverables": [
+            "Ingestion pipeline",
+            "Marts + KPI queries",
+            "Documentation"
+          ]
+        }
+      ],
+      "capstone": {
+        "title": "Capstone: Snowflake Incremental Platform",
+        "description": "Build an incremental Snowflake data platform using Snowpipe, Snowpark transforms, Streams/Tasks, and marts."
+      }
+    },
+
+    {
+      "key": "azure-data-engineering",
+      "category": "Data Engineering",
+      "title": "Azure Data Engineering",
+      "subtitle": "ADLS • ADF • Databricks (Delta) • Synapse",
+      "level": "Intermediate → Advanced",
+      "mode": "Online (Mentor-led)",
+      "duration": "10–12 weeks",
+      "overview": "Build Azure data platforms using ADLS Gen2 storage, ADF orchestration, Databricks Delta transformations, and Synapse analytics.",
+      "prerequisites": [
+        "SQL fundamentals",
+        "Basic Python programming"
+      ],
+      "outcomes": [
+        "Build lake layers in ADLS with strong folder standards",
+        "Create ADF pipelines for ingestion and orchestration",
+        "Build Delta Lake transformations in Databricks (PySpark)",
+        "Serve analytics via Synapse patterns"
+      ],
+      "stack": {
+  "Core Skills": ["python", "sql"],
+  "Data Format": ["csv", "json", "xml", "parquet"],
+  "Data Lake": ["adls"],
+  "Batch ETL": ["adf", "databricks", "pyspark", "delta", "synapse"],
+  "Streaming / Orchestration": ["eventhubs", "kafka", "streamanalytics"],
+  "Automation": ["functions", "logicapps"],
+  "CI/CD": ["terraform", "git", "azuredevops", "docker"]
+},
+
+      "modules": [
+        {
+          "module": "M1",
+          "title": "Azure Data Platform Foundations",
+          "topics": [
+            "ADLS Gen2 concepts",
+            "Security basics",
+            "Data lake layer design",
+            "File formats and partitioning",
+            "Cost awareness basics"
+          ],
+          "labs": [
+            "Create lake layout strategy",
+            "Load raw dataset into ADLS"
+          ]
+        },
+        {
+          "module": "M2",
+          "title": "ADF Pipelines (Ingestion + Orchestration)",
+          "topics": [
+            "Linked services and datasets",
+            "Copy activity patterns",
+            "Triggers and scheduling",
+            "Parameterization",
+            "Retries and monitoring"
+          ],
+          "labs": [
+            "Ingest raw data to ADLS via ADF",
+            "Build parameterized pipelines"
+          ]
+        },
+        {
+          "module": "M3",
+          "title": "Databricks + PySpark + Delta Lake",
+          "topics": [
+            "Spark ETL patterns",
+            "Delta Lake basics",
+            "MERGE patterns",
+            "SCD overview",
+            "Optimization overview"
+          ],
+          "labs": [
+            "Raw → clean → curated Delta pipeline",
+            "Incremental merge into curated tables"
+          ]
+        },
+        {
+          "module": "M4",
+          "title": "Streaming + Event Hubs (Overview + Patterns)",
+          "topics": [
+            "Event streaming concepts",
+            "Event Hubs basics",
+            "Streaming to lake (patterns)",
+            "Latency vs throughput tradeoffs",
+            "Monitoring basics"
+          ],
+          "labs": [
+            "Event ingestion simulation",
+            "Write streaming outputs to lake"
+          ]
+        },
+        {
+          "module": "M5",
+          "title": "Synapse + Serving Layer",
+          "topics": [
+            "Serving layer design",
+            "Warehouse vs lakehouse overview",
+            "Querying curated datasets",
+            "Access control basics",
+            "BI integration concepts"
+          ],
+          "labs": [
+            "Create marts for reporting",
+            "Validate query performance"
+          ]
+        },
+        {
+          "module": "M6",
+          "title": "Automation + CI/CD",
+          "topics": [
+            "Terraform basics for Azure resources",
+            "Azure DevOps CI/CD concept",
+            "Environment promotion patterns",
+            "Runbooks and documentation",
+            "Production readiness checklist"
+          ],
+          "labs": [
+            "Terraform skeleton project",
+            "CI pipeline outline for deployments"
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "title": "Project 1: Azure Lakehouse Pipeline",
+          "description": "ADF ingestion + Databricks Delta transformations + Synapse serving.",
+          "deliverables": [
+            "ADF pipelines",
+            "Delta curated tables",
+            "Synapse marts"
+          ]
+        }
+      ],
+      "capstone": {
+        "title": "Capstone: Azure Lakehouse System",
+        "description": "Build a complete Azure lakehouse pipeline with automation, orchestration, transformations, and analytics serving."
+      }
+    },
+
+    {
+      "key": "gcp-data-engineering",
+      "category": "Data Engineering",
+      "title": "GCP Data Engineering",
+      "subtitle": "GCS • Dataflow • BigQuery • Pub/Sub",
+      "level": "Intermediate → Advanced",
+      "mode": "Online (Mentor-led)",
+      "duration": "8–10 weeks",
+      "overview": "Build GCP data pipelines using Cloud Storage, streaming with Pub/Sub, processing with Dataflow patterns, and analytics in BigQuery.",
+      "prerequisites": [
+        "SQL fundamentals",
+        "Basic Python programming"
+      ],
+      "outcomes": [
+        "Design storage and curated layers in GCS",
+        "Build batch and streaming pipelines (Dataflow patterns overview)",
+        "Model and query analytics data in BigQuery",
+        "Automate and manage infra patterns using Terraform concepts"
+      ],
+      "stack": {
+  "Core Skills": ["python", "sql"],
+  "Data Format": ["csv", "json", "parquet"],
+  "Storage": ["gcs"],
+  "Processing": ["dataflow", "bigquery"],
+  "Streaming": ["pubsub"],
+  "Orchestration": ["airflow"],
+  "CI/CD": ["terraform", "docker", "git"]
+},
+
+      "modules": [
+        {
+          "module": "M1",
+          "title": "Foundations: GCS + Data Lake Layout",
+          "topics": [
+            "Bucket strategy and folder design",
+            "Raw/clean/curated patterns",
+            "Parquet basics and partition concepts",
+            "Data quality checks concepts",
+            "Cost awareness basics"
+          ],
+          "labs": [
+            "Design lake structure in GCS",
+            "Convert dataset to curated Parquet format"
+          ]
+        },
+        {
+          "module": "M2",
+          "title": "BigQuery Analytics",
+          "topics": [
+            "BigQuery datasets and tables",
+            "Querying patterns and optimizations",
+            "Partitioning overview",
+            "Star schema concepts",
+            "Reporting queries"
+          ],
+          "labs": [
+            "Build marts in BigQuery",
+            "Run KPI reporting queries"
+          ]
+        },
+        {
+          "module": "M3",
+          "title": "Streaming: Pub/Sub Patterns",
+          "topics": [
+            "Producers/consumers",
+            "Topic/subscription model",
+            "Event schema concepts",
+            "Dedupe/idempotency concepts",
+            "Monitoring concepts"
+          ],
+          "labs": [
+            "Simulate event publishing",
+            "Consume and store into curated layer"
+          ]
+        },
+        {
+          "module": "M4",
+          "title": "Processing: Dataflow Concepts + Pipeline Design",
+          "topics": [
+            "Batch vs streaming pipelines",
+            "Transformation patterns",
+            "Windowing concepts (overview)",
+            "Backfill concepts",
+            "Error handling patterns"
+          ],
+          "labs": [
+            "Batch transform flow design",
+            "Streaming transform flow design"
+          ]
+        },
+        {
+          "module": "M5",
+          "title": "Orchestration + CI/CD",
+          "topics": [
+            "Airflow orchestration concepts",
+            "DAG scheduling and retries",
+            "Terraform basics for infra",
+            "Git workflows",
+            "Release checklist"
+          ],
+          "labs": [
+            "Orchestration outline for pipelines",
+            "Terraform skeleton"
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "title": "Project 1: GCP Analytics Pipeline",
+          "description": "GCS curated layer + BigQuery marts + reporting queries.",
+          "deliverables": [
+            "Curated storage layout",
+            "BigQuery marts",
+            "KPI query pack"
+          ]
+        }
+      ],
+      "capstone": {
+        "title": "Capstone: GCP Data Platform Blueprint",
+        "description": "Design a complete GCP data platform with storage, processing, streaming patterns, analytics marts, and automation strategy."
+      }
+    },
+    {
+  "key": "visualization-course",
+  "category": "Data Analytics",
+  "title": "Visualization",
+  "subtitle": "QuickSight • Power BI",
+  "level": "Beginner → Intermediate",
+  "mode": "Online (Mentor-led)",
+  "duration": "4–6 weeks",
+  "overview": "Learn practical data visualization with Power BI and Amazon QuickSight: dashboards, KPIs, filters, storytelling, and shareable reports.",
+  "prerequisites": [
+    "Basic Excel/SQL helpful"
+  ],
+  "outcomes": [
+    "Build interactive dashboards and KPI scorecards",
+    "Model data for reporting (relationships, measures)",
+    "Create drill-downs, filters, and slicers",
+    "Publish and share dashboards securely"
+  ],
+  "stack": {
+    "Visualization": ["powerbi", "quicksight"]
+  },
+  "modules": [
+    {
+      "module": "M1",
+      "title": "Visualization Foundations",
+      "topics": [
+        "Dashboard vs report vs story",
+        "Choosing the right chart",
+        "KPIs and business metrics",
+        "Design principles (layout, color, accessibility)"
+      ],
+      "labs": [
+        "Create a KPI dashboard wireframe"
+      ]
+    },
+    {
+      "module": "M2",
+      "title": "Power BI Essentials",
+      "topics": [
+        "Power BI Desktop overview",
+        "Data import and transformations (Power Query basics)",
+        "Data modeling (relationships)",
+        "Measures and DAX basics",
+        "Slicers, filters, drill-through"
+      ],
+      "labs": [
+        "Build a Power BI dashboard with filters"
+      ]
+    },
+    {
+      "module": "M3",
+      "title": "Amazon QuickSight Essentials",
+      "topics": [
+        "QuickSight datasets and SPICE basics",
+        "Visual types and dashboard controls",
+        "Calculated fields basics",
+        "Sharing and permissions overview"
+      ],
+      "labs": [
+        "Build a QuickSight dashboard with KPIs"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Project: Executive Dashboard",
+      "description": "Create a business dashboard with KPIs, drilldowns, filters, and shareable views.",
+      "deliverables": [
+        "Dashboard file/link",
+        "KPI definitions",
+        "Short README on data + visuals"
+      ]
+    }
+  ],
+  "capstone": {
+    "title": "Capstone: Analytics Storyboard",
+    "description": "A complete visualization story with KPI tracking, trend analysis, and stakeholder-ready narrative."
+  }
+}
+  ]
+}
+

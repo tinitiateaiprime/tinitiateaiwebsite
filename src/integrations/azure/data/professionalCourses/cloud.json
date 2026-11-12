@@ -1,0 +1,340 @@
+[
+  {
+  "slug": "aws-cloud-data-engineering-course",
+  "title": "Cloud/Foundation (Beginner → Associate)",
+  "icon": "FaAws",
+  "duration": "",
+  "level": "Beginner → Associate",
+  "image": "/images/courses/aws.png",
+  "description": "",
+  "prerequisites": "",
+  "courseStructure": [
+    {
+      "type": "section",
+      "title": "Cloud/Foundation (Beginner → Associate)"
+    },
+    {
+      "type": "module",
+      "title": "1) Foundations & Account Setup",
+      "topics": [
+        "Regions/AZs/edge locations, endpoints, shared responsibility",
+        "Account setup: MFA, budgets, billing alarms, cost allocation tags",
+        "AWS CLI/SDK, named profiles, IAM Identity Center (SSO) basics",
+        "Basic IAM credential hygiene"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "2) Identity & Access (IAM, Identity Center, Organizations)",
+      "topics": [
+        "IAM users/roles/policies, least privilege, permission boundaries",
+        "Access Analyzer, credential report, IAM best practices",
+        "Identity Center: users/groups, permission sets, SSO apps, SCIM basics",
+        "Organizations: multi-account strategy, OUs, SCPs, consolidated billing, tagging standards"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "3) Networking (VPC)",
+      "topics": [
+        "CIDR planning, public/private subnets, route tables",
+        "IGW, NAT GW vs NAT instance",
+        "NACL vs Security Groups",
+        "VPC endpoints (Gateway/Interface), PrivateLink",
+        "VPC peering vs Transit Gateway",
+        "Hybrid connectivity: Site-to-Site VPN, Direct Connect"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "4) Compute (EC2, Auto Scaling, ELB)",
+      "topics": [
+        "Instance families, AMIs, user-data, instance profiles",
+        "On-demand vs spot vs Savings Plans basics",
+        "ELB: ALB vs NLB vs GWLB, target groups, health checks",
+        "Auto Scaling: policies, lifecycle hooks, warm pools"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "5) Storage (Core AWS Storage)",
+      "topics": [
+        "S3: buckets/prefixes, versioning, lifecycle, replication, encryption (SSE-S3/SSE-KMS/client-side)",
+        "S3 Access Points, VPC-only access patterns, presigned URLs",
+        "CloudFront fundamentals (for data delivery/use cases too)",
+        "EBS (types/snapshots), EFS, FSx (Windows/Lustre/ONTAP/OpenZFS)"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "6) Databases (Core)",
+      "topics": [
+        "RDS engines, Multi-AZ, read replicas, backups, Performance Insights",
+        "Aurora provisioned + serverless v2, Aurora replicas, global concepts",
+        "DynamoDB: PK/SK design, GSIs/LSIs, streams, TTL, DAX, capacity modes",
+        "ElastiCache, OpenSearch basics"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "7) App Integration (Messaging/Eventing)",
+      "topics": [
+        "SNS, SQS (Standard/FIFO), DLQs, retries, idempotency",
+        "EventBridge: event buses, rules, pipes",
+        "Step Functions: Standard vs Express",
+        "Amazon MQ basics (when needed)"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "8) Serverless",
+      "topics": [
+        "Lambda: concurrency, layers, provisioned vs on-demand, event sources",
+        "API Gateway (REST/HTTP/WebSocket) basics",
+        "SAM vs CDK overview"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "9) Containers",
+      "topics": [
+        "ECR basics",
+        "ECS (EC2/Fargate), service discovery, autoscaling",
+        "EKS basics, node groups, IRSA basics",
+        "CodeDeploy blue/green basics (when relevant)"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "10) Observability & Ops",
+      "topics": [
+        "CloudWatch metrics/logs/alarms/log insights",
+        "CloudTrail (org trail) + basic audit practices",
+        "AWS Health basics",
+        "Systems Manager: Session Manager, Patch Manager, Inventory, Automation runbooks"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "11) Security & Governance (Core)",
+      "topics": [
+        "KMS, Secrets Manager, Parameter Store",
+        "AWS Config + conformance packs",
+        "GuardDuty, Security Hub, Macie, Inspector",
+        "WAF & Shield basics",
+        "Tagging/resource governance basics"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Phase A2 — Data Engineering Core (Associate “Data Engineer” focus)"
+    },
+    {
+      "type": "module",
+      "title": "12) Data Engineering Fundamentals",
+      "topics": [
+        "Batch vs streaming (ordering, late events, replay)",
+        "ETL vs ELT, incremental loads, watermarking",
+        "CDC concepts (inserts/updates/deletes), idempotency patterns",
+        "Data SLAs/SLOs, backfills, reprocessing strategies"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "13) Data Lake / Lakehouse Architecture",
+      "topics": [
+        "S3 lake layout: bronze/silver/gold, naming standards",
+        "Partitioning strategy (by date/org/region), pruning",
+        "Small files problem + compaction patterns",
+        "File formats: Parquet/ORC/Avro; schema evolution"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "14) Data Modeling for Analytics",
+      "topics": [
+        "Dimensional modeling (star/snowflake)",
+        "Facts/dimensions, surrogate keys",
+        "Slowly changing dimensions (SCD0/1/2)",
+        "Aggregations + rollups"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "15) Ingestion & Data Movement (Critical for Data Engg)",
+      "topics": [
+        "DMS: full load + CDC ongoing replication, validation approaches",
+        "Kinesis Data Streams (producer/consumer patterns)",
+        "Amazon Data Firehose delivery to S3/Redshift/OpenSearch (+ transforms)",
+        "MSK (Managed Kafka) basics (topics/partitions/consumer groups)",
+        "AWS Glue Schema Registry for stream schema enforcement",
+        "AWS DataSync (file transfer) + AWS Transfer Family (SFTP/FTPS/FTP)",
+        "Snowball family overview (bulk offline import) optional but useful"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "16) Catalog, Governance, and Access Control (Data Platform)",
+      "topics": [
+        "AWS Glue Data Catalog (databases/tables/partitions)",
+        "Lake Formation: permissions, LF-Tags, row/column security, cross-account sharing",
+        "Amazon DataZone: data portal, discovery, subscriptions, governed access workflows",
+        "Cross-account patterns: resource sharing, central governance account model"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "17) Transformation & Processing (Engines)",
+      "topics": [
+        "AWS Glue ETL: Spark jobs, crawlers, job parameters, retries",
+        "Glue Studio vs script, dynamic frames vs dataframes",
+        "Glue DataBrew (no-code transforms) use cases",
+        "EMR (Spark/Hive/Trino) when to use vs Glue",
+        "Lambda transforms for light jobs / event-driven transforms",
+        "Managed Flink (stream processing) optional/advanced"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "18) Query & Analytics Layer",
+      "topics": [
+        "Athena: partitioning, CTAS, performance tuning basics",
+        "Redshift: RA3/serverless concepts, dist/sort keys basics, Spectrum concepts",
+        "OpenSearch for log/search analytics",
+        "QuickSight: datasets, SPICE, refresh patterns"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "19) Open Table Formats (Modern Lakehouse)",
+      "topics": [
+        "Apache Iceberg fundamentals: snapshots, schema evolution, time travel",
+        "Athena + Iceberg read/write patterns",
+        "Redshift + Iceberg patterns",
+        "(Optional comparison) Hudi/Delta concepts"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "20) Data Quality & Testing (Often Missing — include it)",
+      "topics": [
+        "AWS Glue Data Quality / Deequ concepts",
+        "Rule sets: completeness, uniqueness, referential, range checks, freshness",
+        "Data contracts basics (schema + expectations)",
+        "Unit tests for transforms + “data tests” gating deployments"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "21) Data Operations (Keep It Running)",
+      "topics": [
+        "Glue job bookmarks for incremental processing",
+        "Backfill playbooks: parameterized reruns, reprocessing windows",
+        "Operational dashboards: pipeline success rate, lag, cost metrics",
+        "Incident handling for data pipelines (triage + rollback strategies)"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Phase B — Professional / Production Patterns"
+    },
+    {
+      "type": "module",
+      "title": "22) Infrastructure as Code & DevOps",
+      "topics": [
+        "CloudFormation vs CDK vs SAM; Terraform basics",
+        "CI/CD: CodePipeline/CodeBuild/CodeDeploy or GitHub Actions to AWS",
+        "Artifact versioning, promotion across environments (dev/qa/prod)",
+        "Blue/green + canary, feature flags basics"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "23) Orchestration & Scheduling (Data Pipelines Need a “Brain”)",
+      "topics": [
+        "Step Functions orchestration patterns",
+        "EventBridge scheduler/rules + event-driven pipelines",
+        "Amazon MWAA (Managed Airflow) for DAG orchestration",
+        "Glue triggers/workflows, dependency management, retries, SLAs"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "24) Observability for Data Platforms",
+      "topics": [
+        "Central logging + metrics strategy",
+        "Pipeline-level metrics (freshness, volume anomalies, lag)",
+        "CloudTrail Lake patterns for audit analytics",
+        "Data lineage concepts (high-level)"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "25) Performance + Cost Optimization (FinOps for Data)",
+      "topics": [
+        "S3 lifecycle + storage class optimization",
+        "Athena optimization (partitioning, columnar formats, CTAS)",
+        "Glue/EMR tuning basics (DPUs, executors, shuffle)",
+        "Kinesis/MSK cost levers",
+        "Redshift cost/perf levers; concurrency scaling/serverless basics",
+        "CUR (Cost & Usage Report) → Athena/QuickSight chargeback/showback"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "26) Security at Scale (Enterprise)",
+      "topics": [
+        "KMS key strategy, rotation, envelope encryption concepts",
+        "Secrets mgmt at scale (Secrets Manager/SSM), rotation patterns",
+        "Org-wide detective controls: GuardDuty/Security Hub/Macie",
+        "SCP guardrails + permission boundaries",
+        "Data governance operating model (ownership, approvals, tagging enforcement)"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "27) Architecture & Multi-Account at Scale",
+      "topics": [
+        "Control Tower landing zone, account vending, baseline roles",
+        "Central logging/security accounts, shared services patterns",
+        "Well-Architected for data platforms",
+        "Resiliency patterns: multi-AZ, multi-region lake strategy"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "28) Backup, DR, and Resiliency",
+      "topics": [
+        "AWS Backup basics + cross-region copy",
+        "S3 replication strategies",
+        "Aurora Global DB concepts",
+        "DR strategies: pilot light / warm standby / active-active"
+      ]
+    },
+    {
+      "type": "module",
+      "title": "29) Data Sharing & Collaboration",
+      "topics": [
+        "Lake Formation cross-account sharing",
+        "DataZone sharing workflows",
+        "Redshift sharing concepts (if used)"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Specialty Tracks (Optional Add-ons)"
+    },
+    {
+      "type": "module",
+      "title": "Specialty Tracks (Optional Add-ons)",
+      "topics": [
+        "Advanced Networking: TGW, Global Accelerator, hybrid patterns",
+        "Advanced Security: SRA patterns, detective/preventive/response automation",
+        "Streaming Advanced: Flink, exactly-once concepts, advanced Kafka patterns",
+        "Search/Observability: OpenSearch pipelines, log analytics, SIEM basics",
+        "AI/ML Integration: SageMaker pipelines, Bedrock + RAG over governed datasets"
+      ]
+    }
+  ]
+}
+]
