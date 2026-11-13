@@ -1,0 +1,9 @@
+'use client';
+import { useState } from 'react';
+type Lesson={key:string;title:string;category:string;kind:string;url:string;video:boolean};
+export function MasterclassSearch({lessons}:{lessons:Lesson[]}){
+  const [query,setQuery]=useState('');const [category,setCategory]=useState('All');
+  const categories=['All',...new Set(lessons.map(l=>l.category))];
+  const visible=lessons.filter(l=>(category==='All'||l.category===category)&&`${l.title} ${l.category}`.toLowerCase().includes(query.toLowerCase()));
+  return <><div className="mt-8 flex flex-wrap gap-3"><input aria-label="Search MasterClasses" placeholder="Search MasterClasses" className="min-w-0 flex-1 rounded-xl border border-slate-300 px-4 py-3" value={query} onChange={e=>setQuery(e.target.value)}/><select aria-label="Filter MasterClass topics" className="max-w-full rounded-xl border border-slate-300 px-4 py-3" value={category} onChange={e=>setCategory(e.target.value)}>{categories.map(x=><option key={x}>{x}</option>)}</select></div><p className="mt-4 text-sm text-slate-500" aria-live="polite">{visible.length} pages</p><div className="mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{visible.map(lesson=><a href={lesson.url} key={lesson.key} className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-cyan-400 hover:shadow-lg"><div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-wider text-blue-700"><span>{lesson.category}</span><span>·</span><span>{lesson.kind==='course-hub'?'Course overview':'Lesson'}</span></div><h2 className="mt-3 text-lg font-bold text-slate-900 group-hover:text-blue-700">{lesson.title}</h2><span className="mt-4 inline-block text-sm font-semibold text-blue-700">Open HTML page →</span>{lesson.video&&<span className="ml-3 inline-block rounded-full bg-cyan-50 px-2 py-1 text-xs font-semibold text-cyan-800">Prerecorded video</span>}</a>)}</div></>
+}

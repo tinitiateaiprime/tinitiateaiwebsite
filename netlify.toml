@@ -1,21 +1,5 @@
-# Staging preparation only. Preflight deliberately blocks publication while the
-# application still relies on local private storage. See docs/NETLIFY_STAGING.md.
 [build]
-  command = "node scripts/netlify-preflight.mjs && npm run build"
+  command = "npm run build"
   publish = ".next"
-  ignore = "node ./scripts/netlify-ignore.cjs"
-
 [build.environment]
   NODE_VERSION = "24.22.1"
-  DB_PROVIDER = "postgres"
-  INTEGRATION_TARGET = "staging"
-  PAYLOAD_SCHEMA_PUSH = "false"
-  ENABLE_DEV_SEED = "false"
-  ALLOW_PAID_RECORDING = "false"
-  CHAT_ENABLED = "false"
-
-# This header supplements access protection; it is not authentication.
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow, noarchive"

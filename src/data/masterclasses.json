@@ -1,0 +1,738 @@
+[
+  {
+    "key": "agentic-development-agent-swarms-index",
+    "title": "Agent Swarms",
+    "category": "Agentic Development",
+    "kind": "course-hub",
+    "url": "/masterclasses/agentic-development/agent-swarms/index.html",
+    "video": false
+  },
+  {
+    "key": "agentic-development-agentic-loops-index",
+    "title": "Agentic Loops",
+    "category": "Agentic Development",
+    "kind": "course-hub",
+    "url": "/masterclasses/agentic-development/agentic-loops/index.html",
+    "video": false
+  },
+  {
+    "key": "agentic-development-agents-index",
+    "title": "AI Agents",
+    "category": "Agentic Development",
+    "kind": "course-hub",
+    "url": "/masterclasses/agentic-development/agents/index.html",
+    "video": false
+  },
+  {
+    "key": "agentic-development-index",
+    "title": "Agentic Development",
+    "category": "Agentic Development",
+    "kind": "course-hub",
+    "url": "/masterclasses/agentic-development/index.html",
+    "video": false
+  },
+  {
+    "key": "ai-aws-bedrock-index",
+    "title": "AWS Bedrock Roadmap (2026)",
+    "category": "Ai",
+    "kind": "course-hub",
+    "url": "/masterclasses/ai/aws-bedrock/index.html",
+    "video": false
+  },
+  {
+    "key": "ai-aws-strands-index",
+    "title": "AWS Strands Agents Roadmap (2026)",
+    "category": "Ai",
+    "kind": "course-hub",
+    "url": "/masterclasses/ai/aws-strands/index.html",
+    "video": false
+  },
+  {
+    "key": "ai-azure-foundry-index",
+    "title": "Azure Foundry Roadmap (2026)",
+    "category": "Ai",
+    "kind": "course-hub",
+    "url": "/masterclasses/ai/azure-foundry/index.html",
+    "video": false
+  },
+  {
+    "key": "ai-claude-sdk-index",
+    "title": "Claude SDK Roadmap (2026)",
+    "category": "Ai",
+    "kind": "course-hub",
+    "url": "/masterclasses/ai/claude-sdk/index.html",
+    "video": false
+  },
+  {
+    "key": "ai-crewai-index",
+    "title": "CrewAI Roadmap (2026)",
+    "category": "Ai",
+    "kind": "course-hub",
+    "url": "/masterclasses/ai/crewai/index.html",
+    "video": false
+  },
+  {
+    "key": "ai-google-gemini-sdk-index",
+    "title": "Google Gemini SDK Roadmap (2026)",
+    "category": "Ai",
+    "kind": "course-hub",
+    "url": "/masterclasses/ai/google-gemini-sdk/index.html",
+    "video": false
+  },
+  {
+    "key": "ai-index",
+    "title": "Artificial Intelligence, Foundation Models & Agentic Systems",
+    "category": "Ai",
+    "kind": "course-hub",
+    "url": "/masterclasses/ai/index.html",
+    "video": false
+  },
+  {
+    "key": "ai-langgraph-index",
+    "title": "LangGraph Roadmap (2026)",
+    "category": "Ai",
+    "kind": "course-hub",
+    "url": "/masterclasses/ai/langgraph/index.html",
+    "video": false
+  },
+  {
+    "key": "automation-ml-ai-agentic-agentic-loops",
+    "title": "Agentic Loops",
+    "category": "Automation Ml Ai Agentic",
+    "kind": "lesson",
+    "url": "/masterclasses/automation-ml-ai-agentic/agentic-loops.html",
+    "video": false
+  },
+  {
+    "key": "automation-ml-ai-agentic-agents",
+    "title": "AI Agents",
+    "category": "Automation Ml Ai Agentic",
+    "kind": "lesson",
+    "url": "/masterclasses/automation-ml-ai-agentic/agents.html",
+    "video": false
+  },
+  {
+    "key": "automation-ml-ai-agentic-ai",
+    "title": "01. Artificial Intelligence (AI)",
+    "category": "Automation Ml Ai Agentic",
+    "kind": "lesson",
+    "url": "/masterclasses/automation-ml-ai-agentic/ai.html",
+    "video": false
+  },
+  {
+    "key": "automation-ml-ai-agentic-automation",
+    "title": "Automation — RPA, Workflows & Hyperautomation",
+    "category": "Automation Ml Ai Agentic",
+    "kind": "lesson",
+    "url": "/masterclasses/automation-ml-ai-agentic/automation.html",
+    "video": false
+  },
+  {
+    "key": "automation-ml-ai-agentic-genai",
+    "title": "03. Generative AI (GenAI)",
+    "category": "Automation Ml Ai Agentic",
+    "kind": "lesson",
+    "url": "/masterclasses/automation-ml-ai-agentic/genai.html",
+    "video": false
+  },
+  {
+    "key": "automation-ml-ai-agentic-index",
+    "title": "Tinitiate AI IT Training — Course for AI Developers",
+    "category": "Automation Ml Ai Agentic",
+    "kind": "course-hub",
+    "url": "/masterclasses/automation-ml-ai-agentic/index.html",
+    "video": false
+  },
+  {
+    "key": "automation-ml-ai-agentic-ml",
+    "title": "02. AI / ML Foundation",
+    "category": "Automation Ml Ai Agentic",
+    "kind": "lesson",
+    "url": "/masterclasses/automation-ml-ai-agentic/ml.html",
+    "video": false
+  },
+  {
+    "key": "aws-dataengineering-index",
+    "title": "AWS Data Engineering Architecture MasterClass",
+    "category": "Aws Dataengineering",
+    "kind": "course-hub",
+    "url": "/masterclasses/aws-dataengineering/index.html",
+    "video": false
+  },
+  {
+    "key": "azure-dataengineering-index",
+    "title": "Azure Data Engineering & Microsoft Fabric MasterClass",
+    "category": "Azure Dataengineering",
+    "kind": "course-hub",
+    "url": "/masterclasses/azure-dataengineering/index.html",
+    "video": false
+  },
+  {
+    "key": "data-engineering-batch-loading",
+    "title": "04. Batch Loading, ETL vs. ELT & Orchestration — Data Engineering MasterClass",
+    "category": "Data Engineering",
+    "kind": "lesson",
+    "url": "/masterclasses/data-engineering/batch-loading.html",
+    "video": false
+  },
+  {
+    "key": "data-engineering-data-fabric",
+    "title": "09. Data Fabric & Active Metadata — Data Engineering MasterClass",
+    "category": "Data Engineering",
+    "kind": "lesson",
+    "url": "/masterclasses/data-engineering/data-fabric.html",
+    "video": false
+  },
+  {
+    "key": "data-engineering-data-lake",
+    "title": "03. Data Lake Explainer & Medallion Architecture — Data Engineering MasterClass",
+    "category": "Data Engineering",
+    "kind": "lesson",
+    "url": "/masterclasses/data-engineering/data-lake.html",
+    "video": false
+  },
+  {
+    "key": "data-engineering-data-lakehouse",
+    "title": "07. Data Lakehouse Architecture & Open Table Formats — Data Engineering MasterClass",
+    "category": "Data Engineering",
+    "kind": "lesson",
+    "url": "/masterclasses/data-engineering/data-lakehouse.html",
+    "video": false
+  },
+  {
+    "key": "data-engineering-data-mesh",
+    "title": "08. Data Mesh Architecture & Domain Ownership — Data Engineering MasterClass",
+    "category": "Data Engineering",
+    "kind": "lesson",
+    "url": "/masterclasses/data-engineering/data-mesh.html",
+    "video": false
+  },
+  {
+    "key": "data-engineering-data-warehouse",
+    "title": "06. Data Warehouse & Dimensional Modeling — Data Engineering MasterClass",
+    "category": "Data Engineering",
+    "kind": "lesson",
+    "url": "/masterclasses/data-engineering/data-warehouse.html",
+    "video": false
+  },
+  {
+    "key": "data-engineering-db-explainer",
+    "title": "01. Database Explainer & Relational Theory — Data Engineering MasterClass",
+    "category": "Data Engineering",
+    "kind": "lesson",
+    "url": "/masterclasses/data-engineering/db-explainer.html",
+    "video": false
+  },
+  {
+    "key": "data-engineering-duckdb-index",
+    "title": "DuckDB: In-Process Columnar Analytical OLAP",
+    "category": "Data Engineering",
+    "kind": "course-hub",
+    "url": "/masterclasses/data-engineering/duckdb/index.html",
+    "video": false
+  },
+  {
+    "key": "data-engineering-file-formats",
+    "title": "02. Big Data File Formats & Compression — Data Engineering MasterClass",
+    "category": "Data Engineering",
+    "kind": "lesson",
+    "url": "/masterclasses/data-engineering/file-formats.html",
+    "video": false
+  },
+  {
+    "key": "data-engineering-index",
+    "title": "Data Engineering MasterClass",
+    "category": "Data Engineering",
+    "kind": "course-hub",
+    "url": "/masterclasses/data-engineering/index.html",
+    "video": false
+  },
+  {
+    "key": "data-engineering-onprem-pandas-polars-sql-index",
+    "title": "On-Premises Data Engineering: Pandas 2.0, Polars & SQL",
+    "category": "Data Engineering",
+    "kind": "course-hub",
+    "url": "/masterclasses/data-engineering/onprem-pandas-polars-sql/index.html",
+    "video": false
+  },
+  {
+    "key": "data-engineering-real-time",
+    "title": "05. Real-Time Streaming & Cloud Tools — Data Engineering MasterClass",
+    "category": "Data Engineering",
+    "kind": "lesson",
+    "url": "/masterclasses/data-engineering/real-time.html",
+    "video": false
+  },
+  {
+    "key": "data-governence-atlas-index",
+    "title": "Apache Atlas: Open-Source Enterprise Metadata & Lineage",
+    "category": "Data Governence",
+    "kind": "course-hub",
+    "url": "/masterclasses/data-governence/atlas/index.html",
+    "video": false
+  },
+  {
+    "key": "data-governence-index",
+    "title": "Enterprise Data Governance & Purview MasterClass",
+    "category": "Data Governence",
+    "kind": "course-hub",
+    "url": "/masterclasses/data-governence/index.html",
+    "video": false
+  },
+  {
+    "key": "data-governence-purview-sandbox-index",
+    "title": "Purview Ingestion Scan Sandbox",
+    "category": "Data Governence",
+    "kind": "course-hub",
+    "url": "/masterclasses/data-governence/purview-sandbox/index.html",
+    "video": false
+  },
+  {
+    "key": "data-governence-purview-sandbox-lineage",
+    "title": "Column-Level Data Lineage Sandbox",
+    "category": "Data Governence",
+    "kind": "lesson",
+    "url": "/masterclasses/data-governence/purview-sandbox/lineage.html",
+    "video": false
+  },
+  {
+    "key": "data-governence-purview-sandbox-policy-steward-matrix",
+    "title": "Policy-as-Code Steward Matrix Sandbox",
+    "category": "Data Governence",
+    "kind": "lesson",
+    "url": "/masterclasses/data-governence/purview-sandbox/policy-steward-matrix.html",
+    "video": false
+  },
+  {
+    "key": "data-governence-unity-index",
+    "title": "Databricks Unity Catalog: Unified Governance & ABAC",
+    "category": "Data Governence",
+    "kind": "course-hub",
+    "url": "/masterclasses/data-governence/unity/index.html",
+    "video": false
+  },
+  {
+    "key": "databricks-dataengineering-index",
+    "title": "Databricks Lakehouse & Apache Spark MasterClass",
+    "category": "Databricks Dataengineering",
+    "kind": "course-hub",
+    "url": "/masterclasses/databricks-dataengineering/index.html",
+    "video": false
+  },
+  {
+    "key": "foundational-apis-index",
+    "title": "Enterprise API Architecture & Protocol Engineering",
+    "category": "Foundational",
+    "kind": "course-hub",
+    "url": "/masterclasses/foundational/apis/index.html",
+    "video": false
+  },
+  {
+    "key": "foundational-authentication-index",
+    "title": "Modern Enterprise Authentication & Authorization",
+    "category": "Foundational",
+    "kind": "course-hub",
+    "url": "/masterclasses/foundational/authentication/index.html",
+    "video": false
+  },
+  {
+    "key": "foundational-data-structures-index",
+    "title": "Data Structures & Algorithmic Foundations",
+    "category": "Foundational",
+    "kind": "course-hub",
+    "url": "/masterclasses/foundational/data-structures/index.html",
+    "video": false
+  },
+  {
+    "key": "foundational-design-patterns-index",
+    "title": "GoF Software Design Patterns in Modern Architecture",
+    "category": "Foundational",
+    "kind": "course-hub",
+    "url": "/masterclasses/foundational/design-patterns/index.html",
+    "video": false
+  },
+  {
+    "key": "foundational-index",
+    "title": "Foundational Computer Science & Software Engineering",
+    "category": "Foundational",
+    "kind": "course-hub",
+    "url": "/masterclasses/foundational/index.html",
+    "video": false
+  },
+  {
+    "key": "foundational-microservices-index",
+    "title": "Distributed Microservices & Event-Driven Systems",
+    "category": "Foundational",
+    "kind": "course-hub",
+    "url": "/masterclasses/foundational/microservices/index.html",
+    "video": false
+  },
+  {
+    "key": "foundational-oop-index",
+    "title": "Object-Oriented Programming & SOLID Principles",
+    "category": "Foundational",
+    "kind": "course-hub",
+    "url": "/masterclasses/foundational/oop/index.html",
+    "video": false
+  },
+  {
+    "key": "foundational-python-datatypes",
+    "title": "Python Datatypes: Kinds of Values",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/python/datatypes.html",
+    "video": true
+  },
+  {
+    "key": "foundational-python-index",
+    "title": "Python Foundations",
+    "category": "Foundational",
+    "kind": "course-hub",
+    "url": "/masterclasses/foundational/python/index.html",
+    "video": false
+  },
+  {
+    "key": "foundational-python-lists",
+    "title": "Python Lists: Collections of Values",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/python/lists.html",
+    "video": true
+  },
+  {
+    "key": "foundational-python-operators",
+    "title": "Python Operators: Math, Compare & Logic",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/python/operators.html",
+    "video": true
+  },
+  {
+    "key": "foundational-python-print",
+    "title": "Python Print: Show Things on Screen",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/python/print.html",
+    "video": true
+  },
+  {
+    "key": "foundational-python-strings",
+    "title": "Python Strings: Working with Text",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/python/strings.html",
+    "video": true
+  },
+  {
+    "key": "foundational-python-variables",
+    "title": "Python Variables: Naming, Types & Best Practices",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/python/variables.html",
+    "video": true
+  },
+  {
+    "key": "full-stack-dotnet-csharp-index",
+    "title": "C# and .NET 8 Full Stack Enterprise Architecture",
+    "category": "Full Stack",
+    "kind": "course-hub",
+    "url": "/masterclasses/full-stack/dotnet-csharp/index.html",
+    "video": false
+  },
+  {
+    "key": "full-stack-index",
+    "title": "Full Stack Enterprise Systems Architecture",
+    "category": "Full Stack",
+    "kind": "course-hub",
+    "url": "/masterclasses/full-stack/index.html",
+    "video": false
+  },
+  {
+    "key": "full-stack-java-fullstack-index",
+    "title": "Java Full Stack: Spring Boot 3 & Microservices",
+    "category": "Full Stack",
+    "kind": "course-hub",
+    "url": "/masterclasses/full-stack/java-fullstack/index.html",
+    "video": false
+  },
+  {
+    "key": "full-stack-nodejs-react-nextjs-index",
+    "title": "Node.js, React 19 & Next.js App Router Architecture",
+    "category": "Full Stack",
+    "kind": "course-hub",
+    "url": "/masterclasses/full-stack/nodejs-react-nextjs/index.html",
+    "video": false
+  },
+  {
+    "key": "full-stack-python-fastapi-index",
+    "title": "Python FastAPI: Modern Async High-Performance APIs",
+    "category": "Full Stack",
+    "kind": "course-hub",
+    "url": "/masterclasses/full-stack/python-fastapi/index.html",
+    "video": false
+  },
+  {
+    "key": "placement-assistance-after-interview",
+    "title": "After the Interview",
+    "category": "Placement Assistance",
+    "kind": "lesson",
+    "url": "/masterclasses/placement-assistance/after-interview.html",
+    "video": false
+  },
+  {
+    "key": "placement-assistance-aptitude-coding",
+    "title": "Aptitude & Coding Rounds",
+    "category": "Placement Assistance",
+    "kind": "lesson",
+    "url": "/masterclasses/placement-assistance/aptitude-coding.html",
+    "video": false
+  },
+  {
+    "key": "placement-assistance-before-interview",
+    "title": "Before the Interview",
+    "category": "Placement Assistance",
+    "kind": "lesson",
+    "url": "/masterclasses/placement-assistance/before-interview.html",
+    "video": false
+  },
+  {
+    "key": "placement-assistance-communication-skills",
+    "title": "Communication Skills",
+    "category": "Placement Assistance",
+    "kind": "lesson",
+    "url": "/masterclasses/placement-assistance/communication-skills.html",
+    "video": false
+  },
+  {
+    "key": "placement-assistance-confidence-mindset",
+    "title": "Confidence & Mindset",
+    "category": "Placement Assistance",
+    "kind": "lesson",
+    "url": "/masterclasses/placement-assistance/confidence-mindset.html",
+    "video": false
+  },
+  {
+    "key": "placement-assistance-cover-letters",
+    "title": "Cover Letters",
+    "category": "Placement Assistance",
+    "kind": "lesson",
+    "url": "/masterclasses/placement-assistance/cover-letters.html",
+    "video": false
+  },
+  {
+    "key": "placement-assistance-during-interview",
+    "title": "During the Interview",
+    "category": "Placement Assistance",
+    "kind": "lesson",
+    "url": "/masterclasses/placement-assistance/during-interview.html",
+    "video": false
+  },
+  {
+    "key": "placement-assistance-group-discussion",
+    "title": "Group Discussion",
+    "category": "Placement Assistance",
+    "kind": "lesson",
+    "url": "/masterclasses/placement-assistance/group-discussion.html",
+    "video": false
+  },
+  {
+    "key": "placement-assistance-handling-competition",
+    "title": "Handling Competition",
+    "category": "Placement Assistance",
+    "kind": "lesson",
+    "url": "/masterclasses/placement-assistance/handling-competition.html",
+    "video": false
+  },
+  {
+    "key": "placement-assistance-hr-round-salary",
+    "title": "HR Round & Salary Talk",
+    "category": "Placement Assistance",
+    "kind": "lesson",
+    "url": "/masterclasses/placement-assistance/hr-round-salary.html",
+    "video": false
+  },
+  {
+    "key": "placement-assistance-index",
+    "title": "Resume to Offer Letter",
+    "category": "Placement Assistance",
+    "kind": "course-hub",
+    "url": "/masterclasses/placement-assistance/index.html",
+    "video": false
+  },
+  {
+    "key": "placement-assistance-interview-prep",
+    "title": "Interview Prep",
+    "category": "Placement Assistance",
+    "kind": "lesson",
+    "url": "/masterclasses/placement-assistance/interview-prep.html",
+    "video": false
+  },
+  {
+    "key": "placement-assistance-job-applications",
+    "title": "Job Applications",
+    "category": "Placement Assistance",
+    "kind": "lesson",
+    "url": "/masterclasses/placement-assistance/job-applications.html",
+    "video": false
+  },
+  {
+    "key": "placement-assistance-linkedin-naukri",
+    "title": "LinkedIn & Naukri Profile",
+    "category": "Placement Assistance",
+    "kind": "lesson",
+    "url": "/masterclasses/placement-assistance/linkedin-naukri.html",
+    "video": false
+  },
+  {
+    "key": "placement-assistance-off-campus-jobs",
+    "title": "Off-Campus Job Hunt",
+    "category": "Placement Assistance",
+    "kind": "lesson",
+    "url": "/masterclasses/placement-assistance/off-campus-jobs.html",
+    "video": false
+  },
+  {
+    "key": "placement-assistance-resume-prep",
+    "title": "Resume Prep",
+    "category": "Placement Assistance",
+    "kind": "lesson",
+    "url": "/masterclasses/placement-assistance/resume-prep.html",
+    "video": false
+  },
+  {
+    "key": "pyspark-cloud-storage",
+    "title": "Cloud Object Storage Connectors (S3, ADLS, GCS, MinIO) — PySpark Explainer",
+    "category": "Pyspark",
+    "kind": "lesson",
+    "url": "/masterclasses/pyspark/cloud-storage.html",
+    "video": false
+  },
+  {
+    "key": "pyspark-cluster-architecture",
+    "title": "PySpark Cluster Architecture for Beginners — Interactive Explainer",
+    "category": "Pyspark",
+    "kind": "lesson",
+    "url": "/masterclasses/pyspark/cluster-architecture.html",
+    "video": false
+  },
+  {
+    "key": "pyspark-dag-execution",
+    "title": "DataFrame Operations, DAG, Stages & Tasks — PySpark Explainer",
+    "category": "Pyspark",
+    "kind": "lesson",
+    "url": "/masterclasses/pyspark/dag-execution.html",
+    "video": false
+  },
+  {
+    "key": "pyspark-data-distribution",
+    "title": "Data Distribution Explorer",
+    "category": "Pyspark",
+    "kind": "lesson",
+    "url": "/masterclasses/pyspark/data-distribution.html",
+    "video": false
+  },
+  {
+    "key": "pyspark-index",
+    "title": "PySpark Interactive Explainer — Comprehensive Architecture & Execution Hub",
+    "category": "Pyspark",
+    "kind": "course-hub",
+    "url": "/masterclasses/pyspark/index.html",
+    "video": false
+  },
+  {
+    "key": "pyspark-mpp-warehouses",
+    "title": "MPP Data Warehouses (Snowflake & Redshift) — PySpark Explainer",
+    "category": "Pyspark",
+    "kind": "lesson",
+    "url": "/masterclasses/pyspark/mpp-warehouses.html",
+    "video": false
+  },
+  {
+    "key": "pyspark-rdbms-jdbc",
+    "title": "High-Performance RDBMS JDBC (Oracle, Postgres, MySQL, SQL Server) — PySpark Explainer",
+    "category": "Pyspark",
+    "kind": "lesson",
+    "url": "/masterclasses/pyspark/rdbms-jdbc.html",
+    "video": false
+  },
+  {
+    "key": "pyspark-shuffle-ops-lab",
+    "title": "Shuffle Operations Lab",
+    "category": "Pyspark",
+    "kind": "lesson",
+    "url": "/masterclasses/pyspark/shuffle-ops-lab.html",
+    "video": false
+  },
+  {
+    "key": "pyspark-shuffle-partitioning",
+    "title": "PySpark Shuffle, Partitioning & File Sizing Mechanics — Legendary Explainer",
+    "category": "Pyspark",
+    "kind": "lesson",
+    "url": "/masterclasses/pyspark/shuffle-partitioning.html",
+    "video": false
+  },
+  {
+    "key": "pyspark-shuffle-tuning-qna",
+    "title": "Shuffle Tuning Q&A",
+    "category": "Pyspark",
+    "kind": "lesson",
+    "url": "/masterclasses/pyspark/shuffle-tuning-qna.html",
+    "video": false
+  },
+  {
+    "key": "pyspark-streaming-cdc",
+    "title": "Real-Time Streaming, Message Queues & CDC (Kafka, Kinesis, Debezium) — PySpark Explainer",
+    "category": "Pyspark",
+    "kind": "lesson",
+    "url": "/masterclasses/pyspark/streaming-cdc.html",
+    "video": false
+  },
+  {
+    "key": "snowflake-dataengineering-features",
+    "title": "Time Travel, Dynamic Tables & Stages — Snowflake MasterClass",
+    "category": "Snowflake Dataengineering",
+    "kind": "lesson",
+    "url": "/masterclasses/snowflake-dataengineering/features.html",
+    "video": false
+  },
+  {
+    "key": "snowflake-dataengineering-index",
+    "title": "Snowflake Data Cloud MasterClass",
+    "category": "Snowflake Dataengineering",
+    "kind": "course-hub",
+    "url": "/masterclasses/snowflake-dataengineering/index.html",
+    "video": false
+  },
+  {
+    "key": "snowflake-dataengineering-internals",
+    "title": "Snowflake Internals — Micro-partitions, Caches, Recovery & HA",
+    "category": "Snowflake Dataengineering",
+    "kind": "lesson",
+    "url": "/masterclasses/snowflake-dataengineering/internals.html",
+    "video": false
+  },
+  {
+    "key": "snowflake-dataengineering-interview-qna",
+    "title": "Snowflake Engineer Interview Q&A — Snowflake MasterClass",
+    "category": "Snowflake Dataengineering",
+    "kind": "lesson",
+    "url": "/masterclasses/snowflake-dataengineering/interview-qna.html",
+    "video": false
+  },
+  {
+    "key": "snowflake-dataengineering-tables",
+    "title": "Tables, Tuning & Loading — Snowflake MasterClass",
+    "category": "Snowflake Dataengineering",
+    "kind": "lesson",
+    "url": "/masterclasses/snowflake-dataengineering/tables.html",
+    "video": false
+  },
+  {
+    "key": "snowflake-dataengineering-warehouses",
+    "title": "Warehouses & Compute — Snowflake MasterClass",
+    "category": "Snowflake Dataengineering",
+    "kind": "lesson",
+    "url": "/masterclasses/snowflake-dataengineering/warehouses.html",
+    "video": false
+  }
+]

@@ -1,35 +1,30 @@
-import { APIError } from 'payload'
-import { getPayload } from '@/lib/getPayload'
-import { readSmallJSON, requestIdentity, takeRequest } from '@/lib/requestLimits'
+import { CosmosClient } from '@azure/cosmos';
+import { randomUUID } from 'node:crypto';
+export const runtime='nodejs';
 
-export async function POST(request: Request) {
-  if (!takeRequest(`callback:${requestIdentity(request.headers)}`, 10)) return Response.json({ error: 'Please try again later.' }, { status: 429 })
-  try {
-    const input = await readSmallJSON(request)
-    if (!input || typeof input !== 'object' || Array.isArray(input)) throw new APIError('Invalid callback request', 400)
-    const body = input as Record<string, unknown>
-    const text = (name: string, required = false, max = 200) => {
-      const value = body[name]
-      if (value !== undefined && typeof value !== 'string') throw new APIError(`Invalid ${name}`, 400)
-      const result = typeof value === 'string' ? value.trim() : ''
-      if ((required && !result) || result.length > max) throw new APIError(`Invalid ${name}`, 400)
-      return result
-    }
-    const name = text('name', true)
-    const email = text('email', true)
-    const phone = text('phone', true, 40)
-    const preferredTime = text('preferredTime', true)
-    const course = text('course')
-    const message = text('message', false, 4000)
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new APIError('Invalid email', 400)
-    const payload = await getPayload()
-    await payload.create({ collection: 'contact-messages', overrideAccess: false, data: {
-      name, email, phone, subject: `Callback${course ? `: ${course}` : ''}`,
-      message: [`Preferred time: ${preferredTime}`, course && `Course: ${course}`, message].filter(Boolean).join('\n\n'),
-    } })
-    return Response.json({ ok: true }, { status: 201 })
-  } catch (error) {
-    const status = error instanceof APIError ? error.status : 500
-    return Response.json({ error: status < 500 && error instanceof Error ? error.message : 'Unable to save your request. Please try again.' }, { status })
-  }
+const field=(o:Record<string,unknown>,name:string,max:number,required=false):string=>{
+  const v=o[name]; if(v===undefined||v===null) {if(required)throw Error(`Missing ${name}`);return '';}
+  if(typeof v!=='string'||v.trim().length>max||(required&&!v.trim()))throw Error(`Invalid ${name}`);
+  return v.trim();
+};
+
+export async function POST(request:Request){
+  if(!request.headers.get('content-type')?.toLowerCase().includes('application/json'))return Response.json({ok:false,error:'Expected JSON.'},{status:415});
+  try{
+    const bodyText=await request.text();if(bodyText.length>12000)return Response.json({ok:false,error:'Enquiry is too long.'},{status:413});
+    const input:unknown=JSON.parse(bodyText);if(!input||typeof input!=='object'||Array.isArray(input))return Response.json({ok:false,error:'Invalid enquiry.'},{status:400});
+    const data=input as Record<string,unknown>;
+    let name:string,email:string,phone:string,preferredTime:string,course:string,message:string;
+    try{
+      name=field(data,'name',120,true);email=field(data,'email',254,true);phone=field(data,'phone',40,true);
+      preferredTime=field(data,'preferredTime',120,true);course=field(data,'course',180);message=field(data,'message',4000);
+    }catch{return Response.json({ok:false,error:'Please check the form fields.'},{status:400});}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||!/^[+\d\s().-]{7,40}$/.test(phone))return Response.json({ok:false,error:'Enter a valid email and phone number.'},{status:400});
+    const endpoint=process.env.COSMOS_ENDPOINT,key=process.env.COSMOS_KEY;
+    if(!endpoint||!key)return Response.json({ok:false,error:'Enquiry service is not configured.'},{status:503});
+    const item={id:randomUUID(),pk:'enquiry',type:'enquiry',name,email,phone,preferredTime,course,message,createdAt:new Date().toISOString()};
+    const client=new CosmosClient({endpoint,key});
+    await client.database(process.env.COSMOS_DATABASE||'tinitiate').container(process.env.COSMOS_CONTAINER||'items').items.create(item);
+    return Response.json({ok:true,id:item.id},{status:201});
+  }catch(e){console.error('Enquiry submission error:', e instanceof Error?e.name:'unknown');return Response.json({ok:false,error:'Unable to save your enquiry right now.'},{status:500});}
 }

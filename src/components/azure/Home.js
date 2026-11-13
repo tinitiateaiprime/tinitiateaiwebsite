@@ -97,7 +97,7 @@ function HeroSection() {
 
   const slides = [
     {
-      image: "/azure/python.png",
+      image: "/azure/images/courses/python.png",
       title: "PYTHON",
       heading: "Redefine Your Professional Trajectory with Python",
       points: [
@@ -119,7 +119,7 @@ function HeroSection() {
     },
 
     {
-      image: "/azure/js.png",
+      image: "/azure/images/courses/js.png",
       title: "JAVASCRIPT",
       heading: "JavaScript: Build the Web",
       points: [
@@ -161,7 +161,7 @@ function HeroSection() {
     },
 
     {
-      image: "/azure/java.png",
+      image: "/azure/images/courses/java.png",
       title: "JAVA",
       heading: "Java: The Enterprise Engine",
       points: [
