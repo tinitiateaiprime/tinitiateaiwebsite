@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="title desc">
+<title id="title">Git &amp; GitHub Course — Tinitiate AI</title>
+<desc id="desc">Custom course thumbnail with a subject-specific title and icon</desc>
+<defs>
+<linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0" stop-color="#172953"/><stop offset="1" stop-color="#223c8e"/></linearGradient>
+<linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="#67b8ff" stop-opacity=".85"/><stop offset="1" stop-color="#ffffff" stop-opacity=".12"/></linearGradient>
+<pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity=".13"/></pattern>
+</defs>
+<rect width="960" height="540" fill="url(#bg)"/>
+<circle cx="860" cy="45" r="370" fill="#ffffff" opacity=".045"/><circle cx="820" cy="80" r="290" fill="none" stroke="#ffffff" opacity=".08" stroke-width="2"/>
+<rect width="960" height="540" fill="url(#dots)"/>
+<rect x="0" y="0" width="12" height="540" fill="#67b8ff"/>
+<rect x="60" y="48" width="6" height="24" rx="3" fill="#67b8ff"/>
+<text x="81" y="67" font-family="Arial,Segoe UI,sans-serif" font-size="24" font-weight="800" letter-spacing="2" fill="#ffffff">TINITIATE AI</text>
+<text x="60" y="130" font-family="Arial,Segoe UI,sans-serif" font-size="17" font-weight="700" letter-spacing="2.5" fill="#67b8ff">DEVELOPMENT</text>
+<text x="60" y="195" font-family="Arial,Segoe UI,sans-serif" font-size="57" font-weight="750" fill="#f8fcff">Git &amp; GitHub</text><text x="60" y="264" font-family="Arial,Segoe UI,sans-serif" font-size="57" font-weight="750" fill="#f8fcff">Course</text>
+<rect x="650" y="122" width="284" height="284" rx="40" fill="#ffffff" fill-opacity=".09" stroke="#ffffff" stroke-opacity=".25" stroke-width="2"/>
+<rect x="670" y="141" width="244" height="246" rx="30" fill="#ffffff"/>
+<svg x="692" y="164" width="190" height="190" viewBox="0 0 256 256" preserveAspectRatio="xMidYMid meet"><path fill="#de4c36" d="M251.172 116.594L139.4 4.828c-6.433-6.437-16.873-6.437-23.314 0l-23.21 23.21l29.443 29.443c6.842-2.312 14.688-.761 20.142 4.693c5.48 5.489 7.02 13.402 4.652 20.266l28.375 28.376c6.865-2.365 14.786-.835 20.269 4.657c7.663 7.66 7.663 20.075 0 27.74c-7.665 7.666-20.08 7.666-27.749 0c-5.764-5.77-7.188-14.235-4.27-21.336l-26.462-26.462l-.003 69.637a19.8 19.8 0 0 1 5.188 3.71c7.663 7.66 7.663 20.076 0 27.747c-7.665 7.662-20.086 7.662-27.74 0c-7.663-7.671-7.663-20.086 0-27.746a19.7 19.7 0 0 1 6.421-4.281V94.196a19.4 19.4 0 0 1-6.421-4.281c-5.806-5.798-7.202-14.317-4.227-21.446L81.47 39.442L4.83 116.077c-6.44 6.443-6.44 16.884 0 23.322l111.774 111.768c6.435 6.438 16.873 6.438 23.316 0l111.251-111.249c6.438-6.44 6.438-16.887 0-23.324"/></svg>
+<path d="M60 436 H600" stroke="url(#beam)" stroke-width="2"/>
+<rect x="60" y="464" width="12" height="12" rx="3" fill="#67b8ff"/>
+<text x="85" y="476" font-family="Arial,Segoe UI,sans-serif" font-size="20" font-weight="650" fill="#e3f5ff">PRACTICAL LEARNING</text>
+<text x="900" y="476" text-anchor="end" font-family="Arial,Segoe UI,sans-serif" font-size="17" letter-spacing="1.2" fill="#cbe8f8">COURSE 009</text>
+</svg>

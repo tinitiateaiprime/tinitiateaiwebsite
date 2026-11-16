@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="title desc">
+<title id="title">Power BI Course — Tinitiate AI</title>
+<desc id="desc">Custom course thumbnail with a subject-specific title and icon</desc>
+<defs>
+<linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0" stop-color="#202f52"/><stop offset="1" stop-color="#315986"/></linearGradient>
+<linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="#ffcf76" stop-opacity=".85"/><stop offset="1" stop-color="#ffffff" stop-opacity=".12"/></linearGradient>
+<pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity=".13"/></pattern>
+</defs>
+<rect width="960" height="540" fill="url(#bg)"/>
+<circle cx="860" cy="45" r="370" fill="#ffffff" opacity=".045"/><circle cx="820" cy="80" r="290" fill="none" stroke="#ffffff" opacity=".08" stroke-width="2"/>
+<rect width="960" height="540" fill="url(#dots)"/>
+<rect x="0" y="0" width="12" height="540" fill="#ffcf76"/>
+<rect x="60" y="48" width="6" height="24" rx="3" fill="#ffcf76"/>
+<text x="81" y="67" font-family="Arial,Segoe UI,sans-serif" font-size="24" font-weight="800" letter-spacing="2" fill="#ffffff">TINITIATE AI</text>
+<text x="60" y="130" font-family="Arial,Segoe UI,sans-serif" font-size="17" font-weight="700" letter-spacing="2.5" fill="#ffcf76">ANALYTICS</text>
+<text x="60" y="195" font-family="Arial,Segoe UI,sans-serif" font-size="57" font-weight="750" fill="#f8fcff">Power BI Course</text>
+<rect x="650" y="122" width="284" height="284" rx="40" fill="#ffffff" fill-opacity=".09" stroke="#ffffff" stroke-opacity=".25" stroke-width="2"/>
+<rect x="670" y="141" width="244" height="246" rx="30" fill="#ffffff"/>
+<svg x="692" y="164" width="190" height="190" viewBox="0 0 256 342" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="SVGCdghnblF" x1="42.593%" x2="57.245%" y1="0%" y2="93.174%"><stop offset="0%" stop-color="#e6ad10"/><stop offset="100%" stop-color="#c87e0e"/></linearGradient><linearGradient id="SVG5tapKdof" x1="40.122%" x2="62.028%" y1="0%" y2="95.592%"><stop offset="0%" stop-color="#f6d751"/><stop offset="100%" stop-color="#e6ad10"/></linearGradient><linearGradient id="SVGRvjwscVp" x1="27.774%" x2="55.012%" y1="0%" y2="96.828%"><stop offset="0%" stop-color="#f9e589"/><stop offset="100%" stop-color="#f6d751"/></linearGradient><path id="SVGvAvgNc4T" d="M142.222 14.222C142.222 6.368 148.59 0 156.444 0h85.334C249.632 0 256 6.368 256 14.222v312.89c0 7.854-6.368 14.221-14.222 14.221H14.222C6.368 341.333 0 334.966 0 327.111V184.89c0-7.855 6.368-14.222 14.222-14.222h56.89V99.556c0-7.855 6.367-14.223 14.222-14.223h56.888z"/></defs><mask id="SVGvCV5wclL" fill="#fff"><use href="#SVGvAvgNc4T"/></mask><path fill="url(#SVGCdghnblF)" d="M256 0v341.333H142.222V0z" mask="url(#SVGvCV5wclL)"/><path fill-opacity=".2" d="M184.889 100.978v241.778H71.11v-256h99.556c7.854 0 14.222 6.367 14.222 14.222" mask="url(#SVGvCV5wclL)"/><path fill-opacity=".18" d="M184.889 106.667v241.777H71.11v-256h99.556c7.854 0 14.222 6.368 14.222 14.223" mask="url(#SVGvCV5wclL)"/><path fill="url(#SVG5tapKdof)" d="M184.889 99.556v241.777H71.11v-256h99.556c7.854 0 14.222 6.368 14.222 14.223" mask="url(#SVGvCV5wclL)"/><path fill="url(#SVGRvjwscVp)" d="M0 170.667v170.666h113.778V184.89c0-7.855-6.368-14.222-14.222-14.222z" mask="url(#SVGvCV5wclL)"/></svg>
+<path d="M60 436 H600" stroke="url(#beam)" stroke-width="2"/>
+<rect x="60" y="464" width="12" height="12" rx="3" fill="#ffcf76"/>
+<text x="85" y="476" font-family="Arial,Segoe UI,sans-serif" font-size="20" font-weight="650" fill="#e3f5ff">PRACTICAL LEARNING</text>
+<text x="900" y="476" text-anchor="end" font-family="Arial,Segoe UI,sans-serif" font-size="17" letter-spacing="1.2" fill="#cbe8f8">COURSE 030</text>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="title desc">
+<title id="title">SQL Server Course — Tinitiate AI</title>
+<desc id="desc">Custom course thumbnail with a subject-specific title and icon</desc>
+<defs>
+<linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0" stop-color="#112c55"/><stop offset="1" stop-color="#104766"/></linearGradient>
+<linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="#26d9ee" stop-opacity=".85"/><stop offset="1" stop-color="#ffffff" stop-opacity=".12"/></linearGradient>
+<pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity=".13"/></pattern>
+</defs>
+<rect width="960" height="540" fill="url(#bg)"/>
+<circle cx="860" cy="45" r="370" fill="#ffffff" opacity=".045"/><circle cx="820" cy="80" r="290" fill="none" stroke="#ffffff" opacity=".08" stroke-width="2"/>
+<rect width="960" height="540" fill="url(#dots)"/>
+<rect x="0" y="0" width="12" height="540" fill="#26d9ee"/>
+<rect x="60" y="48" width="6" height="24" rx="3" fill="#26d9ee"/>
+<text x="81" y="67" font-family="Arial,Segoe UI,sans-serif" font-size="24" font-weight="800" letter-spacing="2" fill="#ffffff">TINITIATE AI</text>
+<text x="60" y="130" font-family="Arial,Segoe UI,sans-serif" font-size="17" font-weight="700" letter-spacing="2.5" fill="#26d9ee">DATABASES</text>
+<text x="60" y="195" font-family="Arial,Segoe UI,sans-serif" font-size="57" font-weight="750" fill="#f8fcff">SQL Server Course</text>
+<rect x="650" y="122" width="284" height="284" rx="40" fill="#ffffff" fill-opacity=".09" stroke="#ffffff" stroke-opacity=".25" stroke-width="2"/>
+<rect x="670" y="141" width="244" height="246" rx="30" fill="#ffffff"/>
+<text x="792" y="282" text-anchor="middle" font-family="Arial,Segoe UI,sans-serif" font-size="35" font-weight="900" fill="#15507a">SQL SERVER</text>
+<path d="M60 436 H600" stroke="url(#beam)" stroke-width="2"/>
+<rect x="60" y="464" width="12" height="12" rx="3" fill="#26d9ee"/>
+<text x="85" y="476" font-family="Arial,Segoe UI,sans-serif" font-size="20" font-weight="650" fill="#e3f5ff">PRACTICAL LEARNING</text>
+<text x="900" y="476" text-anchor="end" font-family="Arial,Segoe UI,sans-serif" font-size="17" letter-spacing="1.2" fill="#cbe8f8">COURSE 026</text>
+</svg>

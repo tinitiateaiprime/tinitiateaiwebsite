@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="title desc">
+<title id="title">Azure Event Hubs — Tinitiate AI</title>
+<desc id="desc">Custom course thumbnail with a subject-specific title and icon</desc>
+<defs>
+<linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0" stop-color="#0b3048"/><stop offset="1" stop-color="#195a9c"/></linearGradient>
+<linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="#64dfff" stop-opacity=".85"/><stop offset="1" stop-color="#ffffff" stop-opacity=".12"/></linearGradient>
+<pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity=".13"/></pattern>
+</defs>
+<rect width="960" height="540" fill="url(#bg)"/>
+<circle cx="860" cy="45" r="370" fill="#ffffff" opacity=".045"/><circle cx="820" cy="80" r="290" fill="none" stroke="#ffffff" opacity=".08" stroke-width="2"/>
+<rect width="960" height="540" fill="url(#dots)"/>
+<rect x="0" y="0" width="12" height="540" fill="#64dfff"/>
+<rect x="60" y="48" width="6" height="24" rx="3" fill="#64dfff"/>
+<text x="81" y="67" font-family="Arial,Segoe UI,sans-serif" font-size="24" font-weight="800" letter-spacing="2" fill="#ffffff">TINITIATE AI</text>
+<text x="60" y="130" font-family="Arial,Segoe UI,sans-serif" font-size="17" font-weight="700" letter-spacing="2.5" fill="#64dfff">CLOUD &amp; DEVOPS</text>
+<text x="60" y="195" font-family="Arial,Segoe UI,sans-serif" font-size="57" font-weight="750" fill="#f8fcff">Azure Event Hubs</text>
+<rect x="650" y="122" width="284" height="284" rx="40" fill="#ffffff" fill-opacity=".09" stroke="#ffffff" stroke-opacity=".25" stroke-width="2"/>
+<rect x="670" y="141" width="244" height="246" rx="30" fill="#ffffff"/>
+<svg x="692" y="164" width="190" height="190" viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet"><path d="M10.83 8.42a.26.26 0 01-.24.27H8.5a.26.26 0 01-.27-.24V6.89a.26.26 0 01.24-.27h2.09a.26.26 0 01.27.24v1.56zM14.54 10a.26.26 0 01-.24.27h-2.09a.26.26 0 01-.27-.24V8.48a.26.26 0 01.24-.27h2.09a.26.26 0 01.27.24V10zm-3.71 1.6a.26.26 0 01-.24.27H8.5a.26.26 0 01-.27-.24v-1.56a.26.26 0 01.24-.27h2.09a.26.26 0 01.27.24v1.56z" fill="#76bc2d"/><path d="M7.12 6.84a.25.25 0 01-.23.26H4.74a.26.26 0 01-.27-.23V5.25A.26.26 0 014.71 5H6.8c.22 0 .32.11.32.27z" fill="#86d633"/><path d="M7.12 10a.25.25 0 01-.23.27H4.74a.26.26 0 01-.27-.27V8.42a.26.26 0 01.24-.26H6.8c.22 0 .32.11.32.26zm0 3.19a.25.25 0 01-.23.27H4.74a.26.26 0 01-.27-.24V11.6a.25.25 0 01.24-.26H6.8c.22 0 .32.1.32.26z" fill="#76bc2d"/><g fill="#999"><path d="M1.07 1.51h1.29v3.6a.29.29 0 01-.29.29H.79a.29.29 0 01-.29-.29v-3a.57.57 0 01.57-.6z"/><path d="M1.07 1.51h1.29v3.6a.29.29 0 01-.29.29H.79a.29.29 0 01-.29-.29v-3a.57.57 0 01.57-.6z" opacity=".5"/></g><g fill="#999"><path d="M15.64 1.51h1.29a.57.57 0 01.57.57v3a.29.29 0 01-.29.29h-1.29a.29.29 0 01-.29-.29V1.51h.01z"/><path d="M15.64 1.51h1.29a.57.57 0 01.57.57v3a.29.29 0 01-.29.29h-1.29a.29.29 0 01-.29-.29V1.51h.01z" opacity=".5"/></g><path d="M17.5 2.08v1.25H.5V2.08a.57.57 0 01.57-.57h15.87a.57.57 0 01.56.57z" fill="#949494"/><g fill="#999"><path d="M.79 12.76h1.29a.29.29 0 01.29.29v3.6h-1.3a.57.57 0 01-.57-.57V13a.29.29 0 01.29-.24z"/><path d="M.79 12.76h1.29a.29.29 0 01.29.29v3.6h-1.3a.57.57 0 01-.57-.57V13a.29.29 0 01.29-.24z" opacity=".5"/></g><g fill="#999"><path d="M15.92 12.76h1.29a.29.29 0 01.29.29v3a.57.57 0 01-.57.57h-1.29V13a.29.29 0 01.28-.24z"/><path d="M15.92 12.76h1.29a.29.29 0 01.29.29v3a.57.57 0 01-.57.57h-1.29V13a.29.29 0 01.28-.24z" opacity=".5"/></g><path d="M.5 16.08v-1.25h17v1.25a.57.57 0 01-.57.57H1.07a.57.57 0 01-.57-.57z" fill="#949494"/></svg>
+<path d="M60 436 H600" stroke="url(#beam)" stroke-width="2"/>
+<rect x="60" y="464" width="12" height="12" rx="3" fill="#64dfff"/>
+<text x="85" y="476" font-family="Arial,Segoe UI,sans-serif" font-size="20" font-weight="650" fill="#e3f5ff">PRACTICAL LEARNING</text>
+<text x="900" y="476" text-anchor="end" font-family="Arial,Segoe UI,sans-serif" font-size="17" letter-spacing="1.2" fill="#cbe8f8">COURSE 088</text>
+</svg>

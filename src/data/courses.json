@@ -7,7 +7,7 @@
     "level": "intermediate",
     "duration": "10–12 weeks",
     "featured": false,
-    "image": "/azure/images/courses/java.png",
+    "image": "/images/course-thumbnails/java-full-stack-development-ff24c7d4.svg",
     "topics": []
   },
   {
@@ -18,7 +18,7 @@
     "level": "beginner",
     "duration": "10weeks",
     "featured": true,
-    "image": "/azure/images/courses/python.png",
+    "image": "/images/course-thumbnails/python-6e360488.svg",
     "topics": []
   },
   {
@@ -29,7 +29,7 @@
     "level": "beginner",
     "duration": "3 Months",
     "featured": false,
-    "image": "/azure/images/courses/aws-devops.png",
+    "image": "/images/course-thumbnails/aws-beginner-course-9297cabf.svg",
     "topics": [
       {
         "title": "Cloud Fundamentals & AWS Account Setup",
@@ -187,7 +187,7 @@
     "level": "beginner",
     "duration": "2 Month",
     "featured": false,
-    "image": "/azure/images/courses/microsoftAzure.png",
+    "image": "/images/course-thumbnails/microsoft-azure-beginner-course-9a63411f.svg",
     "topics": [
       {
         "title": "Introduction to Cloud and Azure",
@@ -307,7 +307,7 @@
     "level": "beginner",
     "duration": "3 Months",
     "featured": false,
-    "image": "/azure/images/courses/google-cloud.png",
+    "image": "/images/course-thumbnails/gcp-beginner-course-28dcc9e4.svg",
     "topics": [
       {
         "title": "Cloud Fundamentals & GCP Account Setup",
@@ -469,7 +469,7 @@
     "level": "beginner",
     "duration": "1.5 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/docker-beginner-course-4169e81b.svg",
     "topics": [
       {
         "title": "Introduction to Docker",
@@ -578,7 +578,7 @@
     "level": "beginner",
     "duration": "1.5 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/kubernetes-beginner-course-83d46f85.svg",
     "topics": [
       {
         "title": "Introduction to Kubernetes",
@@ -708,7 +708,7 @@
     "level": "beginner",
     "duration": "1.5 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/linux-beginner-course-1f12d15e.svg",
     "topics": [
       {
         "title": "Introduction to Linux",
@@ -822,7 +822,7 @@
     "level": "beginner",
     "duration": "1 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/git-github-beginner-course-4f9b4b95.svg",
     "topics": [
       {
         "title": "Introduction to Version Control",
@@ -933,7 +933,7 @@
     "level": "beginner",
     "duration": "2 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/react-beginner-course-355738b7.svg",
     "topics": [
       {
         "title": "Introduction to React",
@@ -1034,7 +1034,7 @@
     "level": "beginner",
     "duration": "2 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/angular-beginner-course-06bfbb48.svg",
     "topics": [
       {
         "title": "Introduction to Angular",
@@ -1142,7 +1142,7 @@
     "level": "beginner",
     "duration": "2 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/nextjs-course-e9d80da7.svg",
     "topics": [
       {
         "title": "Introduction to Next.js",
@@ -1249,7 +1249,7 @@
     "level": "beginner",
     "duration": "2 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/typescript-beginner-course-d2ada15f.svg",
     "topics": [
       {
         "title": "Introduction to TypeScript",
@@ -1351,7 +1351,7 @@
     "level": "beginner",
     "duration": "2 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/data-structures-beginner-course-87e1c340.svg",
     "topics": [
       {
         "title": "Introduction to Data Structures",
@@ -1453,7 +1453,7 @@
     "level": "beginner",
     "duration": "2 Months",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/flask-beginner-course-18eed8ee.svg",
     "topics": [
       {
         "title": "Introduction & Setup",
@@ -1581,7 +1581,7 @@
     "level": "beginner",
     "duration": "2 Months",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/fastapi-beginner-course-4c4a5041.svg",
     "topics": [
       {
         "title": "Introduction & Setup",
@@ -1709,7 +1709,7 @@
     "level": "beginner",
     "duration": "2 Month",
     "featured": false,
-    "image": "/azure/images/courses/js.png",
+    "image": "/images/course-thumbnails/javascript-language-course-3a139f17.svg",
     "topics": [
       {
         "title": "JavaScript Fundamentals",
@@ -1912,7 +1912,7 @@
     "level": "beginner",
     "duration": "1 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/html-course-07b7461a.svg",
     "topics": [
       {
         "title": "Introduction to HTML",
@@ -2013,7 +2013,7 @@
     "level": "beginner",
     "duration": "1 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/css-beginner-course-138d8f35.svg",
     "topics": [
       {
         "title": "Introduction to CSS",
@@ -2134,7 +2134,7 @@
     "level": "beginner",
     "duration": "2 Month",
     "featured": false,
-    "image": "/azure/images/courses/java.png",
+    "image": "/images/course-thumbnails/java-language-course-53655127.svg",
     "topics": [
       {
         "title": "Core Java",
@@ -2210,7 +2210,7 @@
     "level": "beginner",
     "duration": "2 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/spring-beginner-course-c20464dc.svg",
     "topics": [
       {
         "title": "Introduction to Spring",
@@ -2322,7 +2322,7 @@
     "level": "beginner",
     "duration": "2 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/dotnet-beginner-course-612184b0.svg",
     "topics": [
       {
         "title": "Introduction to .NET",
@@ -2434,7 +2434,7 @@
     "level": "beginner",
     "duration": "2 Month",
     "featured": false,
-    "image": "/azure/images/courses/nodejs.png",
+    "image": "/images/course-thumbnails/nodejs-beginner-course-209fe776.svg",
     "topics": [
       {
         "title": "Introduction to Node.js",
@@ -2537,7 +2537,7 @@
     "level": "beginner",
     "duration": "2 Months",
     "featured": false,
-    "image": "/azure/images/courses/sql.png",
+    "image": "/images/course-thumbnails/mysql-beginner-course-e29e3121.svg",
     "topics": [
       {
         "title": "Introduction to MySQL",
@@ -2652,7 +2652,7 @@
     "level": "beginner",
     "duration": "2 Months",
     "featured": false,
-    "image": "/azure/images/courses/sql.png",
+    "image": "/images/course-thumbnails/postgresql-course-68602cb7.svg",
     "topics": [
       {
         "title": "Introduction to PostgreSQL",
@@ -2769,7 +2769,7 @@
     "level": "beginner",
     "duration": "2 Months",
     "featured": false,
-    "image": "/azure/images/courses/sql-server.png",
+    "image": "/images/course-thumbnails/sql-server-beginner-course-71cf42bc.svg",
     "topics": [
       {
         "title": "Introduction to SQL Server & Tools",
@@ -2911,7 +2911,7 @@
     "level": "beginner",
     "duration": "2 Months",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/oracle-beginner-course-73d16718.svg",
     "topics": [
       {
         "title": "Introduction to Oracle Database",
@@ -3029,7 +3029,7 @@
     "level": "beginner",
     "duration": "2 Months",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/apache-spark-beginner-course-c0d2a43a.svg",
     "topics": [
       {
         "title": "Introduction to Big Data and Spark",
@@ -3133,7 +3133,7 @@
     "level": "beginner",
     "duration": "1.5 Months",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/apache-kafka-beginner-course-2ca586e0.svg",
     "topics": [
       {
         "title": "Introduction to Kafka",
@@ -3251,7 +3251,7 @@
     "level": "beginner",
     "duration": "1.5 Months",
     "featured": false,
-    "image": "/azure/images/courses/powerbi.png",
+    "image": "/images/course-thumbnails/powerbi-beginner-course-c7611da8.svg",
     "topics": [
       {
         "title": "Introduction to Power BI",
@@ -3363,7 +3363,7 @@
     "level": "beginner",
     "duration": "1.5 Months",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/tableau-beginner-course-b08359f6.svg",
     "topics": [
       {
         "title": "Introduction to Tableau",
@@ -3475,7 +3475,7 @@
     "level": "beginner",
     "duration": "2 Months",
     "featured": false,
-    "image": "/azure/images/courses/django.png",
+    "image": "/images/course-thumbnails/django-beginner-course-e127cf99.svg",
     "topics": [
       {
         "title": "Introduction to Django",
@@ -3577,7 +3577,7 @@
     "level": "beginner",
     "duration": "2 Months",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/langchain-beginner-course-b10a68ed.svg",
     "topics": [
       {
         "title": "Introduction to LangChain",
@@ -3652,7 +3652,7 @@
     "level": "beginner",
     "duration": "2 Months",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/huggingface-beginner-course-c6d34df9.svg",
     "topics": [
       {
         "title": "Introduction to Hugging Face",
@@ -3710,7 +3710,7 @@
     "level": "beginner",
     "duration": "2 Months",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/gpt-beginner-course-f6893f89.svg",
     "topics": [
       {
         "title": "Introduction to GPT",
@@ -3776,7 +3776,7 @@
     "level": "intermediate",
     "duration": "2 Months",
     "featured": false,
-    "image": "/azure/images/courses/snowflake.png",
+    "image": "/images/course-thumbnails/snowflake-course-a8558e4d.svg",
     "topics": [
       {
         "title": "Introduction to Snowflake & Cloud Data Warehousing",
@@ -3898,7 +3898,7 @@
     "level": "beginner",
     "duration": "1 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/bootstrap-course-e58918d0.svg",
     "topics": [
       {
         "title": "Introduction to Bootstrap",
@@ -4016,7 +4016,7 @@
     "level": "beginner",
     "duration": "6–8 Months",
     "featured": false,
-    "image": "/azure/images/courses/aws-devops.png",
+    "image": "/images/course-thumbnails/aws-cloud-foundation-data-engineering-451c2a65.svg",
     "topics": [
       {
         "title": "Foundations & Account Setup",
@@ -4318,7 +4318,7 @@
     "level": "beginner",
     "duration": "1 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/mongodb-course-6794cf6d.svg",
     "topics": [
       {
         "title": "Introduction to MongoDB",
@@ -4448,7 +4448,7 @@
     "level": "intermediate",
     "duration": "1 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/github-actions-course-d213afbd.svg",
     "topics": [
       {
         "title": "GitHub Actions Overview",
@@ -4474,7 +4474,7 @@
     "level": "intermediate",
     "duration": "1 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/gitlab-ci-course-c1e6492a.svg",
     "topics": [
       {
         "title": "Introduction to GitLab CI/CD",
@@ -4501,7 +4501,7 @@
     "level": "intermediate",
     "duration": "1 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/circleci-course-0be6f061.svg",
     "topics": [
       {
         "title": "CircleCI Fundamentals",
@@ -4528,7 +4528,7 @@
     "level": "intermediate",
     "duration": "1 Month",
     "featured": false,
-    "image": "/azure/images/courses/microsoftAzure.png",
+    "image": "/images/course-thumbnails/azure-devops-course-68ea31f3.svg",
     "topics": [
       {
         "title": "Azure DevOps Overview",
@@ -4554,7 +4554,7 @@
     "level": "intermediate",
     "duration": "1 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/jenkins-course-ac28cc45.svg",
     "topics": [
       {
         "title": "Jenkins Fundamentals",
@@ -4581,7 +4581,7 @@
     "level": "beginner",
     "duration": "1 Month",
     "featured": false,
-    "image": "/azure/images/courses/aws-devops.png",
+    "image": "/images/course-thumbnails/aws-amplify-course-094b68fa.svg",
     "topics": [
       {
         "title": "Introduction to AWS Amplify",
@@ -4650,7 +4650,7 @@
     "level": "beginner",
     "duration": "1 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/netlify-course-2d2a0545.svg",
     "topics": [
       {
         "title": "Introduction to Netlify",
@@ -4716,7 +4716,7 @@
     "level": "beginner",
     "duration": "1 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/vercel-course-cc09f608.svg",
     "topics": [
       {
         "title": "Introduction to Vercel",
@@ -4781,7 +4781,7 @@
     "level": "beginner",
     "duration": "1 Month",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/bitbucket-course-250024c1.svg",
     "topics": [
       {
         "title": "Introduction to Bitbucket",
@@ -4884,7 +4884,7 @@
     "level": "beginner",
     "duration": "Contact us for the current schedule",
     "featured": false,
-    "image": "/azure/images/courses/snowpark.png",
+    "image": "/images/course-thumbnails/snowpark-data-engineering-course-ec412990.svg",
     "topics": [
       {
         "title": "Introduction to Snowpark & Developer Architecture",
@@ -5016,7 +5016,7 @@
     "level": "intermediate",
     "duration": "2–3 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/snowpipe.png",
+    "image": "/images/course-thumbnails/snowpipe-continuous-data-ingestion-course-3561f5a9.svg",
     "topics": [
       {
         "title": "Introduction to Snowpipe",
@@ -5125,7 +5125,7 @@
     "level": "beginner",
     "duration": "2–3 Months",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/terraform-infrastructure-as-code-course-67b7355c.svg",
     "topics": [
       {
         "title": "Introduction to Terraform & IaC Concepts",
@@ -5291,7 +5291,7 @@
     "level": "beginner",
     "duration": "2–3 Months",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/apache-kafka-streaming-course-97b54610.svg",
     "topics": [
       {
         "title": "Introduction to Kafka & Event Streaming",
@@ -5468,7 +5468,7 @@
     "level": "intermediate",
     "duration": "1.5–2 Months",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/apache-airflow-workflow-orchestration-course-5c004ce8.svg",
     "topics": [
       {
         "title": "Introduction to Workflow Orchestration & Airflow",
@@ -5634,7 +5634,7 @@
     "level": "beginner",
     "duration": "6–8 weeks",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/react-web-development-20f44994.svg",
     "topics": []
   },
   {
@@ -5645,7 +5645,7 @@
     "level": "intermediate",
     "duration": "6–8 weeks",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/nextjs-web-development-120a35ea.svg",
     "topics": []
   },
   {
@@ -5656,7 +5656,7 @@
     "level": "beginner",
     "duration": "6–8 weeks",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/angular-web-development-019d5e4b.svg",
     "topics": []
   },
   {
@@ -5667,7 +5667,7 @@
     "level": "intermediate",
     "duration": "10–12 weeks",
     "featured": false,
-    "image": "/azure/images/courses/aws-devops.png",
+    "image": "/images/course-thumbnails/aws-data-engineering-c04896ac.svg",
     "topics": []
   },
   {
@@ -5678,7 +5678,7 @@
     "level": "intermediate",
     "duration": "8–10 weeks",
     "featured": false,
-    "image": "/azure/images/courses/snowflake.png",
+    "image": "/images/course-thumbnails/snowflake-data-engineering-f6e45766.svg",
     "topics": []
   },
   {
@@ -5689,7 +5689,7 @@
     "level": "intermediate",
     "duration": "10–12 weeks",
     "featured": false,
-    "image": "/azure/images/courses/microsoftAzure.png",
+    "image": "/images/course-thumbnails/azure-data-engineering-83374752.svg",
     "topics": []
   },
   {
@@ -5700,7 +5700,7 @@
     "level": "intermediate",
     "duration": "8–10 weeks",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/gcp-data-engineering-d4940960.svg",
     "topics": []
   },
   {
@@ -5711,7 +5711,7 @@
     "level": "beginner",
     "duration": "4–6 weeks",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/visualization-course-e066ef20.svg",
     "topics": []
   },
   {
@@ -5722,7 +5722,7 @@
     "level": "beginner",
     "duration": "2 Months",
     "featured": false,
-    "image": "/azure/images/courses/java.png",
+    "image": "/images/course-thumbnails/core-java-9bfdbbf0.svg",
     "topics": []
   },
   {
@@ -5733,7 +5733,7 @@
     "level": "beginner",
     "duration": "2 Months",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/spring-boot-beginner-to-professional-cb0b0665.svg",
     "topics": []
   },
   {
@@ -5744,7 +5744,7 @@
     "level": "beginner",
     "duration": "Contact us for the current schedule",
     "featured": false,
-    "image": "/azure/images/courses/aws-devops.png",
+    "image": "/images/course-thumbnails/aws-cloud-data-engineering-course-e09943a4.svg",
     "topics": []
   },
   {
@@ -5755,7 +5755,7 @@
     "level": "beginner",
     "duration": "3–5 Days",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/csv-data-format-b40a1d28.svg",
     "topics": []
   },
   {
@@ -5766,7 +5766,7 @@
     "level": "beginner",
     "duration": "4–6 Days",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/json-data-format-9508d85b.svg",
     "topics": []
   },
   {
@@ -5777,7 +5777,7 @@
     "level": "beginner",
     "duration": "3–5 Days",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/xml-data-format-40dafe04.svg",
     "topics": []
   },
   {
@@ -5788,7 +5788,7 @@
     "level": "beginner",
     "duration": "4–6 Days",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/parquet-data-format-d1acd1b6.svg",
     "topics": []
   },
   {
@@ -5799,7 +5799,7 @@
     "level": "intermediate",
     "duration": "2–3 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/aws-devops.png",
+    "image": "/images/course-thumbnails/aws-redshift-5127e084.svg",
     "topics": []
   },
   {
@@ -5810,7 +5810,7 @@
     "level": "beginner",
     "duration": "2 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/aws-devops.png",
+    "image": "/images/course-thumbnails/aws-rds-be88ed77.svg",
     "topics": []
   },
   {
@@ -5821,7 +5821,7 @@
     "level": "beginner",
     "duration": "1–2 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/aws-devops.png",
+    "image": "/images/course-thumbnails/aws-s3-893a3692.svg",
     "topics": []
   },
   {
@@ -5832,7 +5832,7 @@
     "level": "beginner",
     "duration": "1–2 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/aws-devops.png",
+    "image": "/images/course-thumbnails/aws-glue-ba237769.svg",
     "topics": []
   },
   {
@@ -5843,7 +5843,7 @@
     "level": "intermediate",
     "duration": "1–2 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/aws-devops.png",
+    "image": "/images/course-thumbnails/aws-emr-b7f7a438.svg",
     "topics": []
   },
   {
@@ -5854,7 +5854,7 @@
     "level": "beginner",
     "duration": "1–2 Weeks",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/pyspark-for-batch-etl-fde49012.svg",
     "topics": []
   },
   {
@@ -5865,7 +5865,7 @@
     "level": "intermediate",
     "duration": "1–2 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/aws-devops.png",
+    "image": "/images/course-thumbnails/aws-athena-253298bb.svg",
     "topics": []
   },
   {
@@ -5876,7 +5876,7 @@
     "level": "intermediate",
     "duration": "1–2 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/aws-devops.png",
+    "image": "/images/course-thumbnails/aws-lambda-36ead552.svg",
     "topics": []
   },
   {
@@ -5887,7 +5887,7 @@
     "level": "intermediate",
     "duration": "1–2 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/aws-devops.png",
+    "image": "/images/course-thumbnails/aws-step-functions-2f01a8b2.svg",
     "topics": []
   },
   {
@@ -5898,7 +5898,7 @@
     "level": "intermediate",
     "duration": "2–3 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/aws-devops.png",
+    "image": "/images/course-thumbnails/aws-kinesis-28e4f5a6.svg",
     "topics": []
   },
   {
@@ -5909,7 +5909,7 @@
     "level": "beginner",
     "duration": "1–2 Weeks",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/gcp-gcs-c012b25f.svg",
     "topics": []
   },
   {
@@ -5920,7 +5920,7 @@
     "level": "intermediate",
     "duration": "2–3 Weeks",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/gcp-dataflow-96c418b9.svg",
     "topics": []
   },
   {
@@ -5931,7 +5931,7 @@
     "level": "beginner",
     "duration": "2–3 Weeks",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/gcp-bigquery-5d1888dd.svg",
     "topics": []
   },
   {
@@ -5942,7 +5942,7 @@
     "level": "intermediate",
     "duration": "1–2 Weeks",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/gcp-pubsub-a9e8c437.svg",
     "topics": []
   },
   {
@@ -5953,7 +5953,7 @@
     "level": "beginner",
     "duration": "2–3 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/microsoftAzure.png",
+    "image": "/images/course-thumbnails/azure-adf-face2016.svg",
     "topics": []
   },
   {
@@ -5964,7 +5964,7 @@
     "level": "intermediate",
     "duration": "3–4 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/microsoftAzure.png",
+    "image": "/images/course-thumbnails/azure-databricks-1a724558.svg",
     "topics": []
   },
   {
@@ -5975,7 +5975,7 @@
     "level": "intermediate",
     "duration": "1–2 Weeks",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/delta-lake-33d90458.svg",
     "topics": []
   },
   {
@@ -5986,7 +5986,7 @@
     "level": "intermediate",
     "duration": "2–3 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/microsoftAzure.png",
+    "image": "/images/course-thumbnails/azure-synapse-ca480a8b.svg",
     "topics": []
   },
   {
@@ -5997,7 +5997,7 @@
     "level": "beginner",
     "duration": "1–2 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/microsoftAzure.png",
+    "image": "/images/course-thumbnails/azure-adls-gen2-913044db.svg",
     "topics": []
   },
   {
@@ -6008,7 +6008,7 @@
     "level": "intermediate",
     "duration": "1–2 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/microsoftAzure.png",
+    "image": "/images/course-thumbnails/azure-event-hubs-23b6f3a0.svg",
     "topics": []
   },
   {
@@ -6019,7 +6019,7 @@
     "level": "intermediate",
     "duration": "1–2 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/microsoftAzure.png",
+    "image": "/images/course-thumbnails/azure-stream-analytics-3e225300.svg",
     "topics": []
   },
   {
@@ -6030,7 +6030,7 @@
     "level": "beginner",
     "duration": "1–2 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/microsoftAzure.png",
+    "image": "/images/course-thumbnails/azure-functions-8b99ca4a.svg",
     "topics": []
   },
   {
@@ -6041,7 +6041,7 @@
     "level": "beginner",
     "duration": "1–2 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/microsoftAzure.png",
+    "image": "/images/course-thumbnails/azure-logic-apps-004cf132.svg",
     "topics": []
   },
   {
@@ -6052,7 +6052,7 @@
     "level": "intermediate",
     "duration": "2–3 Months",
     "featured": false,
-    "image": "/azure/images/courses/snowflake.png",
+    "image": "/images/course-thumbnails/snowflake-data-platform-course-f6f832de.svg",
     "topics": []
   },
   {
@@ -6063,7 +6063,7 @@
     "level": "beginner",
     "duration": "2–3 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/aws-devops.png",
+    "image": "/images/course-thumbnails/aws-quicksight-241ff2c2.svg",
     "topics": []
   },
   {
@@ -6074,7 +6074,7 @@
     "level": "beginner",
     "duration": "3 Weeks",
     "featured": false,
-    "image": "/azure/images/courses/sql.png",
+    "image": "/images/course-thumbnails/sql-language-course-60cab728.svg",
     "topics": []
   },
   {
@@ -6085,7 +6085,7 @@
     "level": "beginner",
     "duration": "2 Months",
     "featured": false,
-    "image": "/azure/images/courses/python.png",
+    "image": "/images/course-thumbnails/python-aws-developer-program-9e3d5a8e.svg",
     "topics": []
   },
   {
@@ -6096,7 +6096,7 @@
     "level": "beginner",
     "duration": "2 Months",
     "featured": false,
-    "image": "/azure/images/courses/python.png",
+    "image": "/images/course-thumbnails/python-django-backend-developer-6d73fddb.svg",
     "topics": []
   },
   {
@@ -6107,7 +6107,7 @@
     "level": "beginner",
     "duration": "2/Months",
     "featured": false,
-    "image": "",
+    "image": "/images/course-thumbnails/power-bi-developer-program-77dbfccb.svg",
     "topics": []
   },
   {
@@ -6118,7 +6118,7 @@
     "level": "beginner",
     "duration": "3 Months",
     "featured": false,
-    "image": "/azure/images/courses/sql.png",
+    "image": "/images/course-thumbnails/azure-sql-server-developer-68496621.svg",
     "topics": []
   },
   {
@@ -6129,7 +6129,7 @@
     "level": "beginner",
     "duration": "2 Months",
     "featured": false,
-    "image": "/azure/images/courses/sql.png",
+    "image": "/images/course-thumbnails/oracle-plsql-developer-program-a5c19d34.svg",
     "topics": []
   },
   {
@@ -6140,7 +6140,7 @@
     "level": "beginner",
     "duration": "2.5 Months",
     "featured": false,
-    "image": "/azure/images/courses/aws-devops.png",
+    "image": "/images/course-thumbnails/aws-devops-program-44b0f35d.svg",
     "topics": []
   },
   {
@@ -6151,7 +6151,7 @@
     "level": "beginner",
     "duration": "1.5 Months",
     "featured": false,
-    "image": "/azure/images/courses/snowflake.png",
+    "image": "/images/course-thumbnails/snowflake-platform-program-acef4efa.svg",
     "topics": []
   }
 ]

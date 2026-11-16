@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="title desc">
+<title id="title">AWS Step Functions — Tinitiate AI</title>
+<desc id="desc">Custom course thumbnail with a subject-specific title and icon</desc>
+<defs>
+<linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0" stop-color="#0b3048"/><stop offset="1" stop-color="#195a9c"/></linearGradient>
+<linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="#64dfff" stop-opacity=".85"/><stop offset="1" stop-color="#ffffff" stop-opacity=".12"/></linearGradient>
+<pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity=".13"/></pattern>
+</defs>
+<rect width="960" height="540" fill="url(#bg)"/>
+<circle cx="860" cy="45" r="370" fill="#ffffff" opacity=".045"/><circle cx="820" cy="80" r="290" fill="none" stroke="#ffffff" opacity=".08" stroke-width="2"/>
+<rect width="960" height="540" fill="url(#dots)"/>
+<rect x="0" y="0" width="12" height="540" fill="#64dfff"/>
+<rect x="60" y="48" width="6" height="24" rx="3" fill="#64dfff"/>
+<text x="81" y="67" font-family="Arial,Segoe UI,sans-serif" font-size="24" font-weight="800" letter-spacing="2" fill="#ffffff">TINITIATE AI</text>
+<text x="60" y="130" font-family="Arial,Segoe UI,sans-serif" font-size="17" font-weight="700" letter-spacing="2.5" fill="#64dfff">CLOUD &amp; DEVOPS</text>
+<text x="60" y="195" font-family="Arial,Segoe UI,sans-serif" font-size="57" font-weight="750" fill="#f8fcff">AWS Step</text><text x="60" y="264" font-family="Arial,Segoe UI,sans-serif" font-size="57" font-weight="750" fill="#f8fcff">Functions</text>
+<rect x="650" y="122" width="284" height="284" rx="40" fill="#ffffff" fill-opacity=".09" stroke="#ffffff" stroke-opacity=".25" stroke-width="2"/>
+<rect x="670" y="141" width="244" height="246" rx="30" fill="#ffffff"/>
+<svg x="692" y="164" width="190" height="190" viewBox="0 0 256 256" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="SVGyDrnJbhE" x1="0%" x2="100%" y1="100%" y2="0%"><stop offset="0%" stop-color="#b0084d"/><stop offset="100%" stop-color="#ff4f8b"/></linearGradient></defs><path fill="url(#SVGyDrnJbhE)" d="M0 0h256v256H0z"/><path fill="#fff" d="M144 140.8h67.2v-22.4H144zm70.4-28.8h-73.6a3.2 3.2 0 0 0-3.2 3.2V144a3.2 3.2 0 0 0 3.2 3.2h73.6a3.2 3.2 0 0 0 3.2-3.2v-28.8a3.2 3.2 0 0 0-3.2-3.2m-75.2 88c0 6.176-5.024 11.2-11.2 11.2s-11.2-5.024-11.2-11.2s5.024-11.2 11.2-11.2s11.2 5.024 11.2 11.2m-94.4-49.6h57.6v-12.8H44.8zm0-32h57.6v-12.8H44.8zm72-62.4c0-6.176 5.024-11.2 11.2-11.2s11.2 5.024 11.2 11.2s-5.024 11.2-11.2 11.2s-11.2-5.024-11.2-11.2m62.4 113.6H76.8v-12.8h28.8a3.2 3.2 0 0 0 3.2-3.2v-19.2a3.2 3.2 0 0 0-3.2-3.2H76.8v-6.4h28.8a3.2 3.2 0 0 0 3.2-3.2v-19.2a3.2 3.2 0 0 0-3.2-3.2H76.8v-9.6h102.4v12.8h6.4v-16a3.2 3.2 0 0 0-3.2-3.2h-51.2v-9.907c8.18-1.51 14.4-8.682 14.4-17.293c0-9.706-7.898-17.6-17.6-17.6s-17.6 7.894-17.6 17.6c0 8.611 6.22 15.782 14.4 17.293V83.2H73.6a3.2 3.2 0 0 0-3.2 3.2v12.8H41.6a3.2 3.2 0 0 0-3.2 3.2v19.2a3.2 3.2 0 0 0 3.2 3.2h28.8v6.4H41.6a3.2 3.2 0 0 0-3.2 3.2v19.2a3.2 3.2 0 0 0 3.2 3.2h28.8v16a3.2 3.2 0 0 0 3.2 3.2h51.2v6.707c-8.18 1.51-14.4 8.682-14.4 17.293c0 9.706 7.898 17.6 17.6 17.6s17.6-7.894 17.6-17.6c0-8.611-6.22-15.782-14.4-17.293V176h51.2a3.2 3.2 0 0 0 3.2-3.2v-15.914h-6.4z"/></svg>
+<path d="M60 436 H600" stroke="url(#beam)" stroke-width="2"/>
+<rect x="60" y="464" width="12" height="12" rx="3" fill="#64dfff"/>
+<text x="85" y="476" font-family="Arial,Segoe UI,sans-serif" font-size="20" font-weight="650" fill="#e3f5ff">PRACTICAL LEARNING</text>
+<text x="900" y="476" text-anchor="end" font-family="Arial,Segoe UI,sans-serif" font-size="17" letter-spacing="1.2" fill="#cbe8f8">COURSE 077</text>
+</svg>
