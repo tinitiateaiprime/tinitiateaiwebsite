@@ -14,7 +14,7 @@
   function injectWhyButton() {
     const links = document.querySelector('.master-menu-links');
     if (!links || links.querySelector('.why-tinitiate-btn') || !NAV_SCRIPT_SRC) return;
-    const href = new URL('../../why-tinitiate.html', NAV_SCRIPT_SRC).href;
+    const href = new URL('/company', NAV_SCRIPT_SRC).href;
     const a = document.createElement('a');
     a.className = 'master-nav-btn why-tinitiate-btn';
     a.href = href;

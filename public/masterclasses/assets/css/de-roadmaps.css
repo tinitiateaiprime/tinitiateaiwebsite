@@ -40,7 +40,7 @@
   background: linear-gradient(135deg, color-mix(in srgb, var(--stack-accent) 22%, transparent), rgba(15, 23, 42, 0.6));
   box-shadow: 0 6px 20px color-mix(in srgb, var(--stack-accent) 25%, transparent);
 }
-[data-theme="light"] .de-stack-btn { background: rgba(5, 42, 66, 0.85); border-color: rgba(28, 137, 166, 0.5); color: #c8e2eb; }
+[data-theme="light"] .de-stack-btn { background: #ffffff; border-color: #e2e8f0; }
 [data-theme="light"] .de-stack-btn.active {
   background: linear-gradient(135deg, color-mix(in srgb, var(--stack-accent) 14%, #ffffff), #ffffff);
   border-color: var(--stack-accent);
@@ -70,7 +70,7 @@
   padding: 20px;
   margin-bottom: 28px;
 }
-[data-theme="light"] .de-arch { background: rgba(5, 38, 59, 0.88); border-color: rgba(28, 137, 166, 0.5); }
+[data-theme="light"] .de-arch { background: #f8fafc; border-color: #e2e8f0; }
 .de-arch-head p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; margin: 6px 0 16px; max-width: 980px; }
 .de-arch-eyebrow {
   display: inline-flex;
@@ -98,7 +98,7 @@
   background: rgba(8, 13, 26, 0.7);
   padding: 12px;
 }
-[data-theme="light"] .de-arch-layer { background: rgba(6, 52, 79, 0.95); }
+[data-theme="light"] .de-arch-layer { background: #ffffff; }
 .de-arch-layer:not(:last-child)::after {
   content: "\2192";
   position: absolute;

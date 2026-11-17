@@ -1,19 +1,19 @@
 /* Harness home pages (ai/<harness>/index.html): roadmap poster + architecture matrix.
    Material-style light theme. Each page sets --hx-accent on .hx-page. */
 
-body.hx-body { background: #032532; color-scheme: dark; color: #f2f8fc; }
+body.hx-body { background: #f4f6f8; color-scheme: light; }
 
 .hx-page {
-  --hx-accent: #38bdf8;
-  --hx-bg: #032532;
-  --hx-paper: rgba(6, 52, 79, 0.95);
-  --hx-divider: rgba(28, 137, 166, 0.45);
-  --hx-text: #f2f8fc;
-  --hx-text-2: #c8e2eb;
-  --hx-chip: rgba(255, 255, 255, 0.08);
-  --hx-elev-1: 0 4px 14px rgba(0, 12, 24, 0.25);
-  --hx-elev-2: 0 8px 24px rgba(0, 12, 24, 0.35);
-  --hx-elev-4: 0 16px 36px rgba(0, 12, 24, 0.45);
+  --hx-accent: #7c3aed;
+  --hx-bg: #f4f6f8;
+  --hx-paper: #ffffff;
+  --hx-divider: #e5e7eb;
+  --hx-text: rgba(0, 0, 0, 0.87);
+  --hx-text-2: rgba(0, 0, 0, 0.6);
+  --hx-chip: #f5f5f5;
+  --hx-elev-1: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --hx-elev-2: 0 3px 6px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --hx-elev-4: 0 10px 24px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
   max-width: 1400px;
   margin: 0 auto;
   padding: 28px 24px 40px;
@@ -26,19 +26,18 @@ body.hx-body { background: #032532; color-scheme: dark; color: #f2f8fc; }
 .hx-page h1, .hx-page h2, .hx-page h3, .hx-page h4, .hx-page p, .hx-page ul { margin: 0; }
 .hx-logo { width: 22px; height: 22px; object-fit: contain; flex: none; }
 
-.hx-paper { background: var(--hx-paper); border: 1px solid rgba(28, 137, 166, 0.6); border-radius: 14px; box-shadow: var(--hx-elev-1); }
-.hx-overline { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #38bdf8; }
+.hx-paper { background: var(--hx-paper); border-radius: 12px; box-shadow: var(--hx-elev-1); }
+.hx-overline { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hx-text-2); }
 
 /* ---------- Poster header ---------- */
 .hx-poster { padding: 24px; margin-bottom: 32px; }
 .hx-poster-head {
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  padding: 24px 28px; margin-bottom: 28px; border-radius: 14px;
-  background: linear-gradient(135deg, rgba(6, 52, 79, 0.95) 0%, rgba(4, 40, 63, 0.98) 100%);
-  border: 1px solid rgba(28, 137, 166, 0.78);
-  box-shadow: 0 14px 34px rgba(0, 12, 24, 0.3);
+  padding: 24px 28px; margin-bottom: 28px; border-radius: 12px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--hx-accent) 8%, #ffffff), #ffffff 70%);
+  border: 1px solid var(--hx-divider);
 }
-.hx-poster-title { font-size: clamp(1.7rem, 3.2vw, 2.5rem); font-weight: 900; letter-spacing: -0.01em; line-height: 1.15; margin: 6px 0 10px !important; color: #f2f8fc !important; }
+.hx-poster-title { font-size: clamp(1.7rem, 3.2vw, 2.5rem); font-weight: 900; letter-spacing: -0.01em; line-height: 1.15; margin: 6px 0 10px !important; color: #111827; }
 .hx-pill {
   display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
   color: #fff; background: var(--hx-accent); padding: 5px 12px; border-radius: 4px;
@@ -73,11 +72,8 @@ body.hx-body { background: #032532; color-scheme: dark; color: #f2f8fc; }
 .hx-step-icon svg { width: 19px; height: 19px; }
 .hx-step-card {
   flex: 1; min-width: 0; display: flex; gap: 18px; align-items: center; justify-content: space-between;
-  background: linear-gradient(135deg, rgba(6, 52, 79, 0.95), rgba(4, 40, 63, 0.98));
-  border: 1px solid rgba(28, 137, 166, 0.6);
-  border-radius: 12px; padding: 16px 20px;
+  background: #fff; border: 1px solid var(--hx-divider); border-radius: 12px; padding: 16px 20px;
   box-shadow: var(--hx-elev-1); transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-  color: #c8e2eb;
 }
 .hx-step:hover .hx-step-card { box-shadow: var(--hx-elev-4); border-color: var(--node); transform: translateX(3px); }
 .hx-step-main { min-width: 0; flex: 1; }
@@ -104,11 +100,11 @@ body.hx-body { background: #032532; color-scheme: dark; color: #f2f8fc; }
 
 /* Sidebar cards */
 .hx-side { display: flex; flex-direction: column; gap: 16px; position: sticky; top: calc(var(--nav-height, 74px) + 16px); }
-.hx-card { background: linear-gradient(135deg, rgba(6, 52, 79, 0.95), rgba(4, 40, 63, 0.98)); border: 1px solid rgba(28, 137, 166, 0.6); border-radius: 12px; overflow: hidden; box-shadow: var(--hx-elev-1); color: #c8e2eb; }
-.hx-card-head { display: flex; align-items: center; gap: 8px; padding: 12px 16px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #f2f8fc; background: rgba(5, 38, 59, 0.95); border-bottom: 1px solid rgba(28, 137, 166, 0.5); }
+.hx-card { background: #fff; border: 1px solid var(--hx-divider); border-radius: 12px; overflow: hidden; box-shadow: var(--hx-elev-1); }
+.hx-card-head { display: flex; align-items: center; gap: 8px; padding: 12px 16px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; background: var(--head, #334155); }
 .hx-card-head svg { width: 16px; height: 16px; }
-.hx-card-body { padding: 14px 16px; display: grid; gap: 8px; color: #c8e2eb; }
-.hx-tool { display: flex; align-items: center; gap: 12px; padding: 7px 10px; border-radius: 8px; background: rgba(5, 42, 66, 0.85); border: 1px solid rgba(28, 137, 166, 0.45); font-size: 0.86rem; font-weight: 500; color: #c8e2eb; }
+.hx-card-body { padding: 14px 16px; display: grid; gap: 8px; }
+.hx-tool { display: flex; align-items: center; gap: 12px; padding: 7px 10px; border-radius: 8px; background: #f8fafc; border: 1px solid var(--hx-divider); font-size: 0.86rem; font-weight: 500; }
 .hx-skill { display: flex; gap: 10px; align-items: flex-start; padding-bottom: 8px; border-bottom: 1px dashed var(--hx-divider); }
 .hx-skill:last-child { border-bottom: 0; padding-bottom: 0; }
 .hx-skill > span { width: 30px; height: 30px; flex: none; border-radius: 50%; display: grid; place-items: center; color: var(--hx-accent); background: color-mix(in srgb, var(--hx-accent) 12%, #fff); }
@@ -125,7 +121,7 @@ body.hx-body { background: #032532; color-scheme: dark; color: #f2f8fc; }
 .hx-matrix-head p { color: var(--hx-text-2); margin-top: 6px !important; max-width: 760px; line-height: 1.55; font-size: 0.92rem; }
 .hx-legend { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--hx-text-2); }
 .hx-legend i { width: 14px; height: 14px; border-radius: 3px; background: color-mix(in srgb, var(--hx-accent) 14%, #fff); border: 1px solid var(--hx-accent); }
-.hx-table-wrap { overflow-x: auto; border-radius: 12px; background: rgba(4, 40, 63, 0.95); box-shadow: var(--hx-elev-2); border: 1px solid rgba(28, 137, 166, 0.6); }
+.hx-table-wrap { overflow-x: auto; border-radius: 12px; background: #fff; box-shadow: var(--hx-elev-2); border: 1px solid var(--hx-divider); }
 .hx-table { width: 100%; min-width: 1320px; border-collapse: separate; border-spacing: 0; font-size: 0.8rem; }
 .hx-table th, .hx-table td { padding: 12px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid #eef0f3; }
 .hx-table thead th { position: sticky; top: 0; z-index: 2; background: #fafafa; border-bottom: 2px solid var(--hx-divider); }

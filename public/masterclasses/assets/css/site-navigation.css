@@ -1,0 +1,62 @@
+/* Website integration only; the original lesson styles remain in place. */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: 100px; }
+body { margin: 0; min-width: 0; }
+img, video { max-width: 100%; }
+pre { max-width:100%; overflow-x:auto; }
+.sx-table { display:block; max-width:100%; overflow-x:auto; }
+:is(.main-content,.pyspark-main-content) [style*="grid-template-columns"] > * { min-width:0; }
+#tinitiate-static-nav { display:flex; flex-wrap:wrap; align-items:center; gap:8px 24px; padding:12px 20px !important; }
+#tinitiate-static-nav a { min-height:32px; display:inline-flex; align-items:center; }
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible { outline:3px solid #38bdf8; outline-offset:4px; }
+.master-brand-wrap { min-width:0; }
+.master-brand-logo { max-width: min(240px, 65vw); height:auto; object-fit:contain; }
+.master-top-nav-inner { min-width:0; }
+.layout-container > *, .hx-poster-body > *, .hx-step { min-width:0; }
+.main-content { min-width:0; }
+.master-brand-badge { min-width:0 !important; }
+.master-top-nav { position:relative !important; top:auto !important; height:auto !important; }
+.master-top-nav-inner { height:auto !important; min-height:64px; }
+.master-dropdown:not(.open) .master-dropdown-menu { display:none; }
+.strategy-cards-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.strategy-card, .strategy-card-header, .strategy-card-header > div { min-width:0; overflow-wrap:anywhere; }
+@media (max-width: 767px) {
+  .master-top-nav-inner { flex-wrap:wrap !important; gap:12px !important; padding:12px 16px !important; }
+  .master-menu-links { flex-wrap:wrap; gap:8px !important; max-width:100%; }
+  .master-brand-badge { white-space:normal !important; overflow-wrap:anywhere; }
+  .master-dropdown-menu { max-height: min(65dvh, 520px); overflow-y:auto; overscroll-behavior:contain; }
+  .master-top-nav { max-width:100%; }
+  body h1, body h2, body h3, body p, body li { overflow-wrap:anywhere; }
+  pre { max-width:100%; overflow-x:auto; }
+  .layout-container { grid-template-columns:minmax(0,1fr) !important; }
+  .hx-poster-body { grid-template-columns:minmax(0,1fr); }
+  .master-brand-wrap { flex-wrap:wrap; max-width:100% !important; }
+  .master-brand-badge { max-width:100%; }
+  .main-content code { overflow-wrap:anywhere; white-space:pre-wrap; }
+  input, select, textarea { min-width:0; max-width:100%; }
+  /* Inline desktop grids in the original labs need an explicit narrow layout. */
+  :is(.main-content,.pyspark-main-content) [style*="grid-template-columns"] { grid-template-columns:minmax(0,1fr) !important; }
+  :is(.main-content,.pyspark-main-content) [style*="min-width"] { min-width:0 !important; }
+  :is(.main-content,.pyspark-main-content) [style*="display:flex"], :is(.main-content,.pyspark-main-content) [style*="display: flex"] { flex-wrap:wrap; }
+  .main-content, .pyspark-main-content, .pyspark-card, .welcome-card { overflow-wrap:anywhere; }
+  .spectrum-grid, .word-cloud-controls, .cloud-filter-group, .mode-toggle-group { flex-wrap:wrap; max-width:100%; min-width:0; }
+  .transformers-card { width:100%; min-width:0; margin-inline:0; }
+  .cs-cheat-table { display:block; max-width:100%; overflow-x:auto; }
+  .sw-stepper { grid-template-columns:1fr !important; }
+  .sw-stepper li { min-width:0; }
+  .sw-stepper b { overflow-wrap:anywhere; }
+  .sw-stepper span { display:block !important; }
+  .control-group, .control-label { min-width:0; max-width:100%; flex-wrap:wrap; }
+  .modules-grid { grid-template-columns:minmax(0,1fr) !important; }
+  .spectrum-cards-grid, .spectrum-nodes-grid, .sizing-calc-grid, .hub-grid { grid-template-columns:minmax(0,1fr) !important; }
+  .spectrum-bottom-right-bar { flex-wrap:wrap; max-width:100%; }
+  .source-selection-grid, .stream-rule-preset-grid { grid-template-columns:minmax(0,1fr) !important; }
+  .dist-pattern-grid, .compare-duo-grid { grid-template-columns:minmax(0,1fr) !important; }
+  .compare-side-box { min-width:0; max-width:100%; }
+  .dd-fe { grid-template-columns:auto minmax(0,1fr) 36px; min-width:0; }
+  .dd-fe input { width:100%; min-width:0; }
+  .pa-check, .pa-check > div { min-width:0; overflow-wrap:anywhere; }
+  .pyspark-main-content code { overflow-wrap:anywhere; white-space:pre-wrap; }
+  .lp-st[data-st="2"] b, .lp-st[data-st="4"] b { left:50%; right:auto; top:50%; transform:translate(-50%,-50%); }
+}
+@media (prefers-reduced-motion:reduce) { html {scroll-behavior:auto} }

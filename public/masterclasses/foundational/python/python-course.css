@@ -178,113 +178,12 @@
 .py-step b { display:inline-flex; width:28px; height:28px; border-radius:50%; align-items:center; justify-content:center; background:var(--py-yellow); color:#0f172a; font-weight:800; margin-bottom:8px; }
 .py-step h4 { margin:0 0 6px; color:#fff; font-size:0.98rem; }
 .py-step p { margin:0; color:#cbd5e1; font-size:0.86rem; line-height:1.55; }
-.page-main-wrap.py-wrap>#py-modnav,
-.py-modnav {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  width: 100% !important;
-  max-width: none !important;
-  min-width: 0 !important;
-  box-sizing: border-box !important;
-  margin: 28px 0 0 !important;
-  padding: 14px 20px !important;
-  gap: 16px !important;
-  background: rgba(2, 26, 40, .45) !important;
-  border: 1px solid rgba(103, 226, 242, .18) !important;
-  border-radius: 18px !important;
-  grid-column: 1 / -1 !important;
-  order: 5 !important;
-}
-.py-modnav a,
-.py-modnav button {
-  display: flex !important;
-  flex: 0 1 250px !important;
-  width: auto !important;
-  min-width: 200px !important;
-  max-width: 48% !important;
-  min-height: 86px !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  gap: 6px !important;
-  padding: 16px 22px !important;
-  box-sizing: border-box !important;
-  border: 1px solid rgba(125, 180, 232, .24) !important;
-  border-radius: 16px !important;
-  background: #0d1b31 !important;
-  color: #f4f8ff !important;
-  text-decoration: none !important;
-  box-shadow: 0 8px 22px rgba(0, 10, 25, .25) !important;
-  white-space: normal !important;
-  transition: all .2s ease !important;
-}
-.py-modnav a:hover,
-.py-modnav button:hover {
-  border-color: rgba(103, 226, 242, .65) !important;
-  background: #11243d !important;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0, 10, 25, .4) !important;
-}
-.py-modnav a span,
-.py-modnav button span {
-  font-size: 0.74rem !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.06em !important;
-  text-transform: uppercase !important;
-  color: var(--mod-accent, #38bdf8) !important;
-  display: block !important;
-}
-.py-modnav a strong,
-.py-modnav button strong {
-  color: #ffffff !important;
-  font-size: 1.05rem !important;
-  font-weight: 700 !important;
-  display: block !important;
-}
-.py-modnav > :first-child {
-  margin-left: 0 !important;
-  margin-right: auto !important;
-  align-self: center !important;
-  text-align: left !important;
-}
-.py-modnav > :last-child {
-  margin-left: auto !important;
-  margin-right: 0 !important;
-  align-self: center !important;
-  text-align: right !important;
-}
-.py-modnav > :last-child * {
-  text-align: right !important;
-}
-@media (min-width: 980px) {
-  .page-main-wrap.py-wrap>#py-modnav {
-    grid-column: 1 / -1 !important;
-    grid-row: 4 !important;
-  }
-}
-@media (max-width: 979px) {
-  .page-main-wrap.py-wrap>#py-modnav {
-    order: 5 !important;
-    width: 100% !important;
-  }
-}
-@media (max-width: 560px) {
-  .page-main-wrap.py-wrap>#py-modnav,
-  .py-modnav {
-    padding: 10px 10px 14px !important;
-    gap: 10px !important;
-  }
-  .py-modnav a,
-  .py-modnav button {
-    flex: 1 1 48% !important;
-    width: 48% !important;
-    max-width: 48% !important;
-    min-width: 0 !important;
-    min-height: 80px !important;
-    padding: 12px 14px !important;
-  }
-}
+.py-modnav { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:14px; margin-bottom:40px; }
+.py-modnav a { display:flex; flex-direction:column; gap:4px; padding:18px 20px; border-radius:14px; background:rgba(15,23,42,0.8); border:1px solid var(--py-line); text-decoration:none; transition:all .2s ease; }
+.py-modnav a:hover { border-color:var(--mod-accent, #38bdf8); transform:translateY(-2px); }
+.py-modnav a span { font-size:0.72rem; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:var(--py-muted); }
+.py-modnav a strong { color:#fff; font-size:1.05rem; }
+.py-modnav a.next { text-align:right; }
 .py-finish { margin-top:14px; padding:14px 16px; border-radius:12px; background:linear-gradient(135deg, rgba(16,185,129,0.16), rgba(56,189,248,0.1)); border:1px solid rgba(16,185,129,0.4); color:#d1fae5; font-size:0.9rem; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
 @media (max-width: 860px) { .py-two-col { grid-template-columns:1fr; } }
 

@@ -3,13 +3,13 @@
    Saffron + gold for energy, teal for trust, cream background for readability.
    ============================================================================= */
 :root {
-  --pa-bg: #032532;
-  --pa-surface: rgba(6, 52, 79, 0.95);
-  --pa-soft: rgba(5, 42, 66, 0.85);
-  --pa-ink: #f2f8fc;
-  --pa-text: #c8e2eb;
-  --pa-muted: #9bbdc9;
-  --pa-line: rgba(28, 137, 166, 0.45);
+  --pa-bg: #fffaf3;
+  --pa-surface: #ffffff;
+  --pa-soft: #fff1e0;
+  --pa-ink: #1c1917;
+  --pa-text: #292524;
+  --pa-muted: #57534e;
+  --pa-line: #f3e3cf;
   --pa-saffron: #f97316;
   --pa-saffron-d: #c2410c;
   --pa-gold: #f59e0b;
@@ -88,7 +88,7 @@ body.pa-theme .master-brand-badge { background: rgba(255, 255, 255, 0.16); borde
 .pa-hero h1 { position: relative; z-index: 1; font-size: clamp(28px, 3.6vw, 44px); line-height: 1.12; font-weight: 900; letter-spacing: -.02em; margin: 14px 0 10px; max-width: min(820px, calc(100% - 130px)); }
 .pa-hero p { position: relative; z-index: 1; font-size: 17px; line-height: 1.6; margin: 0; max-width: 760px; color: #fff7ed; }
 .pa-chips { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-.pa-chips span { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; font-size: 13px; font-weight: 700; background: rgba(5, 42, 66, 0.95); border: 1px solid rgba(28, 137, 166, 0.6); color: #f2f8fc; }
+.pa-chips span { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; font-size: 13px; font-weight: 700; background: #fff; color: #9a3412; }
 .pa-chips .msr { font-size: 17px; color: var(--pa-saffron); }
 
 /* ---------- sections + blocks ---------- */
@@ -141,7 +141,7 @@ body.pa-theme .master-brand-badge { background: rgba(255, 255, 255, 0.16); borde
 .pa-weak b { color: var(--pa-rose); } .pa-strong b { color: var(--pa-teal); }
 
 .pa-tip { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 16px; line-height: 1.6;
-  background: rgba(5, 42, 66, 0.85); border: 1px solid rgba(250, 204, 21, 0.45); color: #fde68a; }
+  background: linear-gradient(90deg, #fffbeb, #fff7ed); border: 1px solid #fde68a; color: #78350f; }
 .pa-tip .msr { color: var(--pa-gold); font-size: 26px; }
 .pa-tip.teal { background: var(--pa-teal-l); border-color: #99f6e4; color: #134e4a; }
 .pa-tip.teal .msr { color: var(--pa-teal); }
@@ -156,11 +156,10 @@ body.pa-theme .master-brand-badge { background: rgba(255, 255, 255, 0.16); borde
 .pa-line.you .say { background: var(--pa-teal-l); border-color: #99f6e4; }
 
 .pa-paper {
-  position: relative; padding: 22px 24px; border-radius: 8px; background: rgba(6, 52, 79, 0.95); line-height: 1.7; font-size: 14.5px;
-  border: 1px solid rgba(28, 137, 166, 0.6); box-shadow: 0 12px 30px -18px rgba(0, 0, 0, .5);
-  background-image: linear-gradient(90deg, transparent 38px, rgba(239, 68, 68, 0.4) 38px, rgba(239, 68, 68, 0.4) 39px, transparent 39px);
+  position: relative; padding: 22px 24px; border-radius: 6px; background: #fff; line-height: 1.7; font-size: 14.5px;
+  border: 1px solid #e7e5e4; box-shadow: 0 1px 0 #e7e5e4, 0 12px 30px -18px rgba(0, 0, 0, .3);
+  background-image: linear-gradient(90deg, transparent 38px, #fecaca 38px, #fecaca 39px, transparent 39px);
   padding-left: 54px;
-  color: #c8e2eb;
 }
 .pa-paper .t { display: block; font-weight: 800; color: var(--pa-ink); }
 .pa-paper .m { display: block; color: var(--pa-muted); margin-bottom: 8px; }

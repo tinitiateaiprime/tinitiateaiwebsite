@@ -216,7 +216,7 @@ function HeroSection() {
 
         <div className="relative z-20 w-full py-16 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
 
-          <div></div>
+          <div className="hidden md:block" aria-hidden="true"></div>
 
           <AnimatePresence mode="wait">
             <motion.div
@@ -231,7 +231,7 @@ function HeroSection() {
                 {slides[index].title}
               </h1>
 
-              <h2 className="text-3xl md:text-1xl mb-6">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-6">
                 {slides[index].heading}
               </h2>
 

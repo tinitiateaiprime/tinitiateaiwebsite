@@ -19,3 +19,6 @@
 *.tsbuildinfo
 npm-debug.log*
 .DS_Store
+/.ui-review/
+/test-results/
+/playwright-report/
