@@ -98,6 +98,29 @@ main pre { max-width:100%; overflow-x:auto; }
 .about-sweep { background:linear-gradient(100deg, transparent, rgb(255 255 255 / .22), transparent); animation:about-sweep 6s ease-in-out 1.2s infinite; }
 @keyframes about-sweep { 0%, 15% { transform:translateX(0); } 55%, 100% { transform:translateX(420%); } }
 
+/* ---------- MasterClasses page ---------- */
+.mc-panel[data-state=active] { animation:mc-panel .35s cubic-bezier(.2,.7,.2,1); }
+@keyframes mc-panel { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+/* "Explore MasterClasses" heading: highlighter draws in then breathes, a light passes over the word, the arrow nudges. */
+.mc-mark { transform-origin:left; animation:mc-mark-in .8s cubic-bezier(.65,0,.35,1) .2s both; }
+@keyframes mc-mark-in { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+.mc-word { background:linear-gradient(110deg, var(--color-ink) 0 44%, #4f6bff 48%, #a5b4ff 50%, #4f6bff 52%, var(--color-ink) 56% 100%) 0 0 / 300% 100% no-repeat; -webkit-background-clip:text; background-clip:text; color:transparent; animation:mc-word 4s ease-in-out 1.5s infinite; }
+@keyframes mc-word { 0%, 55% { background-position:100% 0; } 85%, 100% { background-position:0% 0; } }
+.mc-arrow { animation:mc-arrow 1.6s ease-in-out infinite; }
+@keyframes mc-arrow { 0%, 100% { transform:translate(0, -0.35em); } 50% { transform:translate(3px, calc(-0.35em - 3px)); } }
+
+/* Topic cards arrive one after another when a category opens. */
+.mc-panel[data-state=active] .mc-card { animation:mc-card .45s cubic-bezier(.2,.7,.2,1) var(--d,0ms) both; }
+@keyframes mc-card { from { opacity:0; transform:translateY(10px) scale(.98); } to { opacity:1; transform:none; } }
+/* "Open MasterClass Academy": a soft pulse ring and a light sweep so it gets noticed. */
+.mc-cta { position:relative; isolation:isolate; overflow:hidden; }
+.mc-cta::before { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(110deg, transparent 30%, rgb(255 255 255 / .35) 50%, transparent 70%); transform:translateX(-120%); animation:mc-shine 3.2s ease-in-out 1s infinite; }
+@keyframes mc-shine { 0%, 55% { transform:translateX(-120%); } 85%, 100% { transform:translateX(120%); } }
+.mc-cta-ring { animation:mc-ring 2.4s ease-out infinite; }
+@keyframes mc-ring { 0% { box-shadow:0 0 0 0 rgb(47 84 235 / .45); } 70%, 100% { box-shadow:0 0 0 14px rgb(47 84 235 / 0); } }
+.mc-cta-arrow { animation:mc-nudge 1.6s ease-in-out infinite; }
+@keyframes mc-nudge { 0%, 100% { transform:none; } 50% { transform:translateX(3px); } }
+
 /* ---------- Home FAQ ---------- */
 .faq-content[data-state=open] { animation:faq-open .3s cubic-bezier(.2,.7,.2,1); }
 .faq-content[data-state=closed] { animation:faq-close .25s ease; }

@@ -1,140 +1,37 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import Image from 'next/image';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { BrandMark } from '@/components/home/SectionHeading';
+import { PlacementCell } from '@/components/masterclasses/PlacementCell';
+import { MasterclassBrowser, totalTopics } from '@/components/masterclasses/MasterclassBrowser';
 
-export const metadata: Metadata = { title: 'MasterClasses' };
-
-type Track = { name: string; icon: string; href: string };
-
-const aiTracks: Track[] = [
-  {
-    "name": "AI MasterClass",
-    "icon": "openai.svg",
-    "href": "/masterclasses/ai/index.html"
-  },
-  {
-    "name": "Agentic Development",
-    "icon": "mcp.svg",
-    "href": "/masterclasses/agentic-development/index.html"
-  },
-  {
-    "name": "LangGraph",
-    "icon": "langgraph.svg",
-    "href": "/masterclasses/ai/langgraph/index.html"
-  },
-  {
-    "name": "CrewAI",
-    "icon": "crewai.svg",
-    "href": "/masterclasses/ai/crewai/index.html"
-  },
-  {
-    "name": "AWS Bedrock",
-    "icon": "aws.svg",
-    "href": "/masterclasses/ai/aws-bedrock/index.html"
-  },
-  {
-    "name": "AWS Strands",
-    "icon": "aws.svg",
-    "href": "/masterclasses/ai/aws-strands/index.html"
-  },
-  {
-    "name": "Azure Foundry",
-    "icon": "azure.svg",
-    "href": "/masterclasses/ai/azure-foundry/index.html"
-  },
-  {
-    "name": "Claude SDK",
-    "icon": "claude.svg",
-    "href": "/masterclasses/ai/claude-sdk/index.html"
-  },
-  {
-    "name": "Gemini ADK",
-    "icon": "google-gemini.svg",
-    "href": "/masterclasses/ai/google-gemini-sdk/index.html"
-  }
-];
-const dataTracks: Track[] = [
-  {
-    "name": "Data Engineering",
-    "icon": "airflow.svg",
-    "href": "/masterclasses/data-engineering/index.html"
-  },
-  {
-    "name": "PySpark",
-    "icon": "spark.svg",
-    "href": "/masterclasses/pyspark/index.html"
-  },
-  {
-    "name": "Databricks",
-    "icon": "databricks.svg",
-    "href": "/masterclasses/databricks-dataengineering/index.html"
-  },
-  {
-    "name": "AWS Data Engineering",
-    "icon": "aws.svg",
-    "href": "/masterclasses/aws-dataengineering/index.html"
-  },
-  {
-    "name": "Snowflake",
-    "icon": "snowflake.svg",
-    "href": "/masterclasses/snowflake-dataengineering/index.html"
-  },
-  {
-    "name": "Azure Data Engineering",
-    "icon": "azure.svg",
-    "href": "/masterclasses/azure-dataengineering/index.html"
-  },
-  {
-    "name": "GCP Data Engineering",
-    "icon": "google-cloud.svg",
-    "href": "/courses/gcp-data-engineering"
-  },
-  {
-    "name": "On-Prem Pandas",
-    "icon": "pandas.svg",
-    "href": "/masterclasses/data-engineering/onprem-pandas-polars-sql/index.html"
-  },
-  {
-    "name": "DuckDB",
-    "icon": "duckdb.svg",
-    "href": "/masterclasses/data-engineering/duckdb/index.html"
-  }
-];
-
-function VerticalCard({title,tracks,variant}:{title:string;tracks:Track[];variant:'ai'|'data'}) {
-  const isAI = variant === 'ai';
-  return (
-    <section aria-label={`${title} MasterClasses`} className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-      <div className={`flex items-center justify-between gap-3 border-b px-4 py-4 sm:px-5 ${isAI?'bg-fuchsia-50/60':'bg-sky-50/70'}`}>
-        <h2 className={`min-w-0 break-words text-base font-extrabold tracking-wide sm:text-lg ${isAI?'text-fuchsia-700':'text-sky-700'}`}>{title}</h2>
-        <span className="shrink-0 text-xs font-semibold text-slate-500">{tracks.length} topics</span>
-      </div>
-      <nav aria-label={`${title} topics`} className="flex flex-col gap-1 px-2 py-3 sm:px-3">
-        {tracks.map(track=>(
-          <Link key={track.href} href={track.href}
-            className="group flex min-h-12 min-w-0 items-center gap-3 rounded-xl px-3 py-2.5 text-slate-800 outline-offset-2 transition hover:bg-sky-50 focus-visible:bg-sky-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600">
-            <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-slate-50 ring-1 ring-slate-100 group-hover:bg-white">
-              <Image src={`/masterclasses/assets/icons/tech/${track.icon}`} alt="" aria-hidden="true" width={23} height={23} unoptimized className="size-6 object-contain" />
-            </span>
-            <span className="min-w-0 flex-1 break-words text-sm font-semibold leading-5 sm:text-base">{track.name}</span>
-            <span aria-hidden="true" className="shrink-0 text-slate-400 transition group-hover:translate-x-0.5 group-hover:text-blue-600">›</span>
-          </Link>
-        ))}
-      </nav>
-    </section>
-  );
-}
+export const metadata: Metadata = {
+  title: 'MasterClasses',
+  description: 'Interactive MasterClasses in AI, data engineering, data governance, full stack and computer science foundations, plus a placement guide for freshers.',
+};
 
 export default function MasterclassesPage() {
-  return <main className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
-    <header className="mb-8">
-      <p className="text-sm font-bold uppercase tracking-widest text-blue-600">Tinitiate AI · MasterClasses</p>
-      <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Explore MasterClasses</h1>
-      <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">Choose a technology and open its interactive MasterClass.</p>
-    </header>
-    <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 md:gap-6">
-      <VerticalCard title="AI" variant="ai" tracks={aiTracks}/>
-      <VerticalCard title="DATA ENGINEERING" variant="data" tracks={dataTracks}/>
+  return <div className="bg-[#f7f8fa]">
+    <div className="mx-auto w-full max-w-7xl px-4 pb-20 pt-10 sm:px-6 sm:pt-14">
+      <header className="mb-8 flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
+        <div className="max-w-3xl">
+          <h1 className="isolate text-[2.4rem] font-semibold leading-[1.05] tracking-[-0.045em] text-ink sm:text-5xl">
+            <BrandMark className="mr-[0.3em] inline-block h-[0.6em] w-auto -translate-y-[0.05em] align-baseline drop-shadow-[0_0_0.6px_rgb(10_10_11/0.45)]" />
+            <a href="/masterclasses/index.html" className="group rounded-md" title="Open the MasterClass Academy home">Explore <span className="mc-word relative whitespace-nowrap"><span aria-hidden="true" className="mc-mark absolute inset-x-[-0.06em] bottom-[0.04em] -z-10 h-[0.36em] rounded-[3px] bg-[#fff200]" />MasterClasses</span><ArrowUpRight aria-hidden="true" className="mc-arrow ml-1 inline-block size-[0.55em] -translate-y-[0.35em] text-accent" /></a>
+          </h1>
+          <p className="mt-4 text-base leading-7 text-neutral-600 sm:text-lg">Interactive lessons you can open right in your browser. Pick a category, then a technology.</p>
+        </div>
+        <a href="/masterclasses/index.html" className="mc-cta mc-cta-ring group inline-flex h-12 shrink-0 items-center gap-2.5 rounded-full bg-accent pl-6 pr-5 text-[15px] font-semibold text-white shadow-[0_8px_24px_-10px_rgb(47_84_235/0.7)] transition-colors hover:bg-[#2443c8]">
+          Open MasterClass Academy <ArrowRight aria-hidden="true" className="mc-cta-arrow size-4" />
+        </a>
+      </header>
+
+      <PlacementCell />
+
+      <div className="mb-4 mt-10 flex items-baseline justify-between gap-4">
+        <h2 className="text-xl font-semibold tracking-[-0.02em] text-ink sm:text-2xl">Technology MasterClasses</h2>
+        <span className="text-sm font-medium text-neutral-500">{totalTopics} MasterClasses · 6 categories</span>
+      </div>
+      <MasterclassBrowser />
     </div>
-  </main>;
+  </div>;
 }
