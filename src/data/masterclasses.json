@@ -376,6 +376,14 @@
     "video": false
   },
   {
+    "key": "foundational-python-print",
+    "title": "Python Print: Show Things on Screen",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/python/print.html",
+    "video": true
+  },
+  {
     "key": "foundational-python-datatypes",
     "title": "Python Datatypes: Kinds of Values",
     "category": "Foundational",
@@ -384,19 +392,11 @@
     "video": true
   },
   {
-    "key": "foundational-python-index",
-    "title": "Python Foundations",
-    "category": "Foundational",
-    "kind": "course-hub",
-    "url": "/masterclasses/foundational/python/index.html",
-    "video": false
-  },
-  {
-    "key": "foundational-python-lists",
-    "title": "Python Lists: Collections of Values",
+    "key": "foundational-python-variables",
+    "title": "Python Variables: Naming, Types & Best Practices",
     "category": "Foundational",
     "kind": "lesson",
-    "url": "/masterclasses/foundational/python/lists.html",
+    "url": "/masterclasses/foundational/python/variables.html",
     "video": true
   },
   {
@@ -408,14 +408,6 @@
     "video": true
   },
   {
-    "key": "foundational-python-print",
-    "title": "Python Print: Show Things on Screen",
-    "category": "Foundational",
-    "kind": "lesson",
-    "url": "/masterclasses/foundational/python/print.html",
-    "video": true
-  },
-  {
     "key": "foundational-python-strings",
     "title": "Python Strings: Working with Text",
     "category": "Foundational",
@@ -424,12 +416,84 @@
     "video": true
   },
   {
-    "key": "foundational-python-variables",
-    "title": "Python Variables: Naming, Types & Best Practices",
+    "key": "foundational-python-lists",
+    "title": "Python Lists: Collections of Values",
     "category": "Foundational",
     "kind": "lesson",
-    "url": "/masterclasses/foundational/python/variables.html",
+    "url": "/masterclasses/foundational/python/lists.html",
     "video": true
+  },
+  {
+    "key": "foundational-python-sets",
+    "title": "Python Sets",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/python/sets.html",
+    "video": true
+  },
+  {
+    "key": "foundational-python-tuples",
+    "title": "Python Tuples",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/python/tuples.html",
+    "video": true
+  },
+  {
+    "key": "foundational-python-dictionaries",
+    "title": "Python Dictionaries",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/python/dictionaries.html",
+    "video": true
+  },
+  {
+    "key": "foundational-python-conversions-between-lists-tuples-and-dictionaries",
+    "title": "Lists, Tuples & Dictionaries Conversions",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/python/conversions-between-lists-tuples-and-dictionaries.html",
+    "video": true
+  },
+  {
+    "key": "foundational-python-conditional-decision-making",
+    "title": "Conditional Decision Making",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/python/conditional_decision_making.html",
+    "video": true
+  },
+  {
+    "key": "foundational-python-iterative-loops",
+    "title": "Iterative Loops",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/python/iterative_loops.html",
+    "video": true
+  },
+  {
+    "key": "foundational-python-python-functions",
+    "title": "Python Functions",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/python/python_functions.html",
+    "video": true
+  },
+  {
+    "key": "foundational-python-python-exceptions",
+    "title": "Python Exceptions",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/python/python-exceptions.html",
+    "video": true
+  },
+  {
+    "key": "foundational-python-index",
+    "title": "Python Foundations",
+    "category": "Foundational",
+    "kind": "course-hub",
+    "url": "/masterclasses/foundational/python/index.html",
+    "video": false
   },
   {
     "key": "full-stack-dotnet-csharp-index",

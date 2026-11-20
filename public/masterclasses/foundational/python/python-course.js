@@ -172,6 +172,18 @@ const PyCourse = (() => {
   const isStrItem = it => it.key.startsWith('s:');
   const shown = it => (isStrItem(it) ? it.key.slice(2) : it.repr); // what print() shows for one item
   const itemsRepr = items => '[' + items.map(i => i.repr).join(', ') + ']';
+  const setRepr = items => (items.length ? '{' + items.map(i => i.repr).join(', ') + '}' : 'set()');
+  const setCellsHTML = (items, onKeys = [], cls = 'on') => {
+    if (!items.length) return '<div class="py-cells"><div class="py-cell"><span class="ix">&nbsp;</span><span class="ch wide">set() empty</span></div></div>';
+    const onSet = new Set(onKeys);
+    return '<div class="py-cells">' + items.map(it => `<div class="py-cell${onSet.has(it.key) ? ' ' + cls : ''}"><span class="ix">&bull;</span><span class="ch wide">${esc(it.repr)}</span></div>`).join('') + '</div>';
+  };
+  const tupleRepr = items => (items.length === 1 ? '(' + items[0].repr + ',)' : '(' + items.map(i => i.repr).join(', ') + ')');
+  function tupleCellsHTML(items, on = [], showNeg = true, cls = 'on') {
+    if (!items.length) return '<div class="py-cells"><div class="py-cell"><span class="ix">&nbsp;</span><span class="ch wide">( ) empty</span></div></div>';
+    const onSet = new Set(on), n = items.length;
+    return '<div class="py-cells">' + items.map((it, i) => `<div class="py-cell${onSet.has(i) ? ' ' + cls : ''}"><span class="ix">${i}</span><span class="ch wide">${esc(it.repr)}</span>${showNeg ? `<span class="ix">${i - n}</span>` : ''}</div>`).join('') + '</div>';
+  }
   const pyTypeName = it => (it.bool ? 'bool' : it.key === 'None' ? 'NoneType' : isStrItem(it) ? 'str' : /[.e]/.test(it.repr) ? 'float' : 'int');
   const comparable = (a, b) => (a.num != null && b.num != null) || (isStrItem(a) && isStrItem(b));
   const pyLess = (a, b) => (a.num != null ? a.num < b.num : a.key.slice(2) < b.key.slice(2));
@@ -1448,7 +1460,1298 @@ const PyCourse = (() => {
     ]
   };
 
-  const ORDER = ['print', 'variables', 'datatypes', 'operators', 'strings', 'lists'];
+  DECKS.sets = {
+      name: 'Python Sets', short: 'Sets', icon: '{ }', accent: '#f472b6', page: 'sets.html', folder: 'python-core-language/python-sets',
+      blurb: 'Store unique items with no duplicates, test membership instantly, and combine sets with union, intersection and difference.',
+      glossary: [
+        ['set', 'An unordered bag of unique items inside curly braces, like {1, 2, 3}.'],
+        ['unique', 'Each value can appear only once in a set; duplicates are removed automatically.'],
+        ['unordered', 'Items in a set do not have index positions like [0] or [1].'],
+        ['union', 'All distinct items from both sets combined.'],
+        ['intersection', 'Only the items that appear in BOTH sets.'],
+        ['frozenset', 'A read-only (immutable) set that cannot be changed after creation.']
+      ],
+      slides: [
+        {
+          title: 'What is a set?', file: '01_sets_creation.py',
+          idea: 'A <code>set</code> is an unordered collection of <strong>unique</strong> items inside curly braces <code>{ }</code> or created with <code>set()</code>.',
+          analogy: 'Think of a set as a <strong>club membership list</strong>: a person is either in the club or not—you never write the same member down twice, and there is no seat number.',
+          explain: `<p>Use <code>set()</code> to create an empty set (because empty <code>{}</code> creates an empty dictionary).</p>`,
+          visual: setCellsHTML(setItems('apple, banana, orange')) + '<div style="margin-top:10px;">' + propBadges(false, true, false) + '</div>',
+          code: `fruits = {"apple", "banana", "orange"}\nnumbers = {1, 2, 3, 4, 5}\n\n# Compound set\nmixed_set = {42, "hello", 3.14, True}\n\n# Using set() constructor\ns1 = set(["USA", "CHINA", "INDIA"])\n\n# Empty set\nempty_set = set()\n\n# Printing a set\nprint(fruits)\nprint(numbers)\nprint(mixed_set)\nprint(s1)\nprint(empty_set)`,
+          out: "{'apple', 'banana', 'orange'}\n{1, 2, 3, 4, 5}\n{42, 'hello', 3.14, True}\n{'USA', 'CHINA', 'INDIA'}\nset()",
+          tip: 'Because sets have no fixed order, Python may print text items in a different order from how you typed them.'
+        },
+        {
+          title: 'Build a set: duplicates disappear', file: '01_sets_creation.py',
+          idea: 'Even if you type the same item several times, a set keeps only <strong>one copy</strong> of each unique item.',
+          explain: `<p>Try typing repeated numbers or words below. Notice how <code>len()</code> counts only the unique items.</p>`,
+          controls: [{ key: 'items', label: 'items (try adding duplicates!)', type: 'text', value: '1, 2, 2, 3, 4, 4, 5' }],
+          render: v => {
+            const raw = parseItems(v.items);
+            const uniq = setItems(v.items);
+            const rawLit = raw.length ? '{' + raw.map(i => i.repr).join(', ') + '}' : 'set()';
+            return {
+              code: `my_set = ${rawLit}\n\nprint(my_set)\nprint(len(my_set), "unique items")\nprint(type(my_set))`,
+              out: `${setRepr(uniq)}\n${uniq.length} unique items\n<class 'set'>`,
+              visual: setCellsHTML(uniq)
+            };
+          },
+          tip: 'Clear the box completely to see how Python writes an empty set: <code>set()</code>.'
+        },
+        {
+          title: 'Modify a set: add, remove, discard, clear', file: '02_sets_modification.py',
+          idea: '<code>add(x)</code> puts an item in. <code>remove(x)</code> and <code>discard(x)</code> take an item out. <code>clear()</code> empties the set.',
+          analogy: '<code>remove(x)</code> complains with a <code>KeyError</code> if the item is missing, while <code>discard(x)</code> stays calm and does nothing.',
+          controls: [
+            { key: 'items', label: 'my_set', type: 'text', value: '1, 2, 3' },
+            { key: 'm', label: 'method', type: 'select', value: 0, options: ['add(value)', 'remove(value)', 'discard(value)', 'clear()'] },
+            { key: 'x', label: 'value', type: 'text', value: '4' }
+          ],
+          render: v => {
+            const base = setItems(v.items);
+            const x = parseToken(v.x || "''");
+            const head = `my_set = ${setRepr(base)}\nprint("Before:", my_set)\n\n`;
+            if (v.m === 'clear()') {
+              return {
+                code: head + 'my_set.clear()\nprint("After:", my_set)',
+                out: `Before: ${setRepr(base)}\nAfter: set()`,
+                visual: setCellsHTML(base, base.map(i => i.key), 'gone')
+              };
+            }
+            if (v.m === 'add(value)') {
+              const after = setItems(v.items ? v.items + ', ' + v.x : v.x);
+              return {
+                code: head + `my_set.add(${x.repr})\nprint("After:", my_set)`,
+                out: `Before: ${setRepr(base)}\nAfter: ${setRepr(after)}`,
+                visual: setCellsHTML(after, [x.key])
+              };
+            }
+            const exists = base.some(i => i.key === x.key);
+            const after = base.filter(i => i.key !== x.key);
+            const call = v.m === 'remove(value)' ? `my_set.remove(${x.repr})` : `my_set.discard(${x.repr})`;
+            const code = head + `${call}\nprint("After:", my_set)`;
+            if (v.m === 'remove(value)' && !exists) {
+              return {
+                code,
+                out: `Before: ${setRepr(base)}`,
+                err: tb(4, `KeyError: ${x.repr}`),
+                visual: setCellsHTML(base)
+              };
+            }
+            return {
+              code,
+              out: `Before: ${setRepr(base)}\nAfter: ${setRepr(after)}`,
+              visual: setCellsHTML(base, [x.key], 'gone') + '<div style="margin-top:10px;">' + setCellsHTML(after) + '</div>'
+            };
+          },
+          tip: 'Select <code>remove(value)</code> with value <code>5</code> to see the <code>KeyError</code>, then switch to <code>discard(value)</code>.'
+        },
+        {
+          title: 'Modifying sets: full walkthrough', file: '02_sets_modification.py',
+          idea: 'Follow how one set changes as we call <code>add()</code>, <code>remove()</code>, <code>discard()</code> and <code>clear()</code>.',
+          code: `my_set = {1, 2, 3}\n\n# add()\nmy_set.add(4)\nprint(my_set)        # Output: {1, 2, 3, 4}\n\n# remove()\nmy_set.remove(2)     # Gives KeyError if element does not exist\nprint(my_set)        # Output: {1, 3, 4}\n\n# discard()\nmy_set.discard(5)    # No error if element does not exist\nprint(my_set)        # Output: {1, 3, 4}\n\n# clear()\nS11 = {1, 2, 3}\nprint('Before Clear:', S11)\nS11.clear()\nprint('After Clear:', S11)`,
+          out: '{1, 2, 3, 4}\n{1, 3, 4}\n{1, 3, 4}\nBefore Clear: {1, 2, 3}\nAfter Clear: set()',
+          tip: 'Notice that <code>my_set.discard(5)</code> ran smoothly even though <code>5</code> was never in <code>my_set</code>.'
+        },
+        {
+          title: 'Set operations: union, intersection, difference', file: '03_sets_operations.py',
+          idea: 'Compare or combine two sets using mathematical set operations.',
+          explain: `<ul><li><code>union()</code>: all distinct items from both sets</li><li><code>intersection()</code>: only items in <strong>both</strong> sets</li><li><code>difference()</code>: items in <code>set1</code> that are <strong>not</strong> in <code>set2</code></li><li><code>symmetric_difference()</code>: items in either set, but <strong>not both</strong></li></ul>`,
+          controls: [
+            { key: 's1', label: 'set1', type: 'text', value: '1, 2, 3' },
+            { key: 's2', label: 'set2', type: 'text', value: '3, 4, 5' },
+            { key: 'op', label: 'operation', type: 'select', value: 0, options: ['union', 'intersection', 'difference', 'symmetric_difference'] }
+          ],
+          render: v => {
+            const s1 = setItems(v.s1), s2 = setItems(v.s2);
+            const k1 = new Set(s1.map(i => i.key)), k2 = new Set(s2.map(i => i.key));
+            let res;
+            if (v.op === 'union') res = setItems((v.s1 ? v.s1 + ', ' : '') + v.s2);
+            else if (v.op === 'intersection') res = s1.filter(i => k2.has(i.key));
+            else if (v.op === 'difference') res = s1.filter(i => !k2.has(i.key));
+            else res = setItems([...s1.filter(i => !k2.has(i.key)), ...s2.filter(i => !k1.has(i.key))].map(i => i.repr).join(', '));
+            const resKeys = res.map(i => i.key);
+            return {
+              code: `set1 = ${setRepr(s1)}\nset2 = ${setRepr(s2)}\n\nresult_set = set1.${v.op}(set2)\nprint(result_set)`,
+              out: setRepr(res),
+              visual: `<div style="display:flex;flex-direction:column;gap:8px;"><div style="font-size:0.75rem;color:var(--py-muted);font-family:var(--font-mono);">Result (${v.op}):</div>${setCellsHTML(res, resKeys)}</div>`
+            };
+          },
+          tip: 'Switch through all four operations and watch how item <code>3</code> (the overlap) is included or excluded.'
+        },
+        {
+          title: 'Subset and superset: issubset() & issuperset()', file: '03_sets_operations.py',
+          idea: '<code>S1.issubset(D1)</code> checks if every item of <code>S1</code> is inside <code>D1</code>. <code>D1.issuperset(S1)</code> asks the reverse: does <code>D1</code> contain all of <code>S1</code>?',
+          analogy: 'If <code>D1</code> is the whole menu at a restaurant and <code>S1</code> is your order, <code>S1</code> is a <strong>subset</strong> of <code>D1</code> as long as every dish you ordered is on the menu.',
+          controls: [
+            { key: 'd1', label: 'D1 (larger set)', type: 'text', value: '1, 2, 3, 4, 5' },
+            { key: 's1', label: 'S1 (smaller set)', type: 'text', value: '2, 3, 4' }
+          ],
+          render: v => {
+            const d1 = setItems(v.d1), s1 = setItems(v.s1);
+            const dKeys = new Set(d1.map(i => i.key));
+            const isSub = s1.every(i => dKeys.has(i.key));
+            return {
+              code: `D1 = ${setRepr(d1)}\nS1 = ${setRepr(s1)}\n\n# Subset: is every item of S1 inside D1?\nprint(S1.issubset(D1))\n\n# Superset: does D1 contain all of S1?\nprint(D1.issuperset(S1))`,
+              out: `${pyBool(isSub)}\n${pyBool(isSub)}`,
+              visual: setCellsHTML(d1, s1.map(i => i.key)) + '<div style="margin-top:10px;">' + badges([['S1 issubset of D1', isSub], ['D1 issuperset of S1', isSub]]) + '</div>'
+            };
+          },
+          tip: 'Add <code>9</code> to <code>S1</code> so an item is missing from <code>D1</code>, and both checks become <code>False</code>.'
+        },
+        {
+          title: 'Set comprehensions', file: '04_sets_comprehensions.py',
+          idea: 'Build a new set from an existing collection in one line using curly braces: <code>{x ** 2 for x in numbers}</code>.',
+          analogy: 'Just like a list comprehension, except it uses <code>{ }</code> instead of <code>[ ]</code> and automatically removes any duplicate results.',
+          controls: [
+            { key: 'items', label: 'numbers', type: 'text', value: '1, 2, 3, 4, 5' },
+            { key: 'e', label: 'expression', type: 'select', value: 0, options: ['x ** 2', 'x * 10', 'x % 3'] },
+            { key: 'f', label: 'filter', type: 'select', value: 0, options: ['all of them', 'if x % 2 == 0', 'if x > 2'] }
+          ],
+          render: v => {
+            const nums = [...new Set(intsFrom(v.items))].sort((a, b) => a - b);
+            const fn = { 'x ** 2': x => x * x, 'x * 10': x => x * 10, 'x % 3': x => ((x % 3) + 3) % 3 }[v.e];
+            const keep = { 'all of them': () => true, 'if x % 2 == 0': x => x % 2 === 0, 'if x > 2': x => x > 2 }[v.f];
+            const cond = v.f === 'all of them' ? '' : ' ' + v.f;
+            const res = [...new Set(nums.filter(keep).map(fn))].sort((a, b) => a - b);
+            const inSet = nums.length ? `{${nums.join(', ')}}` : 'set()';
+            const outSet = res.length ? `{${res.join(', ')}}` : 'set()';
+            return {
+              code: `numbers = ${inSet}\nsquared_numbers = {${v.e} for x in numbers${cond}}\nprint(squared_numbers)`,
+              out: outSet,
+              visual: '<div class="py-map">' + nums.map((x, i) => `<div class="${keep(x) ? '' : 'skip'}" style="animation-delay:${i * 0.06}s"><code>${x}</code><span>&rarr;</span><code>${keep(x) ? fn(x) : 'skipped'}</code></div>`).join('') + '</div>'
+            };
+          },
+          tip: 'Choose <code>x % 3</code> to see how duplicate results collapse into a small set of unique remainders.'
+        },
+        {
+          title: 'Set membership testing: in and not in', file: '05_sets_membership_testing.py',
+          idea: '<code>x in my_set</code> checks whether <code>x</code> is inside the set. <code>x not in my_set</code> checks that it is absent.',
+          explain: `<p>Sets are built for fast look-ups: even with thousands of items, Python checks membership almost instantly.</p>`,
+          controls: [
+            { key: 'items', label: 'my_set', type: 'text', value: '1, 2, 3' },
+            { key: 'a', label: 'check with in', type: 'text', value: '1' },
+            { key: 'b', label: 'check with not in', type: 'text', value: '4' }
+          ],
+          render: v => {
+            const s = setItems(v.items);
+            const a = parseToken(v.a || "''"), b = parseToken(v.b || "''");
+            const hasA = s.some(i => i.key === a.key);
+            const notB = !s.some(i => i.key === b.key);
+            return {
+              code: `my_set = ${setRepr(s)}\n\nprint(${a.repr} in my_set)\nprint(${b.repr} not in my_set)`,
+              out: `${pyBool(hasA)}\n${pyBool(notB)}`,
+              visual: setCellsHTML(s, hasA ? [a.key] : []) + '<div style="margin-top:10px;">' + badges([[`${a.repr} in my_set`, hasA], [`${b.repr} not in my_set`, notB]]) + '</div>'
+            };
+          }
+        },
+        {
+          title: 'Frozen sets: immutable sets', file: '06_sets_frozen_immutable.py',
+          idea: '<code>frozenset([1, 2, 3])</code> creates a read-only set that <strong>cannot be changed</strong> after creation.',
+          analogy: 'Like a set sealed inside glass: you can inspect it, check membership and run set operations, but you cannot add or remove items.',
+          controls: [
+            { key: 'items', label: 'items', type: 'text', value: '1, 2, 3' },
+            { key: 'tryAdd', label: 'try calling frozen_set.add(4)?', type: 'select', value: 0, options: ['No (valid code)', 'Yes (raises AttributeError)'] }
+          ],
+          render: v => {
+            const items = setItems(v.items);
+            const listLit = '[' + items.map(i => i.repr).join(', ') + ']';
+            const shown = items.length ? `frozenset(${setRepr(items)})` : 'frozenset()';
+            const fail = v.tryAdd.startsWith('Yes');
+            const code = `frozen_set = frozenset(${listLit})\nprint(frozen_set)\n\n` + (fail ? '# Trying to modify a frozenset raises an error\nfrozen_set.add(4)' : '# Uncomment the line below to see the error:\n# frozen_set.add(4)');
+            return {
+              code,
+              out: shown,
+              err: fail ? tb(5, "AttributeError: 'frozenset' object has no attribute 'add'") : '',
+              visual: setCellsHTML(items) + '<div style="margin-top:10px;">' + propBadges(false, false, false) + '</div>'
+            };
+          },
+          tip: 'Switch the selector to <strong>Yes</strong> to see what happens when you call <code>frozen_set.add(4)</code>.'
+        },
+        {
+          title: 'Cheat sheet: sets', file: 'recap',
+          idea: 'Every set tool from this module on one page.',
+          visual: recapTable([
+            ['create a set / empty set', 's = {1, 2, 3}   empty = set()'],
+            ['add one item', 's.add(4)'],
+            ['remove (error vs safe)', 's.remove(2)   s.discard(5)'],
+            ['combine both sets', 's1.union(s2)'],
+            ['common items only', 's1.intersection(s2)'],
+            ['in s1 but not s2', 's1.difference(s2)'],
+            ['in either, not both', 's1.symmetric_difference(s2)'],
+            ['subset / superset', 's1.issubset(s2)   s2.issuperset(s1)'],
+            ['set comprehension', '{x ** 2 for x in numbers}'],
+            ['read-only set', 'frozenset([1, 2, 3])']
+          ]),
+          code: `set1 = {1, 2, 3}\nset2 = {3, 4, 5}\nset1.add(6)\nset1.discard(2)\nprint("set1:", set1)\nprint("union:", set1.union(set2))\nprint("intersection:", set1.intersection(set2))\nprint("difference:", set1.difference(set2))\nprint("squares:", {x ** 2 for x in set2})\nprint("frozen:", frozenset([1, 2, 3]))`,
+          out: 'set1: {1, 3, 6}\nunion: {1, 3, 4, 5, 6}\nintersection: {3}\ndifference: {1, 6}\nsquares: {16, 9, 25}\nfrozen: frozenset({1, 2, 3})'
+        }
+      ]
+  };
+
+
+  DECKS.tuples = {
+    name: 'Python Tuples', short: 'Tuples', icon: '( )', accent: '#22d3ee', page: 'tuples.html', folder: 'python-core-language/python-tuples',
+    blurb: 'Store ordered, read-only collections of values: index, slice, pack, unpack, nest and use tuples as dictionary keys.',
+    glossary: [
+      ['tuple', 'An ordered, immutable collection of items inside round brackets, like (1, 2, 3).'],
+      ['immutable', 'Cannot be changed after creation: items cannot be replaced, added or removed in place.'],
+      ['packing', 'Creating a tuple by separating values with commas, like my_tuple = 1, 2, 3.'],
+      ['unpacking', 'Assigning the elements of a tuple to separate variables in one line: a, b, c = my_tuple.'],
+      ['count() / index()', 'The two built-in tuple methods: count how often a value appears or find its first position.'],
+      ['single-item tuple', 'Needs a trailing comma, like (5,), so Python knows it is a tuple and not just brackets.']
+    ],
+    slides: [
+      {
+        title: 'What is a tuple?', file: '01_tuples_creation.py',
+        idea: 'A <code>tuple</code> is an ordered collection of items inside round brackets <code>( )</code> that <strong>cannot be changed</strong> after creation.',
+        analogy: 'Like a printed receipt or GPS coordinates: the items stay in order, and nobody can erase or overwrite a line.',
+        explain: `<p>You can create a tuple with <code>( )</code>, with commas alone (<code>4, 5, 6</code>), or with the <code>tuple()</code> constructor.</p>`,
+        visual: tupleCellsHTML(parseItems('1, 2, 3, 4, 5'), [], false) + '<div style="margin-top:10px;">' + propBadges(true, false, true) + '</div>',
+        code: `tuple1 = (1, 2, 3, 4, 5)\ntuple2 = ('A', 'b', 1, 2)\n\n# Tuples can also be created without parentheses by using commas alone\ntuple3 = 4, 5, 6\n\n# Using tuple() constructor\ntuple4 = tuple((1, 22, 333))\n\n# Nested tuples\ntuple5 = ((1, 2), (11, 22), (111, 222))\n\nprint(tuple1)\nprint(tuple2)\nprint(tuple3)\nprint(tuple4)\nprint(tuple5)`,
+        out: "(1, 2, 3, 4, 5)\n('A', 'b', 1, 2)\n(4, 5, 6)\n(1, 22, 333)\n((1, 2), (11, 22), (111, 222))",
+        tip: 'A tuple with just ONE item must have a trailing comma: <code>(5,)</code>.'
+      },
+      {
+        title: 'Accessing elements in tuples', file: '02_tuples_accessing_elements.py',
+        idea: 'Use square brackets <code>my_tuple[i]</code> to read an item by its position. Counting starts at <code>0</code>, and <code>-1</code> is the last item.',
+        controls: [
+          { key: 'items', label: 'my_tuple items', type: 'text', value: '1, 2, 3, 4, 5' },
+          { key: 'i', label: 'index', type: 'number', value: 0 }
+        ],
+        render: v => {
+          const items = parseItems(v.items), n = items.length;
+          const code = `my_tuple = ${tupleRepr(items)}\n\nprint(my_tuple[${v.i}])`;
+          if (v.i >= n || v.i < -n) return { code, out: '', err: tb(3, 'IndexError: tuple index out of range'), visual: tupleCellsHTML(items) };
+          const k = v.i < 0 ? v.i + n : v.i;
+          return { code, out: shown(items[k]), visual: tupleCellsHTML(items, [k]) };
+        },
+        tip: 'Try index <code>-1</code> to get the last element, or <code>9</code> to see the <code>IndexError</code>.'
+      },
+      {
+        title: 'Accessing nested tuple elements', file: '03_tuples_accessing_nested_tuple_elements.py',
+        idea: 'For a tuple of tuples, chain two indexes: <code>my_nested_tuple[outer][inner]</code>.',
+        controls: [
+          { key: 'r', label: 'outer index', type: 'range', value: 0, min: 0, max: 2 },
+          { key: 'c', label: 'inner index', type: 'range', value: 1, min: 0, max: 1 }
+        ],
+        render: v => {
+          const grid = [[1, 2], [11, 22], [111, 222]];
+          return {
+            code: `my_nested_tuple = ((1, 2), (11, 22), (111, 222))\n\nprint(my_nested_tuple[${v.r}])\nprint(my_nested_tuple[${v.r}][${v.c}])\nprint(my_nested_tuple[-1][-1])`,
+            out: `(${grid[v.r].join(', ')})\n${grid[v.r][v.c]}\n222`,
+            visual: '<div class="py-grid2d">' + grid.map((row, r) => `<div class="row${r === v.r ? ' pick' : ''}"><code class="lbl">[${r}]</code>` +
+              row.map((x, c) => `<div class="py-cell${r === v.r && c === v.c ? ' on' : ''}"><span class="ix">[${r}][${c}]</span><span class="ch wide">${x}</span></div>`).join('') + '</div>').join('') + '</div>'
+          };
+        }
+      },
+      {
+        title: 'Tuple packing and unpacking', file: '04_tuples_packing_and_unpacking.py',
+        idea: '<strong>Packing</strong> bundles values into a tuple without brackets. <strong>Unpacking</strong> pulls each item out into its own variable.',
+        analogy: 'Packing puts three gifts into one box; unpacking hands one gift to each friend.',
+        controls: [
+          { key: 'a', label: 'first value (a)', type: 'text', value: '1' },
+          { key: 'b', label: 'second value (b)', type: 'text', value: '2' },
+          { key: 'c', label: 'third value (c)', type: 'text', value: '3' }
+        ],
+        render: v => {
+          const t = [parseToken(v.a || '1'), parseToken(v.b || '2'), parseToken(v.c || '3')];
+          return {
+            code: `# Tuple packing\nmy_tuple = ${t[0].repr}, ${t[1].repr}, ${t[2].repr}\nprint(my_tuple)\n\n# Tuple unpacking\na, b, c = my_tuple\nprint(a, b, c)`,
+            out: `${tupleRepr(t)}\n${shown(t[0])} ${shown(t[1])} ${shown(t[2])}`,
+            visual: boxRow([varBox('a', t[0].repr), varBox('b', t[1].repr), varBox('c', t[2].repr)])
+          };
+        }
+      },
+      {
+        title: 'Tuple methods & built-ins: count, index, min, max, len, sum', file: '05_tuples_methods.py',
+        idea: '<code>count(x)</code> counts how many times <code>x</code> appears. <code>index(x)</code> gives the position of the first match.',
+        controls: [
+          { key: 'items', label: 'my_tuple (numbers)', type: 'text', value: '1, 2, 3, 2' },
+          { key: 'x', label: 'value for count()', type: 'number', value: 2 }
+        ],
+        render: v => {
+          const nums = intsFrom(v.items);
+          const tup = nums.length ? (nums.length === 1 ? `(${nums[0]},)` : `(${nums.join(', ')})`) : '()';
+          const cnt = nums.filter(n => n === v.x).length;
+          const lo = nums.length ? Math.min(...nums) : 0;
+          const hi = nums.length ? Math.max(...nums) : 0;
+          const total = nums.reduce((a, b) => a + b, 0);
+          const items = nums.map(n => parseToken(String(n)));
+          const hits = nums.map((n, i) => (n === v.x ? i : -1)).filter(i => i >= 0);
+          return {
+            code: `my_tuple = ${tup}\n\nprint("count(${v.x}):", my_tuple.count(${v.x}))\nprint("Min =", min(my_tuple), "Max =", max(my_tuple))\nprint("len =", len(my_tuple))\nprint("sum =", sum(my_tuple))`,
+            out: `count(${v.x}): ${cnt}\nMin = ${lo} Max = ${hi}\nlen = ${nums.length}\nsum = ${total}`,
+            visual: tupleCellsHTML(items, hits)
+          };
+        }
+      },
+      {
+        title: 'Tuple slicing', file: '06_tuples_slicing.py',
+        idea: '<code>my_tuple[start:stop]</code> cuts out a new tuple from index <code>start</code> up to (not including) <code>stop</code>.',
+        controls: [
+          { key: 'items', label: 'my_tuple', type: 'text', value: '1, 2, 3, 4, 5, 6, 7' },
+          { key: 'a', label: 'start', type: 'text', value: '1' },
+          { key: 'b', label: 'stop', type: 'text', value: '4' }
+        ],
+        render: v => {
+          const items = parseItems(v.items);
+          const num = t => (/^[+-]?\d+$/.test(t.trim()) ? parseInt(t, 10) : null);
+          const a = num(v.a), b = num(v.b);
+          const idx = pySliceIdx(items.length, a, b, 1);
+          const sub = idx.map(i => items[i]);
+          return {
+            code: `my_tuple = ${tupleRepr(items)}\n\nprint(my_tuple[${a ?? ''}:${b ?? ''}])\nprint(my_tuple[4:])\nprint(my_tuple[-4:])`,
+            out: `${tupleRepr(sub)}\n${tupleRepr(items.slice(4))}\n${tupleRepr(items.slice(-4))}`,
+            visual: tupleCellsHTML(items, idx)
+          };
+        }
+      },
+      {
+        title: 'Tuple update, delete & comprehensions', file: '07_tuples_update_and_delete.py',
+        idea: 'Tuples are immutable, so you build a <strong>new tuple</strong> from slices or with <code>tuple(expr for x in ...)</code>. Use <code>del</code> to delete an entire tuple variable.',
+        controls: [
+          { key: 'e', label: 'generator expression', type: 'select', value: 0, options: ['x ** 2', 'x * 10', 'x + 1'] }
+        ],
+        render: v => {
+          const base = [0, 1, 2, 3, 4];
+          const fn = { 'x ** 2': x => x * x, 'x * 10': x => x * 10, 'x + 1': x => x + 1 }[v.e];
+          const res = base.map(fn);
+          return {
+            code: `tuple1 = (1, 2, 3, 4, 5)\n# Create a new tuple from a slice\ntuple3 = tuple1[1:4]\nprint("Sliced tuple3:", tuple3)\ndel tuple3\n\n# Tuple comprehension using tuple() + generator\nnumber_tuple = (0, 1, 2, 3, 4)\nmy_tuple = tuple(${v.e} for x in number_tuple)\nprint("Computed:", my_tuple)`,
+            out: `Sliced tuple3: (2, 3, 4)\nComputed: (${res.join(', ')})`,
+            visual: '<div class="py-map">' + base.map((x, i) => `<div style="animation-delay:${i * 0.06}s"><code>${x}</code><span>&rarr;</span><code>${fn(x)}</code></div>`).join('') + '</div>'
+          };
+        }
+      },
+      {
+        title: 'Membership, immutability, tuples in lists & use cases', file: '12_tuples_use_cases.py',
+        idea: 'Test with <code>in</code>, nest tuples inside lists, return multiple values from functions, or use tuples as dictionary keys.',
+        controls: [
+          { key: 'tryMutate', label: 'try my_tuple[0] = 4?', type: 'select', value: 0, options: ['No (run valid use cases)', 'Yes (show TypeError)'] }
+        ],
+        render: v => {
+          const fail = v.tryMutate.startsWith('Yes');
+          const code = `my_tuple = (1, 2, 3)\nprint(1 in my_tuple, 4 not in my_tuple)\n\n# Tuples inside a list\nlist_tup = [(1, 2), (11, 22), (111, 222)]\nprint("3rd tuple:", list_tup[2], "item [1][1]:", list_tup[1][1])\n\n# Returning multiple values & using tuple as dict key\ndef get_coordinates():\n    return 10, 20\nx, y = get_coordinates()\ncoordinates = {(1, 2): "point"}\nprint(x, y, coordinates[1, 2])` + (fail ? '\n\n# Tuples cannot be changed in place\nmy_tuple[0] = 4' : '');
+          return {
+            code,
+            out: 'True True\n3rd tuple: (111, 222) item [1][1]: 22\n10 20 point',
+            err: fail ? tb(16, "TypeError: 'tuple' object does not support item assignment") : '',
+            visual: propBadges(true, false, true)
+          };
+        }
+      },
+      {
+        title: 'Cheat sheet: tuples', file: 'recap',
+        idea: 'All key tuple patterns on one page.',
+        visual: recapTable([
+          ['create a tuple', 't = (1, 2, 3)   single = (5,)'],
+          ['pack & unpack', 't = 1, 2, 3   a, b, c = t'],
+          ['index & slice', 't[0]   t[-1]   t[1:4]'],
+          ['count & find position', 't.count(2)   t.index(3)'],
+          ['transform with tuple()', 'tuple(x ** 2 for x in t)'],
+          ['use as dictionary key', 'coords = {(1, 2): "point"}']
+        ]),
+        code: `t = (1, 2, 3, 2)\na, b, c, d = t\nprint("Unpacked:", a, b, c, d)\nprint("count(2):", t.count(2), "index(3):", t.index(3))\nprint("Slice:", t[1:3])\nprint("Squares:", tuple(x ** 2 for x in t))`,
+        out: 'Unpacked: 1 2 3 2\ncount(2): 2 index(3): 2\nSlice: (2, 3)\nSquares: (1, 4, 9, 4)'
+      }
+    ]
+  };
+
+  DECKS.dictionaries = {
+    name: 'Python Dictionaries', short: 'Dictionaries', icon: 'k:v', accent: '#fb7185', page: 'dictionaries.html', folder: 'python-core-language/python-dictionaries',
+    blurb: 'Store and look up key-value pairs: create, access, nest, modify, use keys/values/items/pop/popitem and build dict comprehensions.',
+    glossary: [
+      ['dictionary (dict)', 'A mutable collection of key: value pairs inside curly braces, like {"name": "John", "age": 30}.'],
+      ['key', 'The unique identifier on the left of the colon (:) used to look up a value.'],
+      ['value', 'The data stored for a key on the right of the colon (:).'],
+      ['get(key)', 'Safely looks up a key and returns None (or a default) instead of raising a KeyError.'],
+      ['keys() / values() / items()', 'Methods returning live views of a dictionary\'s keys, values, or (key, value) pairs.'],
+      ['dict comprehension', 'Builds a dictionary in one line: {x: x ** 2 for x in numbers}.']
+    ],
+    slides: [
+      {
+        title: 'What is a dictionary? Creating dictionaries', file: '01_dictionaries_creation.py',
+        idea: 'A <code>dict</code> stores <strong>key: value</strong> pairs inside curly braces <code>{ }</code>. Each key is unique and maps to its value.',
+        analogy: 'Like a real dictionary or contact list: you look up a unique <strong>key</strong> (word or person\'s name) to find its <strong>value</strong> (meaning or details).',
+        explain: `<p>An empty pair of curly braces <code>{}</code> creates an empty dictionary.</p>`,
+        visual: resultTable(['Key', 'Value'], [['APPLE', 'FRUIT', true], ['POTATO', 'ROOT', false], ['OKRA', 'VEGETABLE', false]]) + '<div style="margin-top:10px;">' + badges([['Unique keys', true], ['Can be changed (mutable)', true], ['Preserves insertion order', true]]) + '</div>',
+        code: `eats = {'APPLE': 'FRUIT', 'POTATO': 'ROOT', 'OKRA': 'VEGETABLE'}\nprint(eats)\n\nmy_dict = {'name': 'John', 'age': 30, 'gender': 'Male'}\nprint(my_dict)\n\n# Empty Dictionary\ndict0 = {}\nprint(dict0)`,
+        out: "{'APPLE': 'FRUIT', 'POTATO': 'ROOT', 'OKRA': 'VEGETABLE'}\n{'name': 'John', 'age': 30, 'gender': 'Male'}\n{}",
+        tip: 'Keys are usually strings or numbers, while values can be any Python datatype.'
+      },
+      {
+        title: 'Accessing elements in dictionaries', file: '02_dictionaries_accessing_elements.py',
+        idea: 'Use square brackets <code>my_dict[key]</code> or <code>my_dict.get(key)</code> to retrieve the value for a key.',
+        explain: `<p><code>my_dict.get(key)</code> is safe: if the key is missing, it returns <code>None</code> instead of crashing with a <code>KeyError</code>.</p>`,
+        controls: [
+          { key: 'name', label: "value for 'name'", type: 'text', value: 'John' },
+          { key: 'age', label: "value for 'age'", type: 'number', value: 30 },
+          { key: 'k', label: 'key to inspect', type: 'select', value: 0, options: ['name', 'age', 'gender'] }
+        ],
+        render: v => {
+          const dStr = `{'name': ${repr(v.name)}, 'age': ${v.age}, 'gender': 'Male'}`;
+          const picked = v.k === 'name' ? v.name : (v.k === 'age' ? String(v.age) : 'Male');
+          return {
+            code: `my_dict = ${dStr}\n\nprint(my_dict['name'])\nprint(my_dict['age'])\nprint(my_dict.get('gender'))\nprint("Selected key:", my_dict[${repr(v.k)}])`,
+            out: `${v.name}\n${v.age}\nMale\nSelected key: ${picked}`,
+            visual: resultTable(['Key', 'Value'], [
+              ['name', v.name, v.k === 'name'],
+              ['age', String(v.age), v.k === 'age'],
+              ['gender', 'Male', v.k === 'gender']
+            ])
+          };
+        }
+      },
+      {
+        title: 'Accessing nested dictionary elements', file: '03_dictionaries_accessing_nested_dictionary_elements.py',
+        idea: 'Dictionaries can hold inner dictionaries or live inside a list. Chain lookups like <code>my_dict["person"]["name"]</code> or <code>list_dict[2]["EmpName"]</code>.',
+        controls: [
+          { key: 'idx', label: 'employee index in list_dict (0..2)', type: 'range', value: 2, min: 0, max: 2 }
+        ],
+        render: v => {
+          const emps = [
+            { id: 1, name: 'Venkat' },
+            { id: 2, name: 'Sujatha' },
+            { id: 3, name: 'Taran' }
+          ];
+          const picked = emps[v.idx];
+          return {
+            code: `# Nested dict variation 1\nmy_dict = {'person': {'name': 'John', 'age': 30}}\nprint(my_dict['person'])\nprint(my_dict['person']['name'])\nprint(my_dict['person']['age'])\n\n# Nested dict variation 2: list of dictionaries\nlist_dict = [{'EmpID': 1, 'EmpName': 'Venkat'},\n             {'EmpID': 2, 'EmpName': 'Sujatha'},\n             {'EmpID': 3, 'EmpName': 'Taran'}]\nprint(list_dict[${v.idx}]['EmpName'])`,
+            out: `{'name': 'John', 'age': 30}\nJohn\n30\n${picked.name}`,
+            visual: resultTable(['Index', 'Employee Dictionary'], emps.map((e, i) => [`list_dict[${i}]`, `{'EmpID': ${e.id}, 'EmpName': '${e.name}'}`, i === v.idx]))
+          };
+        }
+      },
+      {
+        title: 'Modifying dictionaries: update, add, del & clear', file: '04_dictionaries_modification.py',
+        idea: 'Assign <code>my_dict[key] = value</code> to update an existing key or add a new key. Use <code>del my_dict[key]</code> to remove a key, or <code>my_dict.clear()</code> to empty the dictionary.',
+        controls: [
+          { key: 'newAge', label: "updated 'age'", type: 'number', value: 35 },
+          { key: 'gender', label: "added 'gender'", type: 'text', value: 'Male' }
+        ],
+        render: v => {
+          const g = repr(v.gender);
+          return {
+            code: `my_dict = {'name': 'John', 'age': 30}\nprint(my_dict)\n\n# Modifying existing value\nmy_dict['age'] = ${v.newAge}\nprint(my_dict)\n\n# Adding new key-value pair\nmy_dict['gender'] = ${g}\nprint(my_dict)\n\n# Remove the key 'gender' and its value\ndel my_dict['gender']\nprint(my_dict)\n\n# Remove everything in dictionary\nmy_dict.clear()\nprint(my_dict)`,
+            out: `{'name': 'John', 'age': 30}\n{'name': 'John', 'age': ${v.newAge}}\n{'name': 'John', 'age': ${v.newAge}, 'gender': ${g}}\n{'name': 'John', 'age': ${v.newAge}}\n{}`,
+            visual: boxRow([
+              varBox('start', "{'name': 'John', 'age': 30}"),
+              arrow,
+              varBox('updated + added', `{'name': 'John', 'age': ${v.newAge}, 'gender': ${g}}`),
+              arrow,
+              varBox('after clear()', '{}')
+            ])
+          };
+        }
+      },
+      {
+        title: 'Dictionary views: keys(), values() and items()', file: '05_dictionaries_methods.py',
+        idea: '<code>keys()</code> shows all keys, <code>values()</code> shows all values, and <code>items()</code> shows all <code>(key, value)</code> pairs.',
+        controls: [
+          { key: 'view', label: 'highlight view', type: 'select', value: 0, options: ['keys()', 'values()', 'items()'] }
+        ],
+        render: v => ({
+          code: `my_dict = {'name': 'John', 'age': 30, 'gender': 'Male'}\n\nprint(my_dict.keys())\nprint(my_dict.values())\nprint(my_dict.items())`,
+          out: "dict_keys(['name', 'age', 'gender'])\ndict_values(['John', 30, 'Male'])\ndict_items([('name', 'John'), ('age', 30), ('gender', 'Male')])",
+          visual: resultTable(['Method', 'Returned View'], [
+            ['my_dict.keys()', "dict_keys(['name', 'age', 'gender'])", v.view === 'keys()'],
+            ['my_dict.values()', "dict_values(['John', 30, 'Male'])", v.view === 'values()'],
+            ['my_dict.items()', "dict_items([('name', 'John'), ('age', 30), ('gender', 'Male')])", v.view === 'items()']
+          ])
+        })
+      },
+      {
+        title: 'Removing & returning items: pop() and popitem()', file: '05_dictionaries_methods.py',
+        idea: '<code>pop(key)</code> removes a specific key and hands back its value. <code>popitem()</code> removes and hands back the <strong>last inserted</strong> <code>(key, value)</code> pair.',
+        controls: [
+          { key: 'age', label: 'initial age', type: 'number', value: 30 }
+        ],
+        render: v => ({
+          code: `my_dict = {'name': 'John', 'age': ${v.age}, 'gender': 'Male'}\n\n# pop() removes a specified key and returns its value\nvalue = my_dict.pop('age')\nprint(value)\nprint(my_dict)\n\n# popitem() removes and returns the last inserted (key, value) pair\nkey, value = my_dict.popitem()\nprint(key, value)\nprint(my_dict)`,
+          out: `${v.age}\n{'name': 'John', 'gender': 'Male'}\ngender Male\n{'name': 'John'}`,
+          visual: boxRow([
+            varBox("pop('age')", String(v.age)),
+            arrow,
+            varBox('popitem()', "('gender', 'Male')"),
+            arrow,
+            varBox('remaining', "{'name': 'John'}")
+          ])
+        })
+      },
+      {
+        title: 'Dictionary comprehensions', file: '06_dictionaries_comprehensions.py',
+        idea: 'Build a dictionary from any sequence in one line: <code>{x: x ** 2 for x in numbers}</code>.',
+        analogy: 'Like a label maker that stamps both the key (<code>x</code>) and its calculated value (<code>x ** 2</code>) for every item in a collection.',
+        controls: [
+          { key: 'items', label: 'numbers', type: 'text', value: '1, 2, 3, 4, 5' },
+          { key: 'expr', label: 'value expression', type: 'select', value: 0, options: ['x ** 2', 'x * 10', 'x ** 3'] }
+        ],
+        render: v => {
+          const nums = [...new Set(intsFrom(v.items))].sort((a, b) => a - b);
+          const fn = { 'x ** 2': x => x * x, 'x * 10': x => x * 10, 'x ** 3': x => x * x * x }[v.expr];
+          const inSet = nums.length ? `{${nums.join(', ')}}` : 'set()';
+          const pairs = nums.map(x => `${x}: ${fn(x)}`);
+          return {
+            code: `numbers = ${inSet}\nnumbers_dict = {x: ${v.expr} for x in numbers}\nprint(numbers_dict)`,
+            out: `{${pairs.join(', ')}}`,
+            visual: '<div class="py-map">' + nums.map((x, i) => `<div style="animation-delay:${i * 0.06}s"><code>${x}</code><span>&rarr;</span><code>${x}: ${fn(x)}</code></div>`).join('') + '</div>'
+          };
+        }
+      },
+      {
+        title: 'Cheat sheet: dictionaries', file: 'recap',
+        idea: 'Every dictionary operation and method from this module on one page.',
+        visual: recapTable([
+          ['create a dict / empty dict', "d = {'name': 'John', 'age': 30}   empty = {}"],
+          ['read a value / safe read', "d['name']   d.get('gender')"],
+          ['nested lookup', "d['person']['name']   list_dict[2]['EmpName']"],
+          ['add or update a key', "d['age'] = 35   d['gender'] = 'Male'"],
+          ['delete a key / empty all', "del d['gender']   d.clear()"],
+          ['views of keys, values, pairs', 'd.keys()   d.values()   d.items()'],
+          ['remove & return value / last pair', "d.pop('age')   d.popitem()"],
+          ['dict comprehension', '{x: x ** 2 for x in numbers}']
+        ]),
+        code: `d = {'name': 'John', 'age': 30}\nd['age'] = 35\nd['gender'] = 'Male'\nprint("Keys:", list(d.keys()))\nprint("Popped age:", d.pop('age'))\nprint("Squares:", {x: x ** 2 for x in (1, 2, 3)})`,
+        out: "Keys: ['name', 'age', 'gender']\nPopped age: 35\nSquares: {1: 1, 2: 4, 3: 9}"
+      }
+    ]
+  };
+
+  DECKS['conversions-between-lists-tuples-and-dictionaries'] = {
+    name: 'Conversions: Lists, Tuples & Dicts', short: 'Conversions', icon: '&harr;', accent: '#f59e0b', page: 'conversions-between-lists-tuples-and-dictionaries.html', folder: 'python-core-language/conversions-between-lists-tuples-and-dictionaries',
+    blurb: 'Convert freely between lists, tuples and dictionaries using tuple(), list(), dict(), zip(), keys(), values() and items().',
+    glossary: [
+      ['tuple(list)', 'Turns a list into a read-only tuple with the same items.'],
+      ['list(tuple)', 'Turns a tuple into a mutable list so you can add, remove or sort items.'],
+      ['dict(pairs)', 'Builds a dictionary from any sequence of (key, value) pairs.'],
+      ['zip(a, b)', 'Pairs up items from two sequences side by side: (a[0], b[0]), (a[1], b[1]), ...'],
+      ['zip(*pairs)', 'Unzips a list of pairs into separate tuples of first items and second items.'],
+      ['keys() / values() / items()', 'Dictionary views of its keys, values or (key, value) tuples.']
+    ],
+    slides: [
+      {
+        title: 'List to Tuple and Tuple to List', file: '01_list_to_tuple.py',
+        idea: '<code>tuple(my_list)</code> freezes a list into a tuple. <code>list(my_tuple)</code> unlocks a tuple back into a list.',
+        analogy: 'Like locking a document as a PDF (<code>tuple()</code>) vs opening it in an editor to make changes (<code>list()</code>).',
+        controls: [
+          { key: 'items', label: 'items', type: 'text', value: 'John, 30, Male' }
+        ],
+        render: v => {
+          const items = parseItems(v.items);
+          return {
+            code: `# List to Tuple\nmy_list = ${itemsRepr(items)}\nprint("List:", my_list)\nmy_tuple = tuple(my_list)\nprint("Tuple:", my_tuple)\n\n# Tuple back to List\nback_to_list = list(my_tuple)\nprint("Back to list:", back_to_list)`,
+            out: `List: ${itemsRepr(items)}\nTuple: ${tupleRepr(items)}\nBack to list: ${itemsRepr(items)}`,
+            visual: boxRow([varBox('list', itemsRepr(items)), arrow, varBox('tuple', tupleRepr(items))])
+          };
+        }
+      },
+      {
+        title: 'List to Dictionary (consecutive pairs)', file: '02_list_to_dict.py',
+        idea: 'Pair every even index <code>i</code> with the next index <code>i + 1</code> using a dictionary comprehension: <code>{my_list[i]: my_list[i + 1] for i in range(0, len(my_list), 2)}</code>.',
+        controls: [
+          { key: 'name', label: 'name value', type: 'text', value: 'John' },
+          { key: 'age', label: 'age value', type: 'number', value: 30 }
+        ],
+        render: v => {
+          const n = repr(v.name);
+          const listStr = `['name', ${n}, 'age', ${v.age}, 'gender', 'Male']`;
+          const dictStr = `{'name': ${n}, 'age': ${v.age}, 'gender': 'Male'}`;
+          return {
+            code: `my_list = ${listStr}\nprint(my_list)\n\nmy_dict = {my_list[i]: my_list[i + 1] for i in range(0, len(my_list), 2)}\nprint(my_dict)`,
+            out: `${listStr}\n${dictStr}`,
+            visual: resultTable(['Key (my_list[i])', 'Value (my_list[i+1])'], [['name', v.name, true], ['age', String(v.age), false], ['gender', 'Male', false]])
+          };
+        }
+      },
+      {
+        title: 'List of Tuples to Dictionary', file: '03_list_of_tuples_to_dict.py',
+        idea: 'When each tuple in a list holds a <code>(key, value)</code> pair, pass the list directly to <code>dict(list_of_tuples)</code>.',
+        controls: [
+          { key: 'name', label: 'name', type: 'text', value: 'John' },
+          { key: 'age', label: 'age', type: 'number', value: 30 }
+        ],
+        render: v => {
+          const n = repr(v.name);
+          const lot = `[('name', ${n}), ('age', ${v.age}), ('gender', 'Male')]`;
+          const d = `{'name': ${n}, 'age': ${v.age}, 'gender': 'Male'}`;
+          return {
+            code: `list_of_tuples = ${lot}\nprint(list_of_tuples)\n\nmy_dict = dict(list_of_tuples)\nprint(my_dict)`,
+            out: `${lot}\n${d}`,
+            visual: boxRow([varBox('list_of_tuples', lot), arrow, varBox('dict', d)])
+          };
+        }
+      },
+      {
+        title: 'Unzipping & zipping: List of Tuples <-> Tuple of Lists', file: '04_list_of_tuples_to_a_tuple_of_list.py',
+        idea: '<code>zip(*tuple_list)</code> splits pairs into separate columns. <code>list(zip(*tuple_of_lists))</code> zips two lists back into pairs.',
+        controls: [
+          { key: 'dir', label: 'conversion direction', type: 'select', value: 0, options: ['List of Tuples -> Tuple of Lists', 'Tuple of Lists -> List of Tuples'] }
+        ],
+        render: v => {
+          if (v.dir.startsWith('List')) {
+            return {
+              code: `tuple_list = [(1, "a"), (2, "b"), (3, "c")]\nint_list, char_list = zip(*tuple_list)\nprint(tuple_list)\n\ntuple_of_lists = (list(int_list), list(char_list))\nprint(tuple_of_lists)`,
+              out: "[(1, 'a'), (2, 'b'), (3, 'c')]\n([1, 2, 3], ['a', 'b', 'c'])",
+              visual: boxRow([varBox('pairs', "[(1,'a'), (2,'b'), (3,'c')]"), arrow, varBox('columns', "([1, 2, 3], ['a', 'b', 'c'])")])
+            };
+          }
+          return {
+            code: `tuple_of_lists = ([1, 2, 3], ["a", "b", "c"])\nprint(tuple_of_lists)\n\nlist_of_tuples = list(zip(*tuple_of_lists))\nprint(list_of_tuples)`,
+            out: "([1, 2, 3], ['a', 'b', 'c'])\n[(1, 'a'), (2, 'b'), (3, 'c')]",
+            visual: boxRow([varBox('columns', "([1, 2, 3], ['a', 'b', 'c'])"), arrow, varBox('pairs', "[(1,'a'), (2,'b'), (3,'c')]")])
+          };
+        }
+      },
+      {
+        title: 'Tuple of Tuples to Dictionary', file: '06_tuple_of_tuples_to_dict.py',
+        idea: 'A tuple of 2-element tuples converts to a dictionary with <code>dict(tuple1)</code> just like a list of tuples.',
+        controls: [
+          { key: 'v1', label: "value for 'a'", type: 'number', value: 1 },
+          { key: 'v2', label: "value for 'b'", type: 'number', value: 2 }
+        ],
+        render: v => ({
+          code: `tuple1 = (('a', ${v.v1}), ('b', ${v.v2}))\nprint(tuple1)\n\ndict1 = dict(tuple1)\nprint(dict1)`,
+          out: `(('a', ${v.v1}), ('b', ${v.v2}))\n{'a': ${v.v1}, 'b': ${v.v2}}`,
+          visual: boxRow([varBox('tuple1', `(('a', ${v.v1}), ('b', ${v.v2}))`), arrow, varBox('dict1', `{'a': ${v.v1}, 'b': ${v.v2}}`)])
+        })
+      },
+      {
+        title: 'Tuple of Lists to a Dictionary with zip()', file: '07_tuple_of_lists_to_a_dict.py',
+        idea: 'Unpack the keys list and values list from the tuple, pair them with <code>zip(keys_list, values_list)</code>, and pass to <code>dict()</code>.',
+        code: `tuple_of_lists = (["a", "b", "c"], [1, 2, 3])\nprint(tuple_of_lists)\n\nkeys_list, values_list = tuple_of_lists\nmy_dict = dict(zip(keys_list, values_list))\nprint(my_dict)`,
+        out: "(['a', 'b', 'c'], [1, 2, 3])\n{'a': 1, 'b': 2, 'c': 3}",
+        visual: resultTable(['Key from keys_list', 'Value from values_list'], [['a', '1', true], ['b', '2', true], ['c', '3', true]])
+      },
+      {
+        title: 'Dictionary to List of Tuples with items()', file: '09_dict_to_list_of_tuples.py',
+        idea: '<code>list(my_dict.items())</code> turns every key-value pair in a dictionary into a <code>(key, value)</code> tuple inside a list.',
+        code: `my_dict = {'name': 'John', 'age': 30, 'gender': 'Male'}\nprint(my_dict)\n\nlist_of_tuples = list(my_dict.items())\nprint(list_of_tuples)`,
+        out: "{'name': 'John', 'age': 30, 'gender': 'Male'}\n[('name', 'John'), ('age', 30), ('gender', 'Male')]",
+        visual: boxRow([varBox('my_dict', "{'name': 'John', ...}"), arrow, varBox('list(my_dict.items())', "[('name', 'John'), ('age', 30), ('gender', 'Male')]")])
+      },
+      {
+        title: 'Dictionary to Lists of Keys & Values or Tuple of Lists', file: '10_dict_to_list_of_keys_or_values.py',
+        idea: 'Use <code>list(my_dict.keys())</code> for a list of keys, <code>list(my_dict.values())</code> for values, and <code>(keys_list, values_list)</code> for a tuple of lists.',
+        code: `my_dict = {'name': 'John', 'age': 30, 'gender': 'Male'}\nprint(my_dict)\n\nkeys_list = list(my_dict.keys())\nprint(keys_list)\n\nvalues_list = list(my_dict.values())\nprint(values_list)\n\ntuple_of_lists = (keys_list, values_list)\nprint(tuple_of_lists)`,
+        out: "{'name': 'John', 'age': 30, 'gender': 'Male'}\n['name', 'age', 'gender']\n['John', 30, 'Male']\n(['name', 'age', 'gender'], ['John', 30, 'Male'])",
+        visual: boxRow([varBox('keys_list', "['name', 'age', 'gender']"), varBox('values_list', "['John', 30, 'Male']")])
+      },
+      {
+        title: 'Cheat sheet: conversions', file: 'recap',
+        idea: 'Every list, tuple and dictionary conversion recipe on one page.',
+        visual: recapTable([
+          ['list -> tuple / tuple -> list', 'tuple(my_list)   list(my_tuple)'],
+          ['pairs -> dict', 'dict([("a", 1), ("b", 2)])'],
+          ['two lists -> dict', 'dict(zip(keys_list, values_list))'],
+          ['unzip pairs -> two lists', 'a, b = zip(*tuple_list)'],
+          ['dict -> list of (k, v) tuples', 'list(my_dict.items())'],
+          ['dict -> list of keys / values', 'list(my_dict.keys())   list(my_dict.values())']
+        ]),
+        code: `pairs = [('name', 'John'), ('age', 30)]\nd = dict(pairs)\nprint("Dict:", d)\nprint("Keys:", list(d.keys()), "Values:", list(d.values()))\nprint("Items:", list(d.items()))`,
+        out: "Dict: {'name': 'John', 'age': 30}\nKeys: ['name', 'age'] Values: ['John', 30]\nItems: [('name', 'John'), ('age', 30)]"
+      }
+    ]
+  };
+
+  DECKS['conditional_decision_making'] = {
+    name: 'Conditional Decision Making', short: 'Conditionals', icon: 'if:', accent: '#38bdf8', page: 'conditional_decision_making.html', folder: 'python-core-language/conditional-decision-making',
+    blurb: 'Make smart choices in code with if, if-else, if-elif-else ladders, nested conditions, ternary expressions and logical operators.',
+    glossary: [
+      ['if', 'Runs an indented block of code only when its condition is True.'],
+      ['else', 'Runs when the preceding if (and any elif) conditions were False.'],
+      ['elif', 'Short for "else if": checks a new condition only if earlier ones were False.'],
+      ['indentation', 'Spaces at the start of a line that show which lines belong inside an if/else block.'],
+      ['ternary expression', 'A one-line if-else expression: "Even" if x % 2 == 0 else "Odd".'],
+      ['and / or / not', 'Logical operators that combine or flip True/False conditions.']
+    ],
+    slides: [
+      {
+        title: 'The if statement & indentation', file: '01_if_statement.py',
+        idea: '<code>if condition:</code> runs the indented block below it <strong>only when the condition is True</strong>.',
+        analogy: 'Like a sign at a theme park ride: "If you are taller than 120 cm, step inside." Otherwise, you walk past.',
+        controls: [
+          { key: 'x', label: 'x', type: 'number', value: 10 }
+        ],
+        render: v => {
+          const hit = v.x > 5;
+          return {
+            code: `x = ${v.x}\n\nif x > 5:\n    print("x is greater than 5")\nprint("Done checking")`,
+            out: (hit ? 'x is greater than 5\n' : '') + 'Done checking',
+            visual: badges([[`x > 5 (${v.x} > 5)`, hit], ['Indented block runs', hit]])
+          };
+        },
+        tip: 'Change <code>x</code> to <code>3</code>: the indented <code>print</code> is skipped, and only <code>Done checking</code> runs.'
+      },
+      {
+        title: 'The if-else statement: two paths', file: '02_if_else_statement_1.py',
+        idea: '<code>if-else</code> picks between two branches: the <code>if</code> block when True, or the <code>else</code> block when False.',
+        controls: [
+          { key: 'x', label: 'x', type: 'number', value: 4 }
+        ],
+        render: v => {
+          const hit = v.x > 5;
+          return {
+            code: `x = ${v.x}\n\nif x > 5:\n    print("x is greater than 5")\nelse:\n    print("x is not greater than 5")`,
+            out: hit ? 'x is greater than 5' : 'x is not greater than 5',
+            visual: resultTable(['Branch', 'Status'], [['if x > 5:', hit ? 'RUNS (True)' : 'skipped', hit], ['else:', !hit ? 'RUNS (False)' : 'skipped', !hit]])
+          };
+        }
+      },
+      {
+        title: 'The if-elif-else ladder', file: '04_if_elif_else_statement.py',
+        idea: '<code>elif</code> ("else if") checks conditions one by one from top to bottom and runs the <strong>first</strong> branch that is True.',
+        controls: [
+          { key: 'x', label: 'x', type: 'number', value: 3 }
+        ],
+        render: v => {
+          const b1 = v.x > 5, b2 = !b1 && v.x === 5, b3 = !b1 && !b2;
+          const out = b1 ? 'x is greater than 5' : (b2 ? 'x is equal to 5' : 'x is less than 5');
+          return {
+            code: `x = ${v.x}\n\nif x > 5:\n    print("x is greater than 5")\nelif x == 5:\n    print("x is equal to 5")\nelse:\n    print("x is less than 5")`,
+            out,
+            visual: resultTable(['Condition', 'Outcome'], [
+              ['if x > 5', b1 ? 'RUNS' : 'False', b1],
+              ['elif x == 5', b2 ? 'RUNS' : (b1 ? 'not checked' : 'False'), b2],
+              ['else', b3 ? 'RUNS' : 'not needed', b3]
+            ])
+          };
+        },
+        tip: 'Try <code>x = 5</code> and <code>x = 8</code> to light up each rung of the ladder.'
+      },
+      {
+        title: 'Nested if statements: check inside a check', file: '05_nested_if_statement_1.py',
+        idea: 'An <code>if</code> statement inside another <code>if</code> statement lets you test a second condition only after the first one passes.',
+        controls: [
+          { key: 'x', label: 'x (threshold > 5)', type: 'number', value: 10 },
+          { key: 'y', label: 'y (threshold > 3)', type: 'number', value: 5 }
+        ],
+        render: v => {
+          const xOk = v.x > 5, yOk = v.y > 3;
+          const out = !xOk ? 'x is not greater than 5' : (yOk ? 'Both x and y are greater than their respective thresholds' : 'Only x is greater than its threshold');
+          return {
+            code: `x = ${v.x}\ny = ${v.y}\n\nif x > 5:\n    if y > 3:\n        print("Both x and y are greater than their respective thresholds")\n    else:\n        print("Only x is greater than its threshold")\nelse:\n    print("x is not greater than 5")`,
+            out,
+            visual: badges([[`Outer: x > 5 (${v.x} > 5)`, xOk], [`Inner: y > 3 (${v.y} > 3)`, xOk && yOk]])
+          };
+        }
+      },
+      {
+        title: 'Multi-branch grade calculator', file: '07_nested_if_statement_3.py',
+        idea: 'Combine an <code>if-elif-else</code> ladder with a nested <code>if-else</code> to classify a numeric score into grades A through F.',
+        controls: [
+          { key: 'grade', label: 'grade (0 to 100)', type: 'range', value: 85, min: 40, max: 100 }
+        ],
+        render: v => {
+          const g = v.grade;
+          const letter = g >= 90 ? 'A' : g >= 80 ? 'B' : g >= 70 ? 'C' : g >= 60 ? 'D' : 'F';
+          return {
+            code: `grade = ${g}\n\nif grade >= 90:\n    print("Grade is A")\nelif grade >= 80:\n    print("Grade is B")\nelif grade >= 70:\n    print("Grade is C")\nelse:\n    if grade >= 60:\n        print("Grade is D")\n    else:\n        print("Grade is F")`,
+            out: `Grade is ${letter}`,
+            visual: boxRow([varBox('score', String(g)), arrow, varBox('Grade', letter)])
+          };
+        }
+      },
+      {
+        title: 'Short-hand if (ternary conditional expression)', file: '08_short_hand_if_statement_1.py',
+        idea: 'Pick a value in a single line: <code>value_if_true if condition else value_if_false</code>.',
+        controls: [
+          { key: 'x', label: 'x', type: 'number', value: 10 }
+        ],
+        render: v => {
+          const even = v.x % 2 === 0;
+          const gt5 = v.x > 5;
+          return {
+            code: `x = ${v.x}\nresult1 = "Even" if x % 2 == 0 else "Odd"\nprint(result1)\n\nresult2 = "greater than 5" if x > 5 else "not greater than 5"\nprint(result2)`,
+            out: `${even ? 'Even' : 'Odd'}\n${gt5 ? 'greater than 5' : 'not greater than 5'}`,
+            visual: badges([[`x % 2 == 0 -> ${even ? 'Even' : 'Odd'}`, even], [`x > 5 -> ${gt5 ? 'greater than 5' : 'not greater than 5'}`, gt5]])
+          };
+        }
+      },
+      {
+        title: 'Logical operators in conditions: and, or, not', file: '10_use_of_logical_operators_in_conditional_statements.py',
+        idea: 'Combine tests with <code>and</code> (both True), <code>or</code> (at least one True), and <code>not</code> (flips True/False).',
+        controls: [
+          { key: 'x', label: 'x', type: 'number', value: 10 },
+          { key: 'y', label: 'y', type: 'number', value: 20 },
+          { key: 'name', label: 'name', type: 'select', value: 0, options: ['Alice', 'Bob', 'Charlie'] }
+        ],
+        render: v => {
+          const bothPos = v.x > 0 && v.y > 0;
+          const isAB = v.name === 'Alice' || v.name === 'Bob';
+          return {
+            code: `x, y = ${v.x}, ${v.y}\nif x > 0 and y > 0:\n    print("Both x and y are positive")\nelse:\n    print("At least one of x and y is not positive")\n\nname = ${repr(v.name)}\nif name == "Alice" or name == "Bob":\n    print("Hello, Alice or Bob!")\nelse:\n    print("You are not Alice or Bob.")\n\nis_sunny = False\nif not is_sunny:\n    print("It's not sunny today.")`,
+            out: `${bothPos ? 'Both x and y are positive' : 'At least one of x and y is not positive'}\n${isAB ? 'Hello, Alice or Bob!' : 'You are not Alice or Bob.'}\nIt's not sunny today.`,
+            visual: badges([['x > 0 and y > 0', bothPos], ['name is Alice or Bob', isAB], ['not is_sunny', true]])
+          };
+        }
+      },
+      {
+        title: 'Cheat sheet: conditionals', file: 'recap',
+        idea: 'Every conditional decision-making pattern in one table.',
+        visual: recapTable([
+          ['one check', 'if x > 5: ...'],
+          ['two branches', 'if x > 5: ... else: ...'],
+          ['multiple checks', 'if ...: ... elif ...: ... else: ...'],
+          ['one-line ternary', '"Even" if x % 2 == 0 else "Odd"'],
+          ['both conditions must hold', 'if x > 0 and y > 0:'],
+          ['either condition holds', 'if name == "Alice" or name == "Bob":']
+        ]),
+        code: `x = 12\nlabel = "Even" if x % 2 == 0 else "Odd"\nif x > 10 and label == "Even":\n    print(x, "is an even number greater than 10")\nelse:\n    print(x, "did not match")`,
+        out: '12 is an even number greater than 10'
+      }
+    ]
+  };
+
+  DECKS['iterative_loops'] = {
+    name: 'Iterative Loops', short: 'Loops', icon: '&#8635;', accent: '#a78bfa', page: 'iterative_loops.html', folder: 'python-core-language/iterative-loops',
+    blurb: 'Automate repetition with for and while loops, range(), nested loops, break, continue, pass, dictionary iteration and enumerate().',
+    glossary: [
+      ['for loop', 'Steps through every item in a list, string, tuple, dict or range one by one.'],
+      ['while loop', 'Keeps repeating its indented block as long as its condition stays True.'],
+      ['range(n)', 'Generates numbers from 0 up to n - 1: range(5) produces 0, 1, 2, 3, 4.'],
+      ['break', 'Stops and exits the loop immediately.'],
+      ['continue', 'Skips the rest of the current turn and jumps to the next iteration.'],
+      ['enumerate(seq)', 'Gives both the index and the item on each turn: (0, first), (1, second), ...']
+    ],
+    slides: [
+      {
+        title: 'The for loop: step through a list or string', file: '01_for_loop_1.py',
+        idea: '<code>for item in sequence:</code> runs the indented block once for every item in the list or character in the string.',
+        controls: [
+          { key: 'items', label: 'fruits list', type: 'text', value: 'apple, banana, cherry' }
+        ],
+        render: v => {
+          const items = parseItems(v.items);
+          return {
+            code: `fruits = ${itemsRepr(items)}\n\nfor fruit in fruits:\n    print(fruit)`,
+            out: items.map(shown).join('\n'),
+            visual: listCellsHTML(items, items.map((_, i) => i), false)
+          };
+        }
+      },
+      {
+        title: 'Looping over a string & a list slice', file: '03_for_loop_3.py',
+        idea: 'You can loop over the characters of a string or slice a list (like <code>myList[2:4]</code>) to loop over just part of it.',
+        controls: [
+          { key: 'word', label: 'word to loop over', type: 'text', value: 'Py' }
+        ],
+        render: v => {
+          const chars = [...v.word];
+          return {
+            code: `for character in ${repr(v.word)}:\n    print(character)\n\nmyList = [1, 2, 3, 4, 5]\nprint("Sublist:")\nfor element in myList[2:4]:\n    print(element)`,
+            out: chars.concat(['Sublist:', '3', '4']).join('\n'),
+            visual: cellsHTML(v.word || ' ', chars.map((_, i) => i), false)
+          };
+        }
+      },
+      {
+        title: 'The while loop: repeat while True', file: '04_while_loop_1.py',
+        idea: '<code>while condition:</code> checks the condition before every turn and stops as soon as it becomes False.',
+        analogy: 'Like walking up stairs while <code>step < limit</code>: remember to add <code>i += 1</code> each turn so you eventually reach the top!',
+        controls: [
+          { key: 'limit', label: 'stop when i reaches', type: 'range', value: 5, min: 1, max: 8 }
+        ],
+        render: v => {
+          const nums = Array.from({ length: v.limit }, (_, i) => i);
+          return {
+            code: `i = 0\nwhile i < ${v.limit}:\n    print(i)\n    i += 1`,
+            out: nums.join('\n'),
+            visual: listCellsHTML(nums.map(n => parseToken(String(n))), nums, false)
+          };
+        }
+      },
+      {
+        title: 'Nested loops: loop inside a loop', file: '07_nested_loops_1.py',
+        idea: 'For every single turn of the <strong>outer</strong> loop, the <strong>inner</strong> loop runs from start to finish.',
+        controls: [
+          { key: 'adjs', label: 'outer list (adj)', type: 'text', value: 'red, big' },
+          { key: 'fruits', label: 'inner list (fruits)', type: 'text', value: 'apple, cherry' }
+        ],
+        render: v => {
+          const a = parseItems(v.adjs), f = parseItems(v.fruits);
+          const pairs = [];
+          a.forEach(x => f.forEach(y => pairs.push(`${shown(x)} ${shown(y)}`)));
+          return {
+            code: `adj = ${itemsRepr(a)}\nfruits = ${itemsRepr(f)}\n\nfor ad in adj:\n    for fruit in fruits:\n        print(ad, fruit)`,
+            out: pairs.join('\n'),
+            visual: '<div class="py-tokens">' + pairs.map(p => `<span class="py-token">${esc(p)}</span>`).join('') + '</div>'
+          };
+        }
+      },
+      {
+        title: 'Looping through range()', file: '09_looping_through_range_1.py',
+        idea: '<code>range(n)</code> generates numbers starting at <code>0</code> up to <code>n - 1</code>.',
+        controls: [
+          { key: 'n', label: 'range(n)', type: 'range', value: 5, min: 1, max: 8 }
+        ],
+        render: v => {
+          const nums = Array.from({ length: v.n }, (_, i) => i);
+          return {
+            code: `for c in range(${v.n}):\n    print('Loop Count:', c)`,
+            out: nums.map(c => `Loop Count: ${c}`).join('\n'),
+            visual: listCellsHTML(nums.map(n => parseToken(String(n))), nums, false)
+          };
+        }
+      },
+      {
+        title: 'Loop control: break (stop early)', file: '11_loop_control_statements_break_1.py',
+        idea: '<code>break</code> exits the loop immediately when a condition is met—remaining items are not visited.',
+        controls: [
+          { key: 'stopAt', label: 'break when cur_value equals', type: 'range', value: 3, min: 1, max: 5 }
+        ],
+        render: v => {
+          const kept = [];
+          for (let c = 1; c <= 5; c++) {
+            if (c === v.stopAt) break;
+            kept.push(c);
+          }
+          return {
+            code: `cur_value = 0\nwhile cur_value < 5:\n    cur_value += 1\n    if cur_value == ${v.stopAt}:\n        break\n    print('Cur_value:', cur_value)`,
+            out: kept.map(c => `Cur_value: ${c}`).join('\n'),
+            visual: listCellsHTML([1, 2, 3, 4, 5].map(n => parseToken(String(n))), kept.map(n => n - 1), false)
+          };
+        }
+      },
+      {
+        title: 'Loop control: continue & pass', file: '13_loop_control_statements_continue_1.py',
+        idea: '<code>continue</code> skips the rest of the current turn and moves to the next item. <code>pass</code> does nothing (a syntactic placeholder).',
+        controls: [
+          { key: 'stmt', label: 'statement when fruit == "banana"', type: 'select', value: 0, options: ['continue (skip printing banana)', 'pass (placeholder inside if)'] }
+        ],
+        render: v => {
+          const items = parseItems('apple, banana, cherry');
+          if (v.stmt.startsWith('continue')) {
+            return {
+              code: `fruits = ["apple", "banana", "cherry"]\n\nfor fruit in fruits:\n    if fruit == "banana":\n        continue\n    print(fruit)`,
+              out: 'apple\ncherry',
+              visual: listCellsHTML(items, [0, 2], false)
+            };
+          }
+          return {
+            code: `fruits = ["apple", "banana", "cherry"]\n\nfor fruit in fruits:\n    if fruit == "banana":\n        pass\n    else:\n        print(fruit)`,
+            out: 'apple\ncherry',
+            visual: listCellsHTML(items, [0, 2], false)
+          };
+        }
+      },
+      {
+        title: 'Looping through a dictionary & enumerate()', file: '17_looping_through_dictionary.py',
+        idea: 'Use <code>keys()</code>, <code>values()</code>, or <code>items()</code> on a dict, and <code>enumerate(seq)</code> when you want both index and value.',
+        code: `my_dict = {"name": "John", "age": 30, "gender": "Male"}\nfor key, value in my_dict.items():\n    print(key, value)\n\nfruits = ["apple", "banana", "orange"]\nfor index, fruit in enumerate(fruits):\n    print(f"Index {index}: {fruit}")`,
+        out: 'name John\nage 30\ngender Male\nIndex 0: apple\nIndex 1: banana\nIndex 2: orange',
+        visual: resultTable(['Index / Key', 'Value'], [['name', 'John', false], ['age', '30', false], ['Index 0', 'apple', true], ['Index 1', 'banana', true], ['Index 2', 'orange', true]])
+      },
+      {
+        title: 'Cheat sheet: loops', file: 'recap',
+        idea: 'Every loop tool in one quick reference.',
+        visual: recapTable([
+          ['loop over items', 'for x in items:'],
+          ['loop n times (0..n-1)', 'for i in range(n):'],
+          ['repeat while condition holds', 'while i < 5:'],
+          ['exit loop early', 'break'],
+          ['skip current turn', 'continue'],
+          ['get index and item', 'for i, x in enumerate(items):'],
+          ['loop dict key & value', 'for k, v in my_dict.items():']
+        ]),
+        code: `for i, word in enumerate(["zero", "one", "two"]):\n    print(i, "->", word)`,
+        out: '0 -> zero\n1 -> one\n2 -> two'
+      }
+    ]
+  };
+
+  DECKS['python_functions'] = {
+    name: 'Python Functions', short: 'Functions', icon: 'def', accent: '#34d399', page: 'python_functions.html', folder: 'python-core-language/python-functions',
+    blurb: 'Write reusable building blocks with def, parameters, return values, scope, *args, **kwargs, reference vs value and lambda functions.',
+    glossary: [
+      ['def', 'The keyword that defines a new function: def greet(name):'],
+      ['parameter / argument', 'A named input variable in the function header, and the value you pass when calling it.'],
+      ['return', 'Sends a result value back from the function to the caller.'],
+      ['local vs global scope', 'Variables created inside a function are local to it; variables outside are global.'],
+      ['*args / **kwargs', 'Capture any number of positional arguments (as a tuple) or keyword arguments (as a dict).'],
+      ['lambda', 'A short one-line anonymous function, like lambda x, y: x + y.']
+    ],
+    slides: [
+      {
+        title: 'Defining and calling a function', file: '01_define_and_call_a_function_1.py',
+        idea: '<code>def name(params):</code> creates a reusable recipe. Write <code>name(args)</code> to run it and get back its <code>return</code> value.',
+        controls: [
+          { key: 'who', label: 'name for greet()', type: 'text', value: 'Alice' },
+          { key: 'n', label: 'number for square()', type: 'number', value: 5 }
+        ],
+        render: v => ({
+          code: `def greet(name):\n    print("Hello,", name)\n\ngreet(${repr(v.who)})\n\ndef square(number):\n    '''Calculate the square of a number.'''\n    return number ** 2\n\nnum = ${v.n}\nsquare_result = square(num)\nprint(f"The square of {num} is {square_result}")`,
+          out: `Hello, ${v.who}\nThe square of ${v.n} is ${v.n * v.n}`,
+          visual: boxRow([varBox('input num', String(v.n)), arrow, varBox('square(num)', String(v.n * v.n))])
+        })
+      },
+      {
+        title: 'Scope of variables: local vs global', file: '03_scope_of_variables_in_functions_1.py',
+        idea: 'A variable created inside a function is <strong>local</strong> to that function and does not overwrite a <strong>global</strong> variable with the same name outside.',
+        controls: [
+          { key: 'localX', label: 'local x (inside my_func)', type: 'number', value: 10 },
+          { key: 'globalX', label: 'global x (outside)', type: 'number', value: 20 }
+        ],
+        render: v => ({
+          code: `def my_func():\n    x = ${v.localX}  # Local Variable\n    print("Inside function:", x)\n\nx = ${v.globalX}  # Global Variable\nmy_func()\nprint("Outside function:", x)`,
+          out: `Inside function: ${v.localX}\nOutside function: ${v.globalX}`,
+          visual: boxRow([varBox('local x (inside)', String(v.localX)), varBox('global x (outside)', String(v.globalX))])
+        })
+      },
+      {
+        title: 'Positional, keyword & default arguments', file: '08_default_arguments_in_functions_1.py',
+        idea: 'Pass arguments by position, by name (<code>greeting="Hello"</code>), or give parameters a default value like <code>exponent=2</code>.',
+        controls: [
+          { key: 'base', label: 'base', type: 'number', value: 3 },
+          { key: 'exp', label: 'custom exponent', type: 'number', value: 4 }
+        ],
+        render: v => ({
+          code: `def greet(name, greeting="Hello"):\n    print(greeting, name)\n\ngreet("Alice", "Hi")                 # positional\ngreet(greeting="Welcome", name="Bob") # keyword\ngreet("Charlie")                      # uses default greeting="Hello"\n\ndef power(base, exponent=2):\n    print(f"{base} ** {exponent} = {base ** exponent}")\n\npower(${v.base})          # uses default exponent=2\npower(${v.base}, ${v.exp})       # overrides default exponent`,
+          out: `Hi Alice\nWelcome Bob\nHello Charlie\n${v.base} ** 2 = ${v.base ** 2}\n${v.base} ** ${v.exp} = ${v.base ** v.exp}`,
+          visual: resultTable(['Call', 'Result'], [
+            ['greet("Charlie")', 'Hello Charlie (default)', false],
+            [`power(${v.base})`, `${v.base ** 2} (default exponent=2)`, true],
+            [`power(${v.base}, ${v.exp})`, `${v.base ** v.exp} (exponent=${v.exp})`, true]
+          ])
+        })
+      },
+      {
+        title: 'Variable-length arguments: *args and **kwargs', file: '11_variable_length_arguments_in_functions_1.py',
+        idea: '<code>*args</code> collects any number of positional arguments into a <strong>tuple</strong>. <code>**kwargs</code> collects keyword arguments into a <strong>dictionary</strong>.',
+        controls: [
+          { key: 'nums', label: 'numbers for sum_numbers(*args)', type: 'text', value: '1, 2, 3, 4' }
+        ],
+        render: v => {
+          const nums = intsFrom(v.nums);
+          const total = nums.reduce((a, b) => a + b, 0);
+          return {
+            code: `def sum_numbers(*args):\n    total = 0\n    for num in args:\n        total += num\n    return total\n\nprint("Sum:", sum_numbers(${nums.join(', ')}))\n\ndef print_info(**kwargs):\n    for key, value in kwargs.items():\n        print(key + ":", value)\n\nprint_info(name="Alice", age=30, city="New York")`,
+            out: `Sum: ${total}\nname: Alice\nage: 30\ncity: New York`,
+            visual: boxRow([varBox('*args (tuple)', `(${nums.join(', ')})`), varBox('**kwargs (dict)', "{'name': 'Alice', ...}")])
+          };
+        }
+      },
+      {
+        title: 'Functions with lists, tuples, dicts & return values', file: '22_functions_with_a_list_input_parameter_2.py',
+        idea: 'Functions can accept lists, tuples or dictionaries, process them with loops or comprehensions, and <code>return</code> the result.',
+        code: `def process_list(input_list):\n    return [x ** 2 for x in input_list]\n\ndef reverse_tuple(input_tuple):\n    return input_tuple[::-1]\n\ndef calculate_average_values(input_dict):\n    return {k: sum(v) / len(v) for k, v in input_dict.items()}\n\nprint("Squared list:", process_list([1, 2, 3, 4, 5]))\nprint("Reversed tuple:", reverse_tuple((1, 2, 3, 4, 5)))\nprint("Dict averages:", calculate_average_values({"A": [10, 20, 30], "B": [15, 25, 35]}))`,
+        out: "Squared list: [1, 4, 9, 16, 25]\nReversed tuple: (5, 4, 3, 2, 1)\nDict averages: {'A': 20.0, 'B': 25.0}",
+        visual: boxRow([varBox('list -> squares', '[1, 4, 9, 16, 25]'), varBox('tuple -> reversed', '(5, 4, 3, 2, 1)')])
+      },
+      {
+        title: 'Pass by reference (mutable) vs pass by value (immutable)', file: '27_arguments_pass_by_reference_1.py',
+        idea: 'Mutating a <strong>list or dict</strong> inside a function changes the caller\'s object. Reassigning a <strong>number, string or tuple</strong> only changes the local variable.',
+        controls: [
+          { key: 'mode', label: 'example', type: 'select', value: 0, options: ['Mutable list (.append changes original)', 'Immutable int (reassignment keeps original)'] }
+        ],
+        render: v => {
+          if (v.mode.startsWith('Mutable')) {
+            return {
+              code: `def modify_list(lst):\n    lst.append(4)  # Mutates the original list\n\nmy_list = [1, 2, 3]\nmodify_list(my_list)\nprint("Outside after call:", my_list)`,
+              out: 'Outside after call: [1, 2, 3, 4]',
+              visual: boxRow([varBox('before', '[1, 2, 3]'), arrow, varBox('after modify_list()', '[1, 2, 3, 4]')])
+            };
+          }
+          return {
+            code: `def modify_number(num):\n    num = num + 1  # Creates a new local int\n    print("Inside function:", num)\n\nmy_num = 5\nmodify_number(my_num)\nprint("Outside after call:", my_num)`,
+            out: 'Inside function: 6\nOutside after call: 5',
+            visual: boxRow([varBox('inside num', '6'), varBox('outside my_num (unchanged)', '5')])
+          };
+        }
+      },
+      {
+        title: 'Lambda (anonymous) functions', file: '35_lambda_functions.py',
+        idea: '<code>lambda params: expression</code> creates a quick, one-line function—ideal for math helpers or sorting keys.',
+        controls: [
+          { key: 'a', label: 'x', type: 'number', value: 3 },
+          { key: 'b', label: 'y', type: 'number', value: 4 }
+        ],
+        render: v => ({
+          code: `add = lambda x, y: x + y\nis_even = lambda x: x % 2 == 0\nsquare = lambda x: x ** 2\n\nprint("add:", add(${v.a}, ${v.b}))\nprint("is_even(${v.a}):", is_even(${v.a}))\nprint("square(${v.b}):", square(${v.b}))\n\n# Sorting a list of tuples by the second element\npoints = [(1, 2), (3, 1), (5, 4), (2, 2)]\nprint("Sorted by y:", sorted(points, key=lambda p: p[1]))`,
+          out: `add: ${v.a + v.b}\nis_even(${v.a}): ${pyBool(v.a % 2 === 0)}\nsquare(${v.b}): ${v.b ** 2}\nSorted by y: [(3, 1), (1, 2), (2, 2), (5, 4)]`,
+          visual: boxRow([varBox(`add(${v.a}, ${v.b})`, String(v.a + v.b)), varBox(`square(${v.b})`, String(v.b ** 2))])
+        })
+      },
+      {
+        title: 'Cheat sheet: functions', file: 'recap',
+        idea: 'Every function syntax pattern in one table.',
+        visual: recapTable([
+          ['define & return', 'def add(a, b): return a + b'],
+          ['default argument', 'def power(base, exp=2):'],
+          ['keyword call', 'greet(greeting="Hi", name="Bob")'],
+          ['arbitrary positional', 'def total(*args):'],
+          ['arbitrary keyword', 'def info(**kwargs):'],
+          ['one-line lambda', 'sq = lambda x: x ** 2']
+        ]),
+        code: `def summary(title, *scores, bonus=0):\n    return f"{title}: {sum(scores) + bonus}"\n\nprint(summary("Team A", 10, 20, 30, bonus=5))`,
+        out: 'Team A: 65'
+      }
+    ]
+  };
+
+  DECKS['python-exceptions'] = {
+    name: 'Python Exceptions', short: 'Exceptions', icon: 'try:', accent: '#f87171', page: 'python-exceptions.html', folder: 'python-core-language/python-exceptions',
+    blurb: 'Keep programs from crashing with try, except, multiple handlers, else, finally, raise and custom exception classes.',
+    glossary: [
+      ['Exception', 'A runtime error event (like ZeroDivisionError, ValueError, KeyError, IndexError) that interrupts normal flow.'],
+      ['try / except', 'Runs risky code inside try and catches matching errors gracefully inside except.'],
+      ['else', 'Runs after the try block only when NO exception was raised.'],
+      ['finally', 'Always runs at the end—whether an error happened or not—ideal for cleanup.'],
+      ['raise', 'Manually triggers an exception when your code detects invalid data or state.'],
+      ['Custom Exception', 'Your own error class defined by inheriting from Exception: class CustomError(Exception): pass']
+    ],
+    slides: [
+      {
+        title: 'What are exceptions & ZeroDivisionError', file: '01_handling_exceptions_1.py',
+        idea: 'Put risky code inside <code>try:</code> and recovery code inside <code>except ZeroDivisionError:</code> so your program handles division by zero instead of crashing.',
+        analogy: 'Like a safety net under a trapeze artist: if a slip happens in <code>try</code>, the <code>except</code> net catches it smoothly.',
+        controls: [
+          { key: 'd', label: 'divisor in 10 / divisor', type: 'number', value: 0 }
+        ],
+        render: v => {
+          const err = v.d === 0;
+          return {
+            code: `try:\n    result = 10 / ${v.d}\n    print("Result:", result)\nexcept ZeroDivisionError:\n    print("Error: Division by zero")`,
+            out: err ? 'Error: Division by zero' : `Result: ${pyFloat(10 / v.d)}`,
+            visual: boxRow([varBox(`try: 10 / ${v.d}`, err ? 'ZeroDivisionError' : pyFloat(10 / v.d)), arrow, varBox(err ? 'except:' : 'success', err ? 'Caught safely!' : 'Printed result')])
+          };
+        }
+      },
+      {
+        title: 'Catching TypeError, IndexError & KeyError', file: '02_handling_exceptions_2.py',
+        idea: 'Catch specific built-in exceptions like <code>TypeError</code>, <code>IndexError</code> and <code>KeyError</code> with matching <code>except</code> blocks.',
+        controls: [
+          { key: 'case', label: 'error scenario', type: 'select', value: 0, options: ['TypeError ("10" / 2)', 'IndexError (my_list[4])', 'KeyError (my_dict["c"])'] }
+        ],
+        render: v => {
+          if (v.case.startsWith('Type')) {
+            return {
+              code: `try:\n    result = "10" / 2\nexcept TypeError:\n    print("Error: Unsupported operand type(s) for /: 'str' and 'int'")`,
+              out: "Error: Unsupported operand type(s) for /: 'str' and 'int'",
+              visual: boxRow([varBox('try: "10" / 2', 'TypeError'), arrow, varBox('except TypeError:', 'Handled')])
+            };
+          }
+          if (v.case.startsWith('Index')) {
+            return {
+              code: `try:\n    my_list = [1, 2, 3]\n    print(my_list[4])\nexcept IndexError:\n    print("Error: Index out of range")`,
+              out: 'Error: Index out of range',
+              visual: boxRow([varBox('try: my_list[4]', 'IndexError'), arrow, varBox('except IndexError:', 'Handled')])
+            };
+          }
+          return {
+            code: `try:\n    my_dict = {"a": 1, "b": 2}\n    value = my_dict["c"]\nexcept KeyError:\n    print("Error: Key not found")`,
+            out: 'Error: Key not found',
+            visual: boxRow([varBox('try: my_dict["c"]', 'KeyError'), arrow, varBox('except KeyError:', 'Handled')])
+          };
+        }
+      },
+      {
+        title: 'Inspecting Exception as e & multiple except blocks', file: '06_handling_multiple_exceptions_1.py',
+        idea: 'Use <code>except Exception as e:</code> to inspect <code>type(e).__name__</code> and its message, or stack multiple <code>except</code> blocks for different errors.',
+        controls: [
+          { key: 'val', label: 'simulated user input', type: 'select', value: 0, options: ['0 (causes ZeroDivisionError)', 'abc (causes ValueError)', '2 (succeeds)'] }
+        ],
+        render: v => {
+          const raw = v.val.split(' ')[0];
+          let out;
+          if (raw === '0') out = 'Error: Division by zero is not allowed';
+          else if (raw === 'abc') out = 'Error: Please enter valid integers';
+          else out = 'Result: 5.0';
+          return {
+            code: `raw_input = ${repr(raw)}\ntry:\n    num = int(raw_input)\n    result = 10 / num\n    print("Result:", result)\nexcept ValueError:\n    print("Error: Please enter valid integers")\nexcept ZeroDivisionError:\n    print("Error: Division by zero is not allowed")\nexcept Exception as e:\n    print("Unexpected error:", type(e).__name__, e)`,
+            out,
+            visual: resultTable(['Handler', 'Triggered?'], [
+              ['except ValueError', raw === 'abc' ? 'YES' : 'no', raw === 'abc'],
+              ['except ZeroDivisionError', raw === '0' ? 'YES' : 'no', raw === '0'],
+              ['No error (try succeeded)', raw === '2' ? 'YES' : 'no', raw === '2']
+            ])
+          };
+        }
+      },
+      {
+        title: 'Catching a tuple of exceptions in one except block', file: '07_handling_multiple_exceptions_2.py',
+        idea: 'Group related exception types in round brackets—like <code>except (ValueError, ZeroDivisionError):</code> or <code>except (KeyError, IndexError):</code>—when they share the same recovery message.',
+        controls: [
+          { key: 'raw', label: 'input value', type: 'select', value: 0, options: ['0 (ZeroDivisionError)', 'hello (ValueError)', '5 (valid)'] }
+        ],
+        render: v => {
+          const s = v.raw.split(' ')[0];
+          const ok = s === '5';
+          return {
+            code: `raw = ${repr(s)}\ntry:\n    value = int(raw)\n    result = 10 / value\n    print("Result:", result)\nexcept (ValueError, ZeroDivisionError):\n    print("Invalid input or division by zero.")`,
+            out: ok ? 'Result: 2.0' : 'Invalid input or division by zero.',
+            visual: badges([['Caught by (ValueError, ZeroDivisionError)', !ok], ['Succeeded without error', ok]])
+          };
+        }
+      },
+      {
+        title: 'Using else and finally', file: '12_handling_exceptions_using_else_and_finally_1.py',
+        idea: '<code>else:</code> runs only if <code>try</code> had <strong>no errors</strong>. <code>finally:</code> runs <strong>no matter what</strong> (even if an exception occurred).',
+        controls: [
+          { key: 'd', label: 'divisor in 10 / divisor', type: 'select', value: 0, options: ['2 (no error -> else + finally)', '0 (error -> except + finally)'] }
+        ],
+        render: v => {
+          const d = v.d.startsWith('2') ? 2 : 0;
+          const ok = d !== 0;
+          return {
+            code: `try:\n    result = 10 / ${d}\nexcept ZeroDivisionError:\n    print("Error: Division by zero")\nelse:\n    print("Result:", result)\nfinally:\n    print("Execution complete")`,
+            out: (ok ? 'Result: 5.0' : 'Error: Division by zero') + '\nExecution complete',
+            visual: badges([['try block', true], ['except block', !ok], ['else block', ok], ['finally block (always)', true]])
+          };
+        }
+      },
+      {
+        title: 'Raising exceptions manually with raise', file: '15_raising_exceptions.py',
+        idea: 'Use <code>raise ValueError("message")</code> when your own code spots an invalid input that should stop execution.',
+        controls: [
+          { key: 'x', label: 'x', type: 'number', value: -5 }
+        ],
+        render: v => {
+          const neg = v.x < 0;
+          return {
+            code: `x = ${v.x}\nif x < 0:\n    raise ValueError("x cannot be negative")\nprint("x is valid:", x)`,
+            out: neg ? '' : `x is valid: ${v.x}`,
+            err: neg ? tb(3, 'ValueError: x cannot be negative') : '',
+            visual: badges([['x >= 0 (valid)', !neg], ['raise ValueError triggered', neg]])
+          };
+        },
+        tip: 'Change <code>x</code> to a positive number like <code>10</code> to see normal execution without raising an error.'
+      },
+      {
+        title: 'Custom exceptions: subclassing Exception', file: '23_custom_exceptions_8.py',
+        idea: 'Define your own exception class with <code>class CustomError(Exception):</code> to represent domain-specific errors and attach extra attributes like error codes.',
+        controls: [
+          { key: 'amt', label: 'withdraw amount (balance is 1000)', type: 'number', value: 1500 }
+        ],
+        render: v => {
+          const fail = v.amt > 1000;
+          return {
+            code: `class CustomError(Exception):\n    def __init__(self, message, code):\n        super().__init__(message)\n        self.code = code\n\ntry:\n    raise CustomError("An error occurred", 500)\nexcept CustomError as e:\n    print("Custom error:", e, "| Code:", e.code)\n\n# Bank Account custom exception\nclass InsufficientFundsError(Exception):\n    pass\n\nbalance = 1000\namount = ${v.amt}\ntry:\n    if amount > balance:\n        raise InsufficientFundsError("Insufficient funds to withdraw " + str(amount))\n    balance -= amount\n    print("Withdrawal successful. Remaining balance:", balance)\nexcept InsufficientFundsError as e:\n    print("Error:", e)`,
+            out: `Custom error: An error occurred | Code: 500\n` + (fail ? `Error: Insufficient funds to withdraw ${v.amt}` : `Withdrawal successful. Remaining balance: ${1000 - v.amt}`),
+            visual: badges([['CustomError(500) caught', true], ['Withdrawal within balance', !fail]])
+          };
+        }
+      },
+      {
+        title: 'Cheat sheet: exceptions', file: 'recap',
+        idea: 'Every exception-handling construct on one page.',
+        visual: recapTable([
+          ['catch a specific error', 'try: ... except ZeroDivisionError:'],
+          ['catch several error types', 'except (ValueError, ZeroDivisionError):'],
+          ['inspect the error object', 'except Exception as e:'],
+          ['run only when no error', 'else:'],
+          ['always run cleanup code', 'finally:'],
+          ['trigger an error yourself', 'raise ValueError("bad input")'],
+          ['define a custom exception', 'class CustomError(Exception): pass']
+        ]),
+        code: `class TinitiateError(Exception):\n    pass\n\ntry:\n    raise TinitiateError("Custom check failed")\nexcept TinitiateError as e:\n    print("Handled:", e)\nfinally:\n    print("Cleanup finished")`,
+        out: 'Handled: Custom check failed\nCleanup finished'
+      }
+    ]
+  };
+
+  const ORDER = ['print', 'datatypes', 'variables', 'operators', 'strings', 'lists', 'sets', 'tuples', 'dictionaries', 'conversions-between-lists-tuples-and-dictionaries', 'conditional_decision_making', 'iterative_loops', 'python_functions', 'python-exceptions'];
 
   // ---------- State + persistence ----------
   const STORE_KEY = 'tinitiate.python.core.progress.v2';
@@ -1829,6 +3132,10 @@ onmessage = async ({ data }) => {
     $('py-stat-time').textContent = '~' + st.mins + ' min';
     $('py-glossary').innerHTML = d.glossary.map(([t, m]) => `<div class="py-gloss"><b>${esc(t)}</b><p>${esc(m)}</p></div>`).join('');
     const k = ORDER.indexOf(deck), prevK = ORDER[k - 1], nextK = ORDER[k + 1];
+    // Keep the original six HTML lessons unchanged while showing the current course size.
+    const badge = [...document.querySelectorAll('.py-hero span')].find(el => /^Module \d+ of \d+/.test(el.textContent.trim()));
+    if (badge) badge.textContent = badge.textContent.replace(/Module \d+ of \d+/, `Module ${k + 1} of ${ORDER.length}`);
+
     $('py-modnav').innerHTML =
       (prevK ? `<a href="${DECKS[prevK].page}" style="--mod-accent:${DECKS[prevK].accent}"><span>&larr; Previous module</span><strong>${esc(DECKS[prevK].name)}</strong></a>` : '<a href="index.html"><span>&larr; Back</span><strong>Python home</strong></a>') +
       (nextK ? `<a class="next" href="${DECKS[nextK].page}" style="--mod-accent:${DECKS[nextK].accent}"><span>Next module &rarr;</span><strong>${esc(DECKS[nextK].name)}</strong></a>` : '<a class="next" href="index.html"><span>All done &rarr;</span><strong>Python home</strong></a>');

@@ -5,7 +5,7 @@
 .py-sub { color:#cbd5e1; font-size:0.95rem; margin:0; line-height:1.6; }
 
 /* Dashboard */
-.py-dash-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:18px; margin-top:20px; }
+.py-dash-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap:18px; margin-top:20px; }
 .py-mod-card { position:relative; overflow:hidden; background:var(--py-card); border:1px solid var(--py-line); border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px; transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease; animation:pyRise .6s ease both; }
 .py-mod-card:nth-child(2) { animation-delay:.08s; } .py-mod-card:nth-child(3) { animation-delay:.16s; }
 .py-mod-card:hover { transform:translateY(-4px); border-color:var(--mod-accent); box-shadow:0 16px 36px rgba(0,0,0,0.45); }
@@ -230,6 +230,24 @@
 .py-cell .ch.wide { width:auto; min-width:34px; padding:0 8px; white-space:pre; font-size:0.85rem; }
 .py-cell.gone .ch { background:rgba(239,68,68,0.16); border-color:rgba(248,113,113,0.6); color:#fca5a5; text-decoration:line-through; }
 .py-cell.gone .ix { color:#f87171; }
+
+/* Keep the expanded Python course's header and editor actions usable on phones. */
+@media (max-width: 1100px) {
+  body:has(main.py-wrap) .master-top-nav-inner { flex-wrap: wrap !important; }
+  body:has(main.py-wrap) .master-nav-actions {
+    flex-wrap: wrap !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+}
+.py-panel-head { flex-wrap: wrap; gap: 8px; }
+.py-panel-head > span:first-child { min-width: 0; overflow-wrap: anywhere; white-space: normal; }
+.py-panel-actions { flex-wrap: wrap; max-width: 100%; }
+@media (max-width: 640px) {
+  .py-idea, .py-tip { flex-direction: column; align-items: flex-start; }
+  .py-idea-text, .py-tip > span:last-child { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+  .py-idea code, .py-tip code { white-space: normal; overflow-wrap: anywhere; }
+}
 .py-varrow { display:flex; flex-wrap:wrap; gap:14px; align-items:flex-start; }
 .py-arrow { align-self:center; color:var(--py-yellow); font-size:1.4rem; font-weight:800; animation:pyPop .4s ease both; }
 .py-varbox.gone .lid { background:#64748b; }
