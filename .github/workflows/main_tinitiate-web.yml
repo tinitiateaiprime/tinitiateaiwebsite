@@ -9,6 +9,9 @@ on:
     branches:
       - main
   workflow_dispatch:
+  # Daily rebuild so new MasterClass content goes live without a website commit (03:00 IST).
+  schedule:
+    - cron: '30 21 * * *'
 
 jobs:
   build:
@@ -28,6 +31,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Sync MasterClass content from GitHub
+        run: npm run sync:masterclasses
 
       - name: Build Next.js website
         run: npm run build

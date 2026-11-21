@@ -14,7 +14,8 @@
     "lint": "eslint src",
     "test:ui": "playwright test",
     "test:responsive": "node scripts/browser-audit.mjs",
-    "audit:masterclasses": "python scripts/review-masterclasses.py"
+    "audit:masterclasses": "python scripts/review-masterclasses.py",
+    "sync:masterclasses": "node scripts/sync-masterclasses.mjs"
   },
   "dependencies": {
     "@azure/cosmos": "^4.3.0",
