@@ -1,0 +1,59 @@
+name: Watch MasterClass repo for new content
+
+# Every 10 minutes: look at the latest commit in the MasterClass content repo.
+# If it is one we have not deployed yet, start the website deploy, which pulls
+# the content (scripts/sync-masterclasses.mjs), builds and deploys to Azure.
+# Both repos are public, so no token or setup in the content repo is needed.
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: masterclass-watch
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write   # to start the deploy workflow
+      contents: read
+
+    steps:
+      - name: Get the latest MasterClass commit
+        id: latest
+        run: |
+          sha=$(git ls-remote https://github.com/jaykumsi/masterclass-interactive-web-training-center.git refs/heads/main | cut -f1)
+          test -n "$sha"
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "Latest MasterClass commit: $sha"
+
+      # A cache entry per commit remembers which commits were already deployed.
+      - name: Check whether this commit was already deployed
+        id: seen
+        uses: actions/cache/restore@v4
+        with:
+          path: .masterclass-seen
+          key: masterclass-seen-${{ steps.latest.outputs.sha }}
+          lookup-only: true
+
+      - name: Start the website deploy
+        if: steps.seen.outputs.cache-hit != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "New MasterClass content (${{ steps.latest.outputs.sha }}): starting deploy"
+          gh workflow run main_tinitiate-web.yml --repo "$GITHUB_REPOSITORY" --ref main
+
+      - name: Remember this commit
+        if: steps.seen.outputs.cache-hit != 'true'
+        run: echo "${{ steps.latest.outputs.sha }}" > .masterclass-seen
+
+      - name: Save
+        if: steps.seen.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .masterclass-seen
+          key: masterclass-seen-${{ steps.latest.outputs.sha }}

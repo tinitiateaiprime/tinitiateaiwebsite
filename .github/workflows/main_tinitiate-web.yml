@@ -13,6 +13,11 @@ on:
   schedule:
     - cron: '30 21 * * *'
 
+# One deploy at a time; a new request waits for the running one instead of cutting it off.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
