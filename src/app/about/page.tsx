@@ -21,11 +21,11 @@ const principles: { title: string; text: string; icon: IconType }[] = [
   { title: 'Evidence', text: 'Finished work becomes proof for interviews, reviews, and portfolios.', icon: PiChartLineUpDuotone },
 ];
 const paths: { title: string; note: string; text: string; href: string; icon: IconType }[] = [
-  { title: 'AI Engineer', note: 'LLMs · RAG', text: 'Build AI apps with prompts, RAG, evaluation and guardrails.', href: '/masterclasses/ai/index.html', icon: PiSparkleDuotone },
-  { title: 'Agentic AI Developer', note: 'Agents · MCP', text: 'Design agents that plan, use tools and get work done.', href: '/masterclasses/agentic-development/index.html', icon: PiRobotDuotone },
-  { title: 'Cloud Engineer', note: 'AWS · Azure', text: 'Deploy, scale and secure real systems on both clouds.', href: '/courses/aws-beginner-course', icon: PiCloudDuotone },
-  { title: 'Data Governance', note: 'Purview · Unity', text: 'Catalog, lineage and access policies for trusted data.', href: '/masterclasses/data-governence/index.html', icon: PiShieldCheckDuotone },
-  { title: 'Full Stack Developer', note: 'React · APIs', text: 'Ship complete products, from interface to database.', href: '/masterclasses/full-stack/index.html', icon: PiStackDuotone },
+  { title: 'AI Engineer', note: 'LLMs · RAG', text: 'Build AI apps with prompts, RAG, evaluation and guardrails.', href: '/paths/ai-engineer', icon: PiSparkleDuotone },
+  { title: 'Agentic AI Developer', note: 'Agents · MCP', text: 'Design agents that plan, use tools and get work done.', href: '/paths/agentic-ai', icon: PiRobotDuotone },
+  { title: 'Cloud Engineer', note: 'AWS · Azure', text: 'Deploy, scale and secure real systems on both clouds.', href: '/paths/cloud-engineer', icon: PiCloudDuotone },
+  { title: 'Data Engineer', note: 'Pipelines · Governance', text: 'Pipelines, lakehouses and governed data platforms.', href: '/paths/data-engineer', icon: PiShieldCheckDuotone },
+  { title: 'Full Stack Developer', note: 'React · APIs', text: 'Ship complete products, from interface to database.', href: '/paths/full-stack', icon: PiStackDuotone },
 ];
 const values: { title: string; text: string; icon: IconType }[] = [
   { title: 'Industry-grounded learning', text: 'Training designed around real workflows, tools, collaboration, and project execution.', icon: PiGraduationCapDuotone },
@@ -38,7 +38,7 @@ export default function AboutPage() {
   return <>
     {/* Intro */}
     <section className="bg-white">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 pb-16 pt-12 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16 lg:pb-24 lg:pt-20">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 pb-12 pt-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16 lg:pb-16 lg:pt-12">
         <div>
           <h1 className="isolate text-[2.7rem] font-semibold leading-[1.04] tracking-[-0.045em] text-ink sm:text-6xl">
             <BrandMark className="mr-[0.3em] inline-block h-[0.6em] w-auto -translate-y-[0.05em] align-baseline drop-shadow-[0_0_0.6px_rgb(10_10_11/0.45)]" />
@@ -60,7 +60,7 @@ export default function AboutPage() {
     </section>
 
     {/* Story + talk to an expert */}
-    <section className="border-t border-neutral-100 bg-[#f7f8fa] py-20 sm:py-24">
+    <section className="border-t border-neutral-100 bg-[#f7f8fa] py-12 sm:py-16">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-14">
         <div>
           <h2 className="isolate text-[2rem] font-semibold leading-[1.12] tracking-[-0.04em] text-ink sm:text-[2.6rem]">Bridging industry demands and <Highlight>individual potential.</Highlight></h2>
@@ -86,7 +86,7 @@ export default function AboutPage() {
     </section>
 
     {/* CEO message */}
-    <section className="bg-white py-20 sm:py-24">
+    <section className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading id="ceo-title" title={<>A message from <Highlight>our CEO</Highlight></>}>Why we train the way we do, and what we want every learner to leave with.</SectionHeading>
         <div className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-12">
@@ -115,25 +115,25 @@ export default function AboutPage() {
     </section>
 
     {/* What we teach */}
-    <section className="border-t border-neutral-100 bg-[#f7f8fa] py-20 sm:py-24">
+    <section className="border-t border-neutral-100 bg-[#f7f8fa] py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading id="paths-title" title={<>Five paths into <Highlight>tech careers.</Highlight></>}>Live, mentor-led tracks built around the skills companies are hiring for right now.</SectionHeading>
         <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {paths.map(({ title, note, text, href, icon: Icon }) => <li key={title}>
-            <a href={href} className="group flex h-full flex-col rounded-[22px] border border-neutral-200 bg-white p-6 transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_50px_-32px_rgb(10_10_11/0.5)]">
+            <Link href={href} className="group flex h-full flex-col rounded-[22px] border border-neutral-200 bg-white p-6 transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_50px_-32px_rgb(10_10_11/0.5)]">
               <span className="grid size-12 place-items-center rounded-2xl bg-accent text-white"><Icon aria-hidden="true" className="size-7" /></span>
               <p className="mt-5 text-lg font-semibold leading-snug tracking-[-0.02em] text-ink">{title}</p>
               <p className="mt-1 text-xs font-semibold uppercase tracking-[0.1em] text-accent">{note}</p>
               <p className="mt-3 flex-1 text-sm leading-6 text-neutral-500">{text}</p>
               <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-ink">Explore <ArrowUpRight aria-hidden="true" className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></span>
-            </a>
+            </Link>
           </li>)}
         </ul>
       </div>
     </section>
 
     {/* Mission & values */}
-    <section className="bg-white py-20 sm:py-24">
+    <section className="bg-white py-12 sm:py-16">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
         <div>
           <h2 className="isolate text-[2rem] font-semibold leading-[1.12] tracking-[-0.04em] text-ink sm:text-[2.6rem]">

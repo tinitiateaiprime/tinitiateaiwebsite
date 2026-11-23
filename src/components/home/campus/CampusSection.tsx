@@ -47,11 +47,11 @@ export function CampusSection() {
     return () => clearTimeout(timer);
   }, [active, hovered, onScreen]);
 
-  return <section ref={root} aria-labelledby="campus-title" className="bg-[#f7fafc] px-4 py-16 sm:px-6 sm:py-20 md:px-10">
-    <div className="mx-auto max-w-[1320px]">
+  return <section ref={root} aria-labelledby="campus-title" className="bg-[#f7fafc] px-4 py-12 sm:px-6 sm:py-14 md:px-10">
+    <div className="mx-auto max-w-7xl">
       <SectionHeading id="campus-title" title={<>We bring industry <Highlight>to campus.</Highlight></>}>Career talks, readiness checks and real conversations with graduating students.</SectionHeading>
 
-      <article className="mx-auto mt-10 grid overflow-hidden rounded-[1.6rem] border border-[#d8e2ee] bg-white shadow-[0_28px_86px_-64px_rgba(15,23,42,0.92)] lg:grid-cols-2">
+      <article className="mx-auto mt-8 grid overflow-hidden rounded-[1.6rem] border border-[#d8e2ee] bg-white shadow-[0_28px_86px_-64px_rgba(15,23,42,0.92)] lg:grid-cols-2">
         <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
           <div className="flex items-center gap-4 border-b border-[#d8e2ee] pb-6">
             <div className="relative h-[104px] w-[94px] shrink-0 sm:h-[116px] sm:w-[104px]">

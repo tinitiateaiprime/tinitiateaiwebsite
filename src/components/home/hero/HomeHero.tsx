@@ -12,7 +12,7 @@ type RoleContent = Omit<HeroRole, 'durations' | 'titles'> & { scenes: Scene[]; t
 
 const roles: RoleContent[] = [
   {
-    id: 'ai-engineer', label: 'AI Engineer', note: 'LLMs · RAG', icon: 'sparkles', track: 'AI track', exploreHref: '/masterclasses/ai/index.html',
+    id: 'ai-engineer', label: 'AI Engineer', note: 'LLMs · RAG', icon: 'sparkles', track: 'AI Engineer path', exploreHref: '/paths/ai-engineer',
     scenes: [
       { title: 'RAG', sub: 'Answers from your own documents', ms: 6800, art: <RagScene /> },
       { title: 'Prompt engineering', sub: 'Reliable, structured answers', ms: 5600, art: <PromptScene /> },
@@ -23,7 +23,7 @@ const roles: RoleContent[] = [
     lesson: { label: 'Claude SDK MasterClass', href: '/masterclasses/ai/claude-sdk/index.html' },
   },
   {
-    id: 'agentic-ai', label: 'Agentic AI Developer', note: 'Agents · MCP', icon: 'bot', track: 'Agentic AI track', exploreHref: '/masterclasses/agentic-development/index.html',
+    id: 'agentic-ai', label: 'Agentic AI Developer', note: 'Agents · MCP', icon: 'bot', track: 'Agentic AI path', exploreHref: '/paths/agentic-ai',
     scenes: [
       { title: 'The agent searches', sub: 'It finds what matters and skips the rest', ms: 6200, art: <SearchScene /> },
       { title: 'It writes code', sub: 'Python, run safely in a sandbox', ms: 5600, art: <CodeScene /> },
@@ -33,7 +33,7 @@ const roles: RoleContent[] = [
     lesson: { label: 'AI Agents MasterClass', href: '/masterclasses/agentic-development/agents/index.html' },
   },
   {
-    id: 'cloud-engineer', label: 'Cloud Engineer', note: 'AWS · Azure', icon: 'cloud', track: 'AWS course', exploreHref: '/courses/aws-beginner-course',
+    id: 'cloud-engineer', label: 'Cloud Engineer', note: 'AWS · Azure', icon: 'cloud', track: 'Cloud Engineer path', exploreHref: '/paths/cloud-engineer',
     scenes: [
       { title: 'Serverless', sub: 'The same pattern on AWS and Azure', ms: 7400, art: <ServerlessScene /> },
       { title: 'CI/CD', sub: 'One push, live on both clouds', ms: 6000, art: <DeployScene /> },
@@ -43,17 +43,17 @@ const roles: RoleContent[] = [
     lesson: { label: 'AWS Bedrock MasterClass', href: '/masterclasses/ai/aws-bedrock/index.html' },
   },
   {
-    id: 'data-governance', label: 'Data Governance', note: 'Purview · Unity', icon: 'shield', track: 'Data Governance track', exploreHref: '/masterclasses/data-governence/index.html',
+    id: 'data-engineer', label: 'Data Engineer', note: 'Pipelines · Governance', icon: 'shield', track: 'Data Engineer path', exploreHref: '/paths/data-engineer',
     scenes: [
       { title: 'Data catalog', sub: 'Find and tag every data asset', ms: 6000, art: <CatalogScene /> },
       { title: 'Lineage', sub: 'Trace every column, end to end', ms: 6000, art: <LineageScene /> },
       { title: 'Access policies', sub: 'The right data for the right people', ms: 5600, art: <PolicyScene /> },
     ],
-    tools: [['Azure Purview', 'azure'], ['Unity Catalog', 'databricks'], ['Apache Atlas', 'apache'], ['Snowflake', 'snowflake'], ['Lake Formation', 'aws-lake-formation'], ['dbt', 'dbt']],
+    tools: [['Spark', 'spark'], ['Databricks', 'databricks'], ['Snowflake', 'snowflake'], ['Airflow', 'airflow'], ['Azure Purview', 'azure'], ['dbt', 'dbt']],
     lesson: { label: 'Data Governance MasterClass', href: '/masterclasses/data-governence/index.html' },
   },
   {
-    id: 'full-stack', label: 'Full Stack Developer', note: 'React · APIs', icon: 'layers', track: 'Full Stack track', exploreHref: '/masterclasses/full-stack/index.html',
+    id: 'full-stack', label: 'Full Stack Developer', note: 'React · APIs', icon: 'layers', track: 'Full Stack path', exploreHref: '/paths/full-stack',
     scenes: [
       { title: 'Frontend', sub: 'Build the interface in React', ms: 5000, art: <UiScene /> },
       { title: 'API', sub: 'Fast, secure requests', ms: 5200, art: <ApiScene /> },
@@ -85,6 +85,7 @@ function Footer({ role }: { role: RoleContent }) {
       </li>)}
     </ul>
     <a href={role.lesson.href} className="group inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink">
+      <span className="font-medium text-neutral-500">Try free:</span>
       <span className="underline decoration-neutral-300 underline-offset-4 transition-colors group-hover:decoration-ink">{role.lesson.label}</span>
       <ArrowUpRight aria-hidden="true" className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
     </a>
@@ -93,11 +94,12 @@ function Footer({ role }: { role: RoleContent }) {
 
 function Intro() {
   return <div>
-    <h1 id="hero-title" className="text-[2.4rem] font-semibold leading-[1.04] tracking-[-0.04em] text-ink [overflow-wrap:normal] sm:text-5xl xl:text-[3.5rem] short:text-[2.75rem]">
-      Who do you want <br className="hidden sm:block" />to become?
+    <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-[13px] font-semibold text-neutral-700 short:mb-3"><span className="size-2 rounded-full bg-emerald-500" />Live online classes · Weekday &amp; weekend batches</p>
+    <h1 id="hero-title" className="text-[2.3rem] font-semibold leading-[1.04] tracking-[-0.04em] text-ink [overflow-wrap:normal] sm:text-5xl xl:text-[3.4rem] short:text-[2.6rem]">
+      Get job-ready in AI, Cloud, Data or Full Stack.
     </h1>
-    <p className="mt-4 max-w-[30rem] text-[17px] leading-7 text-neutral-600 sm:text-lg sm:leading-8 short:mt-3 short:text-base short:leading-7">
-      Pick a path and watch what you&apos;ll build. Learn it with industry mentors, on real projects.
+    <p className="mt-4 max-w-[32rem] text-[17px] leading-7 text-neutral-600 sm:text-lg sm:leading-8 short:mt-3 short:text-base short:leading-7">
+      Live classes with industry mentors, real projects and interview prep. No coding background needed, and your first 2 sessions are free.
     </p>
   </div>;
 }
@@ -105,7 +107,7 @@ function Intro() {
 export function HomeHero() {
   const clientRoles: HeroRole[] = roles.map(({ id, label, note, icon, track, exploreHref, scenes }) => ({ id, label, note, icon, track, exploreHref, durations: scenes.map(s => s.ms), titles: scenes.map(s => s.title) }));
   return <section aria-labelledby="hero-title" className="bg-white">
-    <div className="mx-auto flex max-w-7xl items-center px-4 pb-14 pt-8 sm:px-6 sm:pb-16 sm:pt-12 lg:min-h-[calc(100svh-var(--header-h))] lg:py-8 short:py-4">
+    <div className="mx-auto flex max-w-7xl items-center px-4 pb-10 pt-6 sm:px-6 sm:pb-12 sm:pt-10 lg:py-10 short:py-4">
       <HeroRoleSwitcher
         intro={<Intro />}
         roles={clientRoles}

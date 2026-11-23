@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useEffectEvent, useRef, useState, useSyncExternalStore, type KeyboardEvent, type ReactNode } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Bot, Cloud, Layers, MousePointerClick, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Bot, Cloud, Layers, MousePointerClick, ShieldCheck, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/cn';
 
 export type HeroRole = {
@@ -92,11 +92,11 @@ export function HeroRoleSwitcher({ intro, roles, scenes, footers }: { intro: Rea
     tabs.current[index]?.focus();
   }
 
-  return <div ref={root} className="grid w-full gap-y-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:grid-rows-[1fr_auto_auto_auto_1fr] lg:gap-x-12 lg:gap-y-7 xl:gap-x-16 short:gap-y-5">
+  return <div ref={root} className="grid w-full gap-y-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:grid-rows-[1fr_auto_auto_auto_1fr] lg:gap-x-12 lg:gap-y-6 xl:gap-x-16 short:gap-y-5">
     <div className="lg:col-start-1 lg:row-start-2">{intro}</div>
 
     <div className="lg:col-start-1 lg:row-start-3">
-      <p className="mb-2 flex items-center gap-2 text-sm font-semibold text-accent"><MousePointerClick aria-hidden="true" className="size-4" />Pick a path to see it in action</p>
+      <p className="mb-2 flex items-center gap-2 text-sm font-semibold text-accent"><MousePointerClick aria-hidden="true" className="size-4" />Pick the job you want to see what you&apos;ll build</p>
       <div role="tablist" aria-label="Choose a career path" aria-orientation="vertical" onKeyDown={onKeyDown} className="-mx-2">
       {roles.map((item, index) => {
         const selected = index === slide.role;
@@ -164,12 +164,12 @@ export function HeroRoleSwitcher({ intro, roles, scenes, footers }: { intro: Rea
           Book 2 free sessions
           <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
         </Link>
-        <a href={current.exploreHref} className="group inline-flex items-center gap-1.5 text-base font-semibold text-ink">
-          <span className="bg-[linear-gradient(currentColor,currentColor)] bg-[length:100%_1px] bg-bottom bg-no-repeat pb-0.5 transition-[background-size] duration-300 group-hover:bg-[length:0%_1px]">Explore the {current.track}</span>
-          <ArrowUpRight aria-hidden="true" className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-        </a>
+        <Link href={current.exploreHref} className="group inline-flex items-center gap-1.5 text-base font-semibold text-ink">
+          <span className="bg-[linear-gradient(currentColor,currentColor)] bg-[length:100%_1px] bg-bottom bg-no-repeat pb-0.5 transition-[background-size] duration-300 group-hover:bg-[length:0%_1px]">See the {current.track}</span>
+          <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+        </Link>
       </div>
-      <p className="mt-4 text-[15px] text-neutral-500 short:mt-3">First 2 sessions free · Live, mentor-led · Weekday & weekend batches</p>
+      <p className="mt-4 text-[15px] text-neutral-500 short:mt-3">No payment to start · A mentor calls you within 24 hours</p>
     </div>
   </div>;
 }

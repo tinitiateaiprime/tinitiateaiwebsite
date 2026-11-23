@@ -32,7 +32,7 @@ export async function POST(request:Request){
     let name:string,email:string,phone:string,preferredTime:string,course:string,message:string;
     try{
       name=field(data,'name',120,true);email=field(data,'email',254,true);phone=field(data,'phone',40,true);
-      preferredTime=field(data,'preferredTime',120,true);course=field(data,'course',180);message=field(data,'message',4000);
+      preferredTime=field(data,'preferredTime',120)||'Any time';course=field(data,'course',180);message=field(data,'message',4000);
     }catch{return Response.json({ok:false,error:'Please check the form fields.'},{status:400});}
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||!/^[+\d\s().-]{7,40}$/.test(phone))return Response.json({ok:false,error:'Enter a valid email and phone number.'},{status:400});
 
