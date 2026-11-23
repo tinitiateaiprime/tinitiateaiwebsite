@@ -1,12 +1,13 @@
 'use client';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import { paths, toolIcon } from '@/data/paths';
 import { contact } from '@/lib/contactInfo';
+import { Logo } from '@/components/Logo';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 const navigation = [
   { href: '/courses', label: 'Live Courses' },
@@ -44,11 +45,11 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
   const onPaths = pathname.startsWith('/paths');
   const link = (on: boolean) => cn('relative inline-flex items-center gap-1 rounded-full px-3 py-2 text-[15px] font-medium transition-colors xl:px-4', on ? 'text-ink' : 'text-neutral-600 hover:bg-neutral-100 hover:text-ink');
 
-  return <header ref={header} className={cn('sticky top-0 z-50 border-b bg-white/90 backdrop-blur-md transition-[border-color,box-shadow] duration-300', scrolled || open || menu ? 'border-neutral-200/80 shadow-[0_6px_24px_-18px_rgb(10_10_11/0.35)]' : 'border-transparent')}>
-    <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-2 focus:z-50 focus:rounded-lg focus:bg-white focus:p-3">Skip to content</a>
+  return <header ref={header} className={cn('sticky top-0 z-50 border-b bg-surface/90 backdrop-blur-md transition-[border-color,box-shadow] duration-300', scrolled || open || menu ? 'border-neutral-200/80 shadow-[0_6px_24px_-18px_rgb(10_10_11/0.35)]' : 'border-transparent')}>
+    <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-2 focus:z-50 focus:rounded-lg focus:bg-surface focus:p-3">Skip to content</a>
     <div className="mx-auto flex h-[var(--header-h)] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
       <Link href="/" onClick={close} aria-label="Tinitiate AI homepage" className="shrink-0 rounded-md">
-        <Image src="/tinitiate-logo-transparent.png" width={2001} height={269} alt="Tinitiate AI" priority className="block h-auto w-[170px] sm:w-[210px] lg:w-[190px] xl:w-[230px]" />
+        <Logo priority className="w-[170px] sm:w-[210px] lg:w-[190px] xl:w-[230px]" />
       </Link>
 
       <nav aria-label="Main navigation" className="hidden lg:block">
@@ -63,7 +64,7 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
               {onPaths && <span aria-hidden="true" className="absolute inset-x-3 -bottom-0.5 h-[2px] rounded-full bg-accent xl:inset-x-4" />}
             </button>
             {menu && <div id="paths-menu" className="absolute left-0 top-full w-[560px] pt-3">
-              <div className="overflow-hidden rounded-[22px] border border-neutral-200 bg-white shadow-[0_30px_70px_-30px_rgb(10_10_11/0.45)]">
+              <div className="overflow-hidden rounded-[14px] border border-neutral-200 bg-surface shadow-[0_30px_70px_-30px_rgb(10_10_11/0.45)]">
                 <p className="px-5 pt-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-neutral-400">Choose the job you want</p>
                 <ul className="grid grid-cols-2 gap-1 p-2">
                   {paths.map(p => <li key={p.id}>
@@ -84,7 +85,7 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
                     </Link>
                   </li>
                 </ul>
-                <p className="border-t border-neutral-100 bg-[#f7f8fa] px-5 py-3 text-sm text-neutral-600">Not sure? <Link href={`${BOOK}?course=Not%20sure%20yet`} onClick={close} className="font-semibold text-accent underline-offset-4 hover:underline">A mentor will help you choose</Link> on a free call.</p>
+                <p className="border-t border-neutral-100 bg-subtle px-5 py-3 text-sm text-neutral-600">Not sure? <Link href={`${BOOK}?course=Not%20sure%20yet`} onClick={close} className="font-semibold text-accent underline-offset-4 hover:underline">A mentor will help you choose</Link> on a free call.</p>
               </div>
             </div>}
           </li>
@@ -101,6 +102,7 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
       </nav>
 
       <div className="flex items-center gap-2">
+        <ThemeToggle />
         <Link href={BOOK} className="hidden h-11 items-center gap-2 rounded-full bg-accent px-5 text-[15px] font-semibold text-white shadow-[0_8px_20px_-10px_rgb(47_84_235/0.8)] transition-colors hover:bg-[#2443c8] sm:inline-flex">
           Book 2 free sessions
         </Link>
@@ -112,7 +114,7 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
       </div>
     </div>
 
-    {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="absolute inset-x-0 top-full max-h-[calc(100dvh-var(--header-h))] overflow-y-auto border-b border-neutral-200 bg-white px-4 pb-6 pt-3 shadow-xl lg:hidden">
+    {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="absolute inset-x-0 top-full max-h-[calc(100dvh-var(--header-h))] overflow-y-auto border-b border-neutral-200 bg-surface px-4 pb-6 pt-3 shadow-xl lg:hidden">
       <div className="mx-auto max-w-7xl">
         <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-neutral-400">Career paths</p>
         <ul className="mt-2 grid gap-1 sm:grid-cols-2">

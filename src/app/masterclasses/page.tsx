@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function MasterclassesPage() {
-  return <div className="bg-[#f7f8fa]">
+  return <div className="bg-subtle">
     <div className="mx-auto w-full max-w-7xl px-4 pb-14 pt-8 sm:px-6 sm:pt-12">
       <header className="mb-8 flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
         <div className="max-w-3xl">

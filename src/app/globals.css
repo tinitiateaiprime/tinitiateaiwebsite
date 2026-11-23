@@ -4,18 +4,60 @@
 @custom-variant short (@media (min-width: 1024px) and (max-height: 820px));
 :root { --background:#fff; --foreground:#0f172a; --header-h:76px; }
 @media (min-width:640px) { :root { --header-h:88px; } }
+/* Theme colours are plain (non-inline) theme variables, so utilities read them
+   through var() and a [data-theme=dark] page or a .section-dark block can
+   swap the whole palette underneath every component. */
+@theme {
+  --color-ink:#0a0a0b; --color-night:#0b0b0e; --color-surface:#ffffff; --color-subtle:#f6f5f2;
+  --color-accent:#2f54eb; --color-accent-soft:#eef2ff; --color-marker:#fff200;
+  --font-hand: var(--font-caveat), "Comic Sans MS", cursive;
+}
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, .section-dark, .section-dark *));
+
+/* Dark palette: the page in dark mode, and the alternating dark sections in light mode. */
+[data-theme=dark], .section-dark {
+  --color-ink:#f3f3f5; --color-surface:#0e0e11; --color-subtle:#16161a;
+  --color-accent:#6681ff; --color-accent-soft:#1b2247;
+  --color-neutral-50:#141417; --color-neutral-100:#1c1c20; --color-neutral-200:#2a2a30; --color-neutral-300:#3c3c44;
+  --color-neutral-400:#71717c; --color-neutral-500:#a0a0aa; --color-neutral-600:#bdbdc6; --color-neutral-700:#d3d3da;
+  --color-neutral-800:#e6e6ea; --color-neutral-900:#f3f3f5;
+  --color-slate-50:#121620; --color-slate-100:#1a1f2b; --color-slate-200:#283041; --color-slate-300:#3a4458;
+  --color-slate-400:#68748e; --color-slate-500:#98a3ba; --color-slate-600:#b7c0d2; --color-slate-700:#cfd6e3;
+  --color-slate-800:#e3e8f0; --color-slate-900:#f1f4f9; --color-slate-950:#f8fafc;
+  --color-amber-50:#2a1f0b; --color-amber-100:#3b2b0d; --color-amber-200:#5b4211; --color-amber-700:#fbbf24; --color-amber-800:#fcd34d;
+  --color-emerald-50:#0f2a21; --color-emerald-600:#34d399; --color-emerald-700:#6ee7b7;
+  --color-red-50:#2e1315; --color-red-700:#fca5a5;
+  color-scheme: dark;
+}
+/* In dark mode the "dark" sections lift slightly so the page keeps its rhythm. */
+[data-theme=dark] .section-dark { --color-surface:#15151a; --color-subtle:#1c1c22; }
+.section-dark { background-color:var(--color-surface); color:var(--color-ink); }
+
+/* Illustration panels are drawn with fixed dark lines, so they stay light in every theme. */
+.light-island, .hero-stage {
+  --color-ink:#0a0a0b; --color-surface:#ffffff; --color-subtle:#f6f5f2; --color-accent:#2f54eb; --color-accent-soft:#eef2ff;
+  --color-neutral-50:oklch(98.5% 0 0); --color-neutral-100:oklch(97% 0 0); --color-neutral-200:oklch(92.2% 0 0); --color-neutral-300:oklch(87% 0 0);
+  --color-neutral-400:oklch(70.8% 0 0); --color-neutral-500:oklch(55.6% 0 0); --color-neutral-600:oklch(43.9% 0 0); --color-neutral-700:oklch(37.1% 0 0);
+  --color-neutral-800:oklch(26.9% 0 0); --color-neutral-900:oklch(20.5% 0 0);
+  color-scheme: light;
+}
+[data-theme=dark] .hero-stage { filter:brightness(.93); }
+
+/* Two logos: dark wordmark on light, white wordmark on dark. */
+.logo-on-dark { display:none; }
+[data-theme=dark] .logo-on-light, .section-dark .logo-on-light { display:none; }
+[data-theme=dark] .logo-on-dark, .section-dark .logo-on-dark { display:block; }
+
 @theme inline {
   --font-sans: var(--font-instrument), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  /* Brand: ink on white with one cobalt accent. */
-  --color-ink:#0a0a0b; --color-accent:#2f54eb; --color-accent-soft:#eef2ff;
   --color-brand-50:#eff6ff; --color-brand-100:#dbeafe; --color-brand-200:#bfdbfe;
   --color-brand-300:#93c5fd; --color-brand-400:#60a5fa; --color-brand-500:#3b82f6;
   --color-brand-600:#2563eb; --color-brand-700:#1d4ed8; --color-brand-800:#1e40af;
   --color-brand-900:#1e3a8a; --color-accent-400:#22d3ee; --color-accent-500:#06b6d4;
 }
 html { scroll-behavior:smooth; }
-body { font-family:var(--font-sans); margin:0; }
+body { font-family:var(--font-sans); margin:0; background-color:var(--color-surface); color:var(--color-ink); transition:background-color .25s ease, color .25s ease; }
 img, video { max-width:100%; }
 /* In the base layer so Tailwind utilities (text size, weight) on buttons and inputs win. */
 @layer base {
@@ -35,7 +77,7 @@ main pre { max-width:100%; overflow-x:auto; }
 .hero-leave { animation:hero-leave .8s cubic-bezier(.7,0,.2,1) both; pointer-events:none; }
 @keyframes hero-enter { from { opacity:0; transform:translateX(18%); } 35% { opacity:0; } to { opacity:1; transform:none; } }
 @keyframes hero-leave { from { opacity:1; transform:none; } 65% { opacity:0; } to { opacity:0; transform:translateX(-24%); } }
-.hero-stage { background-color:#f7f8fa; background-image:radial-gradient(circle at 1px 1px, rgb(10 10 11 / .07) 1px, transparent 0); background-size:22px 22px; }
+.hero-stage { background-color:#f4f3ef; background-image:radial-gradient(circle at 1px 1px, rgb(10 10 11 / .07) 1px, transparent 0); background-size:22px 22px; }
 
 /* Timed progress bar (hero scenes, course slider): its end moves the slide on. */
 .hero-progress { display:block; height:100%; background:var(--color-accent); transform-origin:left; transform:scaleX(0); animation:hero-progress linear forwards; }

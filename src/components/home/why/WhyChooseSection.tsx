@@ -1,66 +1,41 @@
-import type { IconType } from 'react-icons';
-import {
-  PiBriefcaseDuotone, PiBrowsersDuotone, PiBuildingsDuotone, PiChalkboardTeacherDuotone, PiChatsCircleDuotone, PiCloudArrowUpDuotone,
-  PiCodeDuotone, PiCompassDuotone, PiFileTextDuotone, PiGraduationCapDuotone, PiPathDuotone, PiRocketLaunchDuotone, PiSparkleDuotone,
-  PiStairsDuotone, PiTreeStructureDuotone,
-} from 'react-icons/pi';
-import { Highlight, SectionHeading } from '../SectionHeading';
+import { SectionHeading } from '../SectionHeading';
 
-/* Content from the kaushik-branch "Why Choose Us" section, grouped by what it gives a learner. */
-type Reason = { title: string; text: string; icon: IconType };
-const groups: { name: string; tagline: string; icon: IconType; color: string; soft: string; reasons: Reason[] }[] = [
-  { name: 'Learning', tagline: 'Strong foundations, step by step', icon: PiGraduationCapDuotone, color: '#2f54eb', soft: '#eef2ff', reasons: [
-    { title: 'Expert Faculty', text: 'Learn from mentors with real delivery experience, not just classroom theory.', icon: PiChalkboardTeacherDuotone },
-    { title: 'Structured Path', text: 'Move from fundamentals to advanced work through a clear, role-mapped plan.', icon: PiPathDuotone },
-    { title: 'Basics to Advanced Learning', text: 'Step-by-step learning paths from foundational concepts to advanced tech stacks and real use cases.', icon: PiStairsDuotone },
-    { title: 'Hands-On Coding Exercises', text: 'Daily challenges and practice labs to build strong coding logic and practical development skills.', icon: PiCodeDuotone },
+/* Content from the kaushik-branch "Why Choose Us" section, written as plain numbered lists instead of icon cards. */
+const groups: { name: string; line: string; reasons: [string, string][] }[] = [
+  { name: 'Learning', line: 'Strong foundations, step by step', reasons: [
+    ['Mentors who have done the job', 'People with real delivery experience, not just classroom theory.'],
+    ['A path mapped to a role', 'Fundamentals first, then the advanced work, in an order that makes sense.'],
+    ['Practice every day', 'Short coding challenges and labs so the logic sticks.'],
   ] },
-  { name: 'Real experience', tagline: 'Work the way real teams work', icon: PiRocketLaunchDuotone, color: '#0f766e', soft: '#e6f6f3', reasons: [
-    { title: 'Live Projects', text: 'Build real-world applications with mentorship support to strengthen your portfolio and confidence.', icon: PiBrowsersDuotone },
-    { title: 'Business Domain Training', text: 'Understand how technology is used in banking, healthcare, logistics, and more.', icon: PiBuildingsDuotone },
-    { title: 'Team Workflows', text: 'Work in sprints with Git, the way real tech teams build and ship software.', icon: PiTreeStructureDuotone },
-    { title: 'Deploy What You Build', text: 'Learn to deploy your projects to the cloud, so recruiters can see them working.', icon: PiCloudArrowUpDuotone },
+  { name: 'Real experience', line: 'Work the way real teams work', reasons: [
+    ['Live projects', 'Build working applications with a mentor reviewing your progress.'],
+    ['Team workflows', 'Sprints and Git, the way tech teams actually build and ship.'],
+    ['Business context', 'How the same tech is used in banking, healthcare and logistics.'],
   ] },
-  { name: 'Career', tagline: 'Get ready for the job you want', icon: PiBriefcaseDuotone, color: '#c2410c', soft: '#fff1e6', reasons: [
-    { title: 'IT Career Guidance', text: 'Personalized guidance from industry experts to align your goals with real-world roles in IT.', icon: PiCompassDuotone },
-    { title: 'Resume Preparation', text: 'Get help crafting a standout, recruiter-friendly resume tailored for your desired job roles.', icon: PiFileTextDuotone },
-    { title: 'Interview Preparation', text: 'HR tips and technical assessment practice to boost your readiness and confidence.', icon: PiChatsCircleDuotone },
-    { title: 'Bonus Technologies', text: 'Get exposure to adjacent tools that make your profile stronger in interviews.', icon: PiSparkleDuotone },
+  { name: 'Career', line: 'Get ready for the job you want', reasons: [
+    ['Career guidance', 'Honest advice on which roles fit your background and goals.'],
+    ['Resume and LinkedIn', 'A recruiter-friendly profile built around your projects.'],
+    ['Interview practice', 'Technical rounds and HR conversations, rehearsed before the real thing.'],
   ] },
 ];
 
 export function WhyChooseSection() {
-  return <section aria-labelledby="why-title" className="border-t border-neutral-100 bg-white py-12 sm:py-16">
+  return <section aria-labelledby="why-title" className="section-dark py-14 sm:py-20">
     <div className="mx-auto max-w-7xl px-4 sm:px-6">
-      <SectionHeading id="why-title" title={<>What you get when <Highlight>you join.</Highlight></>}>
-        Everything you need to go from learning to getting hired, in one program.
+      <SectionHeading id="why-title" title="What you get besides the classes">
+        Teaching is half of it. The rest is practice, real project work and help getting hired.
       </SectionHeading>
-
-      {/* Three rows: Learning, Real experience, Career — four reasons each. */}
-      <div className="mt-8 space-y-3">
-        {groups.map(({ name, tagline, icon: GroupIcon, color, soft, reasons }) => <div key={name} className="grid gap-3 rounded-[24px] border border-neutral-200 bg-[#fafafa] p-2.5 sm:p-3 lg:grid-cols-[190px_minmax(0,1fr)] lg:gap-3">
-          {/* Row label */}
-          <div className="relative flex items-center gap-4 overflow-hidden rounded-[20px] p-4 lg:flex-col lg:items-start lg:justify-between lg:p-5" style={{ background: soft }}>
-            <GroupIcon aria-hidden="true" className="pointer-events-none absolute -bottom-10 -right-10 hidden size-32 opacity-[0.07] lg:block" style={{ color }} />
-            <span className="grid size-12 shrink-0 place-items-center rounded-2xl shadow-[0_10px_24px_-12px_rgb(10_10_11/0.45)]" style={{ background: color }}>
-              <GroupIcon aria-hidden="true" className="size-7 text-white" />
-            </span>
-            <div className="relative min-w-0">
-              <h3 className="text-lg font-semibold tracking-[-0.02em] lg:text-xl" style={{ color }}>{name}</h3>
-              <p className="mt-0.5 text-sm leading-5 text-neutral-600">{tagline}</p>
-            </div>
-            <span className="ml-auto text-xs font-medium text-neutral-500 sm:hidden">Swipe →</span>
-          </div>
-          {/* Reasons */}
-          <ul className="-mx-3 flex snap-x snap-mandatory scroll-px-3 gap-3 overflow-x-auto px-3 pb-1 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
-            {reasons.map(({ title, text, icon: Icon }) => <li key={title} className="group w-[78%] shrink-0 snap-start rounded-[18px] border border-neutral-200/80 bg-white p-4 transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_44px_-30px_rgb(10_10_11/0.5)] sm:w-auto">
-              <span className="grid size-10 place-items-center rounded-xl transition-transform duration-300 group-hover:scale-105" style={{ background: soft, color }}>
-                <Icon aria-hidden="true" className="size-6" />
-              </span>
-              <h4 className="mt-3 text-base font-semibold leading-snug text-ink">{title}</h4>
-              <p className="mt-1 text-sm leading-6 text-neutral-500">{text}</p>
+      <div className="mt-10 grid gap-x-10 gap-y-12 border-t border-neutral-200 pt-10 md:grid-cols-3">
+        {groups.map(({ name, line, reasons }, g) => <div key={name}>
+          <p className="font-mono text-sm text-accent">0{g + 1}</p>
+          <h3 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-ink">{name}</h3>
+          <p className="mt-1 text-[15px] text-neutral-500">{line}</p>
+          <ol className="mt-6 space-y-5">
+            {reasons.map(([title, text]) => <li key={title} className="border-l-2 border-neutral-200 pl-4">
+              <p className="text-[16px] font-semibold text-ink">{title}</p>
+              <p className="mt-1 text-[15px] leading-6 text-neutral-500">{text}</p>
             </li>)}
-          </ul>
+          </ol>
         </div>)}
       </div>
     </div>

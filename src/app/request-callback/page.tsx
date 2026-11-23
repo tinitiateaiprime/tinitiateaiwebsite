@@ -21,7 +21,7 @@ export default async function CallbackPage({ searchParams }: { searchParams: Pro
   const raw = params.course ?? params.service;
   const course = (typeof raw === 'string' ? raw : '').trim().slice(0, 120);
 
-  return <section className="bg-[#f7f8fa]">
+  return <section className="bg-subtle">
     <div className="mx-auto grid max-w-7xl gap-12 px-4 pb-14 pt-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:grid-rows-[auto_1fr] lg:gap-x-14 lg:gap-y-0 lg:pb-16 lg:pt-12">
       <div className="lg:col-start-1 lg:row-start-1">
         <h1 className="isolate text-[2.6rem] font-semibold leading-[1.05] tracking-[-0.045em] text-ink sm:text-[3.4rem]">
@@ -36,7 +36,7 @@ export default async function CallbackPage({ searchParams }: { searchParams: Pro
       </div>
 
       <div className="lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:sticky lg:top-[calc(var(--header-h)+1.5rem)] lg:self-start">
-        <div className="rounded-[28px] border border-neutral-200 bg-white p-6 shadow-[0_40px_90px_-50px_rgb(10_10_11/0.35)] sm:p-8">
+        <div className="rounded-[18px] border border-neutral-200 bg-surface p-6 shadow-[0_1px_2px_rgb(10_10_11/0.05)] sm:p-8">
           <h2 className="text-2xl font-semibold tracking-[-0.03em] text-ink">Your details</h2>
           <p className="mt-1.5 text-[15px] text-neutral-500">Takes under a minute. We reply within 24 hours.</p>
           <div className="mt-6"><EnquiryForm course={course} source="request a callback page" submitLabel="Book my free sessions" messageLabel="Anything we should know" messagePlaceholder="Your background, goal or questions" /></div>
@@ -47,7 +47,7 @@ export default async function CallbackPage({ searchParams }: { searchParams: Pro
         <h2 className="lg:mt-10 text-[13px] font-semibold uppercase tracking-[0.12em] text-neutral-400">What happens next</h2>
         <ol className="relative mt-5 space-y-4">
           <span aria-hidden="true" className="absolute bottom-8 left-6 top-8 w-px bg-[linear-gradient(var(--color-accent)_0_50%,transparent_50%)] bg-[length:1px_10px]" />
-          {steps.map(({ title, text, icon: Icon }, i) => <li key={title} className="relative flex gap-4 rounded-[22px] border border-neutral-200 bg-white p-5">
+          {steps.map(({ title, text, icon: Icon }, i) => <li key={title} className="relative flex gap-4 rounded-[14px] border border-neutral-200 bg-surface p-5">
             <span className="relative grid size-12 shrink-0 place-items-center rounded-2xl bg-accent text-white shadow-[0_10px_24px_-12px_rgb(47_84_235/0.8)]"><Icon aria-hidden="true" className="size-7" /></span>
             <div><p className="text-[13px] font-semibold text-accent">Step {i + 1}</p><p className="text-lg font-semibold tracking-[-0.01em] text-ink">{title}</p><p className="mt-1 text-[15px] leading-6 text-neutral-500">{text}</p></div>
           </li>)}
@@ -55,9 +55,9 @@ export default async function CallbackPage({ searchParams }: { searchParams: Pro
 
         <h2 className="mt-10 text-[13px] font-semibold uppercase tracking-[0.12em] text-neutral-400">Prefer to reach us now?</h2>
         <div className="mt-4 grid gap-3 sm:grid-cols-3">
-          <a href={contact.whatsapp.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-white px-3 py-3.5 text-[15px] font-semibold text-ink transition hover:border-emerald-500 hover:text-emerald-600"><PiWhatsappLogoDuotone aria-hidden="true" className="size-5" />WhatsApp</a>
-          <a href={contact.phones[0].href} className="flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-white px-3 py-3.5 text-[15px] font-semibold text-ink transition hover:border-accent hover:text-accent"><PiPhoneDuotone aria-hidden="true" className="size-5" />Call us</a>
-          <a href={`mailto:${contact.email}`} className="flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-white px-3 py-3.5 text-[15px] font-semibold text-ink transition hover:border-accent hover:text-accent"><PiEnvelopeSimpleDuotone aria-hidden="true" className="size-5" />Email</a>
+          <a href={contact.whatsapp.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-surface px-3 py-3.5 text-[15px] font-semibold text-ink transition hover:border-emerald-500 hover:text-emerald-600"><PiWhatsappLogoDuotone aria-hidden="true" className="size-5" />WhatsApp</a>
+          <a href={contact.phones[0].href} className="flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-surface px-3 py-3.5 text-[15px] font-semibold text-ink transition hover:border-accent hover:text-accent"><PiPhoneDuotone aria-hidden="true" className="size-5" />Call us</a>
+          <a href={`mailto:${contact.email}`} className="flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-surface px-3 py-3.5 text-[15px] font-semibold text-ink transition hover:border-accent hover:text-accent"><PiEnvelopeSimpleDuotone aria-hidden="true" className="size-5" />Email</a>
         </div>
       </div>
 

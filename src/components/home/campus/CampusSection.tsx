@@ -4,10 +4,10 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { PiChatsCircleDuotone, PiClipboardTextDuotone, PiHandshakeDuotone, PiMapPinDuotone } from 'react-icons/pi';
 import { cn } from '@/lib/cn';
-import { Highlight, SectionHeading } from '../SectionHeading';
+import { SectionHeading } from '../SectionHeading';
 
 /* Campus placement visit — same layout and content as the kaushik-branch site. */
-const NAVY = '#12345f', GOLD = '#c9a227', NIGHT = '#071425', MUTED = '#697b91';
+const GOLD = '#c9a227', NIGHT = '#071425';
 
 const visit = {
   shortName: 'KITS Warangal',
@@ -47,37 +47,37 @@ export function CampusSection() {
     return () => clearTimeout(timer);
   }, [active, hovered, onScreen]);
 
-  return <section ref={root} aria-labelledby="campus-title" className="bg-[#f7fafc] px-4 py-12 sm:px-6 sm:py-14 md:px-10">
+  return <section ref={root} aria-labelledby="campus-title" className="section-dark px-4 py-14 sm:px-6 sm:py-20">
     <div className="mx-auto max-w-7xl">
-      <SectionHeading id="campus-title" title={<>We bring industry <Highlight>to campus.</Highlight></>}>Career talks, readiness checks and real conversations with graduating students.</SectionHeading>
+      <SectionHeading id="campus-title" title="We also go to colleges">Recently at KITS Warangal: career talks, a readiness check and a lot of good questions from final-year students.</SectionHeading>
 
-      <article className="mx-auto mt-8 grid overflow-hidden rounded-[1.6rem] border border-[#d8e2ee] bg-white shadow-[0_28px_86px_-64px_rgba(15,23,42,0.92)] lg:grid-cols-2">
+      <article className="mx-auto mt-10 grid overflow-hidden rounded-[18px] border border-neutral-200 bg-surface lg:grid-cols-2">
         <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
-          <div className="flex items-center gap-4 border-b border-[#d8e2ee] pb-6">
+          <div className="flex items-center gap-4 border-b border-neutral-200 pb-6">
             <div className="relative h-[104px] w-[94px] shrink-0 sm:h-[116px] sm:w-[104px]">
               <Image src="/images/campus/kits-mark.png" alt="KITS Warangal logo" fill sizes="104px" className="object-contain" />
             </div>
-            <div className="min-w-0 border-l border-[#d8e2ee] pl-4">
-              <p className="text-[11px] font-bold uppercase tracking-[0.14em]" style={{ color: MUTED }}>Featured institution</p>
-              <h3 className="mt-1 text-lg font-bold leading-tight sm:text-xl" style={{ color: NAVY }}>{visit.college}</h3>
-              <p className="mt-1.5 flex items-center gap-1.5 text-sm font-medium" style={{ color: MUTED }}>
+            <div className="min-w-0 border-l border-neutral-200 pl-4">
+              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-neutral-500">Featured institution</p>
+              <h3 className="mt-1 text-lg font-bold leading-tight text-ink sm:text-xl">{visit.college}</h3>
+              <p className="mt-1.5 flex items-center gap-1.5 text-sm font-medium text-neutral-500">
                 <PiMapPinDuotone aria-hidden="true" className="size-[18px]" style={{ color: GOLD }} />{visit.location}
               </p>
             </div>
           </div>
 
-          <p className="mt-6 text-pretty text-[15px] leading-7 text-[#53677d] sm:text-base sm:leading-8">{visit.description}</p>
+          <p className="mt-6 text-pretty text-[15px] leading-7 text-neutral-600 sm:text-base sm:leading-8">{visit.description}</p>
 
           <div className="mt-7">
-            <p className="text-[11px] font-bold uppercase tracking-[0.16em]" style={{ color: MUTED }}>The visit, end to end</p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-neutral-500">The visit, end to end</p>
             <ol className="relative mt-4 grid grid-cols-3 gap-2">
-              <span aria-hidden="true" className="absolute left-[16%] right-[16%] top-[28px] h-px" style={{ background: `linear-gradient(90deg, ${NAVY}40, ${GOLD}b3, #0f8f7059)` }} />
+              <span aria-hidden="true" className="absolute left-[16%] right-[16%] top-[28px] h-px" style={{ background: `linear-gradient(90deg, var(--color-neutral-300), ${GOLD}b3, var(--color-neutral-300))` }} />
               {journey.map(({ title, detail, icon: Icon }) => <li key={title} className="relative min-w-0 text-center">
-                <span className="relative z-10 mx-auto flex size-14 items-center justify-center rounded-full border-[3px] border-white text-white shadow-[0_5px_14px_rgba(18,52,95,0.2)]" style={{ background: NAVY }}>
+                <span className="relative z-10 mx-auto flex size-14 items-center justify-center rounded-full border-[3px] border-surface bg-accent text-white">
                   <Icon aria-hidden="true" className="size-6" />
                 </span>
-                <p className="mt-2.5 text-sm font-bold sm:text-base" style={{ color: NAVY }}>{title}</p>
-                <p className="mt-0.5 text-xs font-medium text-[#7b8da4] sm:text-[13px]">{detail}</p>
+                <p className="mt-2.5 text-sm font-bold text-ink sm:text-base">{title}</p>
+                <p className="mt-0.5 text-xs font-medium text-neutral-500 sm:text-[13px]">{detail}</p>
               </li>)}
             </ol>
           </div>

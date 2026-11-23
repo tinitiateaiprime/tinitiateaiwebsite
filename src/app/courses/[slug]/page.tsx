@@ -37,9 +37,9 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
     { label: 'Format', value: 'Live online, mentor-led', icon: MonitorPlay },
   ];
 
-  return <div className="bg-white">
+  return <div className="bg-surface">
     {/* Hero */}
-    <section className="border-b border-neutral-100 bg-[#f7f8fa]">
+    <section className="border-b border-neutral-100 bg-subtle">
       <div className="mx-auto max-w-7xl px-4 pb-8 pt-6 sm:px-6 lg:pb-10 lg:pt-8">
         <nav aria-label="Breadcrumb" className="flex flex-wrap gap-1.5 text-sm text-neutral-500">
           <Link href="/courses" className="hover:text-ink">Live courses</Link><span aria-hidden="true">/</span>
@@ -50,10 +50,10 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
         <div>
           <h1 className="text-[2.3rem] font-semibold leading-[1.06] tracking-[-0.045em] text-ink sm:text-[3rem]">{course.title}</h1>
           {d.summary && <p className="mt-4 text-lg leading-8 text-neutral-600">{d.summary}</p>}
-          {d.stack.length > 0 && <ul className="mt-5 flex flex-wrap gap-2">{d.stack.map(s => <li key={s} className="rounded-full border border-neutral-200 bg-white px-3 py-1 text-sm font-medium text-neutral-700">{s}</li>)}</ul>}
+          {d.stack.length > 0 && <ul className="mt-5 flex flex-wrap gap-2">{d.stack.map(s => <li key={s} className="rounded-full border border-neutral-200 bg-surface px-3 py-1 text-sm font-medium text-neutral-700">{s}</li>)}</ul>}
         </div>
         <ul className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-          {facts.map(({ label, value, icon: Icon }) => <li key={label} className="flex items-center gap-3 rounded-2xl border border-neutral-200 bg-white p-4">
+          {facts.map(({ label, value, icon: Icon }) => <li key={label} className="flex items-center gap-3 rounded-2xl border border-neutral-200 bg-surface p-4">
             <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent"><Icon aria-hidden="true" className="size-5" /></span>
             <span><span className="block text-xs font-semibold uppercase tracking-[0.1em] text-neutral-400">{label}</span><span className="block text-[15px] font-semibold text-ink">{value}</span></span>
           </li>)}
@@ -76,7 +76,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
 
         {syllabus.length > 0 && <section aria-labelledby="syllabus">
           <div className="flex items-baseline justify-between gap-4"><h2 id="syllabus" className={h2}>Syllabus</h2><span className="text-sm text-neutral-500">{syllabus.length} modules</span></div>
-          <div className="mt-5 divide-y divide-neutral-200 rounded-[22px] border border-neutral-200">
+          <div className="mt-5 divide-y divide-neutral-200 rounded-[14px] border border-neutral-200">
             {syllabus.map((s, i) => <details key={i} className="group" open={i === 0}>
               <summary className="flex cursor-pointer list-none items-center gap-4 p-5 [&::-webkit-details-marker]:hidden">
                 <span className="grid size-8 shrink-0 place-items-center rounded-full bg-neutral-100 text-sm font-semibold text-neutral-600">{i + 1}</span>
@@ -92,7 +92,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
         {(d.projects.length > 0 || d.capstone) && <section aria-labelledby="projects">
           <h2 id="projects" className={h2}>Projects you&apos;ll build</h2>
           <ul className="mt-5 grid gap-4 sm:grid-cols-2">
-            {[...d.projects, ...(d.capstone ? [d.capstone] : [])].map((p, i) => <li key={i} className="rounded-[22px] border border-neutral-200 p-5">
+            {[...d.projects, ...(d.capstone ? [d.capstone] : [])].map((p, i) => <li key={i} className="rounded-[14px] border border-neutral-200 p-5">
               <p className="text-[16px] font-semibold text-ink">{p.title}</p>
               {p.description && <p className="mt-2 text-[15px] leading-6 text-neutral-600">{p.description}</p>}
               {p.deliverables && p.deliverables.length > 0 && <ul className="mt-3 space-y-1.5">{p.deliverables.map((x, j) => <li key={j} className="flex gap-2 text-sm text-neutral-600"><CheckCircle2 aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-accent" />{x}</li>)}</ul>}
@@ -106,15 +106,15 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
           <p className="mt-4 text-[15px] text-neutral-500">Missing something? Your mentor will suggest a short starter course first.</p>
         </section>}
 
-        {inPaths.length > 0 && <section aria-labelledby="paths" className="rounded-[22px] bg-[#f7f8fa] p-6">
+        {inPaths.length > 0 && <section aria-labelledby="paths" className="rounded-[14px] bg-subtle p-6">
           <h2 id="paths" className="text-lg font-semibold text-ink">Part of {inPaths.length > 1 ? 'these career paths' : 'a career path'}</h2>
-          <ul className="mt-3 flex flex-wrap gap-2">{inPaths.map(p => <li key={p.id}><Link href={`/paths/${p.id}`} className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-[15px] font-semibold text-ink hover:border-accent hover:text-accent">{p.label} <ArrowRight aria-hidden="true" className="size-4" /></Link></li>)}</ul>
+          <ul className="mt-3 flex flex-wrap gap-2">{inPaths.map(p => <li key={p.id}><Link href={`/paths/${p.id}`} className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-surface px-4 py-2 text-[15px] font-semibold text-ink hover:border-accent hover:text-accent">{p.label} <ArrowRight aria-hidden="true" className="size-4" /></Link></li>)}</ul>
         </section>}
       </div>
 
       {/* Booking card stays in view while the visitor reads the syllabus. */}
       <aside className="lg:sticky lg:top-[calc(var(--header-h)+1.5rem)] lg:self-start">
-        <div className="rounded-[28px] border border-neutral-200 bg-white p-6 shadow-[0_40px_90px_-50px_rgb(10_10_11/0.35)]">
+        <div className="rounded-[18px] border border-neutral-200 bg-surface p-6 shadow-[0_1px_2px_rgb(10_10_11/0.05)]">
           <p className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-[13px] font-semibold text-emerald-700"><span className="size-2 rounded-full bg-emerald-500" />First 2 sessions free</p>
           <p className="mt-4 text-xl font-semibold tracking-[-0.02em] text-ink">Try {course.title} before you decide</p>
           <ul className="mt-4 space-y-2.5">{included.map(i => <li key={i} className="flex gap-2.5 text-[15px] text-neutral-700"><CheckCircle2 aria-hidden="true" className="mt-0.5 size-[18px] shrink-0 text-accent" />{i}</li>)}</ul>
@@ -125,7 +125,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
       </aside>
     </div>
 
-    {related.length > 0 && <section aria-labelledby="related" className="border-t border-neutral-100 bg-[#f7f8fa] py-10 sm:py-12">
+    {related.length > 0 && <section aria-labelledby="related" className="section-dark py-12 sm:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex flex-wrap items-baseline justify-between gap-4">
           <h2 id="related" className={h2}>More in {categoryLabel}</h2>

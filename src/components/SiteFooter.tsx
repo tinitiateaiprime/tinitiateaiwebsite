@@ -1,8 +1,8 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaRedditAlien, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 import { PiEnvelopeSimpleDuotone, PiMapPinDuotone, PiPhoneDuotone } from 'react-icons/pi';
 import { paths as careerPaths } from '@/data/paths';
+import { Logo } from '@/components/Logo';
 
 const explore = [
   { href: '/request-callback', label: 'Book 2 free sessions' },
@@ -33,19 +33,19 @@ const heading = 'text-[13px] font-semibold uppercase tracking-[0.14em] text-neut
 const link = 'text-[15px] text-neutral-700 transition-colors hover:text-accent';
 
 export function SiteFooter() {
-  return <footer className="border-t border-neutral-200 bg-[#f7f8fa]">
+  return <footer className="border-t border-neutral-200 bg-subtle">
     <div className="mx-auto max-w-7xl px-4 sm:px-6">
       {/* Columns */}
       <div className="grid grid-cols-2 gap-x-6 gap-y-8 py-10 lg:grid-cols-[1.4fr_0.7fr_1fr_1.25fr] lg:gap-12">
         <div className="col-span-2 lg:col-span-1">
           <Link href="/" aria-label="Tinitiate AI homepage" className="inline-block">
-            <Image src="/tinitiate-logo-transparent.png" alt="Tinitiate AI" width={2001} height={269} className="h-auto w-[230px] sm:w-[250px]" />
+            <Logo className="w-[230px] sm:w-[250px]" />
           </Link>
           <p className="mt-6 max-w-sm text-[15px] leading-7 text-neutral-600">Tinitiate AI Solutions empowers learners with industry-relevant skills through hands-on training and real-time project experience in AI, Data Engineering, and Cloud.</p>
           <ul className="mt-6 flex flex-wrap gap-2" aria-label="Follow us">
             {social.map(({ href, label, icon: Icon }) => <li key={label}>
               <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`Tinitiate AI Solutions on ${label}`} title={label}
-                className="grid size-10 place-items-center rounded-full border border-neutral-200 bg-white text-neutral-700 transition-colors hover:border-accent hover:bg-accent hover:text-white">
+                className="grid size-10 place-items-center rounded-full border border-neutral-200 bg-surface text-neutral-700 transition-colors hover:border-accent hover:bg-accent hover:text-white">
                 <Icon aria-hidden="true" className="size-4" />
               </a>
             </li>)}
