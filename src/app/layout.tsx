@@ -6,10 +6,11 @@ const sans = Instrument_Sans({ subsets: ['latin'], variable: '--font-instrument'
 const mono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono', display: 'swap' });
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
+import { CtaBand, MobileCtaBar } from '@/components/ConversionBar';
 
 export const metadata: Metadata = {
-  title: { default: 'Tinitiate AI — Courses & MasterClasses', template: '%s | Tinitiate AI' },
-  description: 'Explore practical IT, software engineering, cloud, data, and AI courses and interactive MasterClasses.',
+  title: { default: 'Tinitiate AI — Live, Mentor-Led Training in AI, Cloud, Data & Full Stack', template: '%s | Tinitiate AI' },
+  description: 'Become job-ready in AI, Cloud, Data Engineering or Full Stack development. Live online classes with industry mentors, real projects and interview preparation. Your first 2 sessions are free.',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -18,7 +19,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className="flex min-h-screen flex-col bg-white text-slate-900 antialiased">
         <SiteHeader />
         <main id="main-content" tabIndex={-1} className="min-w-0 flex-1">{children}</main>
+        <CtaBand />
         <SiteFooter />
+        <MobileCtaBar />
       </body>
     </html>
   );

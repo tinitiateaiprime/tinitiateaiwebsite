@@ -2,22 +2,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaRedditAlien, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 import { PiEnvelopeSimpleDuotone, PiMapPinDuotone, PiPhoneDuotone } from 'react-icons/pi';
+import { paths as careerPaths } from '@/data/paths';
 
 const explore = [
-  { href: '/', label: 'Home' },
+  { href: '/request-callback', label: 'Book 2 free sessions' },
+  { href: '/paths', label: 'Compare career paths' },
+  { href: '/courses', label: 'Live Courses' },
+  { href: '/masterclasses', label: 'Free MasterClasses' },
   { href: '/about', label: 'About' },
-  { href: '/courses', label: 'Courses' },
-  { href: '/masterclasses', label: 'MasterClasses' },
   { href: '/contact', label: 'Contact' },
 ];
-// Static MasterClass pages, so plain <a> links.
-const paths = [
-  { href: '/masterclasses/ai/index.html', label: 'AI Engineer' },
-  { href: '/masterclasses/agentic-development/index.html', label: 'Agentic AI Developer' },
-  { href: '/courses/aws-beginner-course', label: 'Cloud Engineer · AWS & Azure' },
-  { href: '/masterclasses/data-governence/index.html', label: 'Data Governance' },
-  { href: '/masterclasses/full-stack/index.html', label: 'Full Stack Developer' },
-];
+const pathLinks = careerPaths.map(p => ({ href: `/paths/${p.id}`, label: p.label }));
 const policies = [
   { href: '/privacy-policy', label: 'Privacy' },
   { href: '/terms', label: 'Terms' },
@@ -41,7 +36,7 @@ export function SiteFooter() {
   return <footer className="border-t border-neutral-200 bg-[#f7f8fa]">
     <div className="mx-auto max-w-7xl px-4 sm:px-6">
       {/* Columns */}
-      <div className="grid grid-cols-2 gap-x-6 gap-y-10 py-14 lg:grid-cols-[1.4fr_0.7fr_1fr_1.25fr] lg:gap-12">
+      <div className="grid grid-cols-2 gap-x-6 gap-y-8 py-10 lg:grid-cols-[1.4fr_0.7fr_1fr_1.25fr] lg:gap-12">
         <div className="col-span-2 lg:col-span-1">
           <Link href="/" aria-label="Tinitiate AI homepage" className="inline-block">
             <Image src="/tinitiate-logo-transparent.png" alt="Tinitiate AI" width={2001} height={269} className="h-auto w-[230px] sm:w-[250px]" />
@@ -64,7 +59,7 @@ export function SiteFooter() {
 
         <nav aria-label="Career paths">
           <h2 className={heading}>Career paths</h2>
-          <ul className="mt-5 space-y-3">{paths.map(l => <li key={l.href}><a href={l.href} className={link}>{l.label}</a></li>)}</ul>
+          <ul className="mt-5 space-y-3">{pathLinks.map(l => <li key={l.href}><Link href={l.href} className={link}>{l.label}</Link></li>)}</ul>
         </nav>
 
         <div className="col-span-2 lg:col-span-1">

@@ -18,8 +18,8 @@ const groups: { name: string; tagline: string; icon: IconType; color: string; so
   { name: 'Real experience', tagline: 'Work the way real teams work', icon: PiRocketLaunchDuotone, color: '#0f766e', soft: '#e6f6f3', reasons: [
     { title: 'Live Projects', text: 'Build real-world applications with mentorship support to strengthen your portfolio and confidence.', icon: PiBrowsersDuotone },
     { title: 'Business Domain Training', text: 'Understand how technology is used in banking, healthcare, logistics, and more.', icon: PiBuildingsDuotone },
-    { title: 'Development Services', text: 'Custom web, Android, API, IoT, and backend solutions shaped for business needs.', icon: PiTreeStructureDuotone },
-    { title: 'Data & Cloud Support', text: 'Practical help with AWS, Azure, data engineering, deployment, and testing workflows.', icon: PiCloudArrowUpDuotone },
+    { title: 'Team Workflows', text: 'Work in sprints with Git, the way real tech teams build and ship software.', icon: PiTreeStructureDuotone },
+    { title: 'Deploy What You Build', text: 'Learn to deploy your projects to the cloud, so recruiters can see them working.', icon: PiCloudArrowUpDuotone },
   ] },
   { name: 'Career', tagline: 'Get ready for the job you want', icon: PiBriefcaseDuotone, color: '#c2410c', soft: '#fff1e6', reasons: [
     { title: 'IT Career Guidance', text: 'Personalized guidance from industry experts to align your goals with real-world roles in IT.', icon: PiCompassDuotone },
@@ -30,15 +30,15 @@ const groups: { name: string; tagline: string; icon: IconType; color: string; so
 ];
 
 export function WhyChooseSection() {
-  return <section aria-labelledby="why-title" className="border-t border-neutral-100 bg-white py-20 sm:py-24">
+  return <section aria-labelledby="why-title" className="border-t border-neutral-100 bg-white py-12 sm:py-16">
     <div className="mx-auto max-w-7xl px-4 sm:px-6">
-      <SectionHeading id="why-title" title={<>Where real expertise meets <Highlight>your ambition.</Highlight></>}>
-        Not just a training institute. A launchpad engineered for career breakthroughs.
+      <SectionHeading id="why-title" title={<>What you get when <Highlight>you join.</Highlight></>}>
+        Everything you need to go from learning to getting hired, in one program.
       </SectionHeading>
 
       {/* Three rows: Learning, Real experience, Career — four reasons each. */}
-      <div className="mt-12 space-y-4 sm:space-y-5">
-        {groups.map(({ name, tagline, icon: GroupIcon, color, soft, reasons }) => <div key={name} className="grid gap-3 rounded-[26px] border border-neutral-200 bg-[#fafafa] p-3 sm:p-4 lg:grid-cols-[200px_minmax(0,1fr)] lg:gap-4">
+      <div className="mt-8 space-y-3">
+        {groups.map(({ name, tagline, icon: GroupIcon, color, soft, reasons }) => <div key={name} className="grid gap-3 rounded-[24px] border border-neutral-200 bg-[#fafafa] p-2.5 sm:p-3 lg:grid-cols-[190px_minmax(0,1fr)] lg:gap-3">
           {/* Row label */}
           <div className="relative flex items-center gap-4 overflow-hidden rounded-[20px] p-4 lg:flex-col lg:items-start lg:justify-between lg:p-5" style={{ background: soft }}>
             <GroupIcon aria-hidden="true" className="pointer-events-none absolute -bottom-10 -right-10 hidden size-32 opacity-[0.07] lg:block" style={{ color }} />
@@ -53,12 +53,12 @@ export function WhyChooseSection() {
           </div>
           {/* Reasons */}
           <ul className="-mx-3 flex snap-x snap-mandatory scroll-px-3 gap-3 overflow-x-auto px-3 pb-1 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
-            {reasons.map(({ title, text, icon: Icon }) => <li key={title} className="group w-[78%] shrink-0 snap-start rounded-[20px] border border-neutral-200/80 bg-white p-5 transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_44px_-30px_rgb(10_10_11/0.5)] sm:w-auto">
-              <span className="grid size-12 place-items-center rounded-2xl transition-transform duration-300 group-hover:scale-105" style={{ background: soft, color }}>
-                <Icon aria-hidden="true" className="size-7" />
+            {reasons.map(({ title, text, icon: Icon }) => <li key={title} className="group w-[78%] shrink-0 snap-start rounded-[18px] border border-neutral-200/80 bg-white p-4 transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_44px_-30px_rgb(10_10_11/0.5)] sm:w-auto">
+              <span className="grid size-10 place-items-center rounded-xl transition-transform duration-300 group-hover:scale-105" style={{ background: soft, color }}>
+                <Icon aria-hidden="true" className="size-6" />
               </span>
-              <h4 className="mt-4 text-base font-semibold leading-snug text-ink">{title}</h4>
-              <p className="mt-1.5 text-sm leading-6 text-neutral-500">{text}</p>
+              <h4 className="mt-3 text-base font-semibold leading-snug text-ink">{title}</h4>
+              <p className="mt-1 text-sm leading-6 text-neutral-500">{text}</p>
             </li>)}
           </ul>
         </div>)}
