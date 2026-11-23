@@ -1,22 +1,12 @@
-import type { IconType } from 'react-icons';
-import { PiBriefcaseDuotone, PiCalendarCheckDuotone, PiChalkboardTeacherDuotone, PiCodeDuotone, PiPlantDuotone } from 'react-icons/pi';
+import { Check } from 'lucide-react';
 
 /** The basics a visitor checks first, stated plainly right under the hero. */
-const facts: { title: string; text: string; icon: IconType }[] = [
-  { title: 'Live & mentor-led', text: 'Ask questions in real time', icon: PiChalkboardTeacherDuotone },
-  { title: 'Beginners welcome', text: 'No coding background needed', icon: PiPlantDuotone },
-  { title: 'Real projects', text: 'Portfolio work, team sprints', icon: PiCodeDuotone },
-  { title: 'Interview prep', text: 'Resume, mock rounds, guidance', icon: PiBriefcaseDuotone },
-  { title: 'Flexible batches', text: 'Weekday & weekend timings', icon: PiCalendarCheckDuotone },
-];
+const facts = ['Live, mentor-led classes', 'Beginners welcome', 'Real portfolio projects', 'Resume and interview prep', 'Weekday & weekend batches'];
 
 export function TrustStrip() {
-  return <section aria-label="What you get" className="border-y border-neutral-100 bg-white">
-    <ul className="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-6 px-4 py-6 sm:grid-cols-3 sm:px-6 lg:grid-cols-5">
-      {facts.map(({ title, text, icon: Icon }) => <li key={title} className="flex items-center gap-3">
-        <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-accent-soft text-accent"><Icon aria-hidden="true" className="size-6" /></span>
-        <span className="min-w-0"><span className="block text-[15px] font-semibold text-ink">{title}</span><span className="block text-[13px] leading-5 text-neutral-500">{text}</span></span>
-      </li>)}
+  return <section aria-label="What you get" className="border-y border-neutral-200 bg-subtle">
+    <ul className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-8 gap-y-3 px-4 py-5 sm:px-6 lg:justify-between">
+      {facts.map(f => <li key={f} className="flex items-center gap-2 text-[15px] font-medium text-neutral-700"><Check aria-hidden="true" className="size-4 shrink-0 text-accent" strokeWidth={3} />{f}</li>)}
     </ul>
   </section>;
 }

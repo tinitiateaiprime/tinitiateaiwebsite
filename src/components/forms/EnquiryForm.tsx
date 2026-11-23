@@ -8,7 +8,7 @@ import { paths } from '@/data/paths';
 const PATHS = [...paths.map(p => p.label), 'Campus or corporate training', 'Not sure yet'];
 const TIMES = ['Morning (9 am – 12 pm)', 'Afternoon (12 pm – 4 pm)', 'Evening (4 pm – 8 pm)', 'Weekend'];
 
-const field = 'mt-1.5 block h-12 w-full rounded-xl border border-neutral-300 bg-white px-4 text-[15px] text-ink outline-none transition placeholder:text-neutral-400 focus:border-accent focus:ring-4 focus:ring-accent/15';
+const field = 'mt-1.5 block h-12 w-full rounded-xl border border-neutral-300 bg-surface px-4 text-[15px] text-ink outline-none transition placeholder:text-neutral-400 focus:border-accent focus:ring-4 focus:ring-accent/15';
 const labelCls = 'text-sm font-medium text-neutral-700';
 
 function Select({ name, placeholder, options, defaultValue, required = true }: { name: string; placeholder: string; options: string[]; defaultValue: string; required?: boolean }) {

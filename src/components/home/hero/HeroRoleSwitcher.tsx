@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useEffectEvent, useRef, useState, useSyncExternalStore, type KeyboardEvent, type ReactNode } from 'react';
 import { ArrowLeft, ArrowRight, Bot, Cloud, Layers, MousePointerClick, ShieldCheck, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/cn';
+import { HandNote } from '../SectionHeading';
 
 export type HeroRole = {
   id: string;
@@ -114,10 +115,10 @@ export function HeroRoleSwitcher({ intro, roles, scenes, footers }: { intro: Rea
           onPointerEnter={event => { if (event.pointerType === 'mouse' && !selected) go(index, 0, true); }}
           className={cn('group flex w-full items-center gap-3.5 rounded-2xl px-2 py-1.5 text-left transition-colors duration-300 sm:gap-4 short:py-1', !selected && 'hover:bg-neutral-50')}
         >
-          <span aria-hidden="true" className={cn('grid size-10 shrink-0 place-items-center rounded-xl border transition-colors duration-300 sm:size-11 short:size-9', selected ? 'border-accent bg-accent text-white shadow-[0_8px_20px_-8px_rgb(47_84_235/0.7)]' : 'border-neutral-200 bg-white text-neutral-500 group-hover:border-accent/40 group-hover:text-accent')}><Icon className="size-5" /></span>
+          <span aria-hidden="true" className={cn('grid size-10 shrink-0 place-items-center rounded-xl border transition-colors duration-300 sm:size-11 short:size-9', selected ? 'border-accent bg-accent text-white shadow-[0_8px_20px_-8px_rgb(47_84_235/0.7)]' : 'border-neutral-200 bg-surface text-neutral-500 group-hover:border-accent/40 group-hover:text-accent')}><Icon className="size-5" /></span>
           <span className="flex min-w-0 flex-1 flex-wrap items-baseline gap-x-3 gap-y-0.5">
             <span className={cn('relative isolate text-[1.4rem] font-semibold leading-[1.2] tracking-[-0.03em] transition-colors duration-300 sm:text-[1.65rem] xl:text-[1.85rem] short:text-[1.45rem]', selected ? 'text-ink' : 'text-neutral-500 group-hover:text-ink')}>
-              {selected && <span aria-hidden="true" className="hero-mark absolute inset-x-[-0.1em] bottom-[0.05em] -z-10 h-[0.42em] rounded-[3px] bg-[#fff200]" />}
+              {selected && <span aria-hidden="true" className="hero-mark absolute inset-x-0 -bottom-[0.1em] -z-10 h-[0.14em] rounded-full bg-[#fff200]" />}
               {item.label}
             </span>
             <span className={cn('text-xs font-semibold uppercase tracking-[0.1em] transition-colors duration-300 sm:text-[13px]', selected ? 'text-accent' : 'text-neutral-400')}>{item.note}</span>
@@ -129,7 +130,7 @@ export function HeroRoleSwitcher({ intro, roles, scenes, footers }: { intro: Rea
     </div>
 
     <div id="hero-panel" role="tabpanel" aria-labelledby={`hero-tab-${current.id}`} aria-live="polite" className="min-w-0 lg:col-start-2 lg:row-span-5 lg:row-start-1 lg:self-center">
-      <div className="relative">
+      <div className="light-island relative">
         <div className="grid grid-cols-[minmax(0,1fr)] overflow-hidden">
           {leaving && <div key={`out-${leaving.key}`} aria-hidden="true" className="hero-leave [grid-area:1/1]" onAnimationEnd={event => { if (event.target === event.currentTarget) setLeaving(null); }}>
             {scenes[leaving.role][leaving.step]}
@@ -137,8 +138,8 @@ export function HeroRoleSwitcher({ intro, roles, scenes, footers }: { intro: Rea
           <div key={`in-${slide.key}`} className={cn('[grid-area:1/1]', leaving && 'hero-enter')}>{scenes[slide.role][slide.step]}</div>
         </div>
         <div className="absolute right-3 top-3 flex gap-1.5 sm:right-4 sm:top-4">
-          <button type="button" onClick={previous} aria-label="Previous scene" className="grid size-9 place-items-center rounded-full border border-neutral-200 bg-white/90 text-neutral-700 transition hover:border-neutral-400 hover:text-ink"><ArrowLeft className="size-4" /></button>
-          <button type="button" onClick={() => next(true)} aria-label="Next scene" className="grid size-9 place-items-center rounded-full border border-neutral-200 bg-white/90 text-neutral-700 transition hover:border-neutral-400 hover:text-ink"><ArrowRight className="size-4" /></button>
+          <button type="button" onClick={previous} aria-label="Previous scene" className="grid size-9 place-items-center rounded-full border border-neutral-200 bg-surface/90 text-neutral-700 transition hover:border-neutral-400 hover:text-ink"><ArrowLeft className="size-4" /></button>
+          <button type="button" onClick={() => next(true)} aria-label="Next scene" className="grid size-9 place-items-center rounded-full border border-neutral-200 bg-surface/90 text-neutral-700 transition hover:border-neutral-400 hover:text-ink"><ArrowRight className="size-4" /></button>
         </div>
         {/* Story progress + what comes next, so visitors know there is more to see. */}
         <div className="pointer-events-none absolute inset-x-3 bottom-3 flex items-center gap-2.5 sm:inset-x-6 sm:bottom-5 sm:gap-4">
@@ -148,7 +149,7 @@ export function HeroRoleSwitcher({ intro, roles, scenes, footers }: { intro: Rea
               {i === slide.step && <span key={slide.key} className="hero-progress" style={{ animationDuration: `${ms}ms`, animationPlayState: onScreen ? 'running' : 'paused' }} />}
             </span>)}
           </div>
-          <button type="button" onClick={() => next(true)} className="group pointer-events-auto inline-flex max-w-[64%] shrink-0 items-center gap-1.5 truncate rounded-full bg-white px-2.5 py-1 text-xs sm:px-3 sm:py-1.5 sm:text-[13px] font-semibold text-ink shadow-[0_4px_14px_-6px_rgb(10_10_11/0.25)] ring-1 ring-neutral-200 transition hover:ring-accent/40 sm:text-sm">
+          <button type="button" onClick={() => next(true)} className="group pointer-events-auto inline-flex max-w-[64%] shrink-0 items-center gap-1.5 truncate rounded-full bg-surface px-2.5 py-1 text-xs sm:px-3 sm:py-1.5 sm:text-[13px] font-semibold text-ink shadow-[0_4px_14px_-6px_rgb(10_10_11/0.25)] ring-1 ring-neutral-200 transition hover:ring-accent/40 sm:text-sm">
             <span className="font-medium text-neutral-500"><span className="hidden sm:inline">Up next</span><span className="sm:hidden">Next</span></span>
             <span className="truncate">{nextTitle}</span>
             <ArrowRight aria-hidden="true" className="size-3.5 shrink-0 text-accent transition-transform group-hover:translate-x-0.5" />
@@ -169,7 +170,7 @@ export function HeroRoleSwitcher({ intro, roles, scenes, footers }: { intro: Rea
           <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
         </Link>
       </div>
-      <p className="mt-4 text-[15px] text-neutral-500 short:mt-3">No payment to start · A mentor calls you within 24 hours</p>
+      <HandNote arrow="up" className="mt-3 short:mt-2">no card, no catch. a mentor calls you within a day</HandNote>
     </div>
   </div>;
 }

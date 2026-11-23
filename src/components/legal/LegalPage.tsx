@@ -25,13 +25,13 @@ function Block({ block }: { block: PolicyBlock }) {
 export function LegalPage({ currentHref, eyebrow, title, intro = [], sections = [], closingTitle, closing = [], supportEmail = 'contact@tinitiateai.com' }: {
   currentHref: string; eyebrow: string; title: string; intro?: string[]; sections?: PolicySection[]; closingTitle?: string; closing?: string[]; supportEmail?: string;
 }) {
-  return <div className="bg-white">
-    <section className="border-b border-neutral-100 bg-[#f7f8fa]">
+  return <div className="bg-surface">
+    <section className="border-b border-neutral-100 bg-subtle">
       <div className="mx-auto max-w-7xl px-4 pb-12 pt-12 sm:px-6 lg:pb-16 lg:pt-16">
         <p className="text-[15px] font-semibold text-accent">{eyebrow}</p>
         <h1 className="mt-3 text-[2.4rem] font-semibold leading-[1.05] tracking-[-0.04em] text-ink sm:text-5xl">{title}</h1>
         <div className="mt-5 max-w-3xl space-y-3">{intro.map(t => <p key={t} className="text-[17px] leading-8 text-neutral-600">{t}</p>)}</div>
-        <a href={`mailto:${supportEmail}`} className="mt-7 inline-flex items-center gap-2 rounded-full border border-neutral-300 bg-white px-5 py-2.5 text-[15px] font-semibold text-ink transition hover:border-ink"><Mail aria-hidden="true" className="size-4" />{supportEmail}</a>
+        <a href={`mailto:${supportEmail}`} className="mt-7 inline-flex items-center gap-2 rounded-full border border-neutral-300 bg-surface px-5 py-2.5 text-[15px] font-semibold text-ink transition hover:border-ink"><Mail aria-hidden="true" className="size-4" />{supportEmail}</a>
       </div>
     </section>
 
@@ -55,7 +55,7 @@ export function LegalPage({ currentHref, eyebrow, title, intro = [], sections = 
           <h2 className="text-[1.4rem] font-semibold tracking-[-0.02em] text-ink">{s.title}</h2>
           {s.blocks.map((b, i) => <Block key={i} block={b} />)}
         </section>)}
-        {closing.length > 0 && <section className="mt-8 rounded-2xl bg-ink p-7 text-white">
+        {closing.length > 0 && <section className="mt-8 rounded-2xl bg-night p-7 text-white ring-1 ring-white/10">
           <h2 className="text-xl font-semibold">{closingTitle}</h2>
           {closing.map(t => <p key={t} className="mt-3 text-[15px] leading-7 text-white/80">{t}</p>)}
         </section>}

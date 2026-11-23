@@ -7,12 +7,12 @@ import { courseDetails, formatDuration, formatLevel } from '@/lib/courseDetails'
 /** One course in a grid: picture, title, one-line summary, level and length. */
 export function CourseCard({ course, step }: { course: Course; step?: number }) {
   const { summary } = courseDetails(course);
-  return <Link href={`/courses/${encodeURIComponent(course.slug)}`} className="group flex h-full flex-col overflow-hidden rounded-[22px] border border-neutral-200 bg-white transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_24px_50px_-32px_rgb(10_10_11/0.5)]">
-    <div className="relative flex h-32 items-center justify-center bg-[#f7f8fa]">
+  return <Link href={`/courses/${encodeURIComponent(course.slug)}`} className="group flex h-full flex-col overflow-hidden rounded-[14px] border border-neutral-200 bg-surface transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_24px_50px_-32px_rgb(10_10_11/0.5)]">
+    <div className="relative flex h-32 items-center justify-center bg-subtle">
       {course.image
         ? <Image unoptimized src={course.image} alt="" width={200} height={120} className="h-full w-full object-contain p-4" />
         : <span className="text-2xl font-semibold text-neutral-300">Tinitiate AI</span>}
-      {step !== undefined && <span className="absolute left-3 top-3 rounded-full bg-ink px-2.5 py-1 text-xs font-semibold text-white">Step {step}</span>}
+      {step !== undefined && <span className="absolute left-3 top-3 rounded-full bg-ink px-2.5 py-1 text-xs font-semibold text-surface">Step {step}</span>}
     </div>
     <div className="flex flex-1 flex-col p-5">
       <h3 className="text-lg font-semibold leading-snug tracking-[-0.02em] text-ink group-hover:text-accent">{course.title}</h3>

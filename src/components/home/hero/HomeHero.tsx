@@ -66,7 +66,7 @@ const roles: RoleContent[] = [
 
 /** One slide: the scene's name inside the box, then the picture. */
 function SceneSlide({ scene }: { scene: Scene }) {
-  return <figure className="hero-stage rounded-[24px] border border-neutral-200/80 px-2 pb-11 pt-4 sm:rounded-[28px] sm:px-5 sm:pb-14 sm:pt-5 short:pb-12">
+  return <figure className="hero-stage rounded-[16px] border border-neutral-200/80 px-2 pb-11 pt-4 sm:rounded-[18px] sm:px-5 sm:pb-14 sm:pt-5 short:pb-12">
     {/* Always exactly two lines (title, then description) so every scene box has the same height. */}
     <figcaption className="min-w-0 pl-2 pr-24 sm:pl-1">
       <span className="block truncate text-lg font-semibold leading-7 tracking-[-0.02em] text-ink sm:text-xl">{scene.title}</span>
@@ -94,7 +94,7 @@ function Footer({ role }: { role: RoleContent }) {
 
 function Intro() {
   return <div>
-    <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-[13px] font-semibold text-neutral-700 short:mb-3"><span className="size-2 rounded-full bg-emerald-500" />Live online classes · Weekday &amp; weekend batches</p>
+    <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-surface px-3 py-1 text-[13px] font-semibold text-neutral-700 short:mb-3"><span className="size-2 rounded-full bg-emerald-500" />Live online classes · Weekday &amp; weekend batches</p>
     <h1 id="hero-title" className="text-[2.3rem] font-semibold leading-[1.04] tracking-[-0.04em] text-ink [overflow-wrap:normal] sm:text-5xl xl:text-[3.4rem] short:text-[2.6rem]">
       Get job-ready in AI, Cloud, Data or Full Stack.
     </h1>
@@ -106,7 +106,7 @@ function Intro() {
 
 export function HomeHero() {
   const clientRoles: HeroRole[] = roles.map(({ id, label, note, icon, track, exploreHref, scenes }) => ({ id, label, note, icon, track, exploreHref, durations: scenes.map(s => s.ms), titles: scenes.map(s => s.title) }));
-  return <section aria-labelledby="hero-title" className="bg-white">
+  return <section aria-labelledby="hero-title" className="bg-surface">
     <div className="mx-auto flex max-w-7xl items-center px-4 pb-10 pt-6 sm:px-6 sm:pb-12 sm:pt-10 lg:py-10 short:py-4">
       <HeroRoleSwitcher
         intro={<Intro />}
