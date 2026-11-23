@@ -28,9 +28,10 @@ export function JourneySection() {
     <JourneyTrack
       header={<SectionHeading id="journey-title" title="What the next few months look like">Four stages, from your first live class to applying for jobs with work you can show.</SectionHeading>}
       stops={stops.map((stop, i) => <Stop key={stop.title} index={i} {...stop} />)}
-      finale={<div className="flex flex-col items-start justify-between gap-4 rounded-[14px] border border-neutral-200 bg-subtle p-5 sm:flex-row sm:items-center sm:p-6">
-        <p className="text-xl font-semibold tracking-[-0.02em] text-ink sm:text-2xl">Step one costs nothing: 2 live sessions with your mentor.</p>
-        <Link href="/request-callback" className="group inline-flex shrink-0 h-13 items-center gap-2.5 rounded-full bg-accent pl-7 pr-6 text-base font-semibold text-white shadow-[0_8px_24px_-10px_rgb(47_84_235/0.7)] transition-colors hover:bg-[#2443c8]">
+      finale={<div>
+        <p className="text-[1.8rem] font-semibold leading-[1.12] tracking-[-0.035em] text-ink sm:text-[2.2rem]">Your first job experience, before your first job.</p>
+        <p className="mt-3 text-[15px] leading-6 text-neutral-500">Step one costs nothing: 2 live sessions with your mentor.</p>
+        <Link href="/request-callback" className="group mt-6 inline-flex shrink-0 h-13 items-center gap-2.5 rounded-full bg-accent pl-7 pr-6 text-base font-semibold text-white shadow-[0_8px_24px_-10px_rgb(47_84_235/0.7)] transition-colors hover:bg-[#2443c8]">
           Book 2 free sessions
           <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
         </Link>
