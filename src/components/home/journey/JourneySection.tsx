@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { JourneyTrack } from './JourneyTrack';
-import { Highlight, SectionHeading } from '../SectionHeading';
+import { SectionHeading } from '../SectionHeading';
 import { BuildProjectsArt, JobReadyArt, LearnLiveArt, WorkExperienceArt } from './scenes';
 
 const stops: { title: string; line: string; art: ReactNode }[] = [
@@ -14,7 +14,7 @@ const stops: { title: string; line: string; art: ReactNode }[] = [
 
 function Stop({ index, title, line, art }: { index: number; title: string; line: string; art: ReactNode }) {
   return <figure>
-    <div className="hero-stage rounded-[22px] border border-neutral-200/80 px-2 py-3 sm:px-3 sm:py-4">{art}</div>
+    <div className="hero-stage rounded-[16px] border border-neutral-200/80 px-2 py-3 sm:px-3 sm:py-4">{art}</div>
     <figcaption className="mt-5">
       <span className="font-mono text-sm font-medium text-accent">0{index + 1}</span>
       <span className="mt-1 block text-[1.4rem] font-semibold leading-tight tracking-[-0.03em] text-ink">{title}</span>
@@ -24,12 +24,12 @@ function Stop({ index, title, line, art }: { index: number; title: string; line:
 }
 
 export function JourneySection() {
-  return <section aria-labelledby="journey-title" className="bg-white py-12 sm:py-16">
+  return <section aria-labelledby="journey-title" className="bg-surface py-12 sm:py-16">
     <JourneyTrack
-      header={<SectionHeading id="journey-title" title={<>How it <Highlight>works.</Highlight></>}>Four steps from your first class to your first job.</SectionHeading>}
+      header={<SectionHeading id="journey-title" title="What the next few months look like">Four stages, from your first live class to applying for jobs with work you can show.</SectionHeading>}
       stops={stops.map((stop, i) => <Stop key={stop.title} index={i} {...stop} />)}
-      finale={<div className="flex flex-col items-start justify-between gap-4 rounded-[22px] border border-neutral-200 bg-[#f7f8fa] p-5 sm:flex-row sm:items-center sm:p-6">
-        <p className="text-xl font-semibold tracking-[-0.02em] text-ink sm:text-2xl">Step one is free: 2 live sessions with your mentor.</p>
+      finale={<div className="flex flex-col items-start justify-between gap-4 rounded-[14px] border border-neutral-200 bg-subtle p-5 sm:flex-row sm:items-center sm:p-6">
+        <p className="text-xl font-semibold tracking-[-0.02em] text-ink sm:text-2xl">Step one costs nothing: 2 live sessions with your mentor.</p>
         <Link href="/request-callback" className="group inline-flex shrink-0 h-13 items-center gap-2.5 rounded-full bg-accent pl-7 pr-6 text-base font-semibold text-white shadow-[0_8px_24px_-10px_rgb(47_84_235/0.7)] transition-colors hover:bg-[#2443c8]">
           Book 2 free sessions
           <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />

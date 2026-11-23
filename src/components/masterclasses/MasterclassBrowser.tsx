@@ -86,7 +86,7 @@ function Mark({ track, color, size }: { track: Track; color: string; size: 'md' 
   const Icon = track.icon;
   const box = size === 'lg' ? 'size-14 rounded-2xl' : 'size-12 rounded-xl';
   const img = size === 'lg' ? 'size-8' : 'size-7';
-  return <span className={`grid shrink-0 place-items-center bg-white shadow-[0_1px_2px_rgb(10_10_11/0.06)] ring-1 ring-slate-200/80 transition-colors duration-300 group-hover:bg-[var(--s)] ${box}`} style={Icon ? { color } : undefined}>
+  return <span className={`grid shrink-0 place-items-center bg-white shadow-[0_1px_2px_rgb(10_10_11/0.06)] ring-1 ring-slate-200/80 ${box}`} style={Icon ? { color } : undefined}>
     {/* eslint-disable-next-line @next/next/no-img-element -- tiny local SVG logos */}
     {track.logo ? <img src={`/masterclasses/assets/icons/tech/${track.logo}.svg`} alt="" width={32} height={32} className={`${img} object-contain`} /> : Icon && <Icon aria-hidden="true" className={img} />}
   </span>;
@@ -99,12 +99,12 @@ function Mark({ track, color, size }: { track: Track; color: string; size: 'md' 
 export function MasterclassBrowser() {
   return <Tabs.Root defaultValue="ai" orientation="vertical" className="grid gap-4 lg:grid-cols-[272px_minmax(0,1fr)] lg:gap-5">
     {/* Category rail */}
-    <Tabs.List aria-label="MasterClass categories" className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] sm:-mx-6 sm:px-6 lg:mx-0 lg:flex-col lg:gap-1 lg:overflow-visible lg:rounded-[24px] lg:bg-ink lg:p-3 lg:pb-3">
+    <Tabs.List aria-label="MasterClass categories" className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] sm:-mx-6 sm:px-6 lg:mx-0 lg:flex-col lg:gap-1 lg:overflow-visible lg:rounded-[16px] lg:bg-night lg:p-3 lg:pb-3">
       <p className="hidden px-3 pb-2 pt-2 text-[12px] font-semibold uppercase tracking-[0.14em] text-white/45 lg:block">Categories</p>
       {categories.map(({ id, name, icon: Icon, color, tracks }) => <Tabs.Trigger key={id} value={id} style={{ '--c': color } as CSSProperties}
-        className="group flex shrink-0 items-center gap-3 rounded-2xl border border-slate-200 bg-white px-3 py-2.5 text-left transition-colors data-[state=active]:border-ink data-[state=active]:bg-ink lg:border-transparent lg:bg-transparent lg:py-3 lg:hover:bg-white/[0.06] lg:data-[state=active]:border-transparent lg:data-[state=active]:bg-white">
+        className="group flex shrink-0 items-center gap-3 rounded-2xl border border-slate-200 bg-surface px-3 py-2.5 text-left transition-colors data-[state=active]:border-accent data-[state=active]:bg-accent lg:border-transparent lg:bg-transparent lg:py-3 lg:hover:bg-white/[0.06] lg:data-[state=active]:border-transparent lg:data-[state=active]:bg-white">
         <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-slate-100 text-slate-600 transition-colors group-data-[state=active]:bg-[var(--c)] group-data-[state=active]:text-white lg:bg-white/10 lg:text-white/80"><Icon aria-hidden="true" className="size-[22px]" /></span>
-        <span className="whitespace-nowrap text-[15px] font-semibold text-slate-700 group-data-[state=active]:text-white lg:flex-1 lg:text-white/80 lg:group-data-[state=active]:text-ink">{name}</span>
+        <span className="whitespace-nowrap text-[15px] font-semibold text-slate-700 group-data-[state=active]:text-white lg:flex-1 lg:text-white/80 lg:group-data-[state=active]:text-[#0a0a0b]">{name}</span>
         <span className="text-xs font-semibold text-slate-400 group-data-[state=active]:text-white/70 lg:text-white/40 lg:group-data-[state=active]:text-[var(--c)]">{tracks.length + 1}</span>
       </Tabs.Trigger>)}
     </Tabs.List>
@@ -112,12 +112,12 @@ export function MasterclassBrowser() {
     {/* Category panels: all stacked in one cell (only the active one visible), so the area keeps the height of the tallest and nothing jumps. */}
     <div className="grid min-w-0 [&>*]:[grid-area:1/1]">
     {categories.map(cat => {
-      const { id, name, description, color, soft, overview, tracks } = cat;
+      const { id, name, description, color, overview, tracks } = cat;
       const all = [{ ...overview, tag: overview.tag ?? 'Overview' }, ...tracks];
       const logos = all.filter(t => t.logo).slice(0, 5);
-      return <Tabs.Content key={id} value={id} forceMount className="mc-panel data-[state=inactive]:invisible min-w-0 overflow-hidden rounded-[24px] border border-slate-200 bg-white outline-none">
+      return <Tabs.Content key={id} value={id} forceMount className="mc-panel data-[state=inactive]:invisible min-w-0 overflow-hidden rounded-[16px] border border-slate-200 bg-surface outline-none">
         {/* Header */}
-        <div className="relative overflow-hidden px-5 pb-5 pt-6 sm:px-7" style={{ background: `linear-gradient(135deg, ${soft}, #fff 70%)` }}>
+        <div className="relative overflow-hidden px-5 pb-5 pt-6 sm:px-7" style={{ background: `linear-gradient(135deg, color-mix(in srgb, ${color} 12%, transparent), transparent 70%)` }}>
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="min-w-0 max-w-xl">
               <p className="text-[13px] font-semibold uppercase tracking-[0.12em]" style={{ color }}>{tracks.length + 1} MasterClasses</p>
@@ -125,7 +125,7 @@ export function MasterclassBrowser() {
               <p className="mt-1.5 text-[15px] leading-6 text-neutral-600">{description}</p>
             </div>
             {logos.length > 1 && <div aria-hidden="true" className="flex -space-x-2.5">
-              {logos.map(t => <span key={t.href} className="grid size-11 place-items-center rounded-full bg-white shadow-[0_4px_12px_-4px_rgb(10_10_11/0.2)] ring-2 ring-white">
+              {logos.map(t => <span key={t.href} className="grid size-11 place-items-center rounded-full bg-white shadow-[0_4px_12px_-4px_rgb(10_10_11/0.2)] ring-2 ring-surface">
                 {/* eslint-disable-next-line @next/next/no-img-element -- tiny local SVG logos */}
                 <img src={`/masterclasses/assets/icons/tech/${t.logo}.svg`} alt="" width={24} height={24} className="size-6 object-contain" />
               </span>)}
@@ -135,12 +135,12 @@ export function MasterclassBrowser() {
 
         <div className="grid gap-3 p-3 sm:grid-cols-2 sm:p-4 xl:grid-cols-3">
           {/* Topics */}
-          {all.map((t, i) => <a key={t.href} href={t.href} style={{ '--d': `${60 + i * 45}ms`, '--c': color, '--s': soft } as CSSProperties}
-            className="mc-card group relative flex items-center gap-3.5 rounded-[20px] border border-slate-200 bg-white p-4 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[var(--c)] hover:shadow-[0_18px_40px_-24px_rgb(10_10_11/0.45)]">
+          {all.map((t, i) => <a key={t.href} href={t.href} style={{ '--d': `${60 + i * 45}ms`, '--c': color, '--s': `color-mix(in srgb, ${color} 12%, transparent)` } as CSSProperties}
+            className="mc-card group relative flex items-center gap-3.5 rounded-[14px] border border-slate-200 bg-surface p-4 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[var(--c)] hover:shadow-[0_18px_40px_-24px_rgb(10_10_11/0.45)]">
             <Mark track={t} color={color} size="md" />
             <span className="min-w-0 flex-1">
               <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5"><span className="text-[15px] font-semibold leading-snug text-ink">{t.name}</span>
-                {t.tag && <span className="shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold" style={{ background: soft, color }}>{t.tag}</span>}</span>
+                {t.tag && <span className="shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold" style={{ background: `color-mix(in srgb, ${color} 14%, transparent)`, color }}>{t.tag}</span>}</span>
               <span className="mt-0.5 line-clamp-2 block text-[13px] leading-5 text-neutral-500">{t.sub}</span>
             </span>
             <ArrowUpRight aria-hidden="true" className="size-4 shrink-0 text-slate-300 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--c)]" />

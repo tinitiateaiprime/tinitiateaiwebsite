@@ -1,5 +1,5 @@
 import { Mail, MessageCircle, Phone } from 'lucide-react';
-import { Highlight, SectionHeading } from '../SectionHeading';
+import { HandNote, SectionHeading } from '../SectionHeading';
 import { FaqAccordion, type Faq } from './FaqAccordion';
 import { EnquiryForm } from '@/components/forms/EnquiryForm';
 
@@ -16,25 +16,26 @@ const faqs: Faq[] = [
 ];
 
 export function FaqSection() {
-  return <section aria-labelledby="faq-title" className="border-t border-neutral-100 bg-[#f7f8fa] py-12 sm:py-16">
+  return <section aria-labelledby="faq-title" className="bg-surface py-14 sm:py-20">
     <div className="mx-auto max-w-7xl px-4 sm:px-6">
-      <SectionHeading id="faq-title" title={<>Questions? <Highlight>We’ve got answers.</Highlight></>}>
-        Still unsure about something? Send us a message and a mentor will call you back.
+      <SectionHeading id="faq-title" title="Questions people ask before joining">
+        Can&apos;t find yours? Send it below. A mentor reads every message and calls you back.
       </SectionHeading>
 
       <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
         <FaqAccordion faqs={faqs} />
 
         <div className="lg:sticky lg:top-[calc(var(--header-h)+1.5rem)] lg:self-start">
-          <div className="rounded-[28px] border border-neutral-200 bg-white p-6 shadow-[0_40px_90px_-50px_rgb(10_10_11/0.35)] sm:p-8">
+          <div className="rounded-[18px] border border-neutral-200 bg-surface p-6 shadow-[0_1px_2px_rgb(10_10_11/0.05)] sm:p-8">
             <p className="text-2xl font-semibold tracking-[-0.03em] text-ink">Talk to a mentor</p>
             <p className="mt-1.5 text-[15px] text-neutral-500">Get a free career call and your 2 free sessions.</p>
+            <HandNote arrow="down" className="mt-3">a real person calls you, not a bot</HandNote>
             <div className="mt-6"><EnquiryForm source="homepage FAQ form" /></div>
           </div>
           <div className="mt-4 grid gap-2 sm:grid-cols-3">
-            <a href="https://wa.me/916309123485" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-white px-3 py-3 text-sm font-semibold text-ink transition hover:border-emerald-500 hover:text-emerald-600"><MessageCircle aria-hidden="true" className="size-4" />WhatsApp</a>
-            <a href="tel:+916309123485" className="flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-white px-3 py-3 text-sm font-semibold text-ink transition hover:border-accent hover:text-accent"><Phone aria-hidden="true" className="size-4" />Call us</a>
-            <a href="mailto:contact@tinitiateai.com" className="flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-white px-3 py-3 text-sm font-semibold text-ink transition hover:border-accent hover:text-accent"><Mail aria-hidden="true" className="size-4" />Email</a>
+            <a href="https://wa.me/916309123485" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-surface px-3 py-3 text-sm font-semibold text-ink transition hover:border-emerald-500 hover:text-emerald-600"><MessageCircle aria-hidden="true" className="size-4" />WhatsApp</a>
+            <a href="tel:+916309123485" className="flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-surface px-3 py-3 text-sm font-semibold text-ink transition hover:border-accent hover:text-accent"><Phone aria-hidden="true" className="size-4" />Call us</a>
+            <a href="mailto:contact@tinitiateai.com" className="flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-surface px-3 py-3 text-sm font-semibold text-ink transition hover:border-accent hover:text-accent"><Mail aria-hidden="true" className="size-4" />Email</a>
           </div>
         </div>
       </div>

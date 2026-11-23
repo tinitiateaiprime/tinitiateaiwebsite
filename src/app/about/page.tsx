@@ -37,7 +37,7 @@ const values: { title: string; text: string; icon: IconType }[] = [
 export default function AboutPage() {
   return <>
     {/* Intro */}
-    <section className="bg-white">
+    <section className="bg-surface">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 pb-12 pt-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16 lg:pb-16 lg:pt-12">
         <div>
           <h1 className="isolate text-[2.7rem] font-semibold leading-[1.04] tracking-[-0.045em] text-ink sm:text-6xl">
@@ -52,7 +52,7 @@ export default function AboutPage() {
             <Link href="/courses" className="text-[15px] font-semibold text-ink underline decoration-neutral-300 underline-offset-4 hover:decoration-ink">Explore courses</Link>
           </div>
         </div>
-        <div className="relative aspect-[16/10] overflow-hidden rounded-[28px] bg-[#071425] shadow-[0_40px_90px_-50px_rgb(10_10_11/0.55)]">
+        <div className="relative aspect-[16/10] overflow-hidden rounded-[18px] bg-[#071425] shadow-[0_1px_2px_rgb(10_10_11/0.05)]">
           <Image src="/images/banners/company.webp" alt="Technology services and training at Tinitiate AI Solutions" fill priority sizes="(min-width:1024px) 620px, 100vw" className="about-kenburns object-cover" />
           <div aria-hidden="true" className="about-sweep pointer-events-none absolute inset-y-0 -left-1/3 w-1/3" />
         </div>
@@ -60,24 +60,24 @@ export default function AboutPage() {
     </section>
 
     {/* Story + talk to an expert */}
-    <section className="border-t border-neutral-100 bg-[#f7f8fa] py-12 sm:py-16">
+    <section className="section-dark py-14 sm:py-16">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-14">
         <div>
-          <h2 className="isolate text-[2rem] font-semibold leading-[1.12] tracking-[-0.04em] text-ink sm:text-[2.6rem]">Bridging industry demands and <Highlight>individual potential.</Highlight></h2>
+          <h2 className="isolate text-[2rem] font-semibold leading-[1.12] tracking-[-0.04em] text-ink sm:text-[2.6rem]">What we do, <Highlight>in plain words</Highlight></h2>
           <div className="mt-7 space-y-5 text-[17px] leading-8 text-neutral-600">
-            <p><strong className="font-semibold text-ink">Tinitiate AI Solutions</strong> is a leading training company, dedicated to empowering businesses with cutting-edge technology solutions and high-quality professional training. Our vision is to bridge the gap between industry demands and individual potential, helping learners and enterprises grow together.</p>
-            <p>With a highly experienced team carrying years of deep expertise in IT services, database management, and cloud computing, we craft tailored solutions that meet the evolving demands of enterprises worldwide, from ambitious startups to established global corporations. Every engagement is backed by real-world experience and a passion for measurable outcomes.</p>
-            <p>Our commitment goes beyond training. We partner with our learners through every step of their journey, delivering real-world skills, actionable insights, and the career momentum needed to thrive in today&apos;s rapidly changing digital landscape. <span className="font-medium text-ink">With Tinitiate AI Solutions, your next career breakthrough starts here.</span></p>
+            <p><strong className="font-semibold text-ink">Tinitiate AI Solutions</strong> teaches people the tech skills companies hire for, and helps businesses build with those same technologies. We work from Hyderabad and Irving, Texas.</p>
+            <p>Our team comes from IT services, databases and cloud work. That matters in class: you learn the way the work is actually done, from people who have done it for startups and large companies alike.</p>
+            <p>We don&apos;t stop at the last class. We help with projects, your resume and interview practice until you&apos;re ready to apply. <span className="font-medium text-ink">If you&apos;re unsure where to begin, the first two sessions are free. Come and see how we teach.</span></p>
           </div>
         </div>
         <aside className="lg:self-start">
-          <div className="relative overflow-hidden rounded-[28px] bg-ink p-7 text-white sm:p-8">
+          <div className="relative overflow-hidden rounded-[18px] bg-night p-7 text-white ring-1 ring-white/10 sm:p-8">
             <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-16 size-56 rounded-full bg-accent/40 blur-3xl" />
             <p className="relative inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-[13px] font-semibold"><span className="size-2 rounded-full bg-emerald-400" />Available now</p>
             <h3 className="relative mt-4 text-2xl font-semibold tracking-[-0.03em]">Talk to an Expert</h3>
             <p className="relative mt-2 text-[15px] leading-7 text-white/70">Get clear guidance on the right course, batch, and next step for your career goal.</p>
             <ul className="relative mt-6 space-y-3">{expert.map(e => <li key={e} className="flex gap-3 text-[15px] text-white/85"><CheckCircle2 aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-[#a5b8ff]" />{e}</li>)}</ul>
-            <Link href="/request-callback" className="group relative mt-7 flex h-12 items-center justify-center gap-2 rounded-full bg-white text-[15px] font-semibold text-ink transition hover:bg-[#fff200]">Request a call back <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover:translate-x-0.5" /></Link>
+            <Link href="/request-callback" className="group relative mt-7 flex h-12 items-center justify-center gap-2 rounded-full bg-white text-[15px] font-semibold text-[#0a0a0b] transition hover:bg-[#fff200]">Request a call back <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover:translate-x-0.5" /></Link>
             <p className="relative mt-3 text-center text-[13px] text-white/55">Our team responds within 24 hours.</p>
           </div>
         </aside>
@@ -86,11 +86,11 @@ export default function AboutPage() {
     </section>
 
     {/* CEO message */}
-    <section className="bg-white py-12 sm:py-16">
+    <section className="bg-surface py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading id="ceo-title" title={<>A message from <Highlight>our CEO</Highlight></>}>Why we train the way we do, and what we want every learner to leave with.</SectionHeading>
         <div className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-12">
-          <figure className="overflow-hidden rounded-[28px] border border-neutral-200 bg-ink shadow-[0_40px_90px_-50px_rgb(10_10_11/0.5)]">
+          <figure className="overflow-hidden rounded-[18px] border border-neutral-200 bg-night shadow-[0_1px_2px_rgb(10_10_11/0.05)]">
             <video controls playsInline preload="none" poster="/videos/tinitiate-ai-career-options-poster.webp" className="aspect-video w-full bg-black">
               <source src="/videos/tinitiate-ai-career-options.mp4" type="video/mp4" />
             </video>
@@ -115,12 +115,12 @@ export default function AboutPage() {
     </section>
 
     {/* What we teach */}
-    <section className="border-t border-neutral-100 bg-[#f7f8fa] py-12 sm:py-16">
+    <section className="section-dark py-14 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading id="paths-title" title={<>Five paths into <Highlight>tech careers.</Highlight></>}>Live, mentor-led tracks built around the skills companies are hiring for right now.</SectionHeading>
         <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {paths.map(({ title, note, text, href, icon: Icon }) => <li key={title}>
-            <Link href={href} className="group flex h-full flex-col rounded-[22px] border border-neutral-200 bg-white p-6 transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_50px_-32px_rgb(10_10_11/0.5)]">
+            <Link href={href} className="group flex h-full flex-col rounded-[14px] border border-neutral-200 bg-surface p-6 transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_50px_-32px_rgb(10_10_11/0.5)]">
               <span className="grid size-12 place-items-center rounded-2xl bg-accent text-white"><Icon aria-hidden="true" className="size-7" /></span>
               <p className="mt-5 text-lg font-semibold leading-snug tracking-[-0.02em] text-ink">{title}</p>
               <p className="mt-1 text-xs font-semibold uppercase tracking-[0.1em] text-accent">{note}</p>
@@ -133,7 +133,7 @@ export default function AboutPage() {
     </section>
 
     {/* Mission & values */}
-    <section className="bg-white py-12 sm:py-16">
+    <section className="bg-surface py-12 sm:py-16">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
         <div>
           <h2 className="isolate text-[2rem] font-semibold leading-[1.12] tracking-[-0.04em] text-ink sm:text-[2.6rem]">
@@ -142,7 +142,7 @@ export default function AboutPage() {
           <p className="mt-6 text-xl leading-9 text-neutral-700">To enable individuals, students, and corporate teams to thrive in the digital world by delivering hands-on, real-time IT education, software development, and cloud-based engineering solutions.</p>
         </div>
         <ul className="grid gap-4 sm:grid-cols-2">
-          {values.map(({ title, text, icon: Icon }) => <li key={title} className="rounded-[22px] border border-neutral-200 p-6">
+          {values.map(({ title, text, icon: Icon }) => <li key={title} className="rounded-[14px] border border-neutral-200 p-6">
             <span className="grid size-12 place-items-center rounded-2xl bg-accent-soft text-accent"><Icon aria-hidden="true" className="size-7" /></span>
             <p className="mt-4 text-base font-semibold text-ink">{title}</p>
             <p className="mt-1.5 text-sm leading-6 text-neutral-500">{text}</p>

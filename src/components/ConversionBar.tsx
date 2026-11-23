@@ -14,8 +14,8 @@ export function CtaBand() {
   const pathname = usePathname();
   // The homepage already ends with the FAQ + enquiry form.
   if (isFormPage(pathname) || pathname === '/') return null;
-  return <section aria-labelledby="cta-band-title" className="bg-white px-4 py-10 sm:px-6 sm:py-12">
-    <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[32px] bg-ink px-6 py-10 text-white sm:px-10 sm:py-11">
+  return <section aria-labelledby="cta-band-title" className="bg-surface px-4 py-10 sm:px-6 sm:py-12">
+    <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[14px] bg-night px-6 py-10 text-white ring-1 ring-white/10 sm:px-10 sm:py-11">
       <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 size-80 rounded-full bg-accent/50 blur-3xl" />
       <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 left-1/3 size-72 rounded-full bg-[#fff200]/10 blur-3xl" />
       <div className="relative grid items-center gap-8 lg:grid-cols-[minmax(0,1.2fr)_auto]">
@@ -27,7 +27,7 @@ export function CtaBand() {
           </ul>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-          <Link href="/request-callback" className="group inline-flex h-13 items-center justify-center gap-2.5 rounded-full bg-white px-7 text-base font-semibold text-ink transition-colors hover:bg-[#fff200]">
+          <Link href="/request-callback" className="group inline-flex h-13 items-center justify-center gap-2.5 rounded-full bg-white px-7 text-base font-semibold text-[#0a0a0b] transition-colors hover:bg-[#fff200]">
             Book 2 free sessions <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
           <a href={contact.whatsapp.href} target="_blank" rel="noopener noreferrer" className="inline-flex h-13 items-center justify-center gap-2 rounded-full border border-white/20 px-7 text-base font-semibold text-white transition-colors hover:bg-white/10">
@@ -45,7 +45,7 @@ export function MobileCtaBar() {
   if (isFormPage(pathname)) return null;
   return <>
     <div aria-hidden="true" className="h-[76px] lg:hidden" />
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-neutral-200 bg-white/95 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-md lg:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-neutral-200 bg-surface/95 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-md lg:hidden">
       <div className="mx-auto flex max-w-xl gap-2">
         <Link href="/request-callback" className="flex h-12 flex-1 items-center justify-center gap-2 rounded-full bg-accent text-[15px] font-semibold text-white">
           Book 2 free sessions <ArrowRight aria-hidden="true" className="size-4" />
