@@ -3,17 +3,18 @@
 import Link from 'next/link';
 import { useState, type FormEvent } from 'react';
 import { ArrowRight, CheckCircle2, ChevronDown, Loader2 } from 'lucide-react';
+import { paths } from '@/data/paths';
 
-const PATHS = ['AI Engineer', 'Agentic AI Developer', 'Cloud Engineer (AWS / Azure)', 'Data Governance', 'Full Stack Developer', 'Campus or corporate training', 'Not sure yet'];
+const PATHS = [...paths.map(p => p.label), 'Campus or corporate training', 'Not sure yet'];
 const TIMES = ['Morning (9 am – 12 pm)', 'Afternoon (12 pm – 4 pm)', 'Evening (4 pm – 8 pm)', 'Weekend'];
 
 const field = 'mt-1.5 block h-12 w-full rounded-xl border border-neutral-300 bg-white px-4 text-[15px] text-ink outline-none transition placeholder:text-neutral-400 focus:border-accent focus:ring-4 focus:ring-accent/15';
 const labelCls = 'text-sm font-medium text-neutral-700';
 
-function Select({ name, placeholder, options, defaultValue }: { name: string; placeholder: string; options: string[]; defaultValue: string }) {
+function Select({ name, placeholder, options, defaultValue, required = true }: { name: string; placeholder: string; options: string[]; defaultValue: string; required?: boolean }) {
   return <span className="relative block">
-    <select name={name} required defaultValue={defaultValue} className={`${field} appearance-none pr-10`}>
-      <option value="" disabled>{placeholder}</option>
+    <select name={name} required={required} defaultValue={defaultValue} className={`${field} appearance-none pr-10`}>
+      <option value="" disabled={required}>{placeholder}</option>
       {options.map(o => <option key={o}>{o}</option>)}
     </select>
     <ChevronDown aria-hidden="true" className="pointer-events-none absolute right-4 top-1/2 mt-[3px] size-4 -translate-y-1/2 text-neutral-500" />
@@ -57,7 +58,7 @@ export function EnquiryForm({ course = '', source, submitLabel = 'Send message',
   if (status === 'done') return <div role="status" className="flex min-h-[420px] flex-col items-center justify-center text-center">
     <span className="grid size-14 place-items-center rounded-full bg-emerald-50 text-emerald-600"><CheckCircle2 aria-hidden="true" className="size-7" /></span>
     <p className="mt-5 text-xl font-semibold text-ink">Thanks! We&apos;ve got your message.</p>
-    <p className="mt-2 max-w-xs text-[15px] leading-6 text-neutral-500">A mentor will call you at your preferred time.</p>
+    <p className="mt-2 max-w-xs text-[15px] leading-6 text-neutral-500">A mentor will call you within 24 hours to plan your free sessions. Want a faster reply? <a href="https://wa.me/916309123485" target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-600 underline underline-offset-2">Message us on WhatsApp</a>.</p>
     <button type="button" onClick={() => setStatus('idle')} className="mt-6 text-[15px] font-semibold text-accent underline underline-offset-4">Send another message</button>
   </div>;
 
@@ -69,7 +70,7 @@ export function EnquiryForm({ course = '', source, submitLabel = 'Send message',
     <label className={labelCls}>Email<input name="email" type="email" required maxLength={254} autoComplete="email" placeholder="you@example.com" className={field} /></label>
     <div className="grid gap-4 sm:grid-cols-2">
       <label className={labelCls}>Interested in<Select name="course" placeholder="Choose a path" options={options} defaultValue={course} /></label>
-      <label className={labelCls}>Best time to call<Select name="preferredTime" placeholder="Choose a time" options={TIMES} defaultValue="" /></label>
+      <label className={labelCls}>Best time to call <span className="font-normal text-neutral-400">(optional)</span><Select name="preferredTime" placeholder="Any time" options={TIMES} defaultValue="" required={false} /></label>
     </div>
     <label className={labelCls}>{messageLabel} <span className="font-normal text-neutral-400">(optional)</span>
       <textarea name="message" rows={3} maxLength={4000} placeholder={messagePlaceholder} className={`${field} h-auto resize-none py-3`} />

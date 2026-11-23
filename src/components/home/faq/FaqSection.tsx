@@ -16,13 +16,13 @@ const faqs: Faq[] = [
 ];
 
 export function FaqSection() {
-  return <section aria-labelledby="faq-title" className="border-t border-neutral-100 bg-[#f7f8fa] py-20 sm:py-24">
+  return <section aria-labelledby="faq-title" className="border-t border-neutral-100 bg-[#f7f8fa] py-12 sm:py-16">
     <div className="mx-auto max-w-7xl px-4 sm:px-6">
       <SectionHeading id="faq-title" title={<>Questions? <Highlight>We’ve got answers.</Highlight></>}>
         Still unsure about something? Send us a message and a mentor will call you back.
       </SectionHeading>
 
-      <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
+      <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
         <FaqAccordion faqs={faqs} />
 
         <div className="lg:sticky lg:top-[calc(var(--header-h)+1.5rem)] lg:self-start">

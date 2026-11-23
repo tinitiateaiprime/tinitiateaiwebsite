@@ -20,10 +20,10 @@ export function Highlight({ children }: { children: ReactNode }) {
  */
 export function SectionHeading({ id, title, children, className }: { id: string; title: ReactNode; children?: ReactNode; className?: string }) {
   return <div className={cn('mx-auto max-w-3xl text-center', className)}>
-    <h2 id={id} className="isolate text-balance text-[2rem] font-semibold leading-[1.12] tracking-[-0.04em] text-ink sm:text-[2.6rem] lg:text-[3rem]">
+    <h2 id={id} className="isolate text-balance text-[2rem] font-semibold leading-[1.12] tracking-[-0.04em] text-ink sm:text-[2.4rem] lg:text-[2.7rem]">
       <BrandMark className="mr-[0.32em] inline-block h-[0.62em] w-auto -translate-y-[0.06em] align-baseline drop-shadow-[0_0_0.6px_rgb(10_10_11/0.45)]" />
       {title}
     </h2>
-    {children && <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-7 text-neutral-600 sm:text-lg sm:leading-8">{children}</p>}
+    {children && <p className="mx-auto mt-3 max-w-2xl text-pretty text-base leading-7 text-neutral-600 sm:text-lg sm:leading-8">{children}</p>}
   </div>;
 }
