@@ -122,16 +122,9 @@ main pre { max-width:100%; overflow-x:auto; }
 .sv-scan { animation:sv-scan var(--dur,2.4s) cubic-bezier(.6,0,.3,1) var(--d,0ms) forwards; }
 @keyframes sv-scan { 0%,8% { transform:none; } 25%,33% { transform:translate(var(--x1),var(--y1)); } 50%,58% { transform:translate(var(--x2),var(--y2)); } 75%,100% { transform:translate(var(--x3),var(--y3)); } }
 
-/* ---------- Home courses slider (section 3) ---------- */
-.course-in-right { animation:course-in-r .6s cubic-bezier(.2,.8,.2,1) both; }
-.course-in-left { animation:course-in-l .6s cubic-bezier(.2,.8,.2,1) both; }
-@keyframes course-in-r { from { opacity:0; transform:translateX(56px); } to { opacity:1; transform:none; } }
-@keyframes course-in-l { from { opacity:0; transform:translateX(-56px); } to { opacity:1; transform:none; } }
-.course-line { opacity:0; animation:hero-rise .5s cubic-bezier(.2,.7,.2,1) var(--d,0ms) forwards; }
+/* ---------- Home course cards ---------- */
 .course-tile { opacity:0; animation:course-tile-in .6s cubic-bezier(.2,.9,.3,1.2) var(--d,0ms) forwards; }
 @keyframes course-tile-in { from { opacity:0; transform:translateY(14px) scale(.9); } to { opacity:1; transform:none; } }
-.course-bubble { background:radial-gradient(circle, color-mix(in srgb, var(--c) 16%, transparent) 0%, color-mix(in srgb, var(--c) 7%, transparent) 48%, transparent 71%); animation:course-float 4.8s ease-in-out var(--float,0s) infinite; }
-.course-bubble::before { content:''; position:absolute; inset:15%; border-radius:9999px; background:#fff; box-shadow:0 14px 34px -14px color-mix(in srgb, var(--c) 55%, transparent), 0 0 0 1px rgb(10 10 11 / .05); }
 @keyframes course-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
 
 /* ---------- About page hero image ---------- */
@@ -169,10 +162,12 @@ main pre { max-width:100%; overflow-x:auto; }
 @keyframes faq-open { from { height:0; opacity:0; } to { height:var(--radix-accordion-content-height); opacity:1; } }
 @keyframes faq-close { from { height:var(--radix-accordion-content-height); opacity:1; } to { height:0; opacity:0; } }
 
-/* ---------- Home journey (section 2) ---------- */
-/* Drawings wait until their stop is revealed. */
-.journey-stop:not([data-in]) * { animation-play-state:paused !important; }
-.journey-stop[data-in] .journey-dot { border-color:var(--color-accent); background:var(--color-accent); }
+
+/* ---------- Home hero cards + tools strip ---------- */
+.hero-float { animation:course-float 5s ease-in-out var(--float,0s) infinite; }
+.marquee-track { animation:marquee 45s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state:paused; }
+@keyframes marquee { to { transform:translateX(-100%); } }
 
 @media (prefers-reduced-motion:reduce) {
   html {scroll-behavior:auto}

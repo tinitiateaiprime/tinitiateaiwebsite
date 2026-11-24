@@ -2,7 +2,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowRight, ChevronDown, Mail, Phone, Sparkles } from 'lucide-react';
+import { PiWhatsappLogoDuotone } from 'react-icons/pi';
 import { cn } from '@/lib/cn';
 import { paths, toolIcon } from '@/data/paths';
 import { contact } from '@/lib/contactInfo';
@@ -138,8 +139,33 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
   </header>;
 }
 
+/** Thin contact strip above the header (desktop): the new-batch offer and every way to reach us. Scrolls away; the header stays. */
+function TopBar() {
+  const [india, usa] = contact.phones;
+  const item = 'inline-flex items-center gap-1.5 text-white/80 transition-colors hover:text-white';
+  return <div className="hidden bg-[linear-gradient(90deg,#0b1640,#1c2f8f_55%,#3b1f8f)] text-[13px] text-white xl:block">
+    <div className="mx-auto flex h-9 max-w-7xl items-center justify-between gap-6 px-6">
+      <Link href={BOOK} className="group inline-flex items-center gap-2 font-medium">
+        <Sparkles aria-hidden="true" className="size-3.5 text-[#fff200]" />
+        New weekday &amp; weekend batches open
+        <span className="text-white/60">·</span>
+        <span className="font-semibold text-[#fff200] underline-offset-4 group-hover:underline">First 2 sessions free</span>
+      </Link>
+      <ul className="flex items-center gap-5">
+        <li><a href={india.href} className={item}><Phone aria-hidden="true" className="size-3.5" />{india.label}</a></li>
+        <li><a href={usa.href} className={item}><Phone aria-hidden="true" className="size-3.5" />{usa.label}</a></li>
+        <li><a href={`mailto:${contact.email}`} className={item}><Mail aria-hidden="true" className="size-3.5" />{contact.email}</a></li>
+        <li><a href={contact.whatsapp.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500 px-3 py-1 font-semibold text-white transition-colors hover:bg-emerald-400"><PiWhatsappLogoDuotone aria-hidden="true" className="size-4" />WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>;
+}
+
 export function SiteHeader() {
   const pathname = usePathname();
   // Keyed so the menus close on navigation.
-  return <HeaderNavigation key={pathname} pathname={pathname} />;
+  return <>
+    <TopBar />
+    <HeaderNavigation key={pathname} pathname={pathname} />
+  </>;
 }
