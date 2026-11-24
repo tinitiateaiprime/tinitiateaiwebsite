@@ -125,7 +125,7 @@ const sections = [
       { text: 'Email: contact@tinitiateai.com' },
       { text: 'Website: www.tinitiateai.com' },
       { text: 'Phone: +91 6309123485' },
-      { text: 'Address: 1-2/10 SBH Colony Mohan Nagar, SBH Colony, Kothapet, 500036, Telangana, India' },
+      { text: 'Address: Tinitiate AI, 3rd Floor, Prime Villa, 13-16, Road No. 1, Krishna Nagar, Dilsukhnagar, Hyderabad, Telangana 500060, India' },
     ],
   },
 ]

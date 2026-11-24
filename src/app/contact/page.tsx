@@ -23,6 +23,8 @@ const social = [
 const card = 'group flex items-start gap-4 rounded-[14px] border border-neutral-200 bg-surface p-5 transition-[box-shadow,border-color] duration-300 hover:border-accent/40 hover:shadow-[0_20px_44px_-30px_rgb(10_10_11/0.5)]';
 const iconTile = 'grid size-12 shrink-0 place-items-center rounded-2xl bg-accent-soft text-accent';
 
+const hq = contact.offices[0];
+
 export default function ContactPage() {
   return <section className="bg-subtle">
     <div className="mx-auto grid max-w-7xl gap-12 px-4 pb-14 pt-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:grid-rows-[auto_1fr] lg:gap-x-14 lg:gap-y-0 lg:pb-16 lg:pt-12">
@@ -67,7 +69,7 @@ export default function ContactPage() {
             <div className="flex items-center gap-3"><span className={`${iconTile} size-10`}><PiMapPinDuotone aria-hidden="true" className="size-6" /></span>
               <div><p className="text-[15px] font-semibold text-ink">{o.name}</p><p className="text-sm text-neutral-500">{o.city}</p></div></div>
             <address className="mt-4 text-[15px] not-italic leading-6 text-neutral-600">{o.address}</address>
-            <a href={directions(o.address)} target="_blank" rel="noopener noreferrer" className="group mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent">Get directions <ArrowUpRight aria-hidden="true" className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></a>
+            <a href={o.mapUrl ?? directions(o.address)} target="_blank" rel="noopener noreferrer" className="group mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent">Get directions <ArrowUpRight aria-hidden="true" className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></a>
           </li>)}
         </ul>
 
@@ -77,6 +79,19 @@ export default function ContactPage() {
         </ul>
       </div>
 
+
     </div>
+
+    {hq.embedUrl && <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
+      <h2 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-neutral-400">Find us in Hyderabad</h2>
+      <div className="relative mt-4 overflow-hidden rounded-[18px] border border-neutral-200 bg-surface shadow-[0_1px_2px_rgb(10_10_11/0.05)]">
+        <iframe src={hq.embedUrl} title={`Map: ${hq.address}`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen className="block h-[340px] w-full border-0 sm:h-[420px]" />
+        <div className="light-island border-t border-neutral-200 bg-white p-5 sm:absolute sm:left-5 sm:top-5 sm:max-w-sm sm:rounded-[14px] sm:border sm:shadow-[0_20px_44px_-24px_rgb(10_10_11/0.45)]">
+          <p className="flex items-center gap-2 text-[15px] font-semibold text-ink"><PiMapPinDuotone aria-hidden="true" className="size-5 text-accent" />{hq.name}</p>
+          <address className="mt-2 text-[15px] not-italic leading-6 text-neutral-600">{hq.address}</address>
+          <a href={hq.mapUrl} target="_blank" rel="noopener noreferrer" className="group mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent">Open in Google Maps <ArrowUpRight aria-hidden="true" className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></a>
+        </div>
+      </div>
+    </div>}
   </section>;
 }
