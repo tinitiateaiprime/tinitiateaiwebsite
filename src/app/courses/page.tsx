@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   description: 'Live, mentor-led courses in AI, cloud, data engineering, full stack development, databases and programming. See the syllabus, level and duration of every course.',
 };
 
-export default async function CoursesPage({ searchParams }: { searchParams: Promise<{ category?: string | string[] }> }) {
-  const { category } = await searchParams;
+export default async function CoursesPage({ searchParams }: { searchParams: Promise<{ category?: string | string[]; q?: string | string[] }> }) {
+  const { category, q } = await searchParams;
   return <div className="bg-subtle">
     <div className="mx-auto max-w-7xl px-4 pb-12 pt-8 sm:px-6 lg:pt-12">
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
@@ -34,7 +34,7 @@ export default async function CoursesPage({ searchParams }: { searchParams: Prom
       </div>
       </div>
 
-      <CourseSearch courses={courses} initialCategory={typeof category === 'string' ? category : undefined} />
+      <CourseSearch courses={courses} initialCategory={typeof category === 'string' ? category : undefined} initialQuery={typeof q === 'string' ? q.slice(0, 80) : ''} />
     </div>
   </div>;
 }

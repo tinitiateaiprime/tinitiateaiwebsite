@@ -10,10 +10,10 @@ import { cn } from '@/lib/cn';
 const PAGE = 12;
 
 /** Browse all courses: category chips, search and level, with a short list by default. */
-export function CourseSearch({ courses, initialCategory }: { courses: Course[]; initialCategory?: string }) {
+export function CourseSearch({ courses, initialCategory, initialQuery = '' }: { courses: Course[]; initialCategory?: string; initialQuery?: string }) {
   const valid = categories.some(c => c.id === initialCategory) ? initialCategory as CategoryId : 'all';
   const [category, setCategory] = useState<CategoryId | 'all'>(valid);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(initialQuery);
   const [level, setLevel] = useState('all');
   const [shown, setShown] = useState(PAGE);
 
