@@ -73,7 +73,7 @@ export function SiteFooter() {
             </li>
             <li className="flex gap-3"><PiMapPinDuotone aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-accent" />
               <div className="space-y-3">
-                <address className="not-italic"><span className="font-semibold text-ink">Corporate office</span><br />1-2/10 SBH Colony, Mohan Nagar, Kothapet, Telangana 500036, India</address>
+                <address className="not-italic"><span className="font-semibold text-ink">Corporate office</span><br />3rd Floor, Prime Villa, 13-16, Road No. 1, Krishna Nagar, Dilsukhnagar, Hyderabad, Telangana 500060, India</address>
                 <address className="not-italic"><span className="font-semibold text-ink">US office</span><br />1420 Valley Trl, Irving, TX 75063, USA</address>
               </div>
             </li>
