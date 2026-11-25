@@ -1133,13 +1133,16 @@ onmessage = async ({ data }) => {
       const d = DECKS[k], st = deckStats(k);
       seenTotal += st.c; total += st.n;
       const label = st.c === 0 ? 'Open dashboard' : (st.c === st.n ? 'Review' : 'Continue');
+      const previewTopics = d.slides.slice(1, 3);
       return `<article class="py-mod-card" style="--mod-accent:${d.accent};">
         <div class="py-mod-head"><div class="py-mod-icon">${d.icon}</div><div><span class="py-mod-meta">Module ${n + 1}</span><h3 class="py-mod-title">${esc(d.name)}</h3></div></div>
         <p class="py-sub" style="font-size:0.88rem;">${esc(d.blurb)}</p>
-        <div class="py-mod-topics">${d.slides.slice(1, 6).map(s => `<span class="py-chip">${esc(s.title)}</span>`).join('')}<span class="py-chip">+${st.n - 6} more</span></div>
-        <span class="py-mod-meta">${st.n} slides &bull; about ${st.mins} minutes</span>
-        <div class="py-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${st.pct}" aria-label="${esc(d.name)} progress"><span style="width:${st.pct}%"></span></div>
-        <div class="py-mod-foot"><span>${st.c} / ${st.n} slides opened &bull; ${st.pct}%</span><a class="py-btn" href="${d.page}" style="border-color:${d.accent}66;">${label} &rarr;</a></div>
+        <div class="py-mod-topics">${previewTopics.map(s => `<span class="py-chip">${esc(s.title)}</span>`).join('')}</div>
+        <div class="sql-card-progress">
+          <span class="py-mod-meta">${st.c} / ${st.n} slides opened &bull; about ${st.mins} min</span>
+          <div class="py-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${st.pct}" aria-label="${esc(d.name)} progress"><span style="width:${st.pct}%"></span></div>
+          <div class="py-mod-foot"><a class="py-btn" href="${d.page}" style="border-color:${d.accent}66;">${label} &rarr;</a></div>
+        </div>
       </article>`;
     }).join('');
     $('py-overall').textContent = Math.round(seenTotal / total * 100) + '%';

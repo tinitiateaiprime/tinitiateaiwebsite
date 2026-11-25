@@ -1,9 +1,10 @@
 /* Optional recording layout: append ?record=1#player to the lesson URL. */
 .sql-dialect-note { margin:10px 0 16px; padding:11px 15px; font-size:.88rem; line-height:1.55;
   border-left:3px solid #facc15; color:#cbd5e1; background:rgba(250,204,21,.075); border-radius:4px 8px 8px 4px; }
-.sql-record-mode .master-top-nav, .sql-record-mode .site-footer,
-.sql-record-mode #tinitiate-book, .sql-record-mode #lesson-video { display:none !important; }
-.sql-record-mode .subject-hero-card, .sql-record-mode #dashboard, .sql-record-mode #py-modnav { display:none !important; }
+.sql-record-mode #sql-site-header, .sql-record-mode #sql-site-footer,
+.sql-record-mode #sql-academy-nav, .sql-record-mode .sql-intro,
+.sql-record-mode .sql-lesson-overview, .sql-record-mode .sql-lesson-topics,
+.sql-record-mode #py-modnav { display:none !important; }
 .sql-record-mode .py-wrap { width:100% !important; max-width:none !important; padding:16px 22px 24px !important; }
 .sql-record-mode #player { margin:0 !important; }
 .sql-record-mode #player > .py-eyebrow, .sql-record-mode #player > .py-h2,

@@ -1,16 +1,82 @@
 /* SQL Foundations: adds to ../python/python-course.css, which holds the shared player, slide and dashboard styles. */
 .py-wrap { --sql-add:#34d399; --sql-chg:#facc15; --sql-gone:#f87171; }
 
-/* Course sections keep their normal document order on narrow screens. */
-.sql-course .py-video-section {
-  align-self: start;
-  margin-bottom: 40px;
-  padding: 16px;
-  border: 1px solid var(--py-line);
-  border-radius: 18px;
-  background: var(--py-card);
-  scroll-margin-top: 90px;
+/* Shared SQL page layout. The inner lab uses the dark editor palette in both themes. */
+.sql-main {
+  --py-card: var(--sql-surface);
+  --py-line: var(--sql-line);
+  --py-muted: var(--sql-muted);
+  --py-text: var(--sql-ink);
+  padding-bottom: clamp(24px, 5vw, 56px);
 }
+.sql-main :is(section, nav)[id] { scroll-margin-top: calc(var(--sql-header-height) + 14px); }
+.sql-main .py-h2, .sql-main .py-mod-title, .sql-main .py-stat strong, .sql-main .py-step h4,
+.sql-main .py-modnav strong { color: var(--sql-ink); }
+.sql-main .py-sub, .sql-main .py-step p { color: var(--sql-muted); }
+.sql-main .py-eyebrow { color: var(--sql-link) !important; }
+.sql-kicker { color: var(--sql-link); text-transform: uppercase; letter-spacing: .12em; font-size: 12px; font-weight: 700; }
+.sql-intro {
+  margin-block: 4px 22px;
+  padding: clamp(18px, 4vw, 42px) !important;
+  border: 1px solid var(--sql-line);
+  border-radius: 20px;
+  background: linear-gradient(120deg, var(--sql-accent-soft), var(--sql-subtle) 72%);
+}
+.sql-intro .sql-kicker { margin: 0 0 8px; }
+.sql-intro h1 {
+  max-width: 30ch;
+  margin: 0;
+  font-size: clamp(1.8rem, 3.6vw, 3.2rem) !important;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.04em;
+}
+.sql-intro-copy { max-width: 72ch; margin: 12px 0 20px; font-size: clamp(1rem, 1.5vw, 1.12rem); color: var(--sql-muted); }
+.sql-actions, .sql-course-stats { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.sql-main .py-btn {
+  min-height: 42px;
+  padding: 8px 14px;
+  border-color: var(--sql-line);
+  background: var(--sql-surface);
+  color: var(--sql-ink);
+  font-size: 14px;
+}
+.sql-main .py-btn:hover { background: var(--sql-accent-soft); color: var(--sql-link); }
+.sql-main .py-btn.primary {
+  border-color: transparent;
+  background: #2f54eb;
+  color: #fff;
+  box-shadow: 0 7px 14px -10px #2f54ebaa;
+}
+.sql-main .py-btn.primary:hover { background: #2443c8; }
+.sql-main .sql-reset { color: #b91c1c; }
+[data-theme="dark"] .sql-main .sql-reset { color: #fca5a5; }
+.sql-main .py-section, .sql-main .py-video-section {
+  min-width: 0;
+  padding: clamp(14px, 2.2vw, 26px);
+  border: 1px solid var(--sql-line);
+  border-radius: 16px;
+  background: var(--sql-surface);
+  margin: 0 0 18px;
+}
+.sql-lesson-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.sql-lesson-overview > #dashboard, .sql-lesson-overview > #lesson-video { margin: 0; }
+.sql-progress-card { display: flex; flex-direction: column; justify-content: center; }
+.sql-progress-card .py-h2 { margin: 0 0 6px; }
+.sql-progress-value { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin: 18px 0 6px; color: var(--sql-muted); font-size: 14px; }
+.sql-progress-value strong { color: var(--sql-ink); font-size: 1.3rem; }
+.sql-main .py-meter { background: var(--sql-line); }
+.sql-progress-card .py-meter > span { background: var(--sql-accent); }
+.sql-progress-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-block: 15px 17px; }
+.sql-progress-stats div { padding: 7px 8px; border-radius: 8px; background: var(--sql-subtle); }
+.sql-progress-stats dt { color: var(--sql-muted); font-size: 12px; }
+.sql-progress-stats dd { margin: 0; font-size: 1rem; font-weight: 700; }
+.sql-main .py-video-section .py-h2 { font-size: 1rem; margin: 0 0 10px; }
 .sql-course .py-video-frame {
   aspect-ratio: 16 / 9;
   overflow: hidden;
@@ -23,29 +89,52 @@
   height: 100%;
   object-fit: contain;
 }
-.sql-course #dashboard .py-two-col { grid-template-columns: minmax(0, 1fr); }
-.sql-course .py-learn-grid { grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr)); }
-.sql-course .py-stats { grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); }
-.sql-course .py-modnav { grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); }
+.sql-main .py-learn-grid { grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); margin-top: 12px; }
+.sql-main .py-learn-item, .sql-main .py-step, .sql-main .py-stat {
+  color: var(--sql-ink);
+  background: var(--sql-subtle);
+}
+.sql-main .py-learn-item .num { background: var(--sql-surface); color: var(--sql-muted); }
+.sql-main .py-learn-item.seen .num { background: var(--sql-accent-soft); color: var(--sql-link); }
+.sql-main .py-learn-item:hover { background: var(--sql-accent-soft); border-color: var(--sql-accent); transform: none; }
+.sql-main .py-modnav { grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); margin: 0; }
+.sql-main .py-modnav a { background: var(--sql-subtle); overflow-wrap: anywhere; }
+.sql-main .py-modnav a:hover, .sql-main .py-mod-card:hover { border-color: var(--sql-accent); transform: none; box-shadow: none; }
+.sql-main .py-mod-card { gap: 10px; padding: 18px; box-shadow: 0 4px 12px #0a0a0b09; }
+.sql-main .py-mod-icon { flex: none; color: var(--sql-link); background: var(--sql-accent-soft); }
+.sql-main .py-chip { color: var(--sql-muted); background: var(--sql-subtle); overflow-wrap: anywhere; }
+.sql-main .py-mod-foot { flex-wrap: wrap; }
+.sql-main .sql-card-progress { display: grid; gap: 8px; margin-top: auto; }
+.sql-section-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.sql-course-stats .py-stat { padding: 6px 10px; }
+.sql-course-stats .py-stat strong { font-size: 1.1rem; }
+.sql-main .py-steps { grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); }
+
+.sql-main .py-player-layout {
+  --py-line: #293649;
+  --py-muted: #a8b7cb;
+  color: #e2e8f0;
+}
+.sql-main .py-player-layout .py-eyebrow { color: #9ab4ff !important; }
+.sql-main .py-player { background: #0d1627; }
+.sql-main .py-outline { background: #111c31; align-self: start; }
+.sql-main .py-stage { min-height: 0; }
+.sql-main .py-player-layout .py-finish .py-btn { background: #2f54eb; color: #fff; }
+.sql-main .py-player-layout .py-icon-btn { font-size: 14px; }
+.sql-main .py-anatomy > div { min-width: 0; max-width: 100%; }
+.sql-main .py-anatomy code { white-space: pre-wrap; overflow-wrap: anywhere; }
 .sql-course .py-controls { grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); }
 .sql-course .py-player-layout > *, .sql-course .py-slide > * { min-width: 0; }
 .sql-course .py-slide-explain, .sql-course .py-analogy, .sql-course .py-learn-item { overflow-wrap: anywhere; }
-.sql-course .py-mod-icon { flex: none; }
-.sql-course .py-mod-foot { flex-wrap: wrap; }
-
-@media (min-width: 1101px) {
-  .sql-course:not(.sql-record-mode) .py-wrap:has(#lesson-video) {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    column-gap: 24px;
-  }
-  .sql-course .py-hero, .sql-course #player, .sql-course #py-modnav { grid-column: 1 / -1; }
+.sql-main .py-panel-head, .sql-main .py-panel-actions { min-width: 0; }
+.sql-main .sql-legend { flex-wrap: wrap; }
+.sql-main .sql-dialect-note { color: var(--sql-muted); }
+.sql-main #player > .py-sub .py-kbd { color: var(--sql-ink); background: var(--sql-subtle); border-color: var(--sql-line); }
+@media (min-width: 950px) {
+  .sql-lesson-overview { grid-template-columns: minmax(0, 1.38fr) minmax(0, 1fr); }
 }
-
 @media (max-width: 640px) {
-  .sql-course .py-wrap { padding-inline: 12px !important; }
-  .sql-course .py-hero { padding: 20px !important; }
-  .sql-course .py-video-section { padding: 8px; }
+  .sql-main .py-stage { padding: 12px; }
   .sql-course .py-player-layout, .sql-course .py-slide { grid-template-columns: minmax(0, 1fr); }
   .sql-course .py-player-deck { flex-wrap: wrap; }
 }

@@ -1,0 +1,27 @@
+/* Python-only adjustments to the shared layout used by the approved SQL preview. */
+.python-layout .sql-intro-copy code {
+  color: var(--sql-link);
+  font-family: var(--font-mono);
+  overflow-wrap: anywhere;
+}
+.python-layout .python-glossary {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--sql-line);
+}
+.python-layout .python-glossary summary { font-weight: 600; }
+.python-layout .py-glossary {
+  grid-template-columns: repeat(auto-fit, minmax(min(245px, 100%), 1fr));
+  margin-top: 12px;
+}
+.python-layout .py-gloss { background: var(--sql-subtle); overflow-wrap: anywhere; }
+.python-layout .py-gloss b { color: var(--sql-link); }
+.python-layout .py-gloss p { color: var(--sql-muted); }
+.python-layout .py-idea-text, .python-layout .py-tip > span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.python-layout .py-visual { max-width: 100%; overflow-x: auto; }
+.python-layout .py-mini-btn { font: 700 .72rem/1.4 var(--font-mono); }
+.python-layout .py-term .err { color: #fca5a5; }
+.python-layout .py-editor textarea { max-width: 100%; }
