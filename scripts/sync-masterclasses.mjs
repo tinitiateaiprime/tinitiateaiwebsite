@@ -15,8 +15,8 @@
  * - never deletes website-only files (recorded videos, vendor files, site nav);
  * - in every HTML page: pins the Lucide CDN version and injects the website
  *   navigation (link back to tinitiateai.com) and the tutor-widget hide rule;
- * - leaves foundational/python/ alone: the website owns the Python course
- *   (14 lessons, recorded videos and python-course.js are maintained here).
+ * - leaves foundational/python/, foundational/sql/ and SQL recordings alone:
+ *   the website maintains these courses locally.
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -31,7 +31,7 @@ const TARGET = path.join(ROOT, 'public', 'masterclasses');
 const SKIP_DIRS = new Set(['.git', '.github', 'tools', 'ramesh-operations', 'sales-pitch']);
 const SKIP_EXT = new Set(['.md', '.py', '.zip', '.docx']);
 // Content the website maintains itself; never overwritten by the sync.
-const WEBSITE_OWNED = ['foundational/python/'];
+const WEBSITE_OWNED = ['foundational/python/', 'foundational/sql/'];
 
 const SITE_HEAD = [
   '<link rel="stylesheet" href="/masterclasses/assets/css/site-navigation.css">',
@@ -56,7 +56,8 @@ function* walk(dir, base = dir) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, entry.name);
     const rel = path.relative(base, full).split(path.sep).join('/');
-    if (WEBSITE_OWNED.some(p => (rel + '/').startsWith(p))) continue;
+    if (WEBSITE_OWNED.some(p => (rel + '/').startsWith(p)) ||
+        /^Final-videos\/foundational-sql-[^/]+\.mp4$/i.test(rel)) continue;
     if (entry.isDirectory()) { if (!SKIP_DIRS.has(entry.name)) yield* walk(full, base); }
     else if (!SKIP_EXT.has(path.extname(entry.name).toLowerCase())) yield rel;
   }

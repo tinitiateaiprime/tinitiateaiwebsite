@@ -1,0 +1,19 @@
+/* Optional recording layout: append ?record=1#player to the lesson URL. */
+.sql-dialect-note { margin:10px 0 16px; padding:11px 15px; font-size:.88rem; line-height:1.55;
+  border-left:3px solid #facc15; color:#cbd5e1; background:rgba(250,204,21,.075); border-radius:4px 8px 8px 4px; }
+.sql-record-mode .master-top-nav, .sql-record-mode .site-footer,
+.sql-record-mode #tinitiate-book, .sql-record-mode #lesson-video { display:none !important; }
+.sql-record-mode .subject-hero-card, .sql-record-mode #dashboard, .sql-record-mode #py-modnav { display:none !important; }
+.sql-record-mode .py-wrap { width:100% !important; max-width:none !important; padding:16px 22px 24px !important; }
+.sql-record-mode #player { margin:0 !important; }
+.sql-record-mode #player > .py-eyebrow, .sql-record-mode #player > .py-h2,
+.sql-record-mode #player > .py-sub, .sql-record-mode #player > .sql-dialect-note { display:none !important; }
+.sql-record-mode .py-player-layout { max-width:none !important; }
+.sql-record-mode .py-slide-title { font-size:clamp(1.3rem,2vw,2rem); line-height:1.25; }
+.sql-record-mode .py-slide-explain, .sql-record-mode .py-idea, .sql-record-mode .py-analogy { font-size:1rem; line-height:1.55; }
+.sql-record-mode .py-editor { min-height:240px; }
+.sql-record-mode .sql-grid { font-size:.9rem; }
+.sql-record-mode .sql-grid th, .sql-record-mode .sql-grid td { padding:7px 11px; }
+.sql-record-mode .py-outline { max-height:88vh; }
+@media (max-width:900px) { .sql-record-mode .py-wrap { padding:12px !important; }
+  .sql-record-mode .py-editor { min-height:160px; } }

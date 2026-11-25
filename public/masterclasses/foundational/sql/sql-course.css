@@ -1,6 +1,55 @@
 /* SQL Foundations: adds to ../python/python-course.css, which holds the shared player, slide and dashboard styles. */
 .py-wrap { --sql-add:#34d399; --sql-chg:#facc15; --sql-gone:#f87171; }
 
+/* Course sections keep their normal document order on narrow screens. */
+.sql-course .py-video-section {
+  align-self: start;
+  margin-bottom: 40px;
+  padding: 16px;
+  border: 1px solid var(--py-line);
+  border-radius: 18px;
+  background: var(--py-card);
+  scroll-margin-top: 90px;
+}
+.sql-course .py-video-frame {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #000;
+}
+.sql-course .py-video-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.sql-course #dashboard .py-two-col { grid-template-columns: minmax(0, 1fr); }
+.sql-course .py-learn-grid { grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr)); }
+.sql-course .py-stats { grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); }
+.sql-course .py-modnav { grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); }
+.sql-course .py-controls { grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); }
+.sql-course .py-player-layout > *, .sql-course .py-slide > * { min-width: 0; }
+.sql-course .py-slide-explain, .sql-course .py-analogy, .sql-course .py-learn-item { overflow-wrap: anywhere; }
+.sql-course .py-mod-icon { flex: none; }
+.sql-course .py-mod-foot { flex-wrap: wrap; }
+
+@media (min-width: 1101px) {
+  .sql-course:not(.sql-record-mode) .py-wrap:has(#lesson-video) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 24px;
+  }
+  .sql-course .py-hero, .sql-course #player, .sql-course #py-modnav { grid-column: 1 / -1; }
+}
+
+@media (max-width: 640px) {
+  .sql-course .py-wrap { padding-inline: 12px !important; }
+  .sql-course .py-hero { padding: 20px !important; }
+  .sql-course .py-video-section { padding: 8px; }
+  .sql-course .py-player-layout, .sql-course .py-slide { grid-template-columns: minmax(0, 1fr); }
+  .sql-course .py-player-deck { flex-wrap: wrap; }
+}
+
 /* Output */
 .sql-term { white-space:normal; max-height:320px; display:flex; flex-direction:column; gap:6px; }
 .sql-term .prompt { color:#64748b; }

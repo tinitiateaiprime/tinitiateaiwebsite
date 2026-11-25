@@ -1,6 +1,6 @@
 // SQL Foundations: slide engine and course content, on real PostgreSQL.
 // Slides follow github.com/tinitiateprime/postgresql (postgresql-ddl.md, postgresql-dml.md).
-// Each page sets data-py-page on <main>: "home" or a key of DECKS ("ddl", "dml").
+// Each page sets data-py-page on <main>: "home" or a key of DECKS.
 // Shares the Python course stylesheet (../python/python-course.css); sql-course.css adds the result grid and database panel.
 const SqlCourse = (() => {
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -458,7 +458,13 @@ ALTER TABLE emp.emp ADD FOREIGN KEY (deptno) REFERENCES emp.dept (deptno);`;
       ]
     }
   };
-  const ORDER = Object.keys(DECKS);
+  Object.assign(DECKS, window.SqlExtraDecks);
+  const ORDER = [
+    'introduction', 'database-schema-user', 'datatypes', 'ddl',
+    'ddl-constraints', 'dml', 'dql-data-setup', 'dql',
+    'dql-basic-operators', 'dql-set-operations', 'dql-joins', 'dql-string-functions',
+    'dql-date-functions', 'dql-aggregate-functions', 'dql-analytical-functions', 'dql-cte'
+  ];
 
   // ---------- Progress ----------
   const STORE_KEY = 'tinitiate-sql-course-v1';
@@ -468,7 +474,7 @@ ALTER TABLE emp.emp ADD FOREIGN KEY (deptno) REFERENCES emp.dept (deptno);`;
   const save = () => { try { localStorage.setItem(STORE_KEY, JSON.stringify(seen)); } catch (e) { /* storage unavailable */ } };
 
   const values = {};
-  let deck = null, idx = 0, ready = false, playing = false, speed = 12000, autoStart = 0, autoRaf = null;
+  let deck = null, idx = 0, ready = false, playing = false, speed = 30000, autoStart = 0, autoRaf = null;
   const $ = id => document.getElementById(id);
 
   function valuesFor(i) {

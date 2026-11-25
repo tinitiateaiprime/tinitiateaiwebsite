@@ -496,6 +496,142 @@
     "video": false
   },
   {
+    "key": "foundational-sql-index",
+    "title": "SQL Foundations",
+    "category": "Foundational",
+    "kind": "course-hub",
+    "url": "/masterclasses/foundational/sql/index.html",
+    "video": false
+  },
+  {
+    "key": "foundational-sql-introduction",
+    "title": "Introduction to SQL & Databases",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/sql/introduction.html",
+    "video": true
+  },
+  {
+    "key": "foundational-sql-database-schema-user",
+    "title": "Database, Schema & User",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/sql/database-schema-user.html",
+    "video": true
+  },
+  {
+    "key": "foundational-sql-datatypes",
+    "title": "SQL Data Types",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/sql/datatypes.html",
+    "video": true
+  },
+  {
+    "key": "foundational-sql-ddl",
+    "title": "DDL — Build the Structure",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/sql/ddl.html",
+    "video": true
+  },
+  {
+    "key": "foundational-sql-ddl-constraints",
+    "title": "DDL — Constraints",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/sql/ddl-constraints.html",
+    "video": true
+  },
+  {
+    "key": "foundational-sql-dml",
+    "title": "DML — Work with the Data",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/sql/dml.html",
+    "video": true
+  },
+  {
+    "key": "foundational-sql-dql-data-setup",
+    "title": "DQL — Practice Data Setup",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/sql/dql-data-setup.html",
+    "video": true
+  },
+  {
+    "key": "foundational-sql-dql",
+    "title": "DQL — SELECT Queries",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/sql/dql.html",
+    "video": true
+  },
+  {
+    "key": "foundational-sql-dql-basic-operators",
+    "title": "DQL — Basic Operators",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/sql/dql-basic-operators.html",
+    "video": true
+  },
+  {
+    "key": "foundational-sql-dql-set-operations",
+    "title": "DQL — Set Operations",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/sql/dql-set-operations.html",
+    "video": true
+  },
+  {
+    "key": "foundational-sql-dql-joins",
+    "title": "DQL — Joins",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/sql/dql-joins.html",
+    "video": true
+  },
+  {
+    "key": "foundational-sql-dql-string-functions",
+    "title": "DQL — String Functions",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/sql/dql-string-functions.html",
+    "video": true
+  },
+  {
+    "key": "foundational-sql-dql-date-functions",
+    "title": "DQL — Date & Time Functions",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/sql/dql-date-functions.html",
+    "video": true
+  },
+  {
+    "key": "foundational-sql-dql-aggregate-functions",
+    "title": "DQL — Aggregate Functions",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/sql/dql-aggregate-functions.html",
+    "video": true
+  },
+  {
+    "key": "foundational-sql-dql-analytical-functions",
+    "title": "DQL — Analytical Functions",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/sql/dql-analytical-functions.html",
+    "video": true
+  },
+  {
+    "key": "foundational-sql-dql-cte",
+    "title": "DQL — Common Table Expressions",
+    "category": "Foundational",
+    "kind": "lesson",
+    "url": "/masterclasses/foundational/sql/dql-cte.html",
+    "video": true
+  },
+  {
     "key": "full-stack-dotnet-csharp-index",
     "title": "C# and .NET 8 Full Stack Enterprise Architecture",
     "category": "Full Stack",
